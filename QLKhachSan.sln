@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QLKhachSan", "QLKhachSan\QLKhachSan.csproj", "{F2FEDEF8-5671-49EE-B415-ABC3C24A17C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_qlks", "DAL_qlks\DAL_qlks.csproj", "{A74B7345-76A2-4A28-8DC0-5B6236769D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BUS_qlks", "BUS_qlks\BUS_qlks.csproj", "{BB7497A6-73AF-47FE-8298-839748CDD04B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2FEDEF8-5671-49EE-B415-ABC3C24A17C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2FEDEF8-5671-49EE-B415-ABC3C24A17C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2FEDEF8-5671-49EE-B415-ABC3C24A17C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2FEDEF8-5671-49EE-B415-ABC3C24A17C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74B7345-76A2-4A28-8DC0-5B6236769D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74B7345-76A2-4A28-8DC0-5B6236769D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74B7345-76A2-4A28-8DC0-5B6236769D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74B7345-76A2-4A28-8DC0-5B6236769D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7497A6-73AF-47FE-8298-839748CDD04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7497A6-73AF-47FE-8298-839748CDD04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7497A6-73AF-47FE-8298-839748CDD04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7497A6-73AF-47FE-8298-839748CDD04B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CC0C94C-257B-4F89-AD10-7C0C05D8C0A5}
+	EndGlobalSection
+EndGlobal

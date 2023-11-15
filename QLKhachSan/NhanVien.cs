@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
+namespace QLKhachSan
+{
+    public partial class NhanVien : Form
+    {
+        public NhanVien()
+        {
+            InitializeComponent();
+
+            btnThem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnSua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSua.Width, btnSua.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
+        }
+
+        BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
+
+        private void NhanVien_Load(object sender, EventArgs e)
+        {
+            Danhsachnhanvien();
+        }
+
+        private void Danhsachnhanvien()
+        {
+            dataGridView1.DataSource = busnv.danhsachnhanvien();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            if(txtTim.Text != "")
+            {
+                DataTable data = busnv.timnhanvien(txtTim.Text);
+                if(data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy nhân viên bạn muốn tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập tên cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        // border-radius 
+        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,        // x-coordinate of upper-left corner
+            int nTopRect,         // y-coordinate of upper-left corner
+            int nRightRect,       // x-coordinate of lower-right corner
+            int nBottomRect,      // y-coordinate of lower-right corner
+            int nWidthEllipse,    // width of ellipse
+            int nHeightEllipse    // height of ellipse
+        );
+
+    }
+}
