@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelDangnhap = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDangnhap = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -44,31 +44,31 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.panelDangnhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel14.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelDangnhap
             // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(48, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 358);
-            this.panel1.TabIndex = 0;
+            this.panelDangnhap.BackColor = System.Drawing.Color.LightGray;
+            this.panelDangnhap.Controls.Add(this.pictureBox2);
+            this.panelDangnhap.Controls.Add(this.pictureBox1);
+            this.panelDangnhap.Controls.Add(this.btnDangnhap);
+            this.panelDangnhap.Controls.Add(this.label4);
+            this.panelDangnhap.Controls.Add(this.label3);
+            this.panelDangnhap.Controls.Add(this.checkBox1);
+            this.panelDangnhap.Controls.Add(this.label2);
+            this.panelDangnhap.Controls.Add(this.label1);
+            this.panelDangnhap.Controls.Add(this.panel3);
+            this.panelDangnhap.Controls.Add(this.textBox2);
+            this.panelDangnhap.Controls.Add(this.panel2);
+            this.panelDangnhap.Controls.Add(this.textBox1);
+            this.panelDangnhap.Location = new System.Drawing.Point(48, 53);
+            this.panelDangnhap.Name = "panelDangnhap";
+            this.panelDangnhap.Size = new System.Drawing.Size(386, 358);
+            this.panelDangnhap.TabIndex = 0;
             // 
             // pictureBox2
             // 
@@ -90,19 +90,19 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnDangnhap
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(135, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Đăng Nhập";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDangnhap.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnDangnhap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnDangnhap.FlatAppearance.BorderSize = 0;
+            this.btnDangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangnhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangnhap.Location = new System.Drawing.Point(135, 301);
+            this.btnDangnhap.Name = "btnDangnhap";
+            this.btnDangnhap.Size = new System.Drawing.Size(112, 40);
+            this.btnDangnhap.TabIndex = 0;
+            this.btnDangnhap.Text = "Đăng Nhập";
+            this.btnDangnhap.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -238,15 +238,15 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(721, 468);
             this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelDangnhap);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FormDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDangNhap";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelDangnhap.ResumeLayout(false);
+            this.panelDangnhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel14.ResumeLayout(false);
@@ -256,7 +256,7 @@
 
         #endregion
 
-        private Panel panel1;
+        private Panel panelDangnhap;
         private TextBox textBox1;
         private Panel panel2;
         private Panel panel3;
@@ -266,7 +266,7 @@
         private CheckBox checkBox1;
         private Label label3;
         private Label label4;
-        private Button button1;
+        private Button btnDangnhap;
         private Button btnClose;
         private Panel panel14;
         private Button btnMinimize;
