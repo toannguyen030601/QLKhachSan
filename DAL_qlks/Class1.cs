@@ -54,7 +54,7 @@ namespace DAL_qlks
                 connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from nhanvien where manhanvien = @manv ";
                 cmd.Parameters.AddWithValue("@manv", maNhanVien);
                 if (cmd.ExecuteNonQuery() > 0)

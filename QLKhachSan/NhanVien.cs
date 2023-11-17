@@ -74,7 +74,18 @@ namespace QLKhachSan
             int manhanvien = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
             if(manhanvien != null)
             {
-
+                if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (busnv.XoaNhanVien(manhanvien))
+                    {
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Danhsachnhanvien();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
             else
             {
