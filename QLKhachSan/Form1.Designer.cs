@@ -38,11 +38,11 @@
             this.menu = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.picAvatar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTrangChu = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -194,7 +194,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Controls.Add(this.button10);
+            this.panel4.Controls.Add(this.btnLogout);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.picAvatar);
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -203,18 +203,18 @@
             this.panel4.Size = new System.Drawing.Size(250, 166);
             this.panel4.TabIndex = 5;
             // 
-            // button10
+            // btnLogout
             // 
-            this.button10.BackColor = System.Drawing.Color.Transparent;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Image = global::QLKhachSan.Properties.Resources.logoutqlks1;
-            this.button10.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button10.Location = new System.Drawing.Point(12, 6);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(42, 39);
-            this.button10.TabIndex = 2;
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Image = global::QLKhachSan.Properties.Resources.logoutqlks1;
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogout.Location = new System.Drawing.Point(12, 6);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(42, 39);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -238,29 +238,29 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnTrangChu);
             this.panel2.Location = new System.Drawing.Point(0, 166);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 55);
             this.panel2.TabIndex = 3;
             // 
-            // button1
+            // btnTrangChu
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::QLKhachSan.Properties.Resources.home1;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(250, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Trang chủ";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTrangChu.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnTrangChu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTrangChu.FlatAppearance.BorderSize = 0;
+            this.btnTrangChu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrangChu.Image = global::QLKhachSan.Properties.Resources.home1;
+            this.btnTrangChu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTrangChu.Location = new System.Drawing.Point(0, 0);
+            this.btnTrangChu.Name = "btnTrangChu";
+            this.btnTrangChu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnTrangChu.Size = new System.Drawing.Size(250, 55);
+            this.btnTrangChu.TabIndex = 2;
+            this.btnTrangChu.Text = "Trang Chủ";
+            this.btnTrangChu.UseVisualStyleBackColor = false;
+            this.btnTrangChu.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel12
             // 
@@ -560,7 +560,7 @@
         private Label label1;
         private PictureBox menu;
         private FlowLayoutPanel sidebar;
-        private Button button1;
+        private Button btnTrangChu;
         private Panel panel2;
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panel3;
@@ -588,7 +588,7 @@
         private Button btnMinimize;
         private Button btnMaximize;
         private Panel panel14;
-        private Button button10;
+        private Button btnLogout;
         private Panel panel13;
         private Panel panelBody;
     }

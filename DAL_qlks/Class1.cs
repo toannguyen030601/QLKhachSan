@@ -47,5 +47,30 @@ namespace DAL_qlks
                 connection.Close();
             }
         }
+        public bool XoaNhanVien(int maNhanVien)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "delete from nhanvien where manhanvien = @manv ";
+                cmd.Parameters.AddWithValue("@manv", maNhanVien);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
     }
 }

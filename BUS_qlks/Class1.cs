@@ -14,5 +14,10 @@ namespace BUS_qlks
         {
             return dalnv.timnhanvien(tennv);
         }
+
+        public bool XoaNhanVien(int maNhanVien)
+        {
+            return dalnv.XoaNhanVien(maNhanVien);
+        }
     }
 }

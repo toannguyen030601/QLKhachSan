@@ -8,9 +8,14 @@ namespace QLKhachSan
         public Form1()
         {
             InitializeComponent();
+
+            //controldrag
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseUp += panel1_MouseUp;
             panel1.MouseMove += panel1_Move;
+
+            //last lick button
+            lastClickedButton = btnTrangChu;
             SetFormShape();
         }
 

@@ -67,5 +67,19 @@ namespace QLKhachSan
             int nHeightEllipse    // height of ellipse
         );
 
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            i = dataGridView1.CurrentCell.RowIndex;
+            int manhanvien = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
+            if(manhanvien != null)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
