@@ -10,4 +10,8 @@
     <PackageReference Include="Npgsql" Version="7.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DTO_qlks\DTO_qlks.csproj" />
+  </ItemGroup>
+
 </Project>

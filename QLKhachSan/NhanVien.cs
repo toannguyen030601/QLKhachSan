@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO_qlks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,9 @@ namespace QLKhachSan
         }
 
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
+        DTO_nhanvien dtonv= new DTO_nhanvien();
+
+        public static string email;
 
         private void NhanVien_Load(object sender, EventArgs e)
         {
@@ -71,7 +75,7 @@ namespace QLKhachSan
         {
             int i = 0;
             i = dataGridView1.CurrentCell.RowIndex;
-            int manhanvien = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
+            string manhanvien = dataGridView1.Rows[i].Cells[0].Value.ToString();
             if(manhanvien != null)
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -90,6 +94,16 @@ namespace QLKhachSan
             else
             {
                 MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            FormThemSuaNhanVien f = new FormThemSuaNhanVien(true);
+            f.ShowDialog();
+            if (f.isthem)
+            {
+                Danhsachnhanvien();
             }
         }
     }
