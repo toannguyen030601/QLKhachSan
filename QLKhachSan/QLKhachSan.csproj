@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql" Version="7.0.6" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BUS_qlks\BUS_qlks.csproj" />
     <ProjectReference Include="..\DTO_qlks\DTO_qlks.csproj" />
   </ItemGroup>
