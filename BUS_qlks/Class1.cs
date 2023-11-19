@@ -36,6 +36,12 @@ namespace BUS_qlks
         {
             return dalnv.ThemNhanVien(dtonv);
         }
+
+        public bool SuaNhanvien(DTO_nhanvien dtonv)
+        {
+            return dalnv.SuaNhanVien(dtonv);
+        }
+
         public bool XoaNhanVien(string maNhanVien)
         {
             return dalnv.XoaNhanVien(maNhanVien);
@@ -69,6 +75,11 @@ namespace BUS_qlks
 
             }
             else return builder.ToString().ToLower();
+        }
+
+        public DataTable thongtinnhanvien(string email)
+        {
+            return dalnv.thongtinnhanvien(email);
         }
     }
 }

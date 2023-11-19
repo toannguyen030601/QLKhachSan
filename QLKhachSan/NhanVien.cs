@@ -19,9 +19,9 @@ namespace QLKhachSan
         {
             InitializeComponent();
 
-            btnThem.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
-            btnSua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnSua.Width, btnSua.Height, 20, 20));
-            btnXoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
+            btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnSua.Width, btnSua.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
         }
 
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
@@ -59,17 +59,6 @@ namespace QLKhachSan
             }
         }
 
-        // border-radius 
-        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (
-            int nLeftRect,        // x-coordinate of upper-left corner
-            int nTopRect,         // y-coordinate of upper-left corner
-            int nRightRect,       // x-coordinate of lower-right corner
-            int nBottomRect,      // y-coordinate of lower-right corner
-            int nWidthEllipse,    // width of ellipse
-            int nHeightEllipse    // height of ellipse
-        );
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -101,7 +90,18 @@ namespace QLKhachSan
         {
             FormThemSuaNhanVien f = new FormThemSuaNhanVien(true);
             f.ShowDialog();
-            if (f.isthem)
+            if (f.istrangthai)
+            {
+                Danhsachnhanvien();
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            FormThemSuaNhanVien f = new FormThemSuaNhanVien(false);
+            f.layemail = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            f.ShowDialog();
+            if (f.istrangthai)
             {
                 Danhsachnhanvien();
             }
