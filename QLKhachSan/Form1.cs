@@ -1,4 +1,5 @@
-﻿using System.Drawing.Drawing2D;
+﻿using System.Data;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace QLKhachSan
@@ -17,7 +18,12 @@ namespace QLKhachSan
             //last lick button
             lastClickedButton = btnTrangChu;
             SetFormShape();
+
         }
+
+        //email dangnhap
+        public static string email;
+        BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
 
         //border-radius form
         [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -126,11 +132,10 @@ namespace QLKhachSan
         //form load
         private void Form1_Load(object sender, EventArgs e)
         {
-            GraphicsPath path = new GraphicsPath();
-            path.AddEllipse(picAvatar.ClientRectangle);
-            picAvatar.Region = new Region(path);
             //
             OpenChildForm(new FormTrangChu());
+
+            infocuaban();
         }
 
         // đóng mở form
@@ -188,6 +193,57 @@ namespace QLKhachSan
             OpenChildForm(new NhanVien());
         }
 
-        
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            FormDangNhap f = new FormDangNhap();
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
+        }
+
+        private void btnInfoDangnhap_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnInfoDangnhap_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnInfoDangnhap, "Thông tin của bạn");
+        }
+
+        private void btnInfoDangnhap_MouseLeave(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.Hide(btnInfoDangnhap);
+        }
+
+        public void infocuaban()
+        {
+            FormThemSuaNhanVien f = new FormThemSuaNhanVien(false);
+            string saveDirectory = Application.StartupPath;
+            DataTable data = busnv.thongtinnhanvien(email);
+            string imagePath = saveDirectory + data.Rows[0][8].ToString();
+            if (!string.IsNullOrEmpty(imagePath) && System.IO.File.Exists(imagePath))
+            {
+                picAvatar.Image = Image.FromFile(imagePath);
+            }
+            else
+            {
+                // Nếu không có hình ảnh hoặc đường dẫn không hợp lệ, bạn có thể hiển thị một hình ảnh mặc định hoặc để picHinhanh là null.
+                picAvatar.Image = Properties.Resources.hinhanh; // hoặc hiển thị hình mặc định picHinhanh.Image = Properties.Resources.defaultImage;
+            }
+            lblTen.Text = data.Rows[0][2].ToString();
+            string chucvu = data.Rows[0][4].ToString().Trim();
+
+            if (chucvu != "Admin")
+            {
+                btnNhanVien.Visible = false;
+            }
+            else
+            {
+                btnNhanVien.Visible = true;
+            }
+        }
     }
 }

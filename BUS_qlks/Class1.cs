@@ -23,6 +23,22 @@ namespace BUS_qlks
                 return builder.ToString();
             }
         }
+
+        public bool dangnhap(DTO_nhanvien dtonv)
+        {
+            return dalnv.dangnhap(dtonv);
+        }
+
+        public bool checkemail(string email)
+        {
+            return dalnv.checkemail(email);
+        }
+
+        public bool updatematkhau(string email,string matkhau)
+        {
+            matkhau = HashPassword(matkhau);
+            return dalnv.updatematkhau(email,matkhau);
+        }
         public DataTable danhsachnhanvien()
         {
             return dalnv.danhsachnhanvien();
@@ -34,6 +50,7 @@ namespace BUS_qlks
         }
         public bool ThemNhanVien(DTO_nhanvien dtonv)
         {
+            dtonv.Matkhau = HashPassword(dtonv.Matkhau);
             return dalnv.ThemNhanVien(dtonv);
         }
 

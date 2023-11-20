@@ -33,14 +33,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDangnhap = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblQuenmatkhau = new System.Windows.Forms.Label();
+            this.chkNhotaikhoan = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
@@ -57,14 +57,14 @@
             this.panelDangnhap.Controls.Add(this.pictureBox1);
             this.panelDangnhap.Controls.Add(this.btnDangnhap);
             this.panelDangnhap.Controls.Add(this.label4);
-            this.panelDangnhap.Controls.Add(this.label3);
-            this.panelDangnhap.Controls.Add(this.checkBox1);
+            this.panelDangnhap.Controls.Add(this.lblQuenmatkhau);
+            this.panelDangnhap.Controls.Add(this.chkNhotaikhoan);
             this.panelDangnhap.Controls.Add(this.label2);
             this.panelDangnhap.Controls.Add(this.label1);
             this.panelDangnhap.Controls.Add(this.panel3);
-            this.panelDangnhap.Controls.Add(this.textBox2);
+            this.panelDangnhap.Controls.Add(this.txtMatkhau);
             this.panelDangnhap.Controls.Add(this.panel2);
-            this.panelDangnhap.Controls.Add(this.textBox1);
+            this.panelDangnhap.Controls.Add(this.txtEmail);
             this.panelDangnhap.Location = new System.Drawing.Point(48, 53);
             this.panelDangnhap.Name = "panelDangnhap";
             this.panelDangnhap.Size = new System.Drawing.Size(386, 358);
@@ -103,6 +103,7 @@
             this.btnDangnhap.TabIndex = 0;
             this.btnDangnhap.Text = "Đăng Nhập";
             this.btnDangnhap.UseVisualStyleBackColor = false;
+            this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);
             // 
             // label4
             // 
@@ -115,25 +116,27 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Đăng Nhập";
             // 
-            // label3
+            // lblQuenmatkhau
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(238, 247);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 22);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Quên mật khẩu?";
+            this.lblQuenmatkhau.AutoSize = true;
+            this.lblQuenmatkhau.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblQuenmatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.lblQuenmatkhau.Location = new System.Drawing.Point(238, 247);
+            this.lblQuenmatkhau.Name = "lblQuenmatkhau";
+            this.lblQuenmatkhau.Size = new System.Drawing.Size(134, 22);
+            this.lblQuenmatkhau.TabIndex = 14;
+            this.lblQuenmatkhau.Text = "Quên mật khẩu?";
+            this.lblQuenmatkhau.Click += new System.EventHandler(this.lblQuenmatkhau_Click);
             // 
-            // checkBox1
+            // chkNhotaikhoan
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(62, 247);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(147, 26);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Nhớ tài Khoản";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkNhotaikhoan.AutoSize = true;
+            this.chkNhotaikhoan.Location = new System.Drawing.Point(62, 247);
+            this.chkNhotaikhoan.Name = "chkNhotaikhoan";
+            this.chkNhotaikhoan.Size = new System.Drawing.Size(154, 26);
+            this.chkNhotaikhoan.TabIndex = 13;
+            this.chkNhotaikhoan.Text = "Nhớ Tài Khoản";
+            this.chkNhotaikhoan.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -161,16 +164,17 @@
             this.panel3.Size = new System.Drawing.Size(272, 3);
             this.panel3.TabIndex = 3;
             // 
-            // textBox2
+            // txtMatkhau
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(62, 198);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 32);
-            this.textBox2.TabIndex = 2;
+            this.txtMatkhau.BackColor = System.Drawing.Color.White;
+            this.txtMatkhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtMatkhau.Location = new System.Drawing.Point(62, 198);
+            this.txtMatkhau.Multiline = true;
+            this.txtMatkhau.Name = "txtMatkhau";
+            this.txtMatkhau.PasswordChar = '*';
+            this.txtMatkhau.Size = new System.Drawing.Size(272, 32);
+            this.txtMatkhau.TabIndex = 2;
             // 
             // panel2
             // 
@@ -180,16 +184,16 @@
             this.panel2.Size = new System.Drawing.Size(272, 3);
             this.panel2.TabIndex = 1;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(62, 117);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 32);
-            this.textBox1.TabIndex = 1;
+            this.txtEmail.BackColor = System.Drawing.Color.White;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtEmail.Location = new System.Drawing.Point(62, 117);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(272, 32);
+            this.txtEmail.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -245,6 +249,7 @@
             this.Name = "FormDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDangNhap";
+            this.Load += new System.EventHandler(this.FormDangNhap_Load);
             this.panelDangnhap.ResumeLayout(false);
             this.panelDangnhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -257,14 +262,14 @@
         #endregion
 
         private Panel panelDangnhap;
-        private TextBox textBox1;
+        private TextBox txtEmail;
         private Panel panel2;
         private Panel panel3;
-        private TextBox textBox2;
+        private TextBox txtMatkhau;
         private Label label2;
         private Label label1;
-        private CheckBox checkBox1;
-        private Label label3;
+        private CheckBox chkNhotaikhoan;
+        private Label lblQuenmatkhau;
         private Label label4;
         private Button btnDangnhap;
         private Button btnClose;

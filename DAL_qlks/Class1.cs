@@ -6,6 +6,83 @@ namespace DAL_qlks
 {
     public class Class1 : DBConnect
     {
+        public bool dangnhap(DTO_nhanvien dtonv)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from nhanvien where @email = email and @matkhau = matkhau";
+                cmd.Parameters.AddWithValue("@email", dtonv.Email);
+                cmd.Parameters.AddWithValue("@matkhau", dtonv.Matkhau);
+                if (Convert.ToInt16(cmd.ExecuteScalar()) > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool checkemail(string email)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from nhanvien where @email = email";
+                cmd.Parameters.AddWithValue("@email", email);
+                if (Convert.ToInt16(cmd.ExecuteScalar()) > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
+        public bool updatematkhau(string email, string matkhau)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update nhanvien set matkhau = @matkhau where email = @email";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@matkhau", matkhau);
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
+
         public DataTable danhsachnhanvien()
         {
             try

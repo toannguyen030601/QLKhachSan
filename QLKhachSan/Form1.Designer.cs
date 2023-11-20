@@ -38,8 +38,9 @@
             this.menu = new System.Windows.Forms.PictureBox();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnInfoDangnhap = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTen = new System.Windows.Forms.Label();
             this.picAvatar = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTrangChu = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnPhong = new System.Windows.Forms.Button();
+            this.btnNhanVien = new System.Windows.Forms.Button();
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
             this.panel13 = new System.Windows.Forms.Panel();
             this.panelBody = new System.Windows.Forms.Panel();
@@ -194,14 +195,31 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Gray;
+            this.panel4.Controls.Add(this.btnInfoDangnhap);
             this.panel4.Controls.Add(this.btnLogout);
-            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lblTen);
             this.panel4.Controls.Add(this.picAvatar);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 166);
             this.panel4.TabIndex = 5;
+            // 
+            // btnInfoDangnhap
+            // 
+            this.btnInfoDangnhap.BackColor = System.Drawing.Color.Transparent;
+            this.btnInfoDangnhap.FlatAppearance.BorderSize = 0;
+            this.btnInfoDangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInfoDangnhap.Image = global::QLKhachSan.Properties.Resources.infoMain;
+            this.btnInfoDangnhap.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnInfoDangnhap.Location = new System.Drawing.Point(227, 0);
+            this.btnInfoDangnhap.Name = "btnInfoDangnhap";
+            this.btnInfoDangnhap.Size = new System.Drawing.Size(23, 24);
+            this.btnInfoDangnhap.TabIndex = 3;
+            this.btnInfoDangnhap.UseVisualStyleBackColor = false;
+            this.btnInfoDangnhap.Click += new System.EventHandler(this.btnInfoDangnhap_Click);
+            this.btnInfoDangnhap.MouseLeave += new System.EventHandler(this.btnInfoDangnhap_MouseLeave);
+            this.btnInfoDangnhap.MouseHover += new System.EventHandler(this.btnInfoDangnhap_MouseHover);
             // 
             // btnLogout
             // 
@@ -215,15 +233,17 @@
             this.btnLogout.Size = new System.Drawing.Size(42, 39);
             this.btnLogout.TabIndex = 2;
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // label2
+            // lblTen
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.lblTen.AutoSize = true;
+            this.lblTen.Location = new System.Drawing.Point(101, 132);
+            this.lblTen.Name = "lblTen";
+            this.lblTen.Size = new System.Drawing.Size(60, 22);
+            this.lblTen.TabIndex = 1;
+            this.lblTen.Text = "label2";
+            this.lblTen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picAvatar
             // 
@@ -231,7 +251,7 @@
             this.picAvatar.Image = global::QLKhachSan.Properties.Resources.user;
             this.picAvatar.Location = new System.Drawing.Point(65, 6);
             this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(121, 114);
+            this.picAvatar.Size = new System.Drawing.Size(135, 123);
             this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
@@ -470,29 +490,29 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnPhong);
+            this.panel3.Controls.Add(this.btnNhanVien);
             this.panel3.Location = new System.Drawing.Point(0, 661);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 55);
             this.panel3.TabIndex = 4;
             // 
-            // btnPhong
+            // btnNhanVien
             // 
-            this.btnPhong.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnPhong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPhong.FlatAppearance.BorderSize = 0;
-            this.btnPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPhong.Image = global::QLKhachSan.Properties.Resources.nhanvien;
-            this.btnPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPhong.Location = new System.Drawing.Point(0, 0);
-            this.btnPhong.Name = "btnPhong";
-            this.btnPhong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPhong.Size = new System.Drawing.Size(250, 55);
-            this.btnPhong.TabIndex = 2;
-            this.btnPhong.Text = "Nhân Viên";
-            this.btnPhong.UseVisualStyleBackColor = false;
-            this.btnPhong.Click += new System.EventHandler(this.btnNhanVien_Click);
+            this.btnNhanVien.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNhanVien.FlatAppearance.BorderSize = 0;
+            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNhanVien.Image = global::QLKhachSan.Properties.Resources.nhanvien;
+            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNhanVien.Size = new System.Drawing.Size(250, 55);
+            this.btnNhanVien.TabIndex = 2;
+            this.btnNhanVien.Text = "Nhân Viên";
+            this.btnNhanVien.UseVisualStyleBackColor = false;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // sidebarTransition
             // 
@@ -564,10 +584,10 @@
         private Panel panel2;
         private System.Windows.Forms.Timer sidebarTransition;
         private Panel panel3;
-        private Button btnPhong;
+        private Button btnNhanVien;
         private Panel panel4;
         private PictureBox picAvatar;
-        private Label label2;
+        private Label lblTen;
         private Panel panel6;
         private Button button3;
         private Panel panel5;
@@ -591,5 +611,6 @@
         private Button btnLogout;
         private Panel panel13;
         private Panel panelBody;
+        private Button btnInfoDangnhap;
     }
 }

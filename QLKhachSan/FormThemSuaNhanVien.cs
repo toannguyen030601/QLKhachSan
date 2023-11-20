@@ -38,6 +38,9 @@ namespace QLKhachSan
         string fileSavePath = ""; // url store img
         string fileAddress; // url load img
 
+
+        //refresh
+
         private bool isValidEmail(string email)
         {
             try
@@ -60,10 +63,11 @@ namespace QLKhachSan
             {
                 if (txtEmail.Text != "" && txtHoten.Text != "" && dtpNgaysinh.Text != "" && txtDiaChi.Text != "" && (rdbNam.Checked || rdbNu.Checked) && (rdbAmin.Checked || rdbNhanvien.Checked))
                 {
-                    if (checkNumber(txtSocccd.Text) || checkNumber(txtSDT.Text))
+                    if (checkNumber(txtSocccd.Text) && checkNumber(txtSDT.Text))
                     {
                         if (isValidEmail(txtEmail.Text))
                         {
+                            
                             string matkhau = busnv.getPassword();
                             string gioitinh = rdbNam.Checked ? "Nam" : "Nữ";
                             string chucvu = rdbAmin.Checked ? "Admin" : "Nhân viên";
@@ -80,21 +84,29 @@ namespace QLKhachSan
                                 Hinhanh = @"\Img\" + fileName,
                                 Matkhau = matkhau
                             };
-                            if (busnv.ThemNhanVien(dtonv))
+
+                            if (busnv.checkemail(txtEmail.Text))
                             {
-                                if (!string.IsNullOrEmpty(fileAddress))
-                                {
-                                    File.Copy(fileAddress, fileSavePath, true);
-                                }
-                                FormMail sendMail = new FormMail(dtonv.Email, matkhau);
-                                sendMail.ShowDialog();
-                                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                trangthai = true;
-                                this.Close();
+                                MessageBox.Show("Email này đã có trong hệ thống");
                             }
                             else
                             {
-                                MessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (busnv.ThemNhanVien(dtonv))
+                                {
+                                    if (!string.IsNullOrEmpty(fileAddress))
+                                    {
+                                        File.Copy(fileAddress, fileSavePath, true);
+                                    }
+                                    FormMail sendMail = new FormMail(dtonv.Email, matkhau);
+                                    sendMail.ShowDialog();
+                                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    trangthai = true;
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
                         }
                         else
@@ -118,7 +130,7 @@ namespace QLKhachSan
                 {
                     if (txtEmail.Text != "" && txtHoten.Text != "" && dtpNgaysinh.Text != "" && txtDiaChi.Text != "" && (rdbNam.Checked || rdbNu.Checked) && (rdbAmin.Checked || rdbNhanvien.Checked))
                     {
-                        if (checkNumber(txtSocccd.Text) || checkNumber(txtSDT.Text))
+                        if (checkNumber(txtSocccd.Text) && checkNumber(txtSDT.Text))
                         {
                             if (txtHinh.Text.Trim().Length != 0)
                             {
@@ -136,19 +148,30 @@ namespace QLKhachSan
                                         Sodienthoai = txtSDT.Text,
                                         Ngaysinh = dtpNgaysinh.Value.ToString("d"),
                                         Diachi = txtDiaChi.Text,
-                                        Hinhanh = @"\Img\" + fileName
+                                        Hinhanh = txtHinh.Text
                                     };
                                     if (MessageBox.Show("Bạn có chắc muốn sửa không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                     {
                                         if (busnv.SuaNhanvien(dtonv))
                                         {
-                                            if (txtHinh.Text != checkUrlImg)
+                                            try
                                             {
-                                                File.Copy(fileAddress, fileSavePath, true);
+                                                if (txtHinh.Text != checkUrlImg)
+                                                {
+                                                    File.Copy(fileAddress, fileSavePath, true);
+                                                }
+                                            }catch(Exception ex)
+                                            {
+                                                Console.WriteLine(ex.Message);
                                             }
                                             trangthai = true;
                                             MessageBox.Show("Sửa thành công");
-                                            trangthai = true;
+                                            Form1 parentForm = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+                                            if (parentForm != null)
+                                            {
+                                                // Gọi phương thức cập nhật thông tin trong form cha
+                                                parentForm.infocuaban();
+                                            }
                                             this.Close();
                                         }
                                         else
@@ -181,6 +204,7 @@ namespace QLKhachSan
                 }
             }
         }
+
 
         private void FormThemSuaNhanVien_Load(object sender, EventArgs e)
         {
