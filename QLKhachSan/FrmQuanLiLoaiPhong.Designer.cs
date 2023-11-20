@@ -36,7 +36,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            dataGridView1 = new DataGridView();
+            dgvLoaiPhong = new DataGridView();
             label3 = new Label();
             btnLuu = new Button();
             btnSua = new Button();
@@ -45,7 +45,7 @@
             btnMoi = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLoaiPhong).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -121,15 +121,17 @@
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
             // 
-            // dataGridView1
+            // dgvLoaiPhong
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(251, 335);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(328, 185);
-            dataGridView1.TabIndex = 8;
+            dgvLoaiPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLoaiPhong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLoaiPhong.Location = new Point(251, 335);
+            dgvLoaiPhong.Name = "dgvLoaiPhong";
+            dgvLoaiPhong.RowHeadersWidth = 51;
+            dgvLoaiPhong.RowTemplate.Height = 29;
+            dgvLoaiPhong.Size = new Size(359, 200);
+            dgvLoaiPhong.TabIndex = 8;
+            dgvLoaiPhong.CellClick += dgvLoaiPhong_CellClick;
             // 
             // label3
             // 
@@ -152,6 +154,7 @@
             btnLuu.Text = "Lưu";
             btnLuu.TextAlign = ContentAlignment.MiddleRight;
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnSua
             // 
@@ -164,6 +167,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextAlign = ContentAlignment.MiddleRight;
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -176,6 +180,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextAlign = ContentAlignment.MiddleRight;
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnHuy
             // 
@@ -188,6 +193,7 @@
             btnHuy.Text = "Hủy";
             btnHuy.TextAlign = ContentAlignment.MiddleRight;
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // btnMoi
             // 
@@ -213,7 +219,7 @@
             Controls.Add(btnSua);
             Controls.Add(btnLuu);
             Controls.Add(label3);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvLoaiPhong);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(panel2);
@@ -229,7 +235,7 @@
             Load += FrmQuanLiLoaiPhong_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLoaiPhong).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,7 +250,7 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private DataGridView dataGridView1;
+        private DataGridView dgvLoaiPhong;
         private Label label3;
         private Button btnLuu;
         private Button btnSua;

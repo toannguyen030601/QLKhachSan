@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS_qlks;
+using DTO_qlks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace QLKhachSan
 {
     public partial class FrmQuanLiLoaiPhong : Form
     {
+        BUS_LoaiPhong bUS_LoaiPhong = new BUS_LoaiPhong();
         public FrmQuanLiLoaiPhong()
         {
             InitializeComponent();
@@ -26,6 +29,9 @@ namespace QLKhachSan
             txtID.Text = string.Empty;
             txtLoaiPhong.Text = string.Empty;
             Lock();
+            dgvLoaiPhong.DataSource = bUS_LoaiPhong.DanhSachLoaiPhong();
+            dgvLoaiPhong.Columns[0].HeaderText = "Mã Loại Phòng";
+            dgvLoaiPhong.Columns[1].HeaderText = "Tên Loại Phòng";
         }
         private void Lock()
         {
@@ -52,13 +58,78 @@ namespace QLKhachSan
         {
             SetValues();
             UnLock();
-            btnXoa.Enabled=false;
-            btnSua.Enabled=false;
+            btnXoa.Enabled = false;
+            btnSua.Enabled = false;
         }
 
         private void FrmQuanLiLoaiPhong_Load(object sender, EventArgs e)
         {
             SetValues();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            SetValues();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtID.Text))
+            {
+                MessageBox.Show("Vui lòng điền Mã Loại Phòng");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(txtLoaiPhong.Text))
+                {
+                    MessageBox.Show("Vui lòng điền Tên Loại Phòng");
+                }
+                else
+                {
+                    DTO_LoaiPhong lp = new DTO_LoaiPhong(txtID.Text, txtLoaiPhong.Text);
+                    if (bUS_LoaiPhong.LuuLoaiPhong(lp))
+                    {
+                        MessageBox.Show("Lưu thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lưu thất bại");
+                    }
+                }
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            UnLock();
+        }
+
+        private void dgvLoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                txtID.Text = dgvLoaiPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtLoaiPhong.Text = dgvLoaiPhong.Rows[e.RowIndex].Cells[1].Value.ToString();
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+            }
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult kq=MessageBox.Show("Bạn có chắc chắn muốn xóa","Xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(kq==DialogResult.Yes)
+            {
+                if (bUS_LoaiPhong.XoaLoaiPhong(txtID.Text))
+                {
+                    MessageBox.Show("Xóa thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
         }
     }
 }
