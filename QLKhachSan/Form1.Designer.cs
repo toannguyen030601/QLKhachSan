@@ -237,10 +237,11 @@
             // 
             // lblTen
             // 
-            this.lblTen.AutoSize = true;
-            this.lblTen.Location = new System.Drawing.Point(101, 132);
+            this.lblTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTen.Location = new System.Drawing.Point(4, 132);
             this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(60, 22);
+            this.lblTen.Size = new System.Drawing.Size(240, 31);
             this.lblTen.TabIndex = 1;
             this.lblTen.Text = "label2";
             this.lblTen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,9 +250,9 @@
             // 
             this.picAvatar.BackColor = System.Drawing.Color.Transparent;
             this.picAvatar.Image = global::QLKhachSan.Properties.Resources.user;
-            this.picAvatar.Location = new System.Drawing.Point(65, 6);
+            this.picAvatar.Location = new System.Drawing.Point(60, 6);
             this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(135, 123);
+            this.picAvatar.Size = new System.Drawing.Size(129, 123);
             this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAvatar.TabIndex = 0;
             this.picAvatar.TabStop = false;
@@ -558,7 +559,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
             this.sidebar.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
