@@ -8,8 +8,18 @@ namespace DTO_qlks
 {
     public class DTO_LoaiPhong
     {
-        public string MaLoaiPhong { get; set; }
-        public string TenLoaiPhong { get; set; }
+        private string maLoaiPhong;
+        private string tenLoaiPhong;
+        public string MaLoaiPhong
+        {
+            get { return maLoaiPhong; }
+            set { maLoaiPhong = value;}
+        }
+        public string TenLoaiPhong
+        {
+            get { return tenLoaiPhong; }
+            set { tenLoaiPhong = value; }
+        }
 
         public DTO_LoaiPhong()
         {
@@ -17,8 +27,8 @@ namespace DTO_qlks
 
         public DTO_LoaiPhong(string maLoaiPhong, string tenLoaiPhong)
         {
-            MaLoaiPhong = maLoaiPhong;
-            TenLoaiPhong = tenLoaiPhong;
+            this.MaLoaiPhong = maLoaiPhong;
+            this.TenLoaiPhong = tenLoaiPhong;
         }
     }
 

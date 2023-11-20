@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,32 +32,26 @@ namespace DAL_qlks
         {
             try
             {
-                using (NpgsqlCommand cmd = new NpgsqlCommand("LuuLoaiPhong", connection))
+                connection.Open();
+                NpgsqlCommand cmd=new NpgsqlCommand();
+                cmd.Connection= connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "luuloaiphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@p_maloaiphong", lp.MaLoaiPhong);
+                cmd.Parameters.AddWithValue("@p_tenloaiphong", lp.TenLoaiPhong);
+
+                // Thực thi stored procedure
+                if (Convert.ToInt16(cmd.ExecuteNonQuery())>0)
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    // Thêm tham số đầu vào
-                    cmd.Parameters.AddWithValue("p_MaLoaiPhong", lp.MaLoaiPhong);
-                    cmd.Parameters.AddWithValue("p_TenLoaiPhong", lp.TenLoaiPhong);
-
-                    connection.Open();
-
-                    // Thực thi stored procedure
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                // Xử lý exception theo nhu cầu của bạn
-                Console.WriteLine("Error: " + ex.Message);
-                return false;
+                    return true;
+                }        
             }
             finally
             {
                 connection.Close();
             }
+            return false;
         }
 
         public bool CapNhatLoaiPhong(string maLoaiPhong,string tenLoaiPhong)
@@ -90,24 +85,21 @@ namespace DAL_qlks
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Thêm tham số đầu vào
-                    cmd.Parameters.AddWithValue("p_MaLoaiPhong", maLoaiPhong);
+                    cmd.Parameters.AddWithValue("@p_maloaiphong", maLoaiPhong);
                     connection.Open();
                     // Thực thi stored procedure
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    return rowsAffected > 0;
+                    if(Convert.ToInt16(cmd.ExecuteNonQuery()) > 0)
+                    {
+                        return true;
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                // Xử lý exception theo nhu cầu của bạn
-                Console.WriteLine("Error: " + ex.Message);
-                return false;
-            }
+    
             finally
             {
                 connection.Close();
             }
+            return false;
         }
     }
 }

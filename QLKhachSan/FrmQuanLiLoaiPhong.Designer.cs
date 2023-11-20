@@ -231,6 +231,7 @@
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5, 4, 5, 4);
             Name = "FrmQuanLiLoaiPhong";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Quản Lý Loại Phòng";
             Load += FrmQuanLiLoaiPhong_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
