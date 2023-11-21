@@ -213,6 +213,16 @@ namespace QLKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap filter_filled_tool_symbol {
+            get {
+                object obj = ResourceManager.GetObject("filter-filled-tool-symbol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hinhanh {
             get {
                 object obj = ResourceManager.GetObject("hinhanh", resourceCulture);
@@ -436,6 +446,36 @@ namespace QLKhachSan.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search1 {
+            get {
+                object obj = ResourceManager.GetObject("search1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_message {
+            get {
+                object obj = ResourceManager.GetObject("send-message", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_message__1_ {
+            get {
+                object obj = ResourceManager.GetObject("send-message (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

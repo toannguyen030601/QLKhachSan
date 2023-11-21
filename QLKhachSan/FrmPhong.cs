@@ -91,7 +91,6 @@ namespace QLKhachSan
         private void FrmPhong_Load(object sender, EventArgs e)
         {
             LoadPhong();
-            rdoTatCa.Checked = true;
             rdoTatCaTrangThai.Checked = true;
         }
 
@@ -103,6 +102,18 @@ namespace QLKhachSan
         private void rdoDaThue_CheckedChanged(object sender, EventArgs e)
         {
             LoadPhong();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmQuanLiDSPhong frm = new FrmQuanLiDSPhong();
+            frm.ShowDialog();
+            this.Hide();
         }
     }
 }

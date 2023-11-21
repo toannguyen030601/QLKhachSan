@@ -1,4 +1,5 @@
 ﻿using DAL_qlks;
+using DTO_qlks;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,5 +16,14 @@ namespace BUS_qlks
         {
             return dal_Phong.DanhSachPhong();
         }
+        public void LuuPhong(DTO_Phong p)
+        {
+            dal_Phong.LuuPhong(p);
+        }
+        public bool XoaPhong(string maPhong)
+        {
+            return dal_Phong.XoaPhong(maPhong); 
+        }
+
     }
 }

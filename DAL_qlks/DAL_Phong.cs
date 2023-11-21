@@ -27,5 +27,47 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
+        public void LuuPhong(DTO_Phong p)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "luuphong";
+                cmd.Parameters.AddWithValue("@p_maphong",p.MaPhong);
+                cmd.Parameters.AddWithValue("@p_tenphong", p.TenPhong);
+                cmd.Parameters.AddWithValue("@p_gia", p.Gia);
+                cmd.Parameters.AddWithValue("@p_trangthai", p.TrangThai);
+                cmd.Parameters.AddWithValue("@p_maloaiphong", p.MaLoaiPhong);
+                cmd.ExecuteNonQuery();
+            }
+            finally { connection.Close(); }
+        }
+        public bool XoaPhong(string maPhong)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "xoaphong";
+                cmd.Parameters.AddWithValue("@p_maphong", maPhong);
+                int affectedRows = Convert.ToInt16(cmd.ExecuteNonQuery());
+
+                if (affectedRows > 0)
+                {
+                    return true;
+                }
+                
+                else
+                {
+                    return false;
+                }
+            }
+            finally { connection.Close(); }
+        }
     }
 }
