@@ -11,7 +11,7 @@ namespace QLKhachSan
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmQuanLiLoaiPhong()); //test
+            Application.Run(new FrmPhong()); //test
         }
     }
 }

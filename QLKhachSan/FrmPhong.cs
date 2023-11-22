@@ -26,7 +26,7 @@ namespace QLKhachSan
             if (btn != null)
             {
                DTO_Phong phong=(DTO_Phong)btn.Tag;
-                MessageBox.Show(phong.TenPhong.ToString());
+               MessageBox.Show(phong.TenPhong.ToString());
             }
         }
         private void LoadPhong()
@@ -35,60 +35,69 @@ namespace QLKhachSan
             DataTable dt = bus_Phong.DanhSachPhong();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                Button btn = new Button
-                {
-                    Width = 200,
-                    Height = 150,
-                    Margin = new Padding(5), // Khoảng cách giữa các button
-                    Font = new Font("Arial", 10, FontStyle.Bold),
-                    ForeColor = Color.Black,
-                    FlatStyle = FlatStyle.Flat,
-                    FlatAppearance = { BorderSize = 4 }, // Loại bỏ viền của button
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                bool trangThai = Convert.ToBoolean(dt.Rows[i]["TrangThai"]);
-                if (rdoDaThue.Checked)
-                {
-                    if (trangThai)
-                    {
-                        flowLayoutPanel1.Controls.Add(btn);
-                    }
-                }
-                else
-                {
-                    if (rdoTrong.Checked)
-                    {
-                        if (!trangThai) { flowLayoutPanel1.Controls.Add(btn); }
-                    }
-                    else flowLayoutPanel1.Controls.Add(btn);
-                }
                 string maPhong = dt.Rows[i]["MaPhong"].ToString();
                 string tenPhong = dt.Rows[i]["TenPhong"].ToString();
                 double gia = Convert.ToDouble(dt.Rows[i]["Gia"]);
                 string maloaiPhong = dt.Rows[i]["MaLoaiPhong"].ToString();
 
-                // Gán các thông tin vào Tag của button
-                btn.Tag = new DTO_Phong(maPhong, tenPhong, gia, trangThai, maloaiPhong);
-
-                // Thiết lập màu nền của button dựa trên trạng thái
-                if (trangThai)
+                Button btn = new Button
                 {
-                    btn.BackColor = Color.Tomato;
-                }
-                else
-                {
-                    //Trống
-                    btn.BackColor = Color.SpringGreen;
-                }
+                    Width = 200,
+                    Height = 150,
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    ForeColor = Color.Black,
+                    FlatStyle = FlatStyle.Flat,
+                    FlatAppearance = { BorderSize = 4 },
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    
+                };
+                bool trangThai = Convert.ToBoolean(dt.Rows[i]["TrangThai"]);
+                btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
-                // Hiển thị thông tin trên button
-                btn.Text = $"Mã Phòng: {maPhong}\nTên Phòng: {tenPhong}\nGiá: {gia}\nLoại Phòng: {maloaiPhong}";
+                btn.Tag = new DTO_Phong(maPhong,tenPhong,gia,trangThai,maloaiPhong);
+
+                Label lblMaPhong = new Label
+                {
+                    Text = maPhong,
+                    Location = new Point(40, 10),
+                    Font = new Font("Arial", 18, FontStyle.Bold),
+                    AutoSize=true,
+                    ForeColor = Color.Blue // Customize the color as needed
+                };
+
+                Label lblTenPhong = new Label
+                {
+                    Text = tenPhong,
+                    Location = new Point(40, 60),
+                    AutoSize = true,
+                    ForeColor = Color.Purple // Customize the color as needed
+                };
+
+                Label lblGia = new Label
+                {
+                    Text = $"Giá: {gia} VND",
+                    Location = new Point(40, 90),
+                    AutoSize=true,
+                    ForeColor = Color.White // Customize the color as needed
+                };
+
+                Label lblLoaiPhong = new Label
+                {
+                    Text = maloaiPhong,
+                    Location = new Point(40, 120),
+                    ForeColor = Color.Black // Customize the color as needed
+                };
+
+                btn.Controls.Add(lblMaPhong);
+                btn.Controls.Add(lblTenPhong);
+                btn.Controls.Add(lblGia);
+                btn.Controls.Add(lblLoaiPhong);
 
                 btn.Click += Btn_Click;
+
+                flowLayoutPanel1.Controls.Add(btn);
             }
         }
-
-
         private void FrmPhong_Load(object sender, EventArgs e)
         {
             LoadPhong();
