@@ -30,6 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            panel2 = new Panel();
+            button1 = new Button();
+            button2 = new Button();
             panel14 = new Panel();
             btnMinimize = new Button();
             btnMaximize = new Button();
@@ -41,14 +44,11 @@
             dateTimePicker1 = new DateTimePicker();
             txtTim = new TextBox();
             btnTim = new Button();
-            panel2 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -64,6 +64,46 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(813, 38);
             panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(button1);
+            panel2.Controls.Add(button2);
+            panel2.Location = new Point(705, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(96, 36);
+            panel2.TabIndex = 3;
+            panel2.Paint += panel2_Paint;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gainsboro;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = Properties.Resources.minimize1;
+            button1.ImageAlign = ContentAlignment.BottomCenter;
+            button1.Location = new Point(27, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 28);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Gainsboro;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Image = Properties.Resources.close2;
+            button2.Location = new Point(58, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(27, 28);
+            button2.TabIndex = 0;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // panel14
             // 
@@ -142,11 +182,12 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(78, 95);
+            dataGridView1.Location = new Point(58, 102);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 35;
-            dataGridView1.Size = new Size(649, 368);
+            dataGridView1.Size = new Size(699, 370);
             dataGridView1.TabIndex = 2;
             // 
             // dateTimePicker1
@@ -179,46 +220,6 @@
             btnTim.TabIndex = 5;
             btnTim.UseVisualStyleBackColor = false;
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(button2);
-            panel2.Location = new Point(705, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(96, 36);
-            panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Gainsboro;
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = Properties.Resources.minimize1;
-            button1.ImageAlign = ContentAlignment.BottomCenter;
-            button1.Location = new Point(27, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(25, 28);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Gainsboro;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = Properties.Resources.close2;
-            button2.Location = new Point(58, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(27, 28);
-            button2.TabIndex = 0;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
             // FormHoaDon
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
@@ -238,10 +239,10 @@
             Load += FormHoaDon_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menu).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            panel2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

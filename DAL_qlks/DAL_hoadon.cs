@@ -18,7 +18,7 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from danhsachnhanvien()";
+                cmd.CommandText = "select * from danhSachHoaDon()";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataTable data = new DataTable();
                 adapter.Fill(data);
