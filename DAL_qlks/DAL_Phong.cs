@@ -45,7 +45,7 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
-        public bool XoaPhong(string maPhong)
+        public void XoaPhong(string maPhong)
         {
             try
             {
@@ -55,9 +55,10 @@ namespace DAL_qlks
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "xoaphong";
                 cmd.Parameters.AddWithValue("@p_maphong", maPhong);
-                int affectedRows = Convert.ToInt16(cmd.ExecuteNonQuery());
+                cmd.ExecuteNonQuery();
+                /*int affectedRows = Convert.ToInt16(cmd.ExecuteNonQuery());*/
 
-                if (affectedRows > 0)
+               /* if (affectedRows > 0)
                 {
                     return true;
                 }
@@ -65,7 +66,7 @@ namespace DAL_qlks
                 else
                 {
                     return false;
-                }
+                }*/
             }
             finally { connection.Close(); }
         }

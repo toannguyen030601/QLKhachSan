@@ -21,14 +21,14 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from LoaiPhong";
+                cmd.CommandText = "select * from loaiphong";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;
             }
             finally { connection.Close(); }
         }
-        public bool LuuLoaiPhong(DTO_LoaiPhong lp)
+        public void LuuLoaiPhong(DTO_LoaiPhong lp)
         {
             try
             {
@@ -42,39 +42,12 @@ namespace DAL_qlks
                 cmd.Parameters.AddWithValue("@p_tenloaiphong", lp.TenLoaiPhong);
 
                 // Thực thi stored procedure
-                if (Convert.ToInt16(cmd.ExecuteNonQuery())>0)
-                {
-                    return true;
-                }        
+                cmd.ExecuteNonQuery();
             }
             finally
             {
                 connection.Close();
             }
-            return false;
-        }
-
-        public bool CapNhatLoaiPhong(string maLoaiPhong,string tenLoaiPhong)
-        {
-            try
-            {
-                connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "CapNhatLoaiPhong";
-                cmd.Parameters.AddWithValue("@MaLoaiPhong", maLoaiPhong);
-                cmd.Parameters.AddWithValue("@TenLoaiPhong", tenLoaiPhong);
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            finally { connection.Close(); }
         }
         public bool XoaLoaiPhong(string maLoaiPhong)
         {

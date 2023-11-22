@@ -272,7 +272,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "FrmQuanLiDSPhong";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmQuanLiDSPhong";
+            Text = "Danh Sách Phòng";
             Load += FrmQuanLiDSPhong_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDSPhong).EndInit();
             groupBox1.ResumeLayout(false);

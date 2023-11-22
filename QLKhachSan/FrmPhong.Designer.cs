@@ -334,6 +334,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "FrmPhong";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Sơ đồ Phòng";
             Load += FrmPhong_Load;
             panel1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);

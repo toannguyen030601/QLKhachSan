@@ -43,6 +43,7 @@
             btnXoa = new Button();
             btnHuy = new Button();
             btnMoi = new Button();
+            btnSoDo = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLoaiPhong).BeginInit();
@@ -208,11 +209,22 @@
             btnMoi.UseVisualStyleBackColor = true;
             btnMoi.Click += btnMoi_Click;
             // 
+            // btnSoDo
+            // 
+            btnSoDo.Location = new Point(12, 23);
+            btnSoDo.Name = "btnSoDo";
+            btnSoDo.Size = new Size(147, 39);
+            btnSoDo.TabIndex = 31;
+            btnSoDo.Text = "Sơ đồ Phòng";
+            btnSoDo.UseVisualStyleBackColor = true;
+            btnSoDo.Click += btnSoDo_Click;
+            // 
             // FrmQuanLiLoaiPhong
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(607, 532);
+            Controls.Add(btnSoDo);
             Controls.Add(btnMoi);
             Controls.Add(btnHuy);
             Controls.Add(btnXoa);
@@ -258,5 +270,6 @@
         private Button btnXoa;
         private Button btnHuy;
         private Button btnMoi;
+        private Button btnSoDo;
     }
 }

@@ -25,7 +25,8 @@ namespace QLKhachSan
             Button btn = sender as Button;
             if (btn != null)
             {
-
+               DTO_Phong phong=(DTO_Phong)btn.Tag;
+                MessageBox.Show(phong.TenPhong.ToString());
             }
         }
         private void LoadPhong()

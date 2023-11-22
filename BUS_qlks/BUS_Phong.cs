@@ -20,9 +20,9 @@ namespace BUS_qlks
         {
             dal_Phong.LuuPhong(p);
         }
-        public bool XoaPhong(string maPhong)
+        public void XoaPhong(string maPhong)
         {
-            return dal_Phong.XoaPhong(maPhong); 
+            dal_Phong.XoaPhong(maPhong); 
         }
 
     }

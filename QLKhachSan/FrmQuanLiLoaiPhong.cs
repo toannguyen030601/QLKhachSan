@@ -87,16 +87,9 @@ namespace QLKhachSan
                 else
                 {
                     DTO_LoaiPhong lp = new DTO_LoaiPhong(txtID.Text, txtLoaiPhong.Text);
-                    if (bUS_LoaiPhong.LuuLoaiPhong(lp))
-                    {
-                        MessageBox.Show("Lưu thành công");
-                        SetValues();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lưu thất bại");
-                        SetValues();
-                    }
+                    bUS_LoaiPhong.LuuLoaiPhong(lp);
+                    MessageBox.Show("Lưu thành công");
+                    SetValues();
                 }
             }
         }
@@ -123,17 +116,18 @@ namespace QLKhachSan
             DialogResult kq = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (kq == DialogResult.Yes)
             {
-                if (bUS_LoaiPhong.XoaLoaiPhong(txtID.Text))
-                {
-                    MessageBox.Show("Xóa thành công");
-                    SetValues();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại");
-                }
+                bUS_LoaiPhong.XoaLoaiPhong(txtID.Text);
+                MessageBox.Show("Xóa thành công");
+                SetValues();
             }
 
+        }
+
+        private void btnSoDo_Click(object sender, EventArgs e)
+        {
+            FrmPhong frm=new FrmPhong();
+            frm.ShowDialog();
+            this.Close();
         }
     }
 }

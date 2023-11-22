@@ -93,14 +93,8 @@ namespace QLKhachSan
             DialogResult kq = MessageBox.Show("Bạn có chắc chắn xóa", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (kq == DialogResult.Yes)
             {
-                if (bus_Phong.XoaPhong(txtMaPhong.Text))
-                {
-                    MessageBox.Show("Xóa thành công");
-                }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại");
-                }
+                bus_Phong.XoaPhong(txtMaPhong.Text);
+                SetValues();
             }
             SetValues();
         }
@@ -172,29 +166,36 @@ namespace QLKhachSan
                     }
                     else
                     {
-                        if (cbMaLoaiPhong.SelectedIndex == -1)
+                        if(!double.TryParse(txtGia.Text,out double giaPhong))
                         {
-                            MessageBox.Show("Vui lòng chọn loại phòng");
+                            MessageBox.Show("Vui lòng Giá phòng là số");
                         }
                         else
                         {
-                            DTO_Phong p=new DTO_Phong();
-                            p.MaPhong = txtMaPhong.Text;
-                            p.TenPhong = txtTenPhong.Text;
-                            p.Gia=double.Parse(txtGia.Text);
-                            if(rdoDaThue.Checked)
+                            if (cbMaLoaiPhong.SelectedIndex == -1)
                             {
-                                p.TrangThai = true;
+                                MessageBox.Show("Vui lòng chọn loại phòng");
                             }
                             else
                             {
-                                p.TrangThai=false;
+                                DTO_Phong p = new DTO_Phong();
+                                p.MaPhong = txtMaPhong.Text;
+                                p.TenPhong = txtTenPhong.Text;
+                                p.Gia = double.Parse(txtGia.Text);
+                                if (rdoDaThue.Checked)
+                                {
+                                    p.TrangThai = true;
+                                }
+                                else
+                                {
+                                    p.TrangThai = false;
+                                }
+
+                                p.MaLoaiPhong = cbMaLoaiPhong.SelectedItem.ToString();
+                                bus_Phong.LuuPhong(p);
+                                MessageBox.Show("Lưu thành công");
+                                SetValues();
                             }
-                           
-                            p.MaLoaiPhong = cbMaLoaiPhong.SelectedItem.ToString();
-                            bus_Phong.LuuPhong(p);
-                            MessageBox.Show("Lưu thành công");
-                            SetValues();
                         }
                     }
                 }
