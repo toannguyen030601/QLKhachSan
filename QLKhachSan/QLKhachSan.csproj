@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PdfSharpCore" Version="1.3.62" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BUS_qlks\BUS_qlks.csproj" />
     <ProjectReference Include="..\DTO_qlks\DTO_qlks.csproj" />
   </ItemGroup>
