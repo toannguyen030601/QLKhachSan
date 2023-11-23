@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             btnTim = new Button();
-            txtTim = new TextBox();
+            txtSearch = new TextBox();
             dataGridView1 = new DataGridView();
             btnThem = new Button();
+            panel1 = new Panel();
+            btnXoa = new Button();
+            btnSua = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnTim
@@ -46,15 +50,16 @@
             btnTim.Size = new Size(50, 36);
             btnTim.TabIndex = 9;
             btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
             // 
-            // txtTim
+            // txtSearch
             // 
-            txtTim.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTim.Location = new Point(98, 20);
-            txtTim.Multiline = true;
-            txtTim.Name = "txtTim";
-            txtTim.Size = new Size(436, 35);
-            txtTim.TabIndex = 8;
+            txtSearch.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(98, 20);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(436, 35);
+            txtSearch.TabIndex = 8;
             // 
             // dataGridView1
             // 
@@ -65,8 +70,11 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(968, 458);
+            dataGridView1.Size = new Size(983, 458);
             dataGridView1.TabIndex = 7;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // btnThem
             // 
@@ -74,28 +82,72 @@
             btnThem.FlatAppearance.BorderSize = 0;
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Image = Properties.Resources.add1;
-            btnThem.Location = new Point(892, 20);
+            btnThem.Location = new Point(17, 10);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(144, 47);
             btnThem.TabIndex = 3;
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel1.Controls.Add(btnXoa);
+            panel1.Controls.Add(btnThem);
+            panel1.Controls.Add(btnSua);
+            panel1.Location = new Point(594, 20);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(474, 61);
+            panel1.TabIndex = 10;
+            // 
+            // btnXoa
+            // 
+            btnXoa.BackColor = Color.LightSalmon;
+            btnXoa.FlatAppearance.BorderSize = 0;
+            btnXoa.FlatStyle = FlatStyle.Flat;
+            btnXoa.Image = Properties.Resources.delete;
+            btnXoa.Location = new Point(317, 10);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(144, 47);
+            btnXoa.TabIndex = 5;
+            btnXoa.Text = "Xóa";
+            btnXoa.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // btnSua
+            // 
+            btnSua.BackColor = Color.Pink;
+            btnSua.FlatAppearance.BorderSize = 0;
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Image = Properties.Resources.edit;
+            btnSua.Location = new Point(167, 10);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(144, 47);
+            btnSua.TabIndex = 4;
+            btnSua.Text = "Sửa";
+            btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // KhachHang
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 560);
-            Controls.Add(btnThem);
+            ClientSize = new Size(1115, 560);
+            Controls.Add(panel1);
             Controls.Add(btnTim);
-            Controls.Add(txtTim);
+            Controls.Add(txtSearch);
             Controls.Add(dataGridView1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "KhachHang";
             Text = "KhachHang";
+            Load += KhachHang_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -103,8 +155,11 @@
         #endregion
 
         private Button btnTim;
-        private TextBox txtTim;
+        private TextBox txtSearch;
         private DataGridView dataGridView1;
         private Button btnThem;
+        private Panel panel1;
+        private Button btnXoa;
+        private Button btnSua;
     }
 }

@@ -9,7 +9,8 @@ namespace DAL_qlks
 {
     public class DBConnect
     {
-        static string connectionString = "Host=hattie.db.elephantsql.com;Port=5432;Database=ajejkikf;Username=ajejkikf;Password=xMYEdEiVT5W-zlDEI2wXYnK7OkauaTg3;";
+        public static string connectionString = "Host=hattie.db.elephantsql.com;Port=5432;Database=ajejkikf;Username=ajejkikf;Password=xMYEdEiVT5W-zlDEI2wXYnK7OkauaTg3;";
         protected NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+        
     }
 }

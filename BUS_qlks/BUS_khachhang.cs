@@ -32,7 +32,10 @@ namespace BUS_qlks
             return dalKhachHang.ThemKhachHang(khachHang);
         }
 
-
+        public DataTable XemKhachHang()
+        {
+            return dalKhachHang.danhsachkhachhang();
+        }
 
         public bool SuaKhachHang(DTO_khachhang khachHang)
         {
@@ -48,5 +51,10 @@ namespace BUS_qlks
         {
             return dalKhachHang.LayDuLieuKhachHang();
         }
+        public DataTable thongtinkhachhang(string MaKH)
+        {
+            return dalKhachHang.thongtinkhachhang(MaKH);
+        }
+        
     }
 }
