@@ -25,77 +25,101 @@ namespace QLKhachSan
             Button btn = sender as Button;
             if (btn != null)
             {
-               DTO_Phong phong=(DTO_Phong)btn.Tag;
-               MessageBox.Show(phong.TenPhong.ToString());
+                DTO_Phong phong=(DTO_Phong)btn.Tag;
+                FrmDatPhongTrong frm = new FrmDatPhongTrong(phong.MaPhong);
+                frm.ShowDialog();
             }
         }
-        private void LoadPhong()
+        private void LoadPhong(double min=0,double max=double.MaxValue)
         {
             flowLayoutPanel1.Controls.Clear();
             DataTable dt = bus_Phong.DanhSachPhong();
+            int count=0;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string maPhong = dt.Rows[i]["MaPhong"].ToString();
                 string tenPhong = dt.Rows[i]["TenPhong"].ToString();
                 double gia = Convert.ToDouble(dt.Rows[i]["Gia"]);
                 string maloaiPhong = dt.Rows[i]["MaLoaiPhong"].ToString();
-
-                Button btn = new Button
-                {
-                    Width = 200,
-                    Height = 150,
-                    Font = new Font("Arial", 10, FontStyle.Bold),
-                    ForeColor = Color.Black,
-                    FlatStyle = FlatStyle.Flat,
-                    FlatAppearance = { BorderSize = 4 },
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    
-                };
                 bool trangThai = Convert.ToBoolean(dt.Rows[i]["TrangThai"]);
-                btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
-
-                btn.Tag = new DTO_Phong(maPhong,tenPhong,gia,trangThai,maloaiPhong);
-
-                Label lblMaPhong = new Label
+                if(gia >= min&&gia<=max)
                 {
-                    Text = maPhong,
-                    Location = new Point(40, 10),
-                    Font = new Font("Arial", 18, FontStyle.Bold),
-                    AutoSize=true,
-                    ForeColor = Color.Blue // Customize the color as needed
-                };
+                    count++;
+                    Button btn = new Button
+                    {
+                        Width = 200,
+                        Height = 150,
+                        Font = new Font("Arial", 10, FontStyle.Bold),
+                        ForeColor = Color.Black,
+                        FlatStyle = FlatStyle.Flat,
+                        FlatAppearance = { BorderSize = 4 },
+                        TextAlign = ContentAlignment.MiddleCenter,
 
-                Label lblTenPhong = new Label
-                {
-                    Text = tenPhong,
-                    Location = new Point(40, 60),
-                    AutoSize = true,
-                    ForeColor = Color.Purple // Customize the color as needed
-                };
+                    };
+                    btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
-                Label lblGia = new Label
-                {
-                    Text = $"Giá: {gia} VND",
-                    Location = new Point(40, 90),
-                    AutoSize=true,
-                    ForeColor = Color.White // Customize the color as needed
-                };
+                    btn.Tag = new DTO_Phong(maPhong, tenPhong, gia, trangThai, maloaiPhong);
 
-                Label lblLoaiPhong = new Label
-                {
-                    Text = maloaiPhong,
-                    Location = new Point(40, 120),
-                    ForeColor = Color.Black // Customize the color as needed
-                };
+                    Label lblMaPhong = new Label
+                    {
+                        Text = maPhong,
+                        Location = new Point(40, 10),
+                        Font = new Font("Arial", 18, FontStyle.Bold),
+                        AutoSize = true,
+                        ForeColor = Color.Blue // Customize the color as needed
+                    };
 
-                btn.Controls.Add(lblMaPhong);
-                btn.Controls.Add(lblTenPhong);
-                btn.Controls.Add(lblGia);
-                btn.Controls.Add(lblLoaiPhong);
+                    Label lblTenPhong = new Label
+                    {
+                        Text = tenPhong,
+                        Location = new Point(40, 60),
+                        AutoSize = true,
+                        ForeColor = Color.Purple // Customize the color as needed
+                    };
 
-                btn.Click += Btn_Click;
+                    Label lblGia = new Label
+                    {
+                        Text = $"Giá: {gia} VND",
+                        Location = new Point(40, 90),
+                        AutoSize = true,
+                        ForeColor = Color.White // Customize the color as needed
+                    };
 
-                flowLayoutPanel1.Controls.Add(btn);
+                    Label lblLoaiPhong = new Label
+                    {
+                        Text = bus_Phong.GetLoaiPhongFromMaLoaiPhong(maloaiPhong),
+                        Location = new Point(40, 120),
+                        ForeColor = Color.Black // Customize the color as needed
+                    };
+
+                    btn.Controls.Add(lblMaPhong);
+                    btn.Controls.Add(lblTenPhong);
+                    btn.Controls.Add(lblGia);
+                    btn.Controls.Add(lblLoaiPhong);
+
+                    btn.Click += Btn_Click;
+
+                    if (rdoDaThue.Checked)
+                    {
+                        if (trangThai) flowLayoutPanel1.Controls.Add(btn);
+                    }
+                    else
+                    {
+                        if (rdoTrong.Checked)
+                        {
+                            if (!trangThai) flowLayoutPanel1.Controls.Add(btn);
+                        }
+                        else
+                        {
+                            flowLayoutPanel1.Controls.Add(btn);
+                        }
+                    }
+                }
+               
+            }
+            if (count == 0)
+            {
+                MessageBox.Show("Không tìm thấy phòng cần tìm");
             }
         }
         private void FrmPhong_Load(object sender, EventArgs e)
@@ -124,6 +148,28 @@ namespace QLKhachSan
             FrmQuanLiDSPhong frm = new FrmQuanLiDSPhong();
             frm.ShowDialog();
             this.Hide();
+        }
+
+        private void btnLoc_Click(object sender, EventArgs e)
+        {
+
+            if (double.TryParse(txtMin.Text, out double Min))
+            {
+                if (double.TryParse(txtMax.Text, out double Max))
+                {
+                    LoadPhong(Min,Max);
+                }
+                else
+                {
+                    MessageBox.Show("Nhập số để lọc");
+                    txtMax.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nhập số để lọc");
+                txtMin.Focus();
+            }
         }
     }
 }

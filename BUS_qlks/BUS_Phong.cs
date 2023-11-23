@@ -24,6 +24,10 @@ namespace BUS_qlks
         {
             dal_Phong.XoaPhong(maPhong); 
         }
+        public string GetLoaiPhongFromMaLoaiPhong(string maLoaiPhong)
+        {
+            return dal_Phong.GetLoaiPhongFromMaLoaiPhong(maLoaiPhong);
+        }
 
     }
 }

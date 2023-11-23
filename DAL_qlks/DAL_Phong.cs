@@ -70,5 +70,40 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
+
+        public string GetLoaiPhongFromMaLoaiPhong(string maLoaiPhong)
+        {
+            string tenLoaiPhong = "";
+
+            try
+            {
+                connection.Open();
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT tenloaiphong FROM loaiphong WHERE maloaiphong = @maLoaiPhong";
+
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@maLoaiPhong", maLoaiPhong);
+
+                    // Execute the query and get the result
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        tenLoaiPhong = result.ToString();
+                    }
+                }
+
+                return tenLoaiPhong;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 }

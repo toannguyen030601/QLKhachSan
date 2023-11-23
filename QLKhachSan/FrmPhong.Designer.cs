@@ -37,9 +37,9 @@
             groupBox1 = new GroupBox();
             panel4 = new Panel();
             panel3 = new Panel();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            button2 = new Button();
+            txtMax = new TextBox();
+            txtMin = new TextBox();
+            btnLoc = new Button();
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
@@ -139,9 +139,9 @@
             // 
             groupBox1.Controls.Add(panel4);
             groupBox1.Controls.Add(panel3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(txtMax);
+            groupBox1.Controls.Add(txtMin);
+            groupBox1.Controls.Add(btnLoc);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -169,31 +169,32 @@
             panel3.Size = new Size(120, 3);
             panel3.TabIndex = 8;
             // 
-            // textBox2
+            // txtMax
             // 
-            textBox2.Location = new Point(85, 139);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(122, 34);
-            textBox2.TabIndex = 4;
+            txtMax.Location = new Point(85, 139);
+            txtMax.Name = "txtMax";
+            txtMax.Size = new Size(122, 34);
+            txtMax.TabIndex = 4;
             // 
-            // textBox1
+            // txtMin
             // 
-            textBox1.Location = new Point(90, 63);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(122, 34);
-            textBox1.TabIndex = 3;
+            txtMin.Location = new Point(90, 63);
+            txtMin.Name = "txtMin";
+            txtMin.Size = new Size(122, 34);
+            txtMin.TabIndex = 3;
             // 
-            // button2
+            // btnLoc
             // 
-            button2.Image = Properties.Resources.filter_filled_tool_symbol;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(113, 197);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 46);
-            button2.TabIndex = 2;
-            button2.Text = "Lọc";
-            button2.TextAlign = ContentAlignment.MiddleRight;
-            button2.UseVisualStyleBackColor = true;
+            btnLoc.Image = Properties.Resources.filter_filled_tool_symbol;
+            btnLoc.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLoc.Location = new Point(113, 197);
+            btnLoc.Name = "btnLoc";
+            btnLoc.Size = new Size(94, 46);
+            btnLoc.TabIndex = 2;
+            btnLoc.Text = "Lọc";
+            btnLoc.TextAlign = ContentAlignment.MiddleRight;
+            btnLoc.UseVisualStyleBackColor = true;
+            btnLoc.Click += btnLoc_Click;
             // 
             // label4
             // 
@@ -370,9 +371,9 @@
         private Label label3;
         private Panel panel4;
         private Panel panel3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Button button2;
+        private TextBox txtMax;
+        private TextBox txtMin;
+        private Button btnLoc;
         private TextBox textBox3;
         private Label label5;
     }
