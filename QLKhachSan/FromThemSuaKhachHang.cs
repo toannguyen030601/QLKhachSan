@@ -17,9 +17,10 @@ namespace QLKhachSan
     {
         public bool IsUpdated { get; private set; }
         private bool isNam;
-        public FromThemSuaKhachHang(bool isthemsuaKH, string hoTen = "", string soDienThoai = "", string socccd = "", bool gioiTinhNam = true)
+        public FromThemSuaKhachHang(bool isthemsuaKH, string hoTen = "", string soDienThoai = "", string socccd = "", bool gioiTinhNam = true, string maKH = "")
         {
             InitializeComponent();
+            this.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
             this.isthemsuaKH = isthemsuaKH;
             if (!isthemsuaKH)
             {
@@ -28,6 +29,7 @@ namespace QLKhachSan
                 txtSoDT.Text = soDienThoai;
                 txtCCCD.Text = socccd;
                 isNam = gioiTinhNam; // Gán giá trị giới tính được truyền vào từ tham số
+                labelMaKH.Text = maKH;
 
                 // Gán giá trị cho RadioButton dựa trên giới tính được truyền vào
                 if (gioiTinhNam)
@@ -58,6 +60,7 @@ namespace QLKhachSan
         {
             if (!isthemsuaKH)
             {
+                labelMaKH.Visible = true;
                 // Logic cập nhật thông tin khách hàng
                 string gioiTinh = rdbNam.Checked ? "Nam" : "Nữ";
 
@@ -67,7 +70,7 @@ namespace QLKhachSan
                     Gioitinh = gioiTinh,
                     Sodt = txtSoDT.Text,
                     Socccd = txtCCCD.Text,
-                    Makhachhang = ,
+                    Makhachhang = labelMaKH.Text,
                     // Gán các trường thông tin khác của khách hàng tại đây nếu có
                 };
                 // Cập nhật các thông tin khác nếu cần
@@ -124,7 +127,12 @@ namespace QLKhachSan
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
+        }
+
+        private void FromThemSuaKhachHang_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

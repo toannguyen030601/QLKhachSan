@@ -122,7 +122,7 @@ namespace QLKhachSan
                 string maKH = dataGridView1.Rows[rowIndex].Cells["makhachhang"].Value.ToString();
                 string hoTen = dataGridView1.Rows[rowIndex].Cells["hoten"].Value.ToString();
                 string soDienThoai = dataGridView1.Rows[rowIndex].Cells["sodt"].Value.ToString();
-                string socccd = dataGridView1.Rows[rowIndex].Cells["sodt"].Value.ToString();
+                string socccd = dataGridView1.Rows[rowIndex].Cells["socccd"].Value.ToString();
                 string gioitinh = dataGridView1.Rows[rowIndex].Cells["sodt"].Value.ToString();
                 // Lấy các thông tin khác tương tự...
 
@@ -130,7 +130,7 @@ namespace QLKhachSan
                 FromThemSuaKhachHang f = new FromThemSuaKhachHang(false);
 
                 // Gán dữ liệu cho các trường trên form Sửa
-                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, true); // Truyền thông tin cần chỉnh sửa
+                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, true,maKH); // Truyền thông tin cần chỉnh sửa
                 editForm.ShowDialog();
 
                 // Cập nhật lại DataGridView nếu có thay đổi

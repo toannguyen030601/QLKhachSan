@@ -35,6 +35,7 @@
             txtHoten = new TextBox();
             btnThemSuaNV = new Button();
             panel3 = new Panel();
+            labelMaKH = new Label();
             label1 = new Label();
             rdbNu = new RadioButton();
             rdbNam = new RadioButton();
@@ -104,6 +105,7 @@
             // panel3
             // 
             panel3.BackColor = Color.LightGray;
+            panel3.Controls.Add(labelMaKH);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(rdbNu);
             panel3.Controls.Add(rdbNam);
@@ -119,6 +121,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(503, 493);
             panel3.TabIndex = 37;
+            // 
+            // labelMaKH
+            // 
+            labelMaKH.AutoSize = true;
+            labelMaKH.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMaKH.Location = new Point(17, 10);
+            labelMaKH.Name = "labelMaKH";
+            labelMaKH.Size = new Size(83, 25);
+            labelMaKH.TabIndex = 42;
+            labelMaKH.Text = "MaKH";
             // 
             // label1
             // 
@@ -180,6 +192,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "FromThemSuaKhachHang";
             Text = "FromThemSuaKhachHang";
+            Load += FromThemSuaKhachHang_Load;
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -199,5 +212,6 @@
         private Label label1;
         private RadioButton rdbNu;
         private RadioButton rdbNam;
+        private Label labelMaKH;
     }
 }
