@@ -94,5 +94,19 @@ namespace QLKhachSan
                 MessageBox.Show("Vui lòng nhập tên cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+                btnMaximize.Image = Properties.Resources.normalcontrol;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+                btnMaximize.Image = Properties.Resources.maximize1;
+            }
+        }
     }
 }

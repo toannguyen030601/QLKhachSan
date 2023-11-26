@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            panel2 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
             panel14 = new Panel();
             btnMinimize = new Button();
             btnMaximize = new Button();
@@ -45,7 +42,6 @@
             txtTim = new TextBox();
             btnTim = new Button();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -54,7 +50,6 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ScrollBar;
-            panel1.Controls.Add(panel2);
             panel1.Controls.Add(panel14);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(menu);
@@ -64,46 +59,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1040, 38);
             panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(button2);
-            panel2.Location = new Point(932, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(96, 36);
-            panel2.TabIndex = 3;
-            panel2.Paint += panel2_Paint;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Gainsboro;
-            button1.BackgroundImageLayout = ImageLayout.Zoom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Image = Properties.Resources.minimize1;
-            button1.ImageAlign = ContentAlignment.BottomCenter;
-            button1.Location = new Point(27, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(25, 28);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Gainsboro;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = Properties.Resources.close2;
-            button2.Location = new Point(58, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(27, 28);
-            button2.TabIndex = 0;
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
             // 
             // panel14
             // 
@@ -242,7 +197,6 @@
             Load += FormHoaDon_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
             panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menu).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -264,8 +218,5 @@
         private DateTimePicker dateTimePicker1;
         private TextBox txtTim;
         private Button btnTim;
-        private Panel panel2;
-        private Button button1;
-        private Button button2;
     }
 }
