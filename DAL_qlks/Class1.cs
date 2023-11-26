@@ -243,5 +243,34 @@ namespace DAL_qlks
             }
         }
        
+        public string TimMaNhanVienTheoEmail(string email)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT MaNV FROM NhanVien WHERE Email = @Email";
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                // Sử dụng ExecuteScalar để lấy giá trị duy nhất (mã nhân viên)
+                object result = cmd.ExecuteScalar();
+
+                // Kiểm tra nếu kết quả không rỗng và có giá trị
+                if (result != null && result != DBNull.Value)
+                {
+                    return result.ToString(); // Trả về mã nhân viên
+                }
+                else
+                {
+                    return "Không tìm thấy mã nhân viên"; // Hoặc thông báo không tìm thấy
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

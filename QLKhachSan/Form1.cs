@@ -203,7 +203,7 @@ namespace QLKhachSan
 
         private void btnInfoDangnhap_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnInfoDangnhap_MouseHover(object sender, EventArgs e)
@@ -266,6 +266,12 @@ namespace QLKhachSan
         {
             ChangeColor((Button)sender);
             OpenChildForm(new FormHoaDon());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new KhachHang());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QLKhachSan
 {
-    partial class NhanVien
+    partial class KhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            txtTim = new TextBox();
             btnTim = new Button();
+            txtSearch = new TextBox();
+            dataGridView1 = new DataGridView();
             btnThem = new Button();
-            btnSua = new Button();
-            btnXoa = new Button();
             panel1 = new Panel();
+            btnXoa = new Button();
+            btnSua = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 93);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(968, 509);
-            dataGridView1.TabIndex = 0;
-            // 
-            // txtTim
-            // 
-            txtTim.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTim.Location = new Point(62, 36);
-            txtTim.Multiline = true;
-            txtTim.Name = "txtTim";
-            txtTim.Size = new Size(436, 35);
-            txtTim.TabIndex = 1;
             // 
             // btnTim
             // 
@@ -66,12 +45,37 @@
             btnTim.FlatAppearance.BorderSize = 2;
             btnTim.FlatStyle = FlatStyle.Flat;
             btnTim.Image = Properties.Resources.search;
-            btnTim.Location = new Point(448, 35);
+            btnTim.Location = new Point(454, 41);
             btnTim.Name = "btnTim";
             btnTim.Size = new Size(50, 36);
-            btnTim.TabIndex = 2;
+            btnTim.TabIndex = 9;
             btnTim.UseVisualStyleBackColor = false;
             btnTim.Click += btnTim_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(68, 42);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(436, 35);
+            txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(68, 100);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(890, 509);
+            dataGridView1.TabIndex = 7;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
             // 
             // btnThem
             // 
@@ -88,20 +92,16 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // btnSua
+            // panel1
             // 
-            btnSua.BackColor = Color.Pink;
-            btnSua.FlatAppearance.BorderSize = 0;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.edit;
-            btnSua.Location = new Point(167, 10);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(144, 47);
-            btnSua.TabIndex = 4;
-            btnSua.Text = "Sửa";
-            btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel1.Controls.Add(btnXoa);
+            panel1.Controls.Add(btnThem);
+            panel1.Controls.Add(btnSua);
+            panel1.Location = new Point(501, 20);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(474, 61);
+            panel1.TabIndex = 10;
             // 
             // btnXoa
             // 
@@ -118,33 +118,35 @@
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
             // 
-            // panel1
+            // btnSua
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel1.Controls.Add(btnThem);
-            panel1.Controls.Add(btnXoa);
-            panel1.Controls.Add(btnSua);
-            panel1.Location = new Point(529, 26);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(474, 61);
-            panel1.TabIndex = 6;
+            btnSua.BackColor = Color.Pink;
+            btnSua.FlatAppearance.BorderSize = 0;
+            btnSua.FlatStyle = FlatStyle.Flat;
+            btnSua.Image = Properties.Resources.edit;
+            btnSua.Location = new Point(167, 10);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(144, 47);
+            btnSua.TabIndex = 4;
+            btnSua.Text = "Sửa";
+            btnSua.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
-            // NhanVien
+            // KhachHang
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1024, 614);
+            ClientSize = new Size(1022, 611);
             Controls.Add(panel1);
             Controls.Add(btnTim);
-            Controls.Add(txtTim);
+            Controls.Add(txtSearch);
             Controls.Add(dataGridView1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "NhanVien";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "NhanVien";
-            Load += NhanVien_Load;
+            Name = "KhachHang";
+            Text = "KhachHang";
+            Load += KhachHang_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -153,12 +155,12 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private TextBox txtTim;
         private Button btnTim;
+        private TextBox txtSearch;
+        private DataGridView dataGridView1;
         private Button btnThem;
-        private Button btnSua;
-        private Button btnXoa;
         private Panel panel1;
+        private Button btnXoa;
+        private Button btnSua;
     }
 }
