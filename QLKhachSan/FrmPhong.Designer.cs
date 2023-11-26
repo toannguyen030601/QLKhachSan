@@ -36,6 +36,8 @@
             rdoTrong = new RadioButton();
             groupBox1 = new GroupBox();
             panel4 = new Panel();
+            label7 = new Label();
+            label6 = new Label();
             panel3 = new Panel();
             txtMax = new TextBox();
             txtMin = new TextBox();
@@ -65,19 +67,19 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = SystemColors.InactiveCaption;
-            flowLayoutPanel1.Location = new Point(222, 98);
+            flowLayoutPanel1.Location = new Point(252, 98);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(874, 475);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ControlLight;
+            panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(0, 98);
             panel1.Name = "panel1";
-            panel1.Size = new Size(226, 475);
+            panel1.Size = new Size(257, 475);
             panel1.TabIndex = 1;
             // 
             // groupBox2
@@ -138,6 +140,8 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(panel4);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(panel3);
             groupBox1.Controls.Add(txtMax);
             groupBox1.Controls.Add(txtMin);
@@ -148,7 +152,7 @@
             groupBox1.ForeColor = SystemColors.HotTrack;
             groupBox1.Location = new Point(0, 14);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(213, 249);
+            groupBox1.Size = new Size(254, 249);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lọc Theo Giá";
@@ -156,38 +160,69 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ActiveCaptionText;
-            panel4.Location = new Point(87, 170);
+            panel4.Location = new Point(32, 174);
             panel4.Name = "panel4";
-            panel4.Size = new Size(120, 3);
-            panel4.TabIndex = 9;
+            panel4.Size = new Size(209, 3);
+            panel4.TabIndex = 12;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(162, 141);
+            label7.Name = "label7";
+            label7.Size = new Size(86, 25);
+            label7.TabIndex = 11;
+            label7.Text = "K VND";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(160, 67);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 25);
+            label6.TabIndex = 10;
+            label6.Text = "K VND";
+            label6.Click += label6_Click;
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaptionText;
-            panel3.Location = new Point(90, 94);
+            panel3.Location = new Point(32, 100);
             panel3.Name = "panel3";
-            panel3.Size = new Size(120, 3);
+            panel3.Size = new Size(209, 3);
             panel3.TabIndex = 8;
             // 
             // txtMax
             // 
-            txtMax.Location = new Point(85, 139);
+            txtMax.BackColor = SystemColors.Control;
+            txtMax.BorderStyle = BorderStyle.None;
+            txtMax.Location = new Point(32, 141);
             txtMax.Name = "txtMax";
-            txtMax.Size = new Size(122, 34);
+            txtMax.Size = new Size(120, 27);
             txtMax.TabIndex = 4;
+            txtMax.Text = "Max";
+            txtMax.Enter += txtMax_Enter;
+            txtMax.Leave += txtMax_Leave;
             // 
             // txtMin
             // 
-            txtMin.Location = new Point(90, 63);
+            txtMin.BackColor = SystemColors.Control;
+            txtMin.BorderStyle = BorderStyle.None;
+            txtMin.Location = new Point(32, 67);
             txtMin.Name = "txtMin";
-            txtMin.Size = new Size(122, 34);
+            txtMin.Size = new Size(122, 27);
             txtMin.TabIndex = 3;
+            txtMin.Text = "0";
+            txtMin.Enter += txtMin_Enter;
+            txtMin.Leave += txtMin_Leave;
             // 
             // btnLoc
             // 
             btnLoc.Image = Properties.Resources.filter_filled_tool_symbol;
             btnLoc.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLoc.Location = new Point(113, 197);
+            btnLoc.Location = new Point(78, 197);
             btnLoc.Name = "btnLoc";
             btnLoc.Size = new Size(94, 46);
             btnLoc.TabIndex = 2;
@@ -200,7 +235,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.OrangeRed;
-            label4.Location = new Point(3, 142);
+            label4.Location = new Point(0, 113);
             label4.Name = "label4";
             label4.Size = new Size(53, 25);
             label4.TabIndex = 1;
@@ -210,7 +245,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.OrangeRed;
-            label3.Location = new Point(0, 63);
+            label3.Location = new Point(0, 39);
             label3.Name = "label3";
             label3.Size = new Size(75, 25);
             label3.TabIndex = 0;
@@ -317,7 +352,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1088, 570);
+            ClientSize = new Size(1121, 570);
             Controls.Add(label5);
             Controls.Add(textBox3);
             Controls.Add(button1);
@@ -369,12 +404,14 @@
         private Button button1;
         private Label label4;
         private Label label3;
-        private Panel panel4;
         private Panel panel3;
         private TextBox txtMax;
         private TextBox txtMin;
         private Button btnLoc;
         private TextBox textBox3;
         private Label label5;
+        private Label label7;
+        private Label label6;
+        private Panel panel4;
     }
 }

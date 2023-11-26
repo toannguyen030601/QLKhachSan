@@ -31,26 +31,11 @@ namespace QLKhachSan
             }
 
         }
-        private void Btn_MouseHover(object sender, EventArgs e)
-        {
-            Button myButton = sender as Button;
-            // Thiết lập màu khi hover (bạn có thể giữ nguyên màu hiện tại hoặc thiết lập một màu mới)
-            myButton.BackColor = myButton.BackColor;
-            myButton.ForeColor = myButton.ForeColor;
-        }
-
-        private void Btn_MouseLeave(object sender, EventArgs e)
-        {
-            Button myButton=sender as Button;
-            // Thiết lập màu khi không hover (bạn có thể giữ nguyên màu hiện tại hoặc thiết lập một màu mới)
-            myButton.BackColor = myButton.BackColor;
-            myButton.ForeColor = myButton.ForeColor;
-        }
-        private void LoadPhong(double min=0,double max=double.MaxValue)
+        private void LoadPhong(double min = 0, double max = double.MaxValue)
         {
             flowLayoutPanel1.Controls.Clear();
             DataTable dt = bus_Phong.DanhSachPhong();
-            int count=0;
+            int count = 0;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string maPhong = dt.Rows[i]["MaPhong"].ToString();
@@ -58,7 +43,7 @@ namespace QLKhachSan
                 double gia = Convert.ToDouble(dt.Rows[i]["Gia"]);
                 string maloaiPhong = dt.Rows[i]["MaLoaiPhong"].ToString();
                 bool trangThai = Convert.ToBoolean(dt.Rows[i]["TrangThai"]);
-                if(gia >= min&&gia<=max)
+                if (gia >= min && gia <= max)
                 {
                     count++;
                     Button btn = new Button
@@ -72,7 +57,7 @@ namespace QLKhachSan
                         TextAlign = ContentAlignment.MiddleCenter,
 
                     };
-                
+
                     btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
                     btn.Tag = new DTO_Phong(maPhong, tenPhong, gia, trangThai, maloaiPhong);
@@ -115,8 +100,6 @@ namespace QLKhachSan
                     btn.Controls.Add(lblLoaiPhong);
 
                     btn.Click += Btn_Click;
-                    btn.MouseEnter += Btn_MouseHover;
-                    btn.MouseLeave += Btn_MouseLeave;
                     if (rdoDaThue.Checked)
                     {
                         if (trangThai) flowLayoutPanel1.Controls.Add(btn);
@@ -133,7 +116,7 @@ namespace QLKhachSan
                         }
                     }
                 }
-               
+
             }
             if (count == 0)
             {
@@ -173,20 +156,63 @@ namespace QLKhachSan
 
             if (double.TryParse(txtMin.Text, out double Min))
             {
-                if (double.TryParse(txtMax.Text, out double Max))
+                if (txtMax.Text == "Max")
                 {
-                    LoadPhong(Min,Max);
+                    LoadPhong();
                 }
                 else
                 {
-                    MessageBox.Show("Nhập số để lọc");
-                    txtMax.Focus();
-                }
+                    if (double.TryParse(txtMax.Text, out double Max))
+                    {
+                        LoadPhong(Min, Max);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập số để lọc");
+                        txtMax.Focus();
+                    }
+                }  
             }
             else
             {
                 MessageBox.Show("Nhập số để lọc");
                 txtMin.Focus();
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMax_Enter(object sender, EventArgs e)
+        {
+            if (txtMax.Text == "Max")
+                txtMax.Text = "";
+        }
+
+        private void txtMin_Enter(object sender, EventArgs e)
+        {
+            if (txtMin.Text == "0")
+            {
+                txtMin.Text = "";
+            }
+
+        }
+
+        private void txtMin_Leave(object sender, EventArgs e)
+        {
+            if (txtMin.Text == "")
+            {
+                txtMin.Text = "0";
+            }
+        }
+
+        private void txtMax_Leave(object sender, EventArgs e)
+        {
+            if (txtMax.Text == "")
+            {
+                txtMax.Text = "Max";
             }
         }
     }

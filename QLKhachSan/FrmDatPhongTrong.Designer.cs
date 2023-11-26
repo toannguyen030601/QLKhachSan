@@ -50,6 +50,8 @@
             btnDatPhong = new Button();
             btnHuy = new Button();
             label3 = new Label();
+            label4 = new Label();
+            lblMaNhanVien = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -59,7 +61,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.lavatory;
-            pictureBox4.Location = new Point(60, 398);
+            pictureBox4.Location = new Point(60, 371);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(35, 40);
             pictureBox4.TabIndex = 32;
@@ -68,7 +70,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.telephone;
-            pictureBox3.Location = new Point(60, 234);
+            pictureBox3.Location = new Point(60, 207);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(35, 40);
             pictureBox3.TabIndex = 31;
@@ -77,7 +79,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.id_card__1_;
-            pictureBox2.Location = new Point(65, 141);
+            pictureBox2.Location = new Point(65, 114);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(38, 40);
             pictureBox2.TabIndex = 30;
@@ -87,7 +89,7 @@
             // 
             pictureBox1.Image = Properties.Resources.id_card;
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(60, 331);
+            pictureBox1.Location = new Point(60, 304);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(43, 35);
             pictureBox1.TabIndex = 29;
@@ -98,7 +100,7 @@
             cbGT.BackColor = SystemColors.ControlLightLight;
             cbGT.FormattingEnabled = true;
             cbGT.Items.AddRange(new object[] { "Nam", "Nữ" });
-            cbGT.Location = new Point(118, 398);
+            cbGT.Location = new Point(118, 371);
             cbGT.Name = "cbGT";
             cbGT.Size = new Size(183, 34);
             cbGT.TabIndex = 28;
@@ -107,7 +109,7 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ActiveCaptionText;
-            panel4.Location = new Point(109, 364);
+            panel4.Location = new Point(109, 337);
             panel4.Name = "panel4";
             panel4.Size = new Size(254, 2);
             panel4.TabIndex = 27;
@@ -116,7 +118,7 @@
             // 
             txtSoCCCD.BackColor = SystemColors.ControlLight;
             txtSoCCCD.BorderStyle = BorderStyle.None;
-            txtSoCCCD.Location = new Point(109, 331);
+            txtSoCCCD.Location = new Point(109, 304);
             txtSoCCCD.Name = "txtSoCCCD";
             txtSoCCCD.Size = new Size(254, 27);
             txtSoCCCD.TabIndex = 26;
@@ -127,7 +129,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaptionText;
-            panel2.Location = new Point(109, 174);
+            panel2.Location = new Point(109, 147);
             panel2.Name = "panel2";
             panel2.Size = new Size(254, 2);
             panel2.TabIndex = 25;
@@ -136,7 +138,7 @@
             // 
             txtHoTen.BackColor = SystemColors.ControlLight;
             txtHoTen.BorderStyle = BorderStyle.None;
-            txtHoTen.Location = new Point(109, 141);
+            txtHoTen.Location = new Point(109, 114);
             txtHoTen.Name = "txtHoTen";
             txtHoTen.Size = new Size(254, 27);
             txtHoTen.TabIndex = 24;
@@ -147,7 +149,7 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaptionText;
-            panel3.Location = new Point(109, 267);
+            panel3.Location = new Point(109, 240);
             panel3.Name = "panel3";
             panel3.Size = new Size(254, 2);
             panel3.TabIndex = 23;
@@ -156,7 +158,7 @@
             // 
             txtSDT.BackColor = SystemColors.ControlLight;
             txtSDT.BorderStyle = BorderStyle.None;
-            txtSDT.Location = new Point(109, 234);
+            txtSDT.Location = new Point(109, 207);
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(254, 27);
             txtSDT.TabIndex = 22;
@@ -167,14 +169,14 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(65, 88);
+            panel1.Location = new Point(65, 61);
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 2);
             panel1.TabIndex = 21;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(109, 157);
+            textBox2.Location = new Point(109, 130);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(0, 34);
             textBox2.TabIndex = 20;
@@ -184,7 +186,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.MenuHighlight;
-            label2.Location = new Point(627, 35);
+            label2.Location = new Point(528, 25);
             label2.Name = "label2";
             label2.Size = new Size(213, 28);
             label2.TabIndex = 19;
@@ -195,7 +197,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.MenuHighlight;
-            label1.Location = new Point(83, 35);
+            label1.Location = new Point(74, 25);
             label1.Name = "label1";
             label1.Size = new Size(280, 28);
             label1.TabIndex = 18;
@@ -204,7 +206,7 @@
             // panel5
             // 
             panel5.BackColor = SystemColors.ActiveCaptionText;
-            panel5.Location = new Point(586, 88);
+            panel5.Location = new Point(484, 59);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 2);
             panel5.TabIndex = 22;
@@ -214,7 +216,7 @@
             lblMaPhong.AutoSize = true;
             lblMaPhong.Font = new Font("Trebuchet MS", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             lblMaPhong.ForeColor = Color.DarkRed;
-            lblMaPhong.Location = new Point(672, 114);
+            lblMaPhong.Location = new Point(570, 85);
             lblMaPhong.Name = "lblMaPhong";
             lblMaPhong.Size = new Size(168, 43);
             lblMaPhong.TabIndex = 33;
@@ -223,7 +225,7 @@
             // dtpNgayDat
             // 
             dtpNgayDat.Format = DateTimePickerFormat.Time;
-            dtpNgayDat.Location = new Point(769, 198);
+            dtpNgayDat.Location = new Point(667, 169);
             dtpNgayDat.Name = "dtpNgayDat";
             dtpNgayDat.Size = new Size(147, 34);
             dtpNgayDat.TabIndex = 34;
@@ -234,7 +236,7 @@
             btnDatPhong.FlatStyle = FlatStyle.Popup;
             btnDatPhong.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnDatPhong.ForeColor = Color.Brown;
-            btnDatPhong.Location = new Point(607, 498);
+            btnDatPhong.Location = new Point(505, 386);
             btnDatPhong.Name = "btnDatPhong";
             btnDatPhong.Size = new Size(129, 55);
             btnDatPhong.TabIndex = 35;
@@ -248,28 +250,51 @@
             btnHuy.FlatStyle = FlatStyle.Popup;
             btnHuy.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnHuy.ForeColor = Color.Brown;
-            btnHuy.Location = new Point(828, 498);
+            btnHuy.Location = new Point(715, 386);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(99, 55);
             btnHuy.TabIndex = 36;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(521, 204);
+            label3.Location = new Point(459, 175);
             label3.Name = "label3";
-            label3.Size = new Size(224, 26);
+            label3.Size = new Size(175, 26);
             label3.TabIndex = 37;
-            label3.Text = "Chọn thời gian bắt đầu";
+            label3.Text = "Thời gian bắt đầu";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(505, 270);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 26);
+            label4.TabIndex = 38;
+            label4.Text = "Nhân Viên";
+            // 
+            // lblMaNhanVien
+            // 
+            lblMaNhanVien.AutoSize = true;
+            lblMaNhanVien.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMaNhanVien.ForeColor = Color.DarkRed;
+            lblMaNhanVien.Location = new Point(640, 268);
+            lblMaNhanVien.Name = "lblMaNhanVien";
+            lblMaNhanVien.Size = new Size(158, 28);
+            lblMaNhanVien.TabIndex = 39;
+            lblMaNhanVien.Text = "Mã Nhân Viên";
             // 
             // FrmDatPhongTrong
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(965, 585);
+            ClientSize = new Size(858, 453);
+            Controls.Add(lblMaNhanVien);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(btnHuy);
             Controls.Add(btnDatPhong);
@@ -328,5 +353,7 @@
         private Button btnDatPhong;
         private Button btnHuy;
         private Label label3;
+        private Label label4;
+        private Label lblMaNhanVien;
     }
 }

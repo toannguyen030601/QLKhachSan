@@ -65,12 +65,40 @@ namespace QLKhachSan
 
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(dtpNgayDat.Value.ToString());
+            //Thêm Khách Hàng
+            if (txtHoTen.Text == "Nhập Họ Tên"||txtSDT.Text== "Nhập Số Điện Thoại"||txtSoCCCD.Text== "Nhập Số CCCD")
+            {
+                MessageBox.Show("Nhập đủ thông tin khách hàng");
+            }
+            else
+            {
+                if (cbGT.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Chọn giới tính");
+                }
+                else
+                {
+                    /// Thêm khách hàng
+
+
+
+
+
+                    
+                    //Them HoaDonPhong
+                }
+            }
+
         }
 
         private void FrmDatPhongTrong_Load(object sender, EventArgs e)
         {
             lblMaPhong.Text = maPhong;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
