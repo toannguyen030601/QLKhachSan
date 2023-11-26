@@ -89,6 +89,7 @@ namespace QLKhachSan
             }
             else
             {
+
                 string emailDaDangNhap = UserLoginInfo.Email;
                 if (txtHoten.Text != "" && (rdbNam.Checked || rdbNu.Checked) && txtSoDT.Text != "" && txtCCCD.Text != "")
                 {

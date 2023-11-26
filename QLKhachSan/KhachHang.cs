@@ -19,6 +19,8 @@ namespace QLKhachSan
         {
             InitializeComponent();
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
         }
         BUS_qlks.BUS_khachhang buskh = new BUS_qlks.BUS_khachhang();
         private void btnTim_Click(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace QLKhachSan
                 FromThemSuaKhachHang f = new FromThemSuaKhachHang(false);
 
                 // Gán dữ liệu cho các trường trên form Sửa
-                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, true,maKH); // Truyền thông tin cần chỉnh sửa
+                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, true, maKH); // Truyền thông tin cần chỉnh sửa
                 editForm.ShowDialog();
 
                 // Cập nhật lại DataGridView nếu có thay đổi
@@ -143,6 +145,11 @@ namespace QLKhachSan
             {
                 MessageBox.Show("Vui lòng chọn khách hàng bạn muốn sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

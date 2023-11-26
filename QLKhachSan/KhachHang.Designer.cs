@@ -45,7 +45,7 @@
             btnTim.FlatAppearance.BorderSize = 2;
             btnTim.FlatStyle = FlatStyle.Flat;
             btnTim.Image = Properties.Resources.search;
-            btnTim.Location = new Point(484, 20);
+            btnTim.Location = new Point(454, 41);
             btnTim.Name = "btnTim";
             btnTim.Size = new Size(50, 36);
             btnTim.TabIndex = 9;
@@ -55,11 +55,12 @@
             // txtSearch
             // 
             txtSearch.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(98, 20);
+            txtSearch.Location = new Point(68, 42);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(436, 35);
             txtSearch.TabIndex = 8;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dataGridView1
             // 

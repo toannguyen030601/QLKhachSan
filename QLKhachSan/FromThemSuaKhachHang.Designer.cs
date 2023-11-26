@@ -47,7 +47,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaptionText;
-            panel1.Location = new Point(111, 134);
+            panel1.Location = new Point(226, 129);
             panel1.Name = "panel1";
             panel1.Size = new Size(347, 3);
             panel1.TabIndex = 35;
@@ -55,7 +55,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 205);
+            label3.Location = new Point(126, 200);
             label3.Name = "label3";
             label3.Size = new Size(67, 22);
             label3.TabIndex = 33;
@@ -64,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(11, 115);
+            label2.Location = new Point(126, 110);
             label2.Name = "label2";
             label2.Size = new Size(68, 22);
             label2.TabIndex = 32;
@@ -72,7 +72,7 @@
             // 
             // txtSoDT
             // 
-            txtSoDT.Location = new Point(111, 197);
+            txtSoDT.Location = new Point(226, 192);
             txtSoDT.Margin = new Padding(4, 3, 4, 3);
             txtSoDT.Multiline = true;
             txtSoDT.Name = "txtSoDT";
@@ -81,7 +81,7 @@
             // 
             // txtHoten
             // 
-            txtHoten.Location = new Point(111, 107);
+            txtHoten.Location = new Point(226, 102);
             txtHoten.Margin = new Padding(4, 3, 4, 3);
             txtHoten.Multiline = true;
             txtHoten.Name = "txtHoten";
@@ -93,7 +93,7 @@
             btnThemSuaNV.BackColor = Color.LimeGreen;
             btnThemSuaNV.FlatAppearance.BorderSize = 0;
             btnThemSuaNV.FlatStyle = FlatStyle.Flat;
-            btnThemSuaNV.Location = new Point(169, 329);
+            btnThemSuaNV.Location = new Point(284, 324);
             btnThemSuaNV.Margin = new Padding(4, 3, 4, 3);
             btnThemSuaNV.Name = "btnThemSuaNV";
             btnThemSuaNV.Size = new Size(176, 46);
@@ -119,7 +119,7 @@
             panel3.Controls.Add(label2);
             panel3.Location = new Point(-5, -1);
             panel3.Name = "panel3";
-            panel3.Size = new Size(503, 493);
+            panel3.Size = new Size(733, 467);
             panel3.TabIndex = 37;
             // 
             // labelMaKH
@@ -131,11 +131,12 @@
             labelMaKH.Size = new Size(83, 25);
             labelMaKH.TabIndex = 42;
             labelMaKH.Text = "MaKH";
+            labelMaKH.Visible = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(11, 158);
+            label1.Location = new Point(126, 153);
             label1.Name = "label1";
             label1.Size = new Size(87, 22);
             label1.TabIndex = 41;
@@ -144,7 +145,7 @@
             // rdbNu
             // 
             rdbNu.AutoSize = true;
-            rdbNu.Location = new Point(239, 154);
+            rdbNu.Location = new Point(354, 149);
             rdbNu.Name = "rdbNu";
             rdbNu.Size = new Size(56, 26);
             rdbNu.TabIndex = 40;
@@ -155,7 +156,7 @@
             // rdbNam
             // 
             rdbNam.AutoSize = true;
-            rdbNam.Location = new Point(136, 154);
+            rdbNam.Location = new Point(251, 149);
             rdbNam.Margin = new Padding(4, 3, 4, 3);
             rdbNam.Name = "rdbNam";
             rdbNam.Size = new Size(68, 26);
@@ -166,7 +167,7 @@
             // 
             // txtCCCD
             // 
-            txtCCCD.Location = new Point(111, 233);
+            txtCCCD.Location = new Point(226, 228);
             txtCCCD.Margin = new Padding(4, 3, 4, 3);
             txtCCCD.Multiline = true;
             txtCCCD.Name = "txtCCCD";
@@ -176,7 +177,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(11, 241);
+            label4.Location = new Point(126, 236);
             label4.Name = "label4";
             label4.Size = new Size(95, 22);
             label4.TabIndex = 38;
@@ -186,11 +187,12 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(486, 495);
+            ClientSize = new Size(715, 420);
             Controls.Add(panel3);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FromThemSuaKhachHang";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FromThemSuaKhachHang";
             Load += FromThemSuaKhachHang_Load;
             panel3.ResumeLayout(false);
