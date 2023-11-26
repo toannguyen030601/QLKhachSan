@@ -13,7 +13,7 @@ namespace QLKhachSan
     public partial class FrmDatPhongTrong : Form
     {
         public string maPhong;
-        public FrmDatPhongTrong(string maPhong)
+        public FrmDatPhongTrong(string maPhong = null)
         {
             this.maPhong = maPhong;
             InitializeComponent();
@@ -21,7 +21,10 @@ namespace QLKhachSan
 
         private void txtHoTen_Enter(object sender, EventArgs e)
         {
-            txtHoTen.Text = "";
+            if (txtHoTen.Text == "Nhập Họ Tên")
+            {
+                txtHoTen.Text = string.Empty;
+            }
         }
 
         private void txtHoTen_Leave(object sender, EventArgs e)
@@ -34,27 +37,29 @@ namespace QLKhachSan
 
         private void txtSDT_Enter(object sender, EventArgs e)
         {
-            txtSDT.Text = "";
+            if (txtSDT.Text == "Nhập Số Điện Thoại")
+            { txtSDT.Text = ""; }
         }
 
         private void txtSDT_Leave(object sender, EventArgs e)
         {
             if (txtSDT.Text == "")
             {
-                txtSDT.Text = "Nhập Số điện thoại";
+                txtSDT.Text = "Nhập Số Điện Thoại";
             }
         }
 
         private void txtSoCCCD_Enter(object sender, EventArgs e)
         {
-            txtSoCCCD.Text = "";
+            if (txtSoCCCD.Text == "Nhập Số CCCD")
+            { txtSoCCCD.Text = ""; }
         }
 
         private void txtSoCCCD_Leave(object sender, EventArgs e)
         {
             if (txtSoCCCD.Text == "")
             {
-                txtSoCCCD.Text = "Nhập số CCCD";
+                txtSoCCCD.Text = "Nhập Số CCCD";
             }
         }
 

@@ -25,10 +25,26 @@ namespace QLKhachSan
             Button btn = sender as Button;
             if (btn != null)
             {
-                DTO_Phong phong=(DTO_Phong)btn.Tag;
+                DTO_Phong phong = (DTO_Phong)btn.Tag;
                 FrmDatPhongTrong frm = new FrmDatPhongTrong(phong.MaPhong);
                 frm.ShowDialog();
             }
+
+        }
+        private void Btn_MouseHover(object sender, EventArgs e)
+        {
+            Button myButton = sender as Button;
+            // Thiết lập màu khi hover (bạn có thể giữ nguyên màu hiện tại hoặc thiết lập một màu mới)
+            myButton.BackColor = myButton.BackColor;
+            myButton.ForeColor = myButton.ForeColor;
+        }
+
+        private void Btn_MouseLeave(object sender, EventArgs e)
+        {
+            Button myButton=sender as Button;
+            // Thiết lập màu khi không hover (bạn có thể giữ nguyên màu hiện tại hoặc thiết lập một màu mới)
+            myButton.BackColor = myButton.BackColor;
+            myButton.ForeColor = myButton.ForeColor;
         }
         private void LoadPhong(double min=0,double max=double.MaxValue)
         {
@@ -56,6 +72,7 @@ namespace QLKhachSan
                         TextAlign = ContentAlignment.MiddleCenter,
 
                     };
+                
                     btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
                     btn.Tag = new DTO_Phong(maPhong, tenPhong, gia, trangThai, maloaiPhong);
@@ -98,7 +115,8 @@ namespace QLKhachSan
                     btn.Controls.Add(lblLoaiPhong);
 
                     btn.Click += Btn_Click;
-
+                    btn.MouseEnter += Btn_MouseHover;
+                    btn.MouseLeave += Btn_MouseLeave;
                     if (rdoDaThue.Checked)
                     {
                         if (trangThai) flowLayoutPanel1.Controls.Add(btn);

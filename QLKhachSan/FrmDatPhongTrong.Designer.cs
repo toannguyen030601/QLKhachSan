@@ -120,7 +120,7 @@
             txtSoCCCD.Name = "txtSoCCCD";
             txtSoCCCD.Size = new Size(254, 27);
             txtSoCCCD.TabIndex = 26;
-            txtSoCCCD.Text = "Số CCCD";
+            txtSoCCCD.Text = "Nhập Số CCCD";
             txtSoCCCD.Enter += txtSoCCCD_Enter;
             txtSoCCCD.Leave += txtSoCCCD_Leave;
             // 
@@ -140,7 +140,7 @@
             txtHoTen.Name = "txtHoTen";
             txtHoTen.Size = new Size(254, 27);
             txtHoTen.TabIndex = 24;
-            txtHoTen.Text = "Nhập Họ tên";
+            txtHoTen.Text = "Nhập Họ Tên";
             txtHoTen.Enter += txtHoTen_Enter;
             txtHoTen.Leave += txtHoTen_Leave;
             // 
@@ -160,7 +160,7 @@
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(254, 27);
             txtSDT.TabIndex = 22;
-            txtSDT.Text = "Nhập SDT ";
+            txtSDT.Text = "Nhập Số Điện Thoại";
             txtSDT.Enter += txtSDT_Enter;
             txtSDT.Leave += txtSDT_Leave;
             // 
@@ -295,7 +295,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "FrmDatPhongTrong";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FrmDatPhongTrong";
+            Text = "Đặt Phòng";
             Load += FrmDatPhongTrong_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
