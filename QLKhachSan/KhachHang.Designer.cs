@@ -71,7 +71,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(983, 458);
+            dataGridView1.Size = new Size(890, 509);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -98,7 +98,7 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Controls.Add(btnSua);
-            panel1.Location = new Point(594, 20);
+            panel1.Location = new Point(501, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(474, 61);
             panel1.TabIndex = 10;
@@ -137,7 +137,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1115, 560);
+            ClientSize = new Size(1022, 611);
             Controls.Add(panel1);
             Controls.Add(btnTim);
             Controls.Add(txtSearch);
