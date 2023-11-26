@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NhapTTLoaiDichVu));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelMaLDV = new System.Windows.Forms.Label();
             this.txtNhapLoaiDichVu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemLoaiDichVu2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelMaLDV = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +53,14 @@
             this.groupBox1.Size = new System.Drawing.Size(616, 277);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
+            // 
+            // labelMaLDV
+            // 
+            this.labelMaLDV.AutoSize = true;
+            this.labelMaLDV.Location = new System.Drawing.Point(16, 26);
+            this.labelMaLDV.Name = "labelMaLDV";
+            this.labelMaLDV.Size = new System.Drawing.Size(0, 22);
+            this.labelMaLDV.TabIndex = 18;
             // 
             // txtNhapLoaiDichVu
             // 
@@ -95,6 +103,7 @@
             this.btnXoa.Text = "Hủy bỏ";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThemLoaiDichVu2
             // 
@@ -121,14 +130,6 @@
             this.label1.Size = new System.Drawing.Size(456, 46);
             this.label1.TabIndex = 14;
             this.label1.Text = "Nhập thông tin loại dịch vụ";
-            // 
-            // labelMaLDV
-            // 
-            this.labelMaLDV.AutoSize = true;
-            this.labelMaLDV.Location = new System.Drawing.Point(16, 26);
-            this.labelMaLDV.Name = "labelMaLDV";
-            this.labelMaLDV.Size = new System.Drawing.Size(0, 22);
-            this.labelMaLDV.TabIndex = 18;
             // 
             // NhapTTLoaiDichVu
             // 

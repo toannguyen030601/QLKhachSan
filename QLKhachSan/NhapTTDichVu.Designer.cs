@@ -170,7 +170,7 @@
             this.txtTenDichVu.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTenDichVu.Location = new System.Drawing.Point(194, 51);
             this.txtTenDichVu.Name = "txtTenDichVu";
-            this.txtTenDichVu.Size = new System.Drawing.Size(295, 39);
+            this.txtTenDichVu.Size = new System.Drawing.Size(296, 39);
             this.txtTenDichVu.TabIndex = 2;
             // 
             // label2
@@ -206,6 +206,7 @@
             this.btnXoa.Text = "Hủy bỏ";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThemDichVu2
             // 
