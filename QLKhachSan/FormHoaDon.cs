@@ -15,12 +15,11 @@ namespace QLKhachSan
 {
     public partial class FormHoaDon : Form
     {
-        private DBConnect db;
+     
         public FormHoaDon()
         {
             InitializeComponent();
-            db = new DBConnect(); // Initialize your DBConnect instance
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+           
         }
         BUS_qlks.BUS_hoaDon busnv = new BUS_qlks.BUS_hoaDon();
         //đóng mở menu
@@ -58,21 +57,10 @@ namespace QLKhachSan
         {
             WindowState = FormWindowState.Minimized;
         }
-        private void UpdateDataGridView(DateTime selectedDate)
-        {
-            // Gọi function TimHoaDon từ BUS_hoaDon với tham số là ngày đã chọn
-            DataTable data = busnv.TimHoaDon(selectedDate);
-
-            // Cập nhật dữ liệu cho DataGridView
-            dataGridView1.DataSource = data;
-        }
+        
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            /*// Gọi hàm TimHoaDon từ BUS_hoaDon
-            DataTable data = busnv.TimHoaDon(dateTimePicker1.Value);
-
-            // Cập nhật dữ liệu cho DataGridView
-            dataGridView1.DataSource = data;*/
+          
         }
 
         private void btnTim_Click(object sender, EventArgs e)
