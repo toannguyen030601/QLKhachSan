@@ -83,20 +83,20 @@ namespace QLKhachSan
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
         {
-            if(currentFormChild != null)
+            if (currentFormChild != null)
             {
                 currentFormChild.Close();
             }
             currentFormChild = childForm;
             childForm.TopLevel = false;
-            childForm.Dock= DockStyle.Fill;
-            childForm.FormBorderStyle= FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            childForm.FormBorderStyle = FormBorderStyle.None;
             panelBody.Controls.Add(childForm);
             panelBody.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
         }
-        
+
 
         //dragcontrol
         private Point mouseOffset;
@@ -154,14 +154,14 @@ namespace QLKhachSan
 
         private void btnMaximize_Click(object sender, EventArgs e)
         {
-            if(WindowState == FormWindowState.Normal)
+            if (WindowState == FormWindowState.Normal)
             {
                 WindowState = FormWindowState.Maximized;
                 btnMaximize.Image = Properties.Resources.normalcontrol;
             }
             else
             {
-                WindowState= FormWindowState.Normal;
+                WindowState = FormWindowState.Normal;
                 btnMaximize.Image = Properties.Resources.maximize1;
             }
         }
@@ -244,6 +244,11 @@ namespace QLKhachSan
             {
                 btnNhanVien.Visible = true;
             }
+        }
+        private void btnHoaDon_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FormHoaDon());
         }
     }
 }
