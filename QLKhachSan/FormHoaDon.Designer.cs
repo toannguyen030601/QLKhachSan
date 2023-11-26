@@ -197,6 +197,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 29);
             dateTimePicker1.TabIndex = 3;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // txtTim
             // 
@@ -204,7 +205,7 @@
             txtTim.Location = new Point(500, 45);
             txtTim.Multiline = true;
             txtTim.Name = "txtTim";
-            txtTim.PlaceholderText = "Tìm hóa đơn";
+            txtTim.PlaceholderText = "Tìm khách hàng";
             txtTim.Size = new Size(254, 35);
             txtTim.TabIndex = 4;
             // 
@@ -219,6 +220,7 @@
             btnTim.Size = new Size(50, 36);
             btnTim.TabIndex = 5;
             btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
             // 
             // FormHoaDon
             // 
