@@ -210,7 +210,6 @@ namespace QLKhachSan
             ChangeColor((Button)sender);
             OpenChildForm(new FrmPhong());
         }
-    }
         private void btnLogout_Click(object sender, EventArgs e)
         {
             FormDangNhap f = new FormDangNhap();
