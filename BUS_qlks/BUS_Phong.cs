@@ -28,6 +28,14 @@ namespace BUS_qlks
         {
             return dal_Phong.GetLoaiPhongFromMaLoaiPhong(maLoaiPhong);
         }
+        public bool ThemKhachHang(string hoten, string sdt, string cccd, bool gioitinh, string email)
+        {
+            return dal_Phong.ThemKhachHang(hoten, sdt, cccd, gioitinh, email);
+        }
+        public string LayMaNV(string email)
+        {
+            return dal_Phong.LayMaNhanVien(email);
+        }
 
     }
 }

@@ -101,7 +101,7 @@ namespace QLKhachSan
 
         private void dgvDSPhong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != -1 && e.ColumnIndex != -1&&e.RowIndex < dgvDSPhong.Rows.Count-1)
+            if (e.RowIndex != -1 && e.ColumnIndex != -1 && e.RowIndex < dgvDSPhong.Rows.Count - 1)
             {
                 txtMaPhong.Text = dgvDSPhong.Rows[e.RowIndex].Cells[0].Value.ToString();
                 txtTenPhong.Text = dgvDSPhong.Rows[e.RowIndex].Cells[1].Value.ToString();
@@ -166,7 +166,7 @@ namespace QLKhachSan
                     }
                     else
                     {
-                        if(!double.TryParse(txtGia.Text,out double giaPhong))
+                        if (!double.TryParse(txtGia.Text, out double giaPhong))
                         {
                             MessageBox.Show("Vui lòng Giá phòng là số");
                         }
