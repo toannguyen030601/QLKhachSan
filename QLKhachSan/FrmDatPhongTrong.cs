@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS_qlks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace QLKhachSan
     public partial class FrmDatPhongTrong : Form
     {
         public string maPhong;
+        public BUS_Phong bus_Phong=new BUS_Phong();
         public FrmDatPhongTrong(string maPhong = null)
         {
             this.maPhong = maPhong;
@@ -78,8 +80,12 @@ namespace QLKhachSan
                 }
                 else
                 {
+                    bool gt=cbGT.SelectedIndex==0?true:false;
                     /// Thêm khách hàng
+                    if (bus_Phong.ThemKhachHang(txtHoTen.Text, txtSDT.Text, txtSoCCCD.Text,gt,bus_Phong.LayMaNV()))
+                    {
 
+                    }
 
 
 
