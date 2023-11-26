@@ -19,7 +19,7 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Phong";
+                cmd.CommandText = "select * from Laythongtindichvu()";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;

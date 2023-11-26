@@ -34,8 +34,10 @@
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
             label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnPhai = new Button();
+            btnTrai = new Button();
+            btnLuu = new Button();
+            btnThoat = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -72,10 +74,10 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(53, 188);
+            dataGridView1.Location = new Point(33, 188);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 35;
-            dataGridView1.Size = new Size(294, 150);
+            dataGridView1.Size = new Size(329, 209);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -85,7 +87,7 @@
             dataGridView2.Location = new Point(570, 188);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowTemplate.Height = 35;
-            dataGridView2.Size = new Size(308, 150);
+            dataGridView2.Size = new Size(334, 209);
             dataGridView2.TabIndex = 3;
             // 
             // label2
@@ -98,31 +100,53 @@
             label2.Text = "Dịch vụ đã chọn";
             label2.Click += label2_Click;
             // 
-            // button1
+            // btnPhai
             // 
-            button1.Location = new Point(419, 210);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 31);
-            button1.TabIndex = 5;
-            button1.Text = ">>";
-            button1.UseVisualStyleBackColor = true;
+            btnPhai.Location = new Point(419, 210);
+            btnPhai.Name = "btnPhai";
+            btnPhai.Size = new Size(92, 31);
+            btnPhai.TabIndex = 5;
+            btnPhai.Text = ">>";
+            btnPhai.UseVisualStyleBackColor = true;
+            btnPhai.Click += btnPhai_Click;
             // 
-            // button2
+            // btnTrai
             // 
-            button2.Location = new Point(419, 261);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 31);
-            button2.TabIndex = 6;
-            button2.Text = "<<";
-            button2.UseVisualStyleBackColor = true;
+            btnTrai.Location = new Point(419, 261);
+            btnTrai.Name = "btnTrai";
+            btnTrai.Size = new Size(92, 31);
+            btnTrai.TabIndex = 6;
+            btnTrai.Text = "<<";
+            btnTrai.UseVisualStyleBackColor = true;
+            // 
+            // btnLuu
+            // 
+            btnLuu.Location = new Point(570, 420);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(105, 31);
+            btnLuu.TabIndex = 7;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = true;
+            // 
+            // btnThoat
+            // 
+            btnThoat.Location = new Point(701, 420);
+            btnThoat.Name = "btnThoat";
+            btnThoat.Size = new Size(103, 31);
+            btnThoat.TabIndex = 8;
+            btnThoat.Text = "Thoát";
+            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // FormThemDvu
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(916, 480);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnThoat);
+            Controls.Add(btnLuu);
+            Controls.Add(btnTrai);
+            Controls.Add(btnPhai);
             Controls.Add(label2);
             Controls.Add(dataGridView2);
             Controls.Add(dataGridView1);
@@ -131,6 +155,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormThemDvu";
             Text = "FormThemDvu";
+            Load += FormThemDvu_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
@@ -146,7 +171,9 @@
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
         private Label label2;
-        private Button button1;
-        private Button button2;
+        private Button btnPhai;
+        private Button btnTrai;
+        private Button btnLuu;
+        private Button btnThoat;
     }
 }

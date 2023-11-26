@@ -67,7 +67,7 @@ namespace QLKhachSan
 
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
-            //Thêm Khách Hàng
+            /*//Thêm Khách Hàng
             if (txtHoTen.Text == "Nhập Họ Tên"||txtSDT.Text== "Nhập Số Điện Thoại"||txtSoCCCD.Text== "Nhập Số CCCD")
             {
                 MessageBox.Show("Nhập đủ thông tin khách hàng");
@@ -93,7 +93,7 @@ namespace QLKhachSan
                     
                     //Them HoaDonPhong
                 }
-            }
+            }*/
 
         }
 
