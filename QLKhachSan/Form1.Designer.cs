@@ -194,68 +194,67 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Controls.Add(this.btnInfoDangnhap);
-            this.panel4.Controls.Add(this.btnLogout);
-            this.panel4.Controls.Add(this.lblTen);
-            this.panel4.Controls.Add(this.picAvatar);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 166);
-            this.panel4.TabIndex = 5;
+            panel4.BackColor = Color.Gray;
+            panel4.Controls.Add(btnInfoDangnhap);
+            panel4.Controls.Add(btnLogout);
+            panel4.Controls.Add(lblTen);
+            panel4.Controls.Add(picAvatar);
+            panel4.Location = new Point(0, 0);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(250, 166);
+            panel4.TabIndex = 5;
             // 
             // btnInfoDangnhap
             // 
-            this.btnInfoDangnhap.BackColor = System.Drawing.Color.Transparent;
-            this.btnInfoDangnhap.FlatAppearance.BorderSize = 0;
-            this.btnInfoDangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInfoDangnhap.Image = global::QLKhachSan.Properties.Resources.infoMain;
-            this.btnInfoDangnhap.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnInfoDangnhap.Location = new System.Drawing.Point(227, 0);
-            this.btnInfoDangnhap.Name = "btnInfoDangnhap";
-            this.btnInfoDangnhap.Size = new System.Drawing.Size(23, 24);
-            this.btnInfoDangnhap.TabIndex = 3;
-            this.btnInfoDangnhap.UseVisualStyleBackColor = false;
-            this.btnInfoDangnhap.Click += new System.EventHandler(this.btnInfoDangnhap_Click);
-            this.btnInfoDangnhap.MouseLeave += new System.EventHandler(this.btnInfoDangnhap_MouseLeave);
-            this.btnInfoDangnhap.MouseHover += new System.EventHandler(this.btnInfoDangnhap_MouseHover);
+            btnInfoDangnhap.BackColor = Color.Transparent;
+            btnInfoDangnhap.FlatAppearance.BorderSize = 0;
+            btnInfoDangnhap.FlatStyle = FlatStyle.Flat;
+            btnInfoDangnhap.Image = Properties.Resources.infoMain;
+            btnInfoDangnhap.ImageAlign = ContentAlignment.BottomCenter;
+            btnInfoDangnhap.Location = new Point(227, 0);
+            btnInfoDangnhap.Name = "btnInfoDangnhap";
+            btnInfoDangnhap.Size = new Size(23, 24);
+            btnInfoDangnhap.TabIndex = 3;
+            btnInfoDangnhap.UseVisualStyleBackColor = false;
+            btnInfoDangnhap.Click += btnInfoDangnhap_Click;
+            btnInfoDangnhap.MouseLeave += btnInfoDangnhap_MouseLeave;
+            btnInfoDangnhap.MouseHover += btnInfoDangnhap_MouseHover;
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Image = global::QLKhachSan.Properties.Resources.logoutqlks1;
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnLogout.Location = new System.Drawing.Point(12, 6);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(42, 39);
-            this.btnLogout.TabIndex = 2;
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            btnLogout.BackColor = Color.Transparent;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Image = Properties.Resources.logoutqlks1;
+            btnLogout.ImageAlign = ContentAlignment.BottomCenter;
+            btnLogout.Location = new Point(12, 6);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(42, 39);
+            btnLogout.TabIndex = 2;
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // lblTen
             // 
-            this.lblTen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTen.Location = new System.Drawing.Point(4, 132);
-            this.lblTen.Name = "lblTen";
-            this.lblTen.Size = new System.Drawing.Size(240, 31);
-            this.lblTen.TabIndex = 1;
-            this.lblTen.Text = "label2";
-            this.lblTen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lblTen.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lblTen.Location = new Point(4, 132);
+            lblTen.Name = "lblTen";
+            lblTen.Size = new Size(240, 31);
+            lblTen.TabIndex = 1;
+            lblTen.Text = "label2";
+            lblTen.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // picAvatar
             // 
-            this.picAvatar.BackColor = System.Drawing.Color.Transparent;
-            this.picAvatar.Image = global::QLKhachSan.Properties.Resources.user;
-            this.picAvatar.Location = new System.Drawing.Point(60, 6);
-            this.picAvatar.Name = "picAvatar";
-            this.picAvatar.Size = new System.Drawing.Size(129, 123);
-            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAvatar.TabIndex = 0;
-            this.picAvatar.TabStop = false;
+            picAvatar.BackColor = Color.Transparent;
+            picAvatar.Image = Properties.Resources.user;
+            picAvatar.Location = new Point(60, 6);
+            picAvatar.Name = "picAvatar";
+            picAvatar.Size = new Size(129, 123);
+            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            picAvatar.TabIndex = 0;
+            picAvatar.TabStop = false;
             // 
             // panel2
             // 
@@ -358,6 +357,7 @@
             button4.TabIndex = 2;
             button4.Text = "QL Khách Hàng";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // panel8
             // 
@@ -492,29 +492,29 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnNhanVien);
-            this.panel3.Location = new System.Drawing.Point(0, 661);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 55);
-            this.panel3.TabIndex = 4;
+            panel3.Controls.Add(btnNhanVien);
+            panel3.Location = new Point(0, 661);
+            panel3.Margin = new Padding(0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(250, 55);
+            panel3.TabIndex = 4;
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Image = global::QLKhachSan.Properties.Resources.nhanvien;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 0);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNhanVien.Size = new System.Drawing.Size(250, 55);
-            this.btnNhanVien.TabIndex = 2;
-            this.btnNhanVien.Text = "Nhân Viên";
-            this.btnNhanVien.UseVisualStyleBackColor = false;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
+            btnNhanVien.BackColor = SystemColors.ScrollBar;
+            btnNhanVien.Dock = DockStyle.Fill;
+            btnNhanVien.FlatAppearance.BorderSize = 0;
+            btnNhanVien.FlatStyle = FlatStyle.Flat;
+            btnNhanVien.Image = Properties.Resources.nhanvien;
+            btnNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNhanVien.Location = new Point(0, 0);
+            btnNhanVien.Name = "btnNhanVien";
+            btnNhanVien.Padding = new Padding(10, 0, 0, 0);
+            btnNhanVien.Size = new Size(250, 55);
+            btnNhanVien.TabIndex = 2;
+            btnNhanVien.Text = "Nhân Viên";
+            btnNhanVien.UseVisualStyleBackColor = false;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
             // sidebarTransition
             // 
@@ -539,40 +539,39 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 758);
-            this.Controls.Add(this.panelBody);
-            this.Controls.Add(this.panel13);
-            this.Controls.Add(this.sidebar);
-            this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
-            this.sidebar.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1292, 758);
+            Controls.Add(panelBody);
+            Controls.Add(panel13);
+            Controls.Add(sidebar);
+            Controls.Add(panel1);
+            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form1";
+            Load += Form1_Load;
+            Resize += Form1_Resize;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)menu).EndInit();
+            sidebar.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            panel2.ResumeLayout(false);
+            panel12.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

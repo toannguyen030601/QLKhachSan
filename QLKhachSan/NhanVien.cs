@@ -25,7 +25,7 @@ namespace QLKhachSan
         }
 
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
-        DTO_nhanvien dtonv= new DTO_nhanvien();
+        DTO_nhanvien dtonv = new DTO_nhanvien();
 
         public static string email;
 
@@ -41,10 +41,10 @@ namespace QLKhachSan
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            if(txtTim.Text != "")
+            if (txtTim.Text != "")
             {
                 DataTable data = busnv.timnhanvien(txtTim.Text);
-                if(data.Rows.Count > 0)
+                if (data.Rows.Count > 0)
                 {
                     dataGridView1.DataSource = data;
                 }
@@ -65,7 +65,7 @@ namespace QLKhachSan
             int i = 0;
             i = dataGridView1.CurrentCell.RowIndex;
             string manhanvien = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            if(manhanvien != null)
+            if (manhanvien != null)
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
