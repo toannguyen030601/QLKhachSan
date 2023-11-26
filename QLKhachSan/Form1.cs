@@ -247,20 +247,20 @@ namespace QLKhachSan
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            FrmQuanLiLoaiPhong loaiphong = new FrmQuanLiLoaiPhong();
-            loaiphong.ShowDialog();
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmQuanLiLoaiPhong());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            FrmQuanLiDSPhong dsphong = new FrmQuanLiDSPhong();
-            dsphong.ShowDialog();
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmQuanLiDSPhong());
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            FrmPhong phong = new FrmPhong();
-            phong.ShowDialog();
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmPhong());
         }
         private void button3_Click(object sender, EventArgs e)
         {
