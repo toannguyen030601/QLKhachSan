@@ -193,6 +193,24 @@ namespace QLKhachSan
             OpenChildForm(new NhanVien());
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmQuanLiLoaiPhong());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmQuanLiDSPhong());
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmPhong());
+        }
+    }
         private void btnLogout_Click(object sender, EventArgs e)
         {
             FormDangNhap f = new FormDangNhap();

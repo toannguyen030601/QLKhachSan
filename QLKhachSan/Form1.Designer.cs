@@ -306,6 +306,7 @@
             button9.TabIndex = 2;
             button9.Text = "Phòng";
             button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
             // 
             // panel5
             // 
@@ -384,6 +385,7 @@
             button5.TabIndex = 2;
             button5.Text = "QL Phòng";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // panel6
             // 
@@ -437,6 +439,7 @@
             button6.TabIndex = 2;
             button6.Text = "QL Loai Phòng";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // panel10
             // 
