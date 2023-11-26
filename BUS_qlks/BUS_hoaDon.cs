@@ -14,5 +14,13 @@ namespace BUS_qlks
         {
             return dalnv.danhsachhoadon();
         }
+        public DataTable TimHoaDon(DateTime ngayTim)
+        {
+            return dalnv.TimHoaDon(ngayTim);
+        }
+        public DataTable timkhachhang(string tenKH)
+        {
+            return dalnv.timkhachhang(tenKH);
+        }
     }
 }

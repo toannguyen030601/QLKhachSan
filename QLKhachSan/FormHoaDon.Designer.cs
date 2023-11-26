@@ -28,79 +28,225 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.txtTim = new System.Windows.Forms.TextBox();
-            this.btnTim = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            panel1 = new Panel();
+            panel14 = new Panel();
+            btnMinimize = new Button();
+            btnMaximize = new Button();
+            btnClose = new Button();
+            label1 = new Label();
+            menu = new PictureBox();
+            sidebarTransition = new System.Windows.Forms.Timer(components);
+            dataGridView1 = new DataGridView();
+            dateTimePicker1 = new DateTimePicker();
+            txtTim = new TextBox();
+            btnTim = new Button();
+            panel1.SuspendLayout();
+            panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)menu).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel1
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.BackColor = SystemColors.ScrollBar;
+            panel1.Controls.Add(panel14);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(menu);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1040, 38);
+            panel1.TabIndex = 1;
+            // 
+            // panel14
+            // 
+            panel14.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel14.Controls.Add(btnMinimize);
+            panel14.Controls.Add(btnMaximize);
+            panel14.Controls.Add(btnClose);
+            panel14.Location = new Point(1991, 0);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(141, 38);
+            panel14.TabIndex = 0;
+            // 
+            // btnMinimize
+            // 
+            btnMinimize.BackColor = Color.Transparent;
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.Image = Properties.Resources.minimize1;
+            btnMinimize.ImageAlign = ContentAlignment.BottomCenter;
+            btnMinimize.Location = new Point(3, 4);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(37, 28);
+            btnMinimize.TabIndex = 1;
+            btnMinimize.UseVisualStyleBackColor = false;
+            // 
+            // btnMaximize
+            // 
+            btnMaximize.BackColor = Color.Transparent;
+            btnMaximize.FlatAppearance.BorderSize = 0;
+            btnMaximize.FlatStyle = FlatStyle.Flat;
+            btnMaximize.Image = Properties.Resources.maximize1;
+            btnMaximize.Location = new Point(46, 4);
+            btnMaximize.Name = "btnMaximize";
+            btnMaximize.Size = new Size(37, 28);
+            btnMaximize.TabIndex = 1;
+            btnMaximize.UseVisualStyleBackColor = false;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Transparent;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Image = Properties.Resources.close2;
+            btnClose.Location = new Point(89, 4);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(37, 28);
+            btnClose.TabIndex = 0;
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(62, 8);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(79, 21);
+            label1.TabIndex = 2;
+            label1.Text = "Hóa Đơn";
+            // 
+            // menu
+            // 
+            menu.Image = Properties.Resources.bar;
+            menu.Location = new Point(4, 2);
+            menu.Margin = new Padding(4, 3, 4, 3);
+            menu.Name = "menu";
+            menu.Size = new Size(50, 33);
+            menu.SizeMode = PictureBoxSizeMode.CenterImage;
+            menu.TabIndex = 1;
+            menu.TabStop = false;
+            menu.Click += menu_Click;
+            // 
+            // 
+            btnMaximize.BackColor = Color.Transparent;
+            btnMaximize.FlatAppearance.BorderSize = 0;
+            btnMaximize.FlatStyle = FlatStyle.Flat;
+            btnMaximize.Image = Properties.Resources.maximize1;
+            btnMaximize.Location = new Point(46, 4);
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.Silver;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(136, 104);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 35;
+            dataGridView1.Size = new Size(752, 510);
+            dataGridView1.TabIndex = 2;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(115, 52);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 29);
+            dateTimePicker1.TabIndex = 3;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            btnClose.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            txtTim.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTim.Location = new Point(641, 46);
+            txtTim.Multiline = true;
+            txtTim.Name = "txtTim";
+            txtTim.PlaceholderText = "Tìm khách hàng";
+            txtTim.Size = new Size(254, 35);
+            txtTim.TabIndex = 4;
+            label1.Text = "Hóa Đơn";
+            // 
+            // menu
+            btnTim.BackColor = Color.Transparent;
+            btnTim.FlatAppearance.BorderSize = 2;
+            btnTim.FlatStyle = FlatStyle.Flat;
+            btnTim.Image = Properties.Resources.search;
+            btnTim.Location = new Point(901, 45);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new Size(50, 36);
+            btnTim.TabIndex = 5;
+            btnTim.UseVisualStyleBackColor = false;
+            btnTim.Click += btnTim_Click;
+            menu.Click += menu_Click;
             // 
             // sidebarTransition
+            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnablePreventFocusChange;
+            BackColor = Color.Silver;
+            ClientSize = new Size(1040, 658);
+            Controls.Add(btnTim);
+            Controls.Add(txtTim);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel1);
+            Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormHoaDon";
+            Text = "FormHoaDon";
+            Load += FormHoaDon_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)menu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
             // 
-            this.sidebarTransition.Interval = 10;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(58, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 35;
-            this.dataGridView1.Size = new System.Drawing.Size(699, 370);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(115, 52);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 29);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
-            // txtTim
-            // 
-            this.txtTim.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTim.Location = new System.Drawing.Point(500, 45);
-            this.txtTim.Multiline = true;
-            this.txtTim.Name = "txtTim";
-            this.txtTim.PlaceholderText = "Tìm hóa đơn";
-            this.txtTim.Size = new System.Drawing.Size(254, 35);
-            this.txtTim.TabIndex = 4;
+            txtTim.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTim.Location = new Point(500, 45);
+            txtTim.Multiline = true;
+            txtTim.Name = "txtTim";
+            txtTim.PlaceholderText = "Tìm hóa đơn";
+            txtTim.Size = new Size(254, 35);
+            txtTim.TabIndex = 4;
             // 
             // btnTim
             // 
-            this.btnTim.BackColor = System.Drawing.Color.Transparent;
-            this.btnTim.FlatAppearance.BorderSize = 2;
-            this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTim.Image = global::QLKhachSan.Properties.Resources.search;
-            this.btnTim.Location = new System.Drawing.Point(760, 44);
-            this.btnTim.Name = "btnTim";
-            this.btnTim.Size = new System.Drawing.Size(50, 36);
-            this.btnTim.TabIndex = 5;
-            this.btnTim.UseVisualStyleBackColor = false;
+            btnTim.BackColor = Color.Transparent;
+            btnTim.FlatAppearance.BorderSize = 2;
+            btnTim.FlatStyle = FlatStyle.Flat;
+            btnTim.Image = Properties.Resources.search;
+            btnTim.Location = new Point(760, 44);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new Size(50, 36);
+            btnTim.TabIndex = 5;
+            btnTim.UseVisualStyleBackColor = false;
             // 
             // FormHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(813, 501);
-            this.Controls.Add(this.btnTim);
-            this.Controls.Add(this.txtTim);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
-            this.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormHoaDon";
-            this.Text = "FormHoaDon";
-            this.Load += new System.EventHandler(this.FormHoaDon_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(10F, 21F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.EnablePreventFocusChange;
+            BackColor = Color.Silver;
+            ClientSize = new Size(813, 501);
+            Controls.Add(btnTim);
+            Controls.Add(txtTim);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(dataGridView1);
+            Controls.Add(panel1);
+            Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "FormHoaDon";
+            Text = "FormHoaDon";
+            Load += FormHoaDon_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)menu).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

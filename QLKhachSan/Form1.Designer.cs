@@ -85,19 +85,19 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel1.Controls.Add(this.panel14);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.menu);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1292, 38);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
-            this.panel1.Move += new System.EventHandler(this.panel1_Move);
+            panel1.BackColor = SystemColors.ScrollBar;
+            panel1.Controls.Add(panel14);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(menu);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1292, 38);
+            panel1.TabIndex = 0;
+            panel1.MouseDown += panel1_MouseDown;
+            panel1.MouseUp += panel1_MouseUp;
+            panel1.Move += panel1_Move;
             // 
             // panel14
             // 
@@ -152,13 +152,13 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 9);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 22);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Luxury Hotel";
+            label1.AutoSize = true;
+            label1.Location = new Point(65, 9);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(88, 19);
+            label1.TabIndex = 2;
+            label1.Text = "Luxury Hotel";
             // 
             // menu
             // 
@@ -293,19 +293,19 @@
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Image = global::QLKhachSan.Properties.Resources.phong1;
-            this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(250, 55);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "Phòng";
-            this.button9.UseVisualStyleBackColor = false;
+            button9.BackColor = SystemColors.ScrollBar;
+            button9.Dock = DockStyle.Fill;
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Flat;
+            button9.Image = Properties.Resources.phong1;
+            button9.ImageAlign = ContentAlignment.MiddleLeft;
+            button9.Location = new Point(0, 0);
+            button9.Name = "button9";
+            button9.Padding = new Padding(10, 0, 0, 0);
+            button9.Size = new Size(250, 55);
+            button9.TabIndex = 2;
+            button9.Text = "Phòng";
+            button9.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -370,20 +370,20 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Image = global::QLKhachSan.Properties.Resources.qlphong;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 0);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(250, 55);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "QL Phòng";
-            this.button5.UseVisualStyleBackColor = false;
+            button5.BackColor = SystemColors.ScrollBar;
+            button5.Dock = DockStyle.Fill;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Image = Properties.Resources.qlphong;
+            button5.ImageAlign = ContentAlignment.MiddleLeft;
+            button5.Location = new Point(0, 0);
+            button5.Margin = new Padding(0);
+            button5.Name = "button5";
+            button5.Padding = new Padding(10, 0, 0, 0);
+            button5.Size = new Size(250, 55);
+            button5.TabIndex = 2;
+            button5.Text = "QL Phòng";
+            button5.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
@@ -394,22 +394,23 @@
             panel6.Size = new Size(250, 55);
             panel6.TabIndex = 6;
             // 
-            // button3
+            // btnHoaDon
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::QLKhachSan.Properties.Resources.hoadon;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 55);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Hóa Đơn";
-            this.button3.UseVisualStyleBackColor = false;
+            btnHoaDon.BackColor = SystemColors.ScrollBar;
+            btnHoaDon.Dock = DockStyle.Fill;
+            btnHoaDon.FlatAppearance.BorderSize = 0;
+            btnHoaDon.FlatStyle = FlatStyle.Flat;
+            btnHoaDon.Image = Properties.Resources.hoadon;
+            btnHoaDon.ImageAlign = ContentAlignment.MiddleLeft;
+            btnHoaDon.Location = new Point(0, 0);
+            btnHoaDon.Margin = new Padding(0);
+            btnHoaDon.Name = "btnHoaDon";
+            btnHoaDon.Padding = new Padding(10, 0, 0, 0);
+            btnHoaDon.Size = new Size(250, 55);
+            btnHoaDon.TabIndex = 2;
+            btnHoaDon.Text = "Hóa Đơn";
+            btnHoaDon.UseVisualStyleBackColor = false;
+            btnHoaDon.Click += btnHoaDon_Click;
             // 
             // panel9
             // 
@@ -422,20 +423,20 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = global::QLKhachSan.Properties.Resources.loaiphong;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(250, 55);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "QL Loai Phòng";
-            this.button6.UseVisualStyleBackColor = false;
+            button6.BackColor = SystemColors.ScrollBar;
+            button6.Dock = DockStyle.Fill;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Image = Properties.Resources.loaiphong;
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(0, 0);
+            button6.Margin = new Padding(0);
+            button6.Name = "button6";
+            button6.Padding = new Padding(10, 0, 0, 0);
+            button6.Size = new Size(250, 55);
+            button6.TabIndex = 2;
+            button6.Text = "QL Loai Phòng";
+            button6.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
@@ -589,7 +590,7 @@
         private PictureBox picAvatar;
         private Label lblTen;
         private Panel panel6;
-        private Button button3;
+        private Button btnHoaDon;
         private Panel panel5;
         private Button button2;
         private Panel panel11;
