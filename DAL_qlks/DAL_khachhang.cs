@@ -37,8 +37,6 @@ namespace DAL_qlks
         }
         public string TaoMaKhachHang()
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-            {
                 try
                 {
                     connection.Open();
@@ -76,13 +74,11 @@ namespace DAL_qlks
                     // hoặc log lỗi
                     throw;
                 }
-            }
+            
         }
 
         public bool ThemKhachHang(DTO_khachhang khachHang)
         {
-            using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-            {
                 try
                 {
                     connection.Open();
@@ -118,7 +114,7 @@ namespace DAL_qlks
                     // hoặc log lỗi
                     throw;
                 }
-            }
+            
         }
         public bool XoaKhachHang(string maKhachHang)
         {
