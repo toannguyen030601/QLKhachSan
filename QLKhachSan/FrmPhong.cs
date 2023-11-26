@@ -26,8 +26,15 @@ namespace QLKhachSan
             if (btn != null)
             {
                 DTO_Phong phong = (DTO_Phong)btn.Tag;
-                FrmDatPhongTrong frm = new FrmDatPhongTrong(phong.MaPhong);
-                frm.ShowDialog();
+                if (!phong.TrangThai)
+                {
+                    FrmDatPhongTrong frm = new FrmDatPhongTrong(phong.MaPhong);
+                    frm.ShowDialog();
+                }
+                else
+                {
+
+                }
             }
 
         }
