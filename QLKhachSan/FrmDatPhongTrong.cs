@@ -14,11 +14,12 @@ namespace QLKhachSan
     public partial class FrmDatPhongTrong : Form
     {
         public string maPhong;
-        public BUS_Phong bus_Phong=new BUS_Phong();
+        public BUS_Phong bus_Phong = new BUS_Phong();
         public FrmDatPhongTrong(string maPhong = null)
         {
             this.maPhong = maPhong;
             InitializeComponent();
+            lblMaNhanVien.Text = bus_Phong.LayMaNV("toannguyen0257@gmail.com");
         }
 
         private void txtHoTen_Enter(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace QLKhachSan
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
             //Thêm Khách Hàng
-            if (txtHoTen.Text == "Nhập Họ Tên"||txtSDT.Text== "Nhập Số Điện Thoại"||txtSoCCCD.Text== "Nhập Số CCCD")
+            if (txtHoTen.Text == "Nhập Họ Tên" || txtSDT.Text == "Nhập Số Điện Thoại" || txtSoCCCD.Text == "Nhập Số CCCD")
             {
                 MessageBox.Show("Nhập đủ thông tin khách hàng");
             }
@@ -80,18 +81,16 @@ namespace QLKhachSan
                 }
                 else
                 {
-                    bool gt=cbGT.SelectedIndex==0?true:false;
+                    bool gt = cbGT.SelectedIndex == 0 ? true : false;
                     /// Thêm khách hàng
-                    if (bus_Phong.ThemKhachHang(txtHoTen.Text, txtSDT.Text, txtSoCCCD.Text,gt,bus_Phong.LayMaNV()))
+                    if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt, "toannguyen0257@gmail.com", dtpNgayNhanPhong.Value,lblMaPhong.Text))
                     {
-
+                        MessageBox.Show("Đặt Phòng Thành Công");
                     }
-
-
-
-
-                    
-                    //Them HoaDonPhong
+                    else
+                    {
+                        MessageBox.Show("Đặt Phòng Thất Bại");
+                    }
                 }
             }
 

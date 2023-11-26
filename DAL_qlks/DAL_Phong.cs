@@ -110,7 +110,6 @@ namespace DAL_qlks
         {
             try
             {
-                connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
@@ -150,10 +149,9 @@ namespace DAL_qlks
         {
             try
             {
-                connection.Open();
-
                 using (NpgsqlCommand cmd = new NpgsqlCommand())
                 {
+                    connection.Open();
                     cmd.Connection = connection;
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = "SELECT manv FROM nhanvien WHERE email = @email";
@@ -172,13 +170,11 @@ namespace DAL_qlks
                     }
                 }
             }
-            finally
-            {
-                connection.Close();
-            }
+            catch (Exception ex) { throw; }
+            finally { connection.Close(); }
         }
 
-        public bool ThemKhachHang(string hoten, string sdt, string cccd, bool gioitinh, string email)
+        public bool DatPhong(string hoten, string sdt, string cccd, bool gioitinh, string email, DateTime ngaynhanphong, string maphong)
         {
             try
             {
@@ -189,12 +185,6 @@ namespace DAL_qlks
 
                 // Lấy mã khách hàng mới từ phương thức tạo mã
                 string newCustomerId = TaoMaKhachHang();
-                if (string.IsNullOrEmpty(newCustomerId))
-                {
-                    // Xử lý khi không thể tạo mã khách hàng mới
-                    return false;
-                }
-
                 cmd.CommandText = "INSERT INTO KhachHang (MaKhachHang, HoTen, SoDT, SoCCCD, GioiTinh, MaNV) VALUES (@MaKhachHang, @HoTen, @SoDT, @SoCCCD, @GioiTinh, @MaNV)";
 
                 cmd.Parameters.AddWithValue("@MaKhachHang", newCustomerId);
@@ -202,11 +192,92 @@ namespace DAL_qlks
                 cmd.Parameters.AddWithValue("@SoDT", sdt);
                 cmd.Parameters.AddWithValue("@SoCCCD", cccd);
                 cmd.Parameters.AddWithValue("@GioiTinh", gioitinh);
+                connection.Close();
                 cmd.Parameters.AddWithValue("@MaNV", LayMaNhanVien(email));
-
+                connection.Open();
                 int rowsAffected = cmd.ExecuteNonQuery();
 
-                return rowsAffected > 0; // Trả về true nếu thêm thành công, ngược lại trả về false
+                NpgsqlCommand cmd2 = new NpgsqlCommand();
+                cmd2.Connection = connection;
+                cmd2.CommandType = CommandType.Text;
+
+                // Lấy mã khách hàng mới từ phương thức tạo mã
+                string HDId = TaoMaHoaDon();
+                if (string.IsNullOrEmpty(HDId))
+                {
+                    // Xử lý khi không thể tạo mã khách hàng mới
+                    return false;
+                }
+
+                cmd2.CommandText = "INSERT INTO hoadonphong (mahoadon,ngaynhanphong,makhachhang,manhanvien,maphong) VALUES (@mahoadon,@ngaynhanphong,@makhachhang,@manhanvien,@maphong)";
+
+                cmd2.Parameters.AddWithValue("@mahoadon", HDId);
+                cmd2.Parameters.AddWithValue("@ngaynhanphong", ngaynhanphong);
+                cmd2.Parameters.AddWithValue("@makhachhang", newCustomerId);
+                connection.Close();
+                cmd2.Parameters.AddWithValue("@manhanvien",LayMaNhanVien(email));
+                cmd2.Parameters.AddWithValue("@maphong", maphong);
+                connection.Open();
+
+                NpgsqlCommand cmd3 = new NpgsqlCommand();
+                cmd3.Connection = connection;
+                cmd3.CommandType = CommandType.Text;
+                cmd3.CommandText = "update phong set trangthai=true where maphong=@maphong";
+                cmd3.Parameters.AddWithValue("@maphong",maphong);
+                cmd3.ExecuteNonQuery();
+                int kq = cmd2.ExecuteNonQuery();
+                if (kq > 0 && rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                // Trả về true nếu thêm thành công, ngược lại trả về false
+            }
+            catch (Exception ex)
+            {
+                // Xử lý exception ở đây nếu cần
+                // Ví dụ: throw ex; để ném exception lên lớp gọi
+                // hoặc log lỗi
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public string TaoMaHoaDon()
+        {
+            try
+            {
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                // Tìm mã khách hàng trống nếu có
+                cmd.CommandText = "SELECT mahoadon FROM hoadonphong WHERE substring(mahoadon, 3) ~ '^[0-9]+$' ORDER BY substring(mahoadon, 3)::int DESC LIMIT 1";
+                object result = cmd.ExecuteScalar();
+
+                string newCustomerId = string.Empty;
+
+                if (result != null && result != DBNull.Value)
+                {
+                    int lastNumber;
+                    if (int.TryParse(result.ToString().Substring(2), out lastNumber))
+                    {
+                        newCustomerId = "HD" + (lastNumber + 1).ToString("000");
+                    }
+                }
+                else
+                {
+                    // Lấy mã khách hàng mới từ cơ sở dữ liệu
+                    cmd.CommandText = "SELECT COALESCE(MAX(CAST(substring(mahoadon, 3) AS int)), 0) + 1 FROM hoadonphong WHERE substring(mahoadon, 3) ~ '^[0-9]+$'";
+                    newCustomerId = "HD" + Convert.ToInt32(cmd.ExecuteScalar()).ToString("000");
+                }
+
+                return newCustomerId;
             }
             catch (Exception ex)
             {

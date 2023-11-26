@@ -28,9 +28,9 @@ namespace BUS_qlks
         {
             return dal_Phong.GetLoaiPhongFromMaLoaiPhong(maLoaiPhong);
         }
-        public bool ThemKhachHang(string hoten, string sdt, string cccd, bool gioitinh, string email)
+        public bool DatPhong(string hoten, string sdt, string cccd, bool gioitinh, string email, DateTime ngaynhanphong, string maphong)
         {
-            return dal_Phong.ThemKhachHang(hoten, sdt, cccd, gioitinh, email);
+            return dal_Phong.DatPhong(hoten,sdt,cccd,gioitinh,email,ngaynhanphong,maphong);
         }
         public string LayMaNV(string email)
         {

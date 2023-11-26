@@ -48,7 +48,7 @@ namespace QLKhachSan
                     count++;
                     Button btn = new Button
                     {
-                        Width = 200,
+                        Width = 190,
                         Height = 150,
                         Font = new Font("Arial", 10, FontStyle.Bold),
                         ForeColor = Color.Black,
@@ -65,7 +65,7 @@ namespace QLKhachSan
                     Label lblMaPhong = new Label
                     {
                         Text = maPhong,
-                        Location = new Point(40, 10),
+                        Location = new Point(30, 10),
                         Font = new Font("Arial", 18, FontStyle.Bold),
                         AutoSize = true,
                         ForeColor = Color.Blue // Customize the color as needed
@@ -74,7 +74,7 @@ namespace QLKhachSan
                     Label lblTenPhong = new Label
                     {
                         Text = tenPhong,
-                        Location = new Point(40, 60),
+                        Location = new Point(30, 60),
                         AutoSize = true,
                         ForeColor = Color.Purple // Customize the color as needed
                     };
@@ -82,7 +82,7 @@ namespace QLKhachSan
                     Label lblGia = new Label
                     {
                         Text = $"Giá: {gia} VND",
-                        Location = new Point(40, 90),
+                        Location = new Point(30, 90),
                         AutoSize = true,
                         ForeColor = Color.White // Customize the color as needed
                     };
@@ -90,7 +90,7 @@ namespace QLKhachSan
                     Label lblLoaiPhong = new Label
                     {
                         Text = bus_Phong.GetLoaiPhongFromMaLoaiPhong(maloaiPhong),
-                        Location = new Point(40, 120),
+                        Location = new Point(30, 120),
                         ForeColor = Color.Black // Customize the color as needed
                     };
 
