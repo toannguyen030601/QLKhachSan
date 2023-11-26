@@ -273,5 +273,18 @@ namespace QLKhachSan
             ChangeColor((Button)sender);
             OpenChildForm(new KhachHang());
         }
+        //test
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new QLDichvu());
+            //test
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new QLLoaiDichVu());
+            //test
+        }
     }
 }

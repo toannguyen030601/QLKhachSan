@@ -452,20 +452,21 @@
             // 
             // button7
             // 
-            button7.BackColor = SystemColors.ScrollBar;
-            button7.Dock = DockStyle.Fill;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Image = Properties.Resources.dichvu;
-            button7.ImageAlign = ContentAlignment.MiddleLeft;
-            button7.Location = new Point(0, 0);
-            button7.Margin = new Padding(0);
-            button7.Name = "button7";
-            button7.Padding = new Padding(10, 0, 0, 0);
-            button7.Size = new Size(250, 55);
-            button7.TabIndex = 2;
-            button7.Text = "QL Dịch Vụ";
-            button7.UseVisualStyleBackColor = false;
+            this.button7.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Image = global::QLKhachSan.Properties.Resources.dichvu;
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(0, 0);
+            this.button7.Margin = new System.Windows.Forms.Padding(0);
+            this.button7.Name = "button7";
+            this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(250, 55);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "QL Dịch Vụ";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel11
             // 
@@ -478,20 +479,21 @@
             // 
             // button8
             // 
-            button8.BackColor = SystemColors.ScrollBar;
-            button8.Dock = DockStyle.Fill;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Image = Properties.Resources.loaidichvu;
-            button8.ImageAlign = ContentAlignment.MiddleLeft;
-            button8.Location = new Point(0, 0);
-            button8.Margin = new Padding(0);
-            button8.Name = "button8";
-            button8.Padding = new Padding(10, 0, 0, 0);
-            button8.Size = new Size(250, 55);
-            button8.TabIndex = 2;
-            button8.Text = "QL Loại Dịch Vụ";
-            button8.UseVisualStyleBackColor = false;
+            this.button8.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Image = global::QLKhachSan.Properties.Resources.loaidichvu;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(0, 0);
+            this.button8.Margin = new System.Windows.Forms.Padding(0);
+            this.button8.Name = "button8";
+            this.button8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button8.Size = new System.Drawing.Size(250, 55);
+            this.button8.TabIndex = 2;
+            this.button8.Text = "QL Loại Dịch Vụ";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel3
             // 
