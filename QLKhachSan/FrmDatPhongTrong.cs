@@ -82,10 +82,6 @@ namespace QLKhachSan
                 {
                     bool gt=cbGT.SelectedIndex==0?true:false;
                     /// Thêm khách hàng
-                    if (bus_Phong.ThemKhachHang(txtHoTen.Text, txtSDT.Text, txtSoCCCD.Text,gt,bus_Phong.LayMaNV()))
-                    {
-
-                    }
 
 
 
