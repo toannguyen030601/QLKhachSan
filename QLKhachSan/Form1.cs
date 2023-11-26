@@ -262,5 +262,10 @@ namespace QLKhachSan
             FrmPhong phong = new FrmPhong();
             phong.ShowDialog();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FormHoaDon());
+        }
     }
 }
