@@ -66,9 +66,9 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = SystemColors.InactiveCaption;
-            flowLayoutPanel1.Location = new Point(252, 98);
+            flowLayoutPanel1.Location = new Point(219, 98);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(770, 521);
+            flowLayoutPanel1.Size = new Size(803, 521);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -78,7 +78,7 @@
             panel1.Controls.Add(groupBox1);
             panel1.Location = new Point(0, 98);
             panel1.Name = "panel1";
-            panel1.Size = new Size(257, 475);
+            panel1.Size = new Size(213, 501);
             panel1.TabIndex = 1;
             // 
             // groupBox2
@@ -88,7 +88,7 @@
             groupBox2.Controls.Add(rdoTrong);
             groupBox2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.ForeColor = SystemColors.HotTrack;
-            groupBox2.Location = new Point(0, 269);
+            groupBox2.Location = new Point(0, 310);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(213, 191);
             groupBox2.TabIndex = 1;
@@ -151,7 +151,7 @@
             groupBox1.ForeColor = SystemColors.HotTrack;
             groupBox1.Location = new Point(0, 14);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(254, 249);
+            groupBox1.Size = new Size(210, 290);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Lọc Theo Giá";
@@ -159,16 +159,16 @@
             // panel4
             // 
             panel4.BackColor = SystemColors.ActiveCaptionText;
-            panel4.Location = new Point(32, 174);
+            panel4.Location = new Point(12, 213);
             panel4.Name = "panel4";
-            panel4.Size = new Size(209, 3);
+            panel4.Size = new Size(190, 3);
             panel4.TabIndex = 12;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(162, 141);
+            label7.Location = new Point(107, 180);
             label7.Name = "label7";
             label7.Size = new Size(86, 25);
             label7.TabIndex = 11;
@@ -178,7 +178,7 @@
             // 
             label6.AutoSize = true;
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(160, 67);
+            label6.Location = new Point(107, 95);
             label6.Name = "label6";
             label6.Size = new Size(86, 25);
             label6.TabIndex = 10;
@@ -188,16 +188,16 @@
             // panel3
             // 
             panel3.BackColor = SystemColors.ActiveCaptionText;
-            panel3.Location = new Point(32, 100);
+            panel3.Location = new Point(12, 128);
             panel3.Name = "panel3";
-            panel3.Size = new Size(209, 3);
+            panel3.Size = new Size(190, 3);
             panel3.TabIndex = 8;
             // 
             // txtMax
             // 
             txtMax.BackColor = SystemColors.Control;
             txtMax.BorderStyle = BorderStyle.None;
-            txtMax.Location = new Point(32, 141);
+            txtMax.Location = new Point(12, 180);
             txtMax.Name = "txtMax";
             txtMax.Size = new Size(120, 27);
             txtMax.TabIndex = 4;
@@ -209,7 +209,7 @@
             // 
             txtMin.BackColor = SystemColors.Control;
             txtMin.BorderStyle = BorderStyle.None;
-            txtMin.Location = new Point(32, 67);
+            txtMin.Location = new Point(12, 95);
             txtMin.Name = "txtMin";
             txtMin.Size = new Size(122, 27);
             txtMin.TabIndex = 3;
@@ -221,7 +221,7 @@
             // 
             btnLoc.Image = Properties.Resources.filter_filled_tool_symbol;
             btnLoc.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLoc.Location = new Point(78, 197);
+            btnLoc.Location = new Point(58, 228);
             btnLoc.Name = "btnLoc";
             btnLoc.Size = new Size(94, 46);
             btnLoc.TabIndex = 2;
@@ -234,7 +234,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.OrangeRed;
-            label4.Location = new Point(0, 113);
+            label4.Location = new Point(41, 141);
             label4.Name = "label4";
             label4.Size = new Size(53, 25);
             label4.TabIndex = 1;
@@ -244,7 +244,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.OrangeRed;
-            label3.Location = new Point(0, 39);
+            label3.Location = new Point(32, 67);
             label3.Name = "label3";
             label3.Size = new Size(75, 25);
             label3.TabIndex = 0;
@@ -341,7 +341,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1024, 614);
+            ClientSize = new Size(1022, 611);
             Controls.Add(label5);
             Controls.Add(textBox3);
             Controls.Add(btnTimKiem);
