@@ -33,7 +33,7 @@ namespace QLKhachSan
         {
             Danhsachnhanvien();
         }
-
+        //test
         private void Danhsachnhanvien()
         {
             dataGridView1.DataSource = busnv.danhsachnhanvien();

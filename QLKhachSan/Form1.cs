@@ -245,5 +245,20 @@ namespace QLKhachSan
                 btnNhanVien.Visible = true;
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            QLDichvu qLDichvu = new QLDichvu();
+            qLDichvu.ShowDialog();
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            QLLoaiDichVu qLLoaiDichVu = new QLLoaiDichVu();
+            qLLoaiDichVu.ShowDialog();
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

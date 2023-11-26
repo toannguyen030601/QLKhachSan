@@ -436,6 +436,7 @@
             this.button6.TabIndex = 2;
             this.button6.Text = "QL Loai Phòng";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel10
             // 
@@ -462,6 +463,7 @@
             this.button7.TabIndex = 2;
             this.button7.Text = "QL Dịch Vụ";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // panel11
             // 
@@ -488,6 +490,7 @@
             this.button8.TabIndex = 2;
             this.button8.Text = "QL Loại Dịch Vụ";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel3
             // 

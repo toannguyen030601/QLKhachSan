@@ -175,6 +175,7 @@
             this.txtMatkhau.PasswordChar = '*';
             this.txtMatkhau.Size = new System.Drawing.Size(272, 32);
             this.txtMatkhau.TabIndex = 2;
+            this.txtMatkhau.Text = "UJSV3399uy";
             // 
             // panel2
             // 
@@ -194,6 +195,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(272, 32);
             this.txtEmail.TabIndex = 1;
+            this.txtEmail.Text = "toannguyen0257@gmail.com";
             // 
             // btnClose
             // 
