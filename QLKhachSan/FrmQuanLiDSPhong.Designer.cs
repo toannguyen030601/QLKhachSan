@@ -46,7 +46,6 @@
             cbMaLoaiPhong = new ComboBox();
             txtTenPhong = new TextBox();
             txtGia = new TextBox();
-            btnSoDo = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDSPhong).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -56,7 +55,7 @@
             // 
             btnMoi.Image = Properties.Resources.add2;
             btnMoi.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMoi.Location = new Point(41, 130);
+            btnMoi.Location = new Point(67, 80);
             btnMoi.Name = "btnMoi";
             btnMoi.Size = new Size(94, 59);
             btnMoi.TabIndex = 19;
@@ -69,7 +68,7 @@
             // 
             btnHuy.Image = Properties.Resources.multiply;
             btnHuy.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHuy.Location = new Point(41, 488);
+            btnHuy.Location = new Point(67, 438);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(94, 59);
             btnHuy.TabIndex = 18;
@@ -82,7 +81,7 @@
             // 
             btnXoa.Image = Properties.Resources.delete1;
             btnXoa.ImageAlign = ContentAlignment.MiddleLeft;
-            btnXoa.Location = new Point(41, 407);
+            btnXoa.Location = new Point(67, 357);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(94, 59);
             btnXoa.TabIndex = 17;
@@ -95,7 +94,7 @@
             // 
             btnSua.Image = Properties.Resources.edit1;
             btnSua.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSua.Location = new Point(41, 314);
+            btnSua.Location = new Point(67, 264);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(94, 59);
             btnSua.TabIndex = 16;
@@ -108,7 +107,7 @@
             // 
             btnLuu.Image = Properties.Resources.diskette;
             btnLuu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLuu.Location = new Point(41, 220);
+            btnLuu.Location = new Point(67, 170);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(94, 59);
             btnLuu.TabIndex = 15;
@@ -121,7 +120,7 @@
             // 
             dgvDSPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDSPhong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSPhong.Location = new Point(214, 229);
+            dgvDSPhong.Location = new Point(282, 229);
             dgvDSPhong.Name = "dgvDSPhong";
             dgvDSPhong.RowHeadersWidth = 51;
             dgvDSPhong.RowTemplate.Height = 29;
@@ -132,7 +131,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(193, 14);
+            label1.Location = new Point(261, 14);
             label1.Name = "label1";
             label1.Size = new Size(107, 26);
             label1.TabIndex = 21;
@@ -141,7 +140,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(615, 20);
+            label2.Location = new Point(683, 20);
             label2.Name = "label2";
             label2.Size = new Size(44, 26);
             label2.TabIndex = 22;
@@ -150,7 +149,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(193, 80);
+            label3.Location = new Point(261, 80);
             label3.Name = "label3";
             label3.Size = new Size(114, 26);
             label3.TabIndex = 23;
@@ -159,14 +158,14 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(631, 152);
+            label4.Location = new Point(699, 152);
             label4.Name = "label4";
             label4.Size = new Size(0, 26);
             label4.TabIndex = 24;
             // 
             // txtMaPhong
             // 
-            txtMaPhong.Location = new Point(313, 6);
+            txtMaPhong.Location = new Point(381, 6);
             txtMaPhong.Name = "txtMaPhong";
             txtMaPhong.Size = new Size(190, 34);
             txtMaPhong.TabIndex = 25;
@@ -175,7 +174,7 @@
             // 
             groupBox1.Controls.Add(rdoTrong);
             groupBox1.Controls.Add(rdoDaThue);
-            groupBox1.Location = new Point(214, 140);
+            groupBox1.Location = new Point(282, 140);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(289, 74);
             groupBox1.TabIndex = 26;
@@ -207,7 +206,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(cbMaLoaiPhong);
-            groupBox2.Location = new Point(603, 142);
+            groupBox2.Location = new Point(671, 142);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(230, 78);
             groupBox2.TabIndex = 27;
@@ -224,7 +223,7 @@
             // 
             // txtTenPhong
             // 
-            txtTenPhong.Location = new Point(313, 58);
+            txtTenPhong.Location = new Point(381, 58);
             txtTenPhong.Multiline = true;
             txtTenPhong.Name = "txtTenPhong";
             txtTenPhong.Size = new Size(190, 61);
@@ -232,27 +231,16 @@
             // 
             // txtGia
             // 
-            txtGia.Location = new Point(685, 12);
+            txtGia.Location = new Point(753, 12);
             txtGia.Name = "txtGia";
             txtGia.Size = new Size(124, 34);
             txtGia.TabIndex = 29;
-            // 
-            // btnSoDo
-            // 
-            btnSoDo.Location = new Point(1, 14);
-            btnSoDo.Name = "btnSoDo";
-            btnSoDo.Size = new Size(147, 39);
-            btnSoDo.TabIndex = 30;
-            btnSoDo.Text = "Sơ đồ Phòng";
-            btnSoDo.UseVisualStyleBackColor = true;
-            btnSoDo.Click += btnSoDo_Click;
             // 
             // FrmQuanLiDSPhong
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(888, 566);
-            Controls.Add(btnSoDo);
+            ClientSize = new Size(1024, 614);
             Controls.Add(txtGia);
             Controls.Add(txtTenPhong);
             Controls.Add(groupBox2);
@@ -302,6 +290,5 @@
         private ComboBox cbMaLoaiPhong;
         private TextBox txtTenPhong;
         private TextBox txtGia;
-        private Button btnSoDo;
     }
 }

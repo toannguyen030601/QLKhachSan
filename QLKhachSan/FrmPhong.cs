@@ -171,7 +171,7 @@ namespace QLKhachSan
                         MessageBox.Show("Nhập số để lọc");
                         txtMax.Focus();
                     }
-                }  
+                }
             }
             else
             {

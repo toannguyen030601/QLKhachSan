@@ -52,7 +52,6 @@
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
             btnTimKiem = new Button();
-            button1 = new Button();
             textBox3 = new TextBox();
             label5 = new Label();
             panel1.SuspendLayout();
@@ -69,7 +68,7 @@
             flowLayoutPanel1.BackColor = SystemColors.InactiveCaption;
             flowLayoutPanel1.Location = new Point(252, 98);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(874, 475);
+            flowLayoutPanel1.Size = new Size(770, 521);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -254,7 +253,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(800, 52);
+            label1.Location = new Point(708, 51);
             label1.Name = "label1";
             label1.Size = new Size(85, 26);
             label1.TabIndex = 2;
@@ -263,7 +262,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(977, 52);
+            label2.Location = new Point(885, 51);
             label2.Name = "label2";
             label2.Size = new Size(68, 26);
             label2.TabIndex = 3;
@@ -272,7 +271,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Tomato;
-            pictureBox1.Location = new Point(752, 43);
+            pictureBox1.Location = new Point(660, 42);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(42, 35);
             pictureBox1.TabIndex = 4;
@@ -281,7 +280,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.SpringGreen;
-            pictureBox2.Location = new Point(938, 43);
+            pictureBox2.Location = new Point(846, 42);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(42, 35);
             pictureBox2.TabIndex = 5;
@@ -322,16 +321,6 @@
             btnTimKiem.UseVisualStyleBackColor = false;
             btnTimKiem.Click += btnTimKiem_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(0, 26);
-            button1.Name = "button1";
-            button1.Size = new Size(269, 45);
-            button1.TabIndex = 10;
-            button1.Text = "Quản Lí Danh Sách Phòng";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // textBox3
             // 
             textBox3.Location = new Point(393, 14);
@@ -352,10 +341,9 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1121, 570);
+            ClientSize = new Size(1024, 614);
             Controls.Add(label5);
             Controls.Add(textBox3);
-            Controls.Add(button1);
             Controls.Add(btnTimKiem);
             Controls.Add(pictureBox3);
             Controls.Add(panel2);
@@ -401,7 +389,6 @@
         private Panel panel2;
         private PictureBox pictureBox3;
         private Button btnTimKiem;
-        private Button button1;
         private Label label4;
         private Label label3;
         private Panel panel3;

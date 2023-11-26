@@ -125,7 +125,7 @@ namespace QLKhachSan
 
         private void btnSoDo_Click(object sender, EventArgs e)
         {
-            FrmPhong frm=new FrmPhong();
+            FrmPhong frm = new FrmPhong();
             frm.ShowDialog();
             this.Close();
         }
