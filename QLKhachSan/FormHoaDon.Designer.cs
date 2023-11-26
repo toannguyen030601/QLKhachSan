@@ -62,7 +62,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(813, 38);
+            panel1.Size = new Size(1040, 38);
             panel1.TabIndex = 1;
             // 
             // panel2
@@ -71,7 +71,7 @@
             panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(button1);
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(705, 0);
+            panel2.Location = new Point(932, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(96, 36);
             panel2.TabIndex = 3;
@@ -111,7 +111,7 @@
             panel14.Controls.Add(btnMinimize);
             panel14.Controls.Add(btnMaximize);
             panel14.Controls.Add(btnClose);
-            panel14.Location = new Point(1764, 0);
+            panel14.Location = new Point(1991, 0);
             panel14.Name = "panel14";
             panel14.Size = new Size(141, 38);
             panel14.TabIndex = 0;
@@ -183,11 +183,12 @@
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.Silver;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(58, 102);
+            dataGridView1.Location = new Point(136, 104);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 35;
-            dataGridView1.Size = new Size(699, 370);
+            dataGridView1.Size = new Size(752, 510);
             dataGridView1.TabIndex = 2;
             // 
             // dateTimePicker1
@@ -202,7 +203,7 @@
             // txtTim
             // 
             txtTim.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTim.Location = new Point(500, 45);
+            txtTim.Location = new Point(641, 46);
             txtTim.Multiline = true;
             txtTim.Name = "txtTim";
             txtTim.PlaceholderText = "Tìm khách hàng";
@@ -215,7 +216,7 @@
             btnTim.FlatAppearance.BorderSize = 2;
             btnTim.FlatStyle = FlatStyle.Flat;
             btnTim.Image = Properties.Resources.search;
-            btnTim.Location = new Point(760, 44);
+            btnTim.Location = new Point(901, 45);
             btnTim.Name = "btnTim";
             btnTim.Size = new Size(50, 36);
             btnTim.TabIndex = 5;
@@ -228,7 +229,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.Silver;
-            ClientSize = new Size(813, 501);
+            ClientSize = new Size(1040, 658);
             Controls.Add(btnTim);
             Controls.Add(txtTim);
             Controls.Add(dateTimePicker1);
