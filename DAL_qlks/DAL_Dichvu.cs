@@ -19,12 +19,14 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Laythongtindichvu()";
+                cmd.CommandText = "select * from Laythongtindichvu()";//Chỉ hiển thị lên datagrid nếu muốn hiển thị theo combobox thì làm khác
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;
             }
             finally { connection.Close(); }
         }
+        
+
     }
 }
