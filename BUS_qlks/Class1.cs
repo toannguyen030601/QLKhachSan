@@ -103,5 +103,9 @@ namespace BUS_qlks
         {
             return dalnv.TimMaNhanVienTheoEmail(email);
         }
+        public bool CheckMK(string email,string mkCu)
+        {
+            return dalnv.CheckMK(email, mkCu);
+        }
     }
 }

@@ -220,7 +220,8 @@ namespace QLKhachSan
 
         private void btnInfoDangnhap_Click(object sender, EventArgs e)
         {
-
+            FormDoiMK doiMK = new FormDoiMK(email);
+            doiMK.ShowDialog();
         }
 
         private void btnInfoDangnhap_MouseHover(object sender, EventArgs e)

@@ -1,6 +1,9 @@
 ﻿using DTO_qlks;
 using Npgsql;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 
 namespace DAL_qlks
 {
@@ -89,7 +92,7 @@ namespace DAL_qlks
             {
                 connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection= connection;
+                cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select * from danhsachnhanvien()";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
@@ -271,5 +274,31 @@ namespace DAL_qlks
                 connection.Close();
             }
         }
+        public bool CheckMK(string email, string mkCu)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT 1 FROM nhanvien WHERE email = @email AND matkhau = @matkhau";
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@matkhau", mkCu);
+                if (cmd.ExecuteScalar() != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 }

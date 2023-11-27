@@ -106,5 +106,10 @@ namespace QLKhachSan
                 Danhsachnhanvien();
             }
         }
+
+        private void btnThem_MouseDown(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }
