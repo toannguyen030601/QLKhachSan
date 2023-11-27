@@ -86,6 +86,7 @@ namespace QLKhachSan
                     if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt, "toannguyen0257@gmail.com", dtpNgayNhanPhong.Value,lblMaPhong.Text))
                     {
                         MessageBox.Show("Đặt Phòng Thành Công");
+                        this.Close();
                     }
                     else
                     {
