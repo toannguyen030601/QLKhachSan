@@ -46,9 +46,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(53, 58);
+            label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Blue;
+            label1.Location = new Point(33, 58);
             label1.Name = "label1";
-            label1.Size = new Size(166, 25);
+            label1.Size = new Size(215, 31);
             label1.TabIndex = 0;
             label1.Text = "Danh sách dịch vụ";
             // 
@@ -93,9 +95,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(554, 58);
+            label2.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Blue;
+            label2.Location = new Point(570, 58);
             label2.Name = "label2";
-            label2.Size = new Size(148, 25);
+            label2.Size = new Size(193, 31);
             label2.TabIndex = 4;
             label2.Text = "Dịch vụ đã chọn";
             label2.Click += label2_Click;
@@ -112,7 +116,7 @@
             // 
             // btnTrai
             // 
-            btnTrai.Location = new Point(419, 261);
+            btnTrai.Location = new Point(419, 296);
             btnTrai.Name = "btnTrai";
             btnTrai.Size = new Size(92, 31);
             btnTrai.TabIndex = 6;
@@ -123,7 +127,7 @@
             // 
             btnLuu.Location = new Point(570, 420);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(105, 31);
+            btnLuu.Size = new Size(112, 31);
             btnLuu.TabIndex = 7;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
