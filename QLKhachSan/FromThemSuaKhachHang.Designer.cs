@@ -78,6 +78,7 @@
             txtSoDT.Name = "txtSoDT";
             txtSoDT.Size = new Size(347, 30);
             txtSoDT.TabIndex = 30;
+            txtSoDT.Leave += txtSoDT_Leave;
             // 
             // txtHoten
             // 
@@ -173,6 +174,7 @@
             txtCCCD.Name = "txtCCCD";
             txtCCCD.Size = new Size(347, 30);
             txtCCCD.TabIndex = 37;
+            txtCCCD.Leave += txtCCCD_Leave;
             // 
             // label4
             // 

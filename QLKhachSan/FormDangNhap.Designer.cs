@@ -28,237 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelDangnhap = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnDangnhap = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblQuenmatkhau = new System.Windows.Forms.Label();
-            this.chkNhotaikhoan = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txtMatkhau = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.panelDangnhap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel14.SuspendLayout();
-            this.SuspendLayout();
+            panelDangnhap = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            btnDangnhap = new Button();
+            label4 = new Label();
+            lblQuenmatkhau = new Label();
+            chkNhotaikhoan = new CheckBox();
+            label2 = new Label();
+            label1 = new Label();
+            panel3 = new Panel();
+            txtMatkhau = new TextBox();
+            panel2 = new Panel();
+            txtEmail = new TextBox();
+            btnClose = new Button();
+            panel14 = new Panel();
+            btnMinimize = new Button();
+            panelDangnhap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel14.SuspendLayout();
+            SuspendLayout();
             // 
             // panelDangnhap
             // 
-            this.panelDangnhap.BackColor = System.Drawing.Color.LightGray;
-            this.panelDangnhap.Controls.Add(this.pictureBox2);
-            this.panelDangnhap.Controls.Add(this.pictureBox1);
-            this.panelDangnhap.Controls.Add(this.btnDangnhap);
-            this.panelDangnhap.Controls.Add(this.label4);
-            this.panelDangnhap.Controls.Add(this.lblQuenmatkhau);
-            this.panelDangnhap.Controls.Add(this.chkNhotaikhoan);
-            this.panelDangnhap.Controls.Add(this.label2);
-            this.panelDangnhap.Controls.Add(this.label1);
-            this.panelDangnhap.Controls.Add(this.panel3);
-            this.panelDangnhap.Controls.Add(this.txtMatkhau);
-            this.panelDangnhap.Controls.Add(this.panel2);
-            this.panelDangnhap.Controls.Add(this.txtEmail);
-            this.panelDangnhap.Location = new System.Drawing.Point(48, 53);
-            this.panelDangnhap.Name = "panelDangnhap";
-            this.panelDangnhap.Size = new System.Drawing.Size(386, 358);
-            this.panelDangnhap.TabIndex = 0;
+            panelDangnhap.BackColor = Color.LightGray;
+            panelDangnhap.Controls.Add(pictureBox2);
+            panelDangnhap.Controls.Add(pictureBox1);
+            panelDangnhap.Controls.Add(btnDangnhap);
+            panelDangnhap.Controls.Add(label4);
+            panelDangnhap.Controls.Add(lblQuenmatkhau);
+            panelDangnhap.Controls.Add(chkNhotaikhoan);
+            panelDangnhap.Controls.Add(label2);
+            panelDangnhap.Controls.Add(label1);
+            panelDangnhap.Controls.Add(panel3);
+            panelDangnhap.Controls.Add(txtMatkhau);
+            panelDangnhap.Controls.Add(panel2);
+            panelDangnhap.Controls.Add(txtEmail);
+            panelDangnhap.Location = new Point(48, 53);
+            panelDangnhap.Name = "panelDangnhap";
+            panelDangnhap.Size = new Size(386, 358);
+            panelDangnhap.TabIndex = 0;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::QLKhachSan.Properties.Resources.matkhau;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 184);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(40, 46);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = Properties.Resources.matkhau;
+            pictureBox2.Location = new Point(16, 184);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(40, 46);
+            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QLKhachSan.Properties.Resources.user1;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 103);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.user1;
+            pictureBox1.Location = new Point(16, 103);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(40, 46);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // btnDangnhap
             // 
-            this.btnDangnhap.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnDangnhap.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnDangnhap.FlatAppearance.BorderSize = 0;
-            this.btnDangnhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangnhap.ForeColor = System.Drawing.Color.White;
-            this.btnDangnhap.Location = new System.Drawing.Point(135, 301);
-            this.btnDangnhap.Name = "btnDangnhap";
-            this.btnDangnhap.Size = new System.Drawing.Size(112, 40);
-            this.btnDangnhap.TabIndex = 0;
-            this.btnDangnhap.Text = "Đăng Nhập";
-            this.btnDangnhap.UseVisualStyleBackColor = false;
-            this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);
+            btnDangnhap.BackColor = SystemColors.Highlight;
+            btnDangnhap.FlatAppearance.BorderColor = Color.Black;
+            btnDangnhap.FlatAppearance.BorderSize = 0;
+            btnDangnhap.FlatStyle = FlatStyle.Flat;
+            btnDangnhap.ForeColor = Color.White;
+            btnDangnhap.Location = new Point(135, 301);
+            btnDangnhap.Name = "btnDangnhap";
+            btnDangnhap.Size = new Size(112, 40);
+            btnDangnhap.TabIndex = 0;
+            btnDangnhap.Text = "Đăng Nhập";
+            btnDangnhap.UseVisualStyleBackColor = false;
+            btnDangnhap.Click += btnDangnhap_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(118, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 35);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Đăng Nhập";
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Blue;
+            label4.Location = new Point(118, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(159, 35);
+            label4.TabIndex = 8;
+            label4.Text = "Đăng Nhập";
             // 
             // lblQuenmatkhau
             // 
-            this.lblQuenmatkhau.AutoSize = true;
-            this.lblQuenmatkhau.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblQuenmatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.lblQuenmatkhau.Location = new System.Drawing.Point(238, 247);
-            this.lblQuenmatkhau.Name = "lblQuenmatkhau";
-            this.lblQuenmatkhau.Size = new System.Drawing.Size(134, 22);
-            this.lblQuenmatkhau.TabIndex = 14;
-            this.lblQuenmatkhau.Text = "Quên mật khẩu?";
-            this.lblQuenmatkhau.Click += new System.EventHandler(this.lblQuenmatkhau_Click);
+            lblQuenmatkhau.AutoSize = true;
+            lblQuenmatkhau.Cursor = Cursors.Hand;
+            lblQuenmatkhau.Font = new Font("Times New Roman", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            lblQuenmatkhau.Location = new Point(238, 247);
+            lblQuenmatkhau.Name = "lblQuenmatkhau";
+            lblQuenmatkhau.Size = new Size(134, 22);
+            lblQuenmatkhau.TabIndex = 14;
+            lblQuenmatkhau.Text = "Quên mật khẩu?";
+            lblQuenmatkhau.Click += lblQuenmatkhau_Click;
             // 
             // chkNhotaikhoan
             // 
-            this.chkNhotaikhoan.AutoSize = true;
-            this.chkNhotaikhoan.Location = new System.Drawing.Point(62, 247);
-            this.chkNhotaikhoan.Name = "chkNhotaikhoan";
-            this.chkNhotaikhoan.Size = new System.Drawing.Size(154, 26);
-            this.chkNhotaikhoan.TabIndex = 13;
-            this.chkNhotaikhoan.Text = "Nhớ Tài Khoản";
-            this.chkNhotaikhoan.UseVisualStyleBackColor = true;
+            chkNhotaikhoan.AutoSize = true;
+            chkNhotaikhoan.Location = new Point(62, 247);
+            chkNhotaikhoan.Name = "chkNhotaikhoan";
+            chkNhotaikhoan.Size = new Size(154, 26);
+            chkNhotaikhoan.TabIndex = 13;
+            chkNhotaikhoan.Text = "Nhớ Tài Khoản";
+            chkNhotaikhoan.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 173);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Mật Khẩu:";
+            label2.AutoSize = true;
+            label2.Location = new Point(62, 173);
+            label2.Name = "label2";
+            label2.Size = new Size(93, 22);
+            label2.TabIndex = 5;
+            label2.Text = "Mật Khẩu:";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 22);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Email:";
+            label1.AutoSize = true;
+            label1.Location = new Point(62, 92);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 22);
+            label1.TabIndex = 4;
+            label1.Text = "Email:";
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(62, 227);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(272, 3);
-            this.panel3.TabIndex = 3;
+            panel3.BackColor = SystemColors.ActiveCaptionText;
+            panel3.Location = new Point(62, 227);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(272, 3);
+            panel3.TabIndex = 3;
             // 
             // txtMatkhau
             // 
-            this.txtMatkhau.BackColor = System.Drawing.Color.White;
-            this.txtMatkhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMatkhau.Location = new System.Drawing.Point(62, 198);
-            this.txtMatkhau.Multiline = true;
-            this.txtMatkhau.Name = "txtMatkhau";
-            this.txtMatkhau.PasswordChar = '*';
-            this.txtMatkhau.Size = new System.Drawing.Size(272, 32);
-            this.txtMatkhau.TabIndex = 2;
-            this.txtMatkhau.Text = "UJSV3399uy";
+            txtMatkhau.BackColor = Color.White;
+            txtMatkhau.BorderStyle = BorderStyle.None;
+            txtMatkhau.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMatkhau.Location = new Point(62, 198);
+            txtMatkhau.Multiline = true;
+            txtMatkhau.Name = "txtMatkhau";
+            txtMatkhau.PasswordChar = '*';
+            txtMatkhau.Size = new Size(272, 32);
+            txtMatkhau.TabIndex = 2;
+            txtMatkhau.Text = "1";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(62, 146);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(272, 3);
-            this.panel2.TabIndex = 1;
+            panel2.BackColor = SystemColors.ActiveCaptionText;
+            panel2.Location = new Point(62, 146);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(272, 3);
+            panel2.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(62, 117);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(272, 32);
-            this.txtEmail.TabIndex = 1;
-            this.txtEmail.Text = "toannguyen0257@gmail.com";
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Location = new Point(62, 117);
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(272, 32);
+            txtEmail.TabIndex = 1;
+            txtEmail.Text = "toannguyen0257@gmail.com";
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::QLKhachSan.Properties.Resources.close2;
-            this.btnClose.Location = new System.Drawing.Point(58, 4);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(27, 28);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.BackColor = Color.Gainsboro;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Image = Properties.Resources.close2;
+            btnClose.Location = new Point(58, 4);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(27, 28);
+            btnClose.TabIndex = 0;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // panel14
             // 
-            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Controls.Add(this.btnMinimize);
-            this.panel14.Controls.Add(this.btnClose);
-            this.panel14.Location = new System.Drawing.Point(624, 1);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(96, 36);
-            this.panel14.TabIndex = 1;
+            panel14.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel14.BackColor = Color.Transparent;
+            panel14.Controls.Add(btnMinimize);
+            panel14.Controls.Add(btnClose);
+            panel14.Location = new Point(624, 1);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(96, 36);
+            panel14.TabIndex = 1;
             // 
             // btnMinimize
             // 
-            this.btnMinimize.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.Image = global::QLKhachSan.Properties.Resources.minimize1;
-            this.btnMinimize.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMinimize.Location = new System.Drawing.Point(27, 4);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(25, 28);
-            this.btnMinimize.TabIndex = 1;
-            this.btnMinimize.UseVisualStyleBackColor = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            btnMinimize.BackColor = Color.Gainsboro;
+            btnMinimize.BackgroundImageLayout = ImageLayout.Zoom;
+            btnMinimize.FlatAppearance.BorderSize = 0;
+            btnMinimize.FlatStyle = FlatStyle.Flat;
+            btnMinimize.Image = Properties.Resources.minimize1;
+            btnMinimize.ImageAlign = ContentAlignment.BottomCenter;
+            btnMinimize.Location = new Point(27, 4);
+            btnMinimize.Name = "btnMinimize";
+            btnMinimize.Size = new Size(25, 28);
+            btnMinimize.TabIndex = 1;
+            btnMinimize.UseVisualStyleBackColor = false;
+            btnMinimize.Click += btnMinimize_Click;
             // 
             // FormDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::QLKhachSan.Properties.Resources.bgdangnhap;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(721, 468);
-            this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panelDangnhap);
-            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FormDangNhap";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDangNhap";
-            this.Load += new System.EventHandler(this.FormDangNhap_Load);
-            this.panelDangnhap.ResumeLayout(false);
-            this.panelDangnhap.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(11F, 22F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.bgdangnhap;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(721, 468);
+            Controls.Add(panel14);
+            Controls.Add(panelDangnhap);
+            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "FormDangNhap";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormDangNhap";
+            Load += FormDangNhap_Load;
+            panelDangnhap.ResumeLayout(false);
+            panelDangnhap.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel14.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

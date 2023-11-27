@@ -42,7 +42,7 @@ namespace QLKhachSan
         {
             WindowState = FormWindowState.Minimized;
         }
-        
+
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
@@ -58,7 +58,7 @@ namespace QLKhachSan
                 Properties.Settings.Default.Ghinho = chkNhotaikhoan.Checked;
                 if (chkNhotaikhoan.Checked)
                 {
-                    Properties.Settings.Default.Email= txtEmail.Text;
+                    Properties.Settings.Default.Email = txtEmail.Text;
                     Properties.Settings.Default.Matkhau = txtMatkhau.Text;
                 }
                 Properties.Settings.Default.Save();
