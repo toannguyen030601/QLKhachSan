@@ -25,10 +25,11 @@ namespace QLKhachSan
         BUS_Dichvu busdv = new BUS_Dichvu();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            danhsachDvu();
         }
         private void danhsachDvu()
         {
-            dataGridView1.DataSource = busdv.DanhsachDvu();
+            dataGridView1.DataSource = busdv.Danhsachdvu();
 
         }
 
