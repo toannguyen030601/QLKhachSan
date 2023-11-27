@@ -19,7 +19,7 @@ namespace QLKhachSan
         {
             this.maPhong = maPhong;
             InitializeComponent();
-            lblMaNhanVien.Text = bus_Phong.LayMaNV("toannguyen0257@gmail.com");
+            lblMaNhanVien.Text = bus_Phong.LayMaNV(UserLoginInfo.Email);
         }
 
         private void txtHoTen_Enter(object sender, EventArgs e)
@@ -81,9 +81,9 @@ namespace QLKhachSan
                 }
                 else
                 {
-                    bool gt = cbGT.SelectedIndex == 0 ? true : false;
+                    string gt = cbGT.SelectedIndex == 0 ? "Nam" : "Nữ";
                     /// Thêm khách hàng
-                    if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt, "toannguyen0257@gmail.com", dtpNgayNhanPhong.Value,lblMaPhong.Text))
+                    if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt,UserLoginInfo.Email, dtpNgayNhanPhong.Value,lblMaPhong.Text))
                     {
                         MessageBox.Show("Đặt Phòng Thành Công");
                         this.Close();

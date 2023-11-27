@@ -174,7 +174,7 @@ namespace DAL_qlks
             finally { connection.Close(); }
         }
 
-        public bool DatPhong(string hoten, string sdt, string cccd, bool gioitinh, string email, DateTime ngaynhanphong, string maphong)
+        public bool DatPhong(string hoten, string sdt, string cccd, string gioitinh, string email, DateTime ngaynhanphong, string maphong)
         {
             try
             {
