@@ -43,10 +43,13 @@ namespace QLKhachSan
             danhsachDvu();
 
         }
-
+        private void ChuyenDuLieu()
+        {
+            
+        }
         private void btnPhai_Click(object sender, EventArgs e)
         {
-
+            ChuyenDuLieu();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
