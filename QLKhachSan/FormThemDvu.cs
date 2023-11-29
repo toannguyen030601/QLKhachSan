@@ -31,7 +31,7 @@ namespace QLKhachSan
         private void danhsachDvu()
         {
             dataGridView1.DataSource = busdv.Danhsachdvu();
-           // dataGridView2.DataSource = bushd.DanhSachHDCT(); Hiển thị hóa đơn chi tiết để test chức năng xóa
+            // dataGridView2.DataSource = bushd.DanhSachHDCT(); Hiển thị hóa đơn chi tiết để test chức năng xóa
         }
 
 

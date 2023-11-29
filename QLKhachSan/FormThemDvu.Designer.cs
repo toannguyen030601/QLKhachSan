@@ -40,6 +40,8 @@
             btnLuu = new Button();
             btnThoat = new Button();
             button1 = new Button();
+            lbMaPhong = new Label();
+            lbTenKH = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -50,7 +52,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Blue;
-            label1.Location = new Point(42, 81);
+            label1.Location = new Point(142, 96);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(265, 39);
@@ -61,7 +63,7 @@
             // 
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(67, 150);
+            groupBox1.Location = new Point(159, 164);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
@@ -90,7 +92,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(42, 263);
+            dataGridView1.Location = new Point(142, 277);
             dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
@@ -102,7 +104,7 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(725, 263);
+            dataGridView2.Location = new Point(728, 277);
             dataGridView2.Margin = new Padding(4);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
@@ -115,7 +117,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(725, 81);
+            label2.Location = new Point(820, 96);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(238, 39);
@@ -125,7 +127,7 @@
             // 
             // btnPhai
             // 
-            btnPhai.Location = new Point(533, 294);
+            btnPhai.Location = new Point(588, 334);
             btnPhai.Margin = new Padding(4);
             btnPhai.Name = "btnPhai";
             btnPhai.Size = new Size(117, 43);
@@ -136,7 +138,7 @@
             // 
             // btnTrai
             // 
-            btnTrai.Location = new Point(533, 414);
+            btnTrai.Location = new Point(588, 431);
             btnTrai.Margin = new Padding(4);
             btnTrai.Name = "btnTrai";
             btnTrai.Size = new Size(117, 43);
@@ -146,7 +148,7 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(725, 588);
+            btnLuu.Location = new Point(820, 588);
             btnLuu.Margin = new Padding(4);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(143, 43);
@@ -156,7 +158,7 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(892, 588);
+            btnThoat.Location = new Point(991, 588);
             btnThoat.Margin = new Padding(4);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(131, 43);
@@ -167,19 +169,39 @@
             // 
             // button1
             // 
-            button1.Location = new Point(555, 586);
+            button1.Location = new Point(670, 588);
             button1.Name = "button1";
-            button1.Size = new Size(118, 45);
+            button1.Size = new Size(122, 43);
             button1.TabIndex = 9;
             button1.Text = "Xóa";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnXoa;
+            // 
+            // lbMaPhong
+            // 
+            lbMaPhong.AutoSize = true;
+            lbMaPhong.Location = new Point(82, 36);
+            lbMaPhong.Name = "lbMaPhong";
+            lbMaPhong.Size = new Size(81, 35);
+            lbMaPhong.TabIndex = 10;
+            lbMaPhong.Text = "label3";
+            // 
+            // lbTenKH
+            // 
+            lbTenKH.AutoSize = true;
+            lbTenKH.Location = new Point(251, 36);
+            lbTenKH.Name = "lbTenKH";
+            lbTenKH.Size = new Size(81, 35);
+            lbTenKH.TabIndex = 11;
+            lbTenKH.Text = "label4";
             // 
             // FormThemDvu
             // 
             AutoScaleDimensions = new SizeF(14F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1166, 672);
+            Controls.Add(lbTenKH);
+            Controls.Add(lbMaPhong);
             Controls.Add(button1);
             Controls.Add(btnThoat);
             Controls.Add(btnLuu);
@@ -215,5 +237,7 @@
         private Button btnLuu;
         private Button btnThoat;
         private Button button1;
+        private Label lbMaPhong;
+        private Label lbTenKH;
     }
 }
