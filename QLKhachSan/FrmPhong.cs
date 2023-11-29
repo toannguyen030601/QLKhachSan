@@ -33,7 +33,8 @@ namespace QLKhachSan
                 }
                 else
                 {
-
+                    string maHoaDon= bus_Phong.MaHoaDonCuaPhong(phong.MaPhong);
+                    // Mở Form dịch vụ của phòng
                 }
             }
 

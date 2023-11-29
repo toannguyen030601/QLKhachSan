@@ -260,24 +260,24 @@ namespace DAL_qlks
                 cmd.CommandText = "SELECT mahoadon FROM hoadonphong WHERE substring(mahoadon, 3) ~ '^[0-9]+$' ORDER BY substring(mahoadon, 3)::int DESC LIMIT 1";
                 object result = cmd.ExecuteScalar();
 
-                string newCustomerId = string.Empty;
+                string newHoaDonId = string.Empty;
 
                 if (result != null && result != DBNull.Value)
                 {
                     int lastNumber;
                     if (int.TryParse(result.ToString().Substring(2), out lastNumber))
                     {
-                        newCustomerId = "HD" + (lastNumber + 1).ToString("000");
+                        newHoaDonId = "HD" + (lastNumber + 1).ToString("000");
                     }
                 }
                 else
                 {
                     // Lấy mã khách hàng mới từ cơ sở dữ liệu
                     cmd.CommandText = "SELECT COALESCE(MAX(CAST(substring(mahoadon, 3) AS int)), 0) + 1 FROM hoadonphong WHERE substring(mahoadon, 3) ~ '^[0-9]+$'";
-                    newCustomerId = "HD" + Convert.ToInt32(cmd.ExecuteScalar()).ToString("000");
+                    newHoaDonId = "HD" + Convert.ToInt32(cmd.ExecuteScalar()).ToString("000");
                 }
 
-                return newCustomerId;
+                return newHoaDonId;
             }
             catch (Exception ex)
             {
@@ -285,6 +285,39 @@ namespace DAL_qlks
                 // Ví dụ: throw ex; để ném exception lên lớp gọi
                 // hoặc log lỗi
                 throw;
+            }
+        }
+        public string MaHoaDonCuaPhong(string maPhong)
+        {
+            string maHoaDon = "";
+
+            try
+            {
+                connection.Open();
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT mahoadon FROM hoadonphong WHERE maphong=@maphong and ngaytraphong=null";
+
+                    // Use parameters to avoid SQL injection
+                    cmd.Parameters.AddWithValue("@maphong", maPhong);
+
+                    // Execute the query and get the result
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        maHoaDon = result.ToString();
+                    }
+                }
+
+                return maHoaDon;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
     }

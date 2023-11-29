@@ -36,6 +36,10 @@ namespace BUS_qlks
         {
             return dal_Phong.LayMaNhanVien(email);
         }
+        public string MaHoaDonCuaPhong(string maPhong)
+        {
+            return dal_Phong.MaHoaDonCuaPhong(maPhong);
+        }
 
     }
 }
