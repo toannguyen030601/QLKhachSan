@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            comboBox1 = new ComboBox();
+            txtTimdv = new TextBox();
             dataGridView1 = new DataGridView();
             dataGridView2 = new DataGridView();
             label2 = new Label();
@@ -61,7 +61,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(txtTimdv);
             groupBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(159, 164);
             groupBox1.Margin = new Padding(4);
@@ -72,30 +72,31 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm loại dịch vụ";
             // 
-            // comboBox1
+            // txtTimdv
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(8, 45);
-            comboBox1.Margin = new Padding(4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(153, 30);
-            comboBox1.TabIndex = 0;
+            txtTimdv.Location = new Point(17, 47);
+            txtTimdv.Name = "txtTimdv";
+            txtTimdv.Size = new Size(125, 30);
+            txtTimdv.TabIndex = 0;
+            txtTimdv.TextChanged += txtTimdv_TextChanged;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.ColumnHeadersHeight = 29;
             dataGridView1.Location = new Point(142, 277);
             dataGridView1.Margin = new Padding(4);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridView1.RowTemplate.Height = 35;
             dataGridView1.Size = new Size(419, 293);
             dataGridView1.TabIndex = 2;
@@ -218,6 +219,7 @@
             Text = "FormThemDvu";
             Load += FormThemDvu_Load;
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
@@ -228,7 +230,6 @@
 
         private Label label1;
         private GroupBox groupBox1;
-        private ComboBox comboBox1;
         private DataGridView dataGridView1;
         private DataGridView dataGridView2;
         private Label label2;
@@ -239,5 +240,6 @@
         private Button button1;
         private Label lbMaPhong;
         private Label lbTenKH;
+        private TextBox txtTimdv;
     }
 }

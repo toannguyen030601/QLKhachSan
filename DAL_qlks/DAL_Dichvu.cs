@@ -27,6 +27,28 @@ namespace DAL_qlks
             finally { connection.Close(); }
         }
         //
-      
+        public DataTable timdvu(string tendv)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from TimDichVu(@p_tukhoa)";
+                /*string sql = @"select * from timnhanvien(@txttim)";
+                cmd = new NpgsqlCommand(sql,connection);*/
+                cmd.Parameters.AddWithValue("@p_tukhoa", tendv);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+                return data;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

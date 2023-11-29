@@ -15,6 +15,9 @@ namespace BUS_qlks
         {
             return busnv.Danhsachdvu();
         }
-       
+      public DataTable TimDvu(string tendv)
+        {
+            return busnv.timdvu(tendv);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace QLKhachSan
         public FormThemDvu()
         {
             InitializeComponent();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace QLKhachSan
         private void FormThemDvu_Load(object sender, EventArgs e)
         {
             danhsachDvu();
-            btnPhai.Click += btnPhai_Click;
+
         }
 
         private void btnPhai_Click(object sender, EventArgs e)
@@ -76,6 +77,22 @@ namespace QLKhachSan
             else
             {
                 MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtTimdv_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTimdv.Text != "")
+            {
+                DataTable data = busdv.TimDvu(txtTimdv.Text);
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+                }
+            }
+            else
+            {
+                danhsachDvu();
             }
         }
     }
