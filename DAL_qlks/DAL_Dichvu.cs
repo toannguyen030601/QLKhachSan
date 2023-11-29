@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL_qlks
 {
-    public class DAL_dichvu :DBConnect
+    public class DAL_dichvu : DBConnect
     {
         public DataTable Danhsachdvu()
         {
@@ -26,5 +26,7 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
+        //
+      
     }
 }
