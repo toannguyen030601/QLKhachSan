@@ -22,7 +22,7 @@ namespace QLKhachSan
         {
 
         }
-        BUS_Dichvu busdv = new BUS_Dichvu();
+        BUS_dichvu busdv = new BUS_dichvu();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             danhsachDvu();

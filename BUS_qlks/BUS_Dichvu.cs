@@ -1,5 +1,4 @@
 ﻿using DAL_qlks;
-using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace BUS_qlks
 {
-    public class BUS_Dichvu
+    public class BUS_dichvu
     {
-        DAL_Dichvu busnv = new DAL_Dichvu();
+        DAL_dichvu busnv = new DAL_dichvu();
         public DataTable Danhsachdvu()
         {
-           return busnv.Danhsachdvu();
+            return busnv.Danhsachdvu();
         }
     }
 }
