@@ -127,6 +127,7 @@
             dgvDSPhong.Size = new Size(678, 339);
             dgvDSPhong.TabIndex = 20;
             dgvDSPhong.CellClick += dgvDSPhong_CellClick;
+            dgvDSPhong.CellContentClick += dgvDSPhong_CellContentClick;
             // 
             // label1
             // 

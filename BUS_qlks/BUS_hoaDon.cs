@@ -1,4 +1,5 @@
 ﻿using DAL_qlks;
+using DTO_qlks;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,19 @@ namespace BUS_qlks
         public DataTable DanhSachHDCT()
         {
             return dal.DanhsachHDCT();
+        }
+        public bool LuuHDCT(DTO_hoadonchitiet hdct)
+        {
+            return dal.Luuhdct(hdct);
+        }
+        public bool CheckMaDichVu(string maDichVu)
+        {
+            return dal.CheckMaDichVu(maDichVu);
+        }
+
+        public DataTable DichVuDaChon()
+        {
+            return dal.DichVuDaChon();
         }
     }
 }

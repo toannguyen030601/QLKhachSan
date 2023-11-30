@@ -15,7 +15,6 @@ namespace DAL_qlks
         {
             try
             {
-                connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
@@ -51,37 +50,62 @@ namespace DAL_qlks
                 throw;
             }
         }
-        public bool Themhdct(DTO_hoadonchitiet hdct)
+        public bool Luuhdct(DTO_hoadonchitiet hdct)
         {
             using (NpgsqlCommand cmd = new NpgsqlCommand())
             {
                 try
                 {
-                        connection.Open();
-                        cmd.Connection = connection;
-                        cmd.CommandType = CommandType.Text;
-                        string mahdct = TaoMaHoaDonChiTiet();
-                        cmd.CommandText = "INSERT INTO ChiTietHoaDonPhong (MaHoaDonChiTiet, SoLuong, MaHoaDon, MaDichVu) VALUES (@MaHoaDonChiTiet, @SoLuong, @MaHoaDon, @MaDichVu)";
+                    connection.Open();
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
 
-                        cmd.Parameters.AddWithValue("@MaHoaDonChiTiet", mahdct);
-                        cmd.Parameters.AddWithValue("@SoLuong", hdct.soLuong);
-                        cmd.Parameters.AddWithValue("@MaHoaDon", hdct.maHoaDon);
-                        cmd.Parameters.AddWithValue("@MaDichVu", hdct.maDichVu);
-                    
+                    // Check if MaHoaDonChiTiet already exists
+                    string kiemtratontai = "SELECT COUNT(*) FROM ChiTietHoaDonPhong WHERE madichvu=@madichvu";
+                    cmd.CommandText = kiemtratontai;
+                    cmd.Parameters.AddWithValue("@madichvu", hdct.maDichVu);
+
+                    int existingCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (existingCount > 0)
+                    {
+                        // tồn tại dịch thì update
+                        cmd.CommandText = "UPDATE ChiTietHoaDonPhong SET SoLuong = soluong+1 WHERE madichvu = @madichvu";
+                    }
+                    else
+                    {
+                        if(hdct.maHoaDonChiTiet!=null)
+                        {
+                            cmd.CommandText = "UPDATE ChiTietHoaDonPhong SET SoLuong = @SoLuong, MaHoaDon = @MaHoaDon, MaDichVu = @MaDichVu WHERE MaHoaDonChiTiet = @MaHoaDonChiTiet";
+                        }
+                        else
+                        // thêm mới
+                            cmd.CommandText = "INSERT INTO ChiTietHoaDonPhong (MaHoaDonChiTiet, SoLuong, MaHoaDon, MaDichVu) VALUES (@MaHoaDonChiTiet, @SoLuong, @MaHoaDon, @MaDichVu)";
+                    }
+
+                    // Clear previous parameters and add new parameters for the update or insert
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@MaHoaDonChiTiet", TaoMaHoaDonChiTiet());
+                    cmd.Parameters.AddWithValue("@SoLuong", hdct.soLuong);
+                    cmd.Parameters.AddWithValue("@MaHoaDon", hdct.maHoaDon);
+                    cmd.Parameters.AddWithValue("@MaDichVu", hdct.maDichVu);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
-                    return rowsAffected > 0; // Trả về true nếu thêm thành công, ngược lại trả về false
+                    return rowsAffected > 0; // Return true if the operation was successful
                 }
                 catch (Exception ex)
                 {
-                    // Xử lý exception ở đây nếu cần
-                    // Ví dụ: throw ex; để ném exception lên lớp gọi
-                    // hoặc log lỗi
+                    // Handle exceptions here
                     throw;
+                }
+                finally
+                {
+                    connection.Close();
                 }
             }
         }
+
         public bool XoaHDCT(string mahdct)
         {
             try
@@ -123,5 +147,43 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
+
+        public bool CheckMaDichVu(string maDichVu)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select 1 from chitiethoadonphong where madichvu=@madichvu";
+                cmd.Parameters.AddWithValue("@madichvu", maDichVu);
+                int result=Convert.ToInt16(cmd.ExecuteScalar());
+                return result > 0;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public DataTable DichVuDaChon()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT dv.tendichvu,dv.dongia,ct.soluong FROM chitiethoadonphong ct JOIN dichvu dv ON ct.madichvu = dv.madichvu";
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                adapter.Fill(dt);
+                return dt;
+            }
+            finally { connection.Close(); }
+        }
+
     }
 }

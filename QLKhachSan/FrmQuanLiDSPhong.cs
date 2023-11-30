@@ -201,5 +201,10 @@ namespace QLKhachSan
                 }
             }
         }
+
+        private void dgvDSPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
