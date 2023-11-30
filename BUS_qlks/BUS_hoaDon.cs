@@ -24,11 +24,6 @@ namespace BUS_qlks
         {
             return dal.Luuhdct(hdct);
         }
-        public bool CheckMaDichVu(string maDichVu)
-        {
-            return dal.CheckMaDichVu(maDichVu);
-        }
-
         public DataTable DichVuDaChon()
         {
             return dal.DichVuDaChon();

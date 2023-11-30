@@ -66,33 +66,37 @@ namespace DAL_qlks
                     cmd.Parameters.AddWithValue("@madichvu", hdct.maDichVu);
 
                     int existingCount = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    if (existingCount > 0)
+                    int ketQua = 0;
+                    if (existingCount > 0) //tồn tại thì update thêm 1
                     {
                         // tồn tại dịch thì update
                         cmd.CommandText = "UPDATE ChiTietHoaDonPhong SET SoLuong = soluong+1 WHERE madichvu = @madichvu";
+                        cmd.Parameters.AddWithValue("@madichvu",hdct.maDichVu);
+                        ketQua = Convert.ToInt32(cmd.ExecuteNonQuery());
                     }
                     else
-                    {
-                        if(hdct.maHoaDonChiTiet!=null)
+                    {//không tồn tại
+                        cmd.Parameters.Clear();
+                        if (hdct.maHoaDonChiTiet!=null)
                         {
-                            cmd.CommandText = "UPDATE ChiTietHoaDonPhong SET SoLuong = @SoLuong, MaHoaDon = @MaHoaDon, MaDichVu = @MaDichVu WHERE MaHoaDonChiTiet = @MaHoaDonChiTiet";
+                            cmd.CommandText = "UPDATE ChiTietHoaDonPhong SET soluong = @soluong, mahoadon = @mahoadon, madichvu = @madichvu WHERE mahoadonchitiet = @mahoadonchitiet";
+                            cmd.Parameters.AddWithValue("@soluong",hdct.soLuong);
+                            cmd.Parameters.AddWithValue("@mahoadon", hdct.maHoaDon);
+                            cmd.Parameters.AddWithValue("@madichvu", hdct.maDichVu);
+                            cmd.Parameters.AddWithValue("@mahoadonchitiet", hdct.maHoaDonChiTiet);
+                            ketQua = Convert.ToInt32(cmd.ExecuteNonQuery());
                         }
                         else
-                        // thêm mới
+                        {
                             cmd.CommandText = "INSERT INTO ChiTietHoaDonPhong (MaHoaDonChiTiet, SoLuong, MaHoaDon, MaDichVu) VALUES (@MaHoaDonChiTiet, @SoLuong, @MaHoaDon, @MaDichVu)";
-                    }
-
-                    // Clear previous parameters and add new parameters for the update or insert
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@MaHoaDonChiTiet", TaoMaHoaDonChiTiet());
-                    cmd.Parameters.AddWithValue("@SoLuong", hdct.soLuong);
-                    cmd.Parameters.AddWithValue("@MaHoaDon", hdct.maHoaDon);
-                    cmd.Parameters.AddWithValue("@MaDichVu", hdct.maDichVu);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    return rowsAffected > 0; // Return true if the operation was successful
+                            cmd.Parameters.AddWithValue("@MaHoaDonChiTiet", TaoMaHoaDonChiTiet());
+                            cmd.Parameters.AddWithValue("@SoLuong", 1);
+                            cmd.Parameters.AddWithValue("@MaHoaDon", hdct.maHoaDon);
+                            cmd.Parameters.AddWithValue("@MaDichVu", hdct.maDichVu);
+                            ketQua = Convert.ToInt32(cmd.ExecuteNonQuery());
+                        }
+                    }                            
+                    return ketQua > 0; // Return true if the operation was successful
                 }
                 catch (Exception ex)
                 {
@@ -148,26 +152,6 @@ namespace DAL_qlks
             finally { connection.Close(); }
         }
 
-        public bool CheckMaDichVu(string maDichVu)
-        {
-            try
-            {
-                connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select 1 from chitiethoadonphong where madichvu=@madichvu";
-                cmd.Parameters.AddWithValue("@madichvu", maDichVu);
-                int result=Convert.ToInt16(cmd.ExecuteScalar());
-                return result > 0;
-            }
-
-            finally
-            {
-                connection.Close();
-            }
-        }
-
         public DataTable DichVuDaChon()
         {
             DataTable dt = new DataTable();
@@ -177,7 +161,7 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT dv.tendichvu,dv.dongia,ct.soluong FROM chitiethoadonphong ct JOIN dichvu dv ON ct.madichvu = dv.madichvu";
+                cmd.CommandText = "SELECT ct.mahoadonchitiet,dv.tendichvu,dv.dongia,ct.soluong FROM chitiethoadonphong ct JOIN dichvu dv ON ct.madichvu = dv.madichvu";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;

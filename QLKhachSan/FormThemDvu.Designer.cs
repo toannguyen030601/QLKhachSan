@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             groupBox1 = new GroupBox();
             txtTimdv = new TextBox();
@@ -36,7 +36,6 @@
             dGVDichVuDaChon = new DataGridView();
             label2 = new Label();
             btnPhai = new Button();
-            btnTrai = new Button();
             btnLuu = new Button();
             btnThoat = new Button();
             button1 = new Button();
@@ -87,33 +86,35 @@
             // dGVDichVu
             // 
             dGVDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dGVDichVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dGVDichVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dGVDichVu.ColumnHeadersHeight = 29;
-            dGVDichVu.Location = new Point(81, 158);
+            dGVDichVu.Location = new Point(37, 158);
             dGVDichVu.Margin = new Padding(2);
             dGVDichVu.Name = "dGVDichVu";
             dGVDichVu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dGVDichVu.RowTemplate.Height = 35;
-            dGVDichVu.Size = new Size(239, 167);
+            dGVDichVu.Size = new Size(283, 167);
             dGVDichVu.TabIndex = 2;
+            dGVDichVu.CellClick += dGVDichVu_CellClick;
             dGVDichVu.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dGVDichVuDaChon
             // 
+            dGVDichVuDaChon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dGVDichVuDaChon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dGVDichVuDaChon.Location = new Point(416, 158);
             dGVDichVuDaChon.Margin = new Padding(2);
             dGVDichVuDaChon.Name = "dGVDichVuDaChon";
             dGVDichVuDaChon.RowHeadersWidth = 51;
             dGVDichVuDaChon.RowTemplate.Height = 35;
-            dGVDichVuDaChon.Size = new Size(243, 167);
+            dGVDichVuDaChon.Size = new Size(285, 167);
             dGVDichVuDaChon.TabIndex = 3;
             // 
             // label2
@@ -131,24 +132,14 @@
             // 
             // btnPhai
             // 
-            btnPhai.Location = new Point(336, 191);
+            btnPhai.Location = new Point(336, 227);
             btnPhai.Margin = new Padding(2);
             btnPhai.Name = "btnPhai";
-            btnPhai.Size = new Size(67, 25);
+            btnPhai.Size = new Size(67, 42);
             btnPhai.TabIndex = 5;
             btnPhai.Text = ">>";
             btnPhai.UseVisualStyleBackColor = true;
             btnPhai.Click += btnPhai_Click;
-            // 
-            // btnTrai
-            // 
-            btnTrai.Location = new Point(336, 246);
-            btnTrai.Margin = new Padding(2);
-            btnTrai.Name = "btnTrai";
-            btnTrai.Size = new Size(67, 25);
-            btnTrai.TabIndex = 6;
-            btnTrai.Text = "<<";
-            btnTrai.UseVisualStyleBackColor = true;
             // 
             // btnLuu
             // 
@@ -243,7 +234,6 @@
             Controls.Add(button1);
             Controls.Add(btnThoat);
             Controls.Add(btnLuu);
-            Controls.Add(btnTrai);
             Controls.Add(btnPhai);
             Controls.Add(label2);
             Controls.Add(dGVDichVuDaChon);
@@ -253,6 +243,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "FormThemDvu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormThemDvu";
             Load += FormThemDvu_Load;
             groupBox1.ResumeLayout(false);
@@ -271,7 +262,6 @@
         private DataGridView dGVDichVuDaChon;
         private Label label2;
         private Button btnPhai;
-        private Button btnTrai;
         private Button btnLuu;
         private Button btnThoat;
         private Button button1;

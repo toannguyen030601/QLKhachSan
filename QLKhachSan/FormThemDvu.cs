@@ -21,6 +21,10 @@ namespace QLKhachSan
             InitializeComponent();
             this.maHoaDon = maHoaDon;
             this.maPhong = maPhong;
+            LoadDichVuDaChon();
+            danhsachDvu();
+            lblMaDichVu.Visible = false;
+            lblMaHoaDonChiTiet.Visible = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -31,32 +35,27 @@ namespace QLKhachSan
         BUS_hoaDon bushd = new BUS_hoaDon();
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dGVDichVu.Rows.Count - 1 && e.ColumnIndex >= 0)
-            {
-                // Use the Value property to get the cell value
-                object cellValue = dGVDichVu.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
 
-                // Check if the cell value is not null
-                if (cellValue != null)
-                {
-                    // Convert the value to a string and assign it to lblMaDichVu
-                    lblMaDichVu.Text = cellValue.ToString();
-                }
-            }
         }
         private void danhsachDvu()
         {
             dGVDichVu.DataSource = null;
             dGVDichVu.DataSource = busdv.Danhsachdvu();
+            dGVDichVu.Columns[0].HeaderText = "Mã Dịch Vụ";
+            dGVDichVu.Columns[1].HeaderText = "Tên dịch vụ";
+            dGVDichVu.Columns[2].HeaderText = "Đơn giá";
             // dataGridView2.DataSource = bushd.DanhSachHDCT(); Hiển thị hóa đơn chi tiết để test chức năng xóa
         }
 
         public void LoadDichVuDaChon()
         {
-            dGVDichVu.DataSource = null;
-            dGVDichVuDaChon.DataSource=bushd.DichVuDaChon();
+            dGVDichVuDaChon.DataSource = null;
+            dGVDichVuDaChon.DataSource = bushd.DichVuDaChon();
+            dGVDichVuDaChon.Columns[0].Visible = false;
+            dGVDichVuDaChon.Columns[1].HeaderText = "Tên dịch vụ";
+            dGVDichVuDaChon.Columns[2].HeaderText = "Đơn Giá";
+            dGVDichVuDaChon.Columns[3].HeaderText = "Số lượng";
         }
-
 
         private void FormThemDvu_Load(object sender, EventArgs e)
         {
@@ -65,7 +64,7 @@ namespace QLKhachSan
             lblMaDichVu.Text = string.Empty;
             lblMaHoaDonChiTiet.Text = string.Empty;
             lbMaPhong.Text = maPhong;
-            lbMaHoaDon.Text=maHoaDon;
+            lbMaHoaDon.Text = maHoaDon;
             // tên khách hàng lấy trong bảng HoaDon dựa vào Mã Hóa Đơn
         }
         private void ChuyenDuLieu()
@@ -77,28 +76,14 @@ namespace QLKhachSan
             ChuyenDuLieu();
             if (!string.IsNullOrEmpty(lblMaDichVu.Text))
             {
-                if (bushd.CheckMaDichVu(lblMaDichVu.Text))// đã có dịch vụ này trong bảng nên tăng số lượng 1
+                DTO_hoadonchitiet hdct = new DTO_hoadonchitiet();
+                hdct.maDichVu = lblMaDichVu.Text;
+                hdct.maHoaDon = lbMaHoaDon.Text;
+                if (bushd.LuuHDCT(hdct))
                 {
-                    DTO_hoadonchitiet hdct = new DTO_hoadonchitiet();
-                    hdct.maDichVu = lblMaDichVu.Text;
-                    if (bushd.LuuHDCT(hdct))
-                    {
-                        MessageBox.Show("Cập nhật thành công");
-                        LoadDichVuDaChon();
-                    };
-                }
-                else
-                {
-                    DTO_hoadonchitiet hdct = new DTO_hoadonchitiet();
-                    hdct.maDichVu = lblMaDichVu.Text;
-                    hdct.soLuong = 1;
-                    hdct.maHoaDon = lbMaHoaDon.Text;
-                    if (bushd.LuuHDCT(hdct))
-                    {
-                        MessageBox.Show("Lưu dịch vụ thành công");
-                        LoadDichVuDaChon();
-                    }
-                }
+                    MessageBox.Show("Thêm dịch vụ thành công");
+                    LoadDichVuDaChon();
+                };
             }
         }
 
@@ -147,6 +132,22 @@ namespace QLKhachSan
             else
             {
                 danhsachDvu();
+            }
+        }
+
+        private void dGVDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dGVDichVu.Rows.Count - 1 && e.ColumnIndex >= 0)
+            {
+                // Use the Value property to get the cell value
+                object cellValue = dGVDichVu.Rows[e.RowIndex].Cells[0].Value;
+
+                // Check if the cell value is not null
+                if (cellValue != null)
+                {
+                    // Convert the value to a string and assign it to lblMaDichVu
+                    lblMaDichVu.Text = cellValue.ToString();
+                }
             }
         }
     }
