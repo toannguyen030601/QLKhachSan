@@ -18,6 +18,8 @@ namespace QLKhachSan
         {
             InitializeComponent();
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
         }
         BUS_loaidichvu bus_ldv = new BUS_loaidichvu();
         private void btnTimLoaiDichVu_Click(object sender, EventArgs e)
