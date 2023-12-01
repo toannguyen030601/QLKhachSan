@@ -150,5 +150,14 @@ namespace QLKhachSan
                 }
             }
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (bushd.ThanhToanPhong(lbMaHoaDon.Text, DateTime.Now, false, lbMaPhong.Text))
+            {
+                //Hiển thị form Hóa Đơn chi tiết
+                MessageBox.Show("THanh toán thành công");
+            }
+        }
     }
 }

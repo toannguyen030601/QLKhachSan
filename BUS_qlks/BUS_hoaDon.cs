@@ -28,5 +28,9 @@ namespace BUS_qlks
         {
             return dal.DichVuDaChon();
         }
+        public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
+        {
+            return dal.ThanhToanPhong(mahoadon,ngaytraphong,trangthai,maphong);
+        }
     }
 }

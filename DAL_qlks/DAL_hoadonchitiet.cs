@@ -168,6 +168,39 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
+        public bool ThanhToanPhong(string mahoadon,DateTime ngaytraphong,bool trangthai,string maphong)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update hoadonphong" +
+                    "set ngaytraphong = @NgayTraPhong" +
+                    "where MaHoaDon = @MaHoaDon";
+                cmd.Parameters.AddWithValue("@NgayTraPhong", ngaytraphong);
+                cmd.Parameters.AddWithValue("@MaHoaDon", mahoadon);
+                NpgsqlCommand cmd2 = new NpgsqlCommand();
+                cmd2.Connection = connection;
+                cmd2.CommandType = CommandType.Text;
+                cmd2.CommandText = "update phong" +
+                    "set trangthai = @TrangThai" +
+                    "where MaPhong = @MaPhong";
+                cmd2.Parameters.AddWithValue("@TrangThai", trangthai);
+                cmd2.Parameters.AddWithValue("@MaPhong", maphong);
 
+                if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            finally { connection.Close(); }
+        }
     }
 }
