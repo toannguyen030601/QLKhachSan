@@ -277,6 +277,7 @@
             btnTrangChu.TabIndex = 2;
             btnTrangChu.Text = "Trang Chủ";
             btnTrangChu.UseVisualStyleBackColor = false;
+            asda
             // 
             // panel12
             // 
