@@ -217,9 +217,6 @@
             btnInfoDangnhap.Size = new Size(23, 24);
             btnInfoDangnhap.TabIndex = 3;
             btnInfoDangnhap.UseVisualStyleBackColor = false;
-            btnInfoDangnhap.Click += btnInfoDangnhap_Click;
-            btnInfoDangnhap.MouseLeave += btnInfoDangnhap_MouseLeave;
-            btnInfoDangnhap.MouseHover += btnInfoDangnhap_MouseHover;
             // 
             // btnLogout
             // 
@@ -233,7 +230,6 @@
             btnLogout.Size = new Size(42, 39);
             btnLogout.TabIndex = 2;
             btnLogout.UseVisualStyleBackColor = false;
-            btnLogout.Click += btnLogout_Click;
             // 
             // lblTen
             // 
@@ -281,7 +277,6 @@
             btnTrangChu.TabIndex = 2;
             btnTrangChu.Text = "Trang Chủ";
             btnTrangChu.UseVisualStyleBackColor = false;
-            btnTrangChu.Click += button1_Click;
             // 
             // panel12
             // 
