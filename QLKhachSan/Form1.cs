@@ -245,5 +245,21 @@ namespace QLKhachSan
                 btnNhanVien.Visible = true;
             }
         }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new QLDichvu());
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new QLLoaiDichVu());
+            //test
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
