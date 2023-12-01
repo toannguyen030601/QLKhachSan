@@ -83,7 +83,7 @@ namespace QLKhachSan
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
         {
-            if(currentFormChild != null)
+            if (currentFormChild != null)
             {
                 currentFormChild.Close();
             }
@@ -244,6 +244,12 @@ namespace QLKhachSan
             {
                 btnNhanVien.Visible = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new KhachHang());
         }
         private void button7_Click(object sender, EventArgs e)
         {

@@ -42,7 +42,7 @@ namespace QLKhachSan
         {
             WindowState = FormWindowState.Minimized;
         }
-
+        
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
@@ -53,6 +53,7 @@ namespace QLKhachSan
             if (busnv.dangnhap(dtonv))
             {
                 MessageBox.Show("Đăng nhập thành công");
+                UserLoginInfo.Email = txtEmail.Text;
                 Form1.email = dtonv.Email;
                 Properties.Settings.Default.Ghinho = chkNhotaikhoan.Checked;
                 if (chkNhotaikhoan.Checked)
