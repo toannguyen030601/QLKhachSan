@@ -192,9 +192,36 @@ namespace QLKhachSan
                                 }
 
                                 p.MaLoaiPhong = cbMaLoaiPhong.SelectedItem.ToString();
-                                bus_Phong.LuuPhong(p);
-                                MessageBox.Show("Lưu thành công");
-                                SetValues();
+
+                                if (bus_Phong.CheckMaPhong(txtMaPhong.Text))
+                                {
+                                    DialogResult xn = MessageBox.Show("Đã có mã phòng, bạn có muốn cập nhật không?","Cập nhật",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                                    if(xn == DialogResult.Yes)
+                                    {
+                                        if (bus_Phong.LuuPhong(p))
+                                        {
+                                            MessageBox.Show("Lưu thành công");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Lưu thất bại");
+                                        }
+                                        SetValues();
+                                    }
+                                }
+                                else
+                                {
+                                    if (bus_Phong.LuuPhong(p))
+                                    {
+                                        MessageBox.Show("Lưu thành công");
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Lưu thất bại");
+                                    }
+                                    SetValues();
+                                }
+                               
                             }
                         }
                     }

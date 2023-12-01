@@ -16,9 +16,9 @@ namespace BUS_qlks
         {
             return dal_Phong.DanhSachPhong();
         }
-        public void LuuPhong(DTO_Phong p)
+        public bool LuuPhong(DTO_Phong p)
         {
-            dal_Phong.LuuPhong(p);
+            return dal_Phong.LuuPhong(p);
         }
         public void XoaPhong(string maPhong)
         {
@@ -40,6 +40,9 @@ namespace BUS_qlks
         {
             return dal_Phong.MaHoaDonCuaPhong(maPhong);
         }
-
+        public bool CheckMaPhong(string maPhong)
+        {
+            return dal_Phong.CheckMaPhong(maPhong);
+        }
     }
 }

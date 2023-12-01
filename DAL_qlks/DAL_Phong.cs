@@ -27,24 +27,74 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
-        public void LuuPhong(DTO_Phong p)
+        public bool CheckMaPhong(string maPhong)
         {
             try
             {
                 connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "luuphong";
-                cmd.Parameters.AddWithValue("@p_maphong",p.MaPhong);
-                cmd.Parameters.AddWithValue("@p_tenphong", p.TenPhong);
-                cmd.Parameters.AddWithValue("@p_gia", p.Gia);
-                cmd.Parameters.AddWithValue("@p_trangthai", p.TrangThai);
-                cmd.Parameters.AddWithValue("@p_maloaiphong", p.MaLoaiPhong);
-                cmd.ExecuteNonQuery();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select COUNT(*) from Phong where maphong=@maphong";
+                cmd.Parameters.AddWithValue("@maphong", maPhong);
+                int kq=Convert.ToInt16(cmd.ExecuteScalar());
+                return kq > 0;
             }
             finally { connection.Close(); }
         }
+        public bool LuuPhong(DTO_Phong p)
+        {
+            try
+            {
+                connection.Open();
+
+                // Kiểm tra xem phòng đã tồn tại hay chưa
+                string checkExistPhong = "SELECT COUNT(*) FROM phong WHERE maphong = @maphong";
+                using (NpgsqlCommand checkExistCmd = new NpgsqlCommand(checkExistPhong, connection))
+                {
+                    checkExistCmd.Parameters.AddWithValue("maphong", p.MaPhong);
+                    int existingCount = Convert.ToInt32(checkExistCmd.ExecuteScalar());
+
+                    if (existingCount > 0)
+                    {
+                        // Phòng đã tồn tại, thực hiện cập nhật
+                        string updateQuery = "UPDATE phong SET tenphong = @tenphong, gia = @gia, trangthai = @trangthai, maloaiphong = @maloaiphong WHERE maphong = @maphong";
+                        using (NpgsqlCommand updateCmd = new NpgsqlCommand(updateQuery, connection))
+                        {
+                            updateCmd.Parameters.AddWithValue("@maphong", p.MaPhong);
+                            updateCmd.Parameters.AddWithValue("@tenphong", p.TenPhong);
+                            updateCmd.Parameters.AddWithValue("@gia", p.Gia);
+                            updateCmd.Parameters.AddWithValue("@trangthai", p.TrangThai);
+                            updateCmd.Parameters.AddWithValue("@maloaiphong", p.MaLoaiPhong);
+
+                            int updateResult = updateCmd.ExecuteNonQuery();
+                            return updateResult > 0;
+                        }
+                    }
+                    else
+                    {
+                        // Phòng chưa tồn tại, thực hiện thêm mới
+                        string insertQuery = "INSERT INTO phong (maphong, tenphong, gia, trangthai, maloai_phong) VALUES (@maphong, @tenphong, @gia, @trangthai, @maloaiphong)";
+                        using (NpgsqlCommand insertCmd = new NpgsqlCommand(insertQuery, connection))
+                        {
+                            insertCmd.Parameters.AddWithValue("@maphong", p.MaPhong);
+                            insertCmd.Parameters.AddWithValue("@tenphong", p.TenPhong);
+                            insertCmd.Parameters.AddWithValue("@gia", p.Gia);
+                            insertCmd.Parameters.AddWithValue("@trangthai", p.TrangThai);
+                            insertCmd.Parameters.AddWithValue("@maloaiphong", p.MaLoaiPhong);
+
+                            int insertResult = insertCmd.ExecuteNonQuery();
+                            return insertResult > 0;
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public void XoaPhong(string maPhong)
         {
             try
