@@ -525,55 +525,56 @@
             // 
             // panel13
             // 
-            panel13.Dock = DockStyle.Bottom;
-            panel13.Location = new Point(250, 699);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(1042, 59);
-            panel13.TabIndex = 2;
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel13.Location = new System.Drawing.Point(250, 699);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1042, 59);
+            this.panel13.TabIndex = 2;
             // 
             // panelBody
             // 
-            panelBody.Dock = DockStyle.Fill;
-            panelBody.Location = new Point(250, 38);
-            panelBody.Name = "panelBody";
-            panelBody.Size = new Size(1042, 661);
-            panelBody.TabIndex = 3;
+            this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBody.Location = new System.Drawing.Point(250, 38);
+            this.panelBody.Name = "panelBody";
+            this.panelBody.Size = new System.Drawing.Size(1042, 661);
+            this.panelBody.TabIndex = 3;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 22F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1292, 758);
-            Controls.Add(panelBody);
-            Controls.Add(panel13);
-            Controls.Add(sidebar);
-            Controls.Add(panel1);
-            Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
-            Resize += Form1_Resize;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)menu).EndInit();
-            sidebar.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
-            panel2.ResumeLayout(false);
-            panel12.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1292, 758);
+            this.Controls.Add(this.panelBody);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.sidebar);
+            this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
+            this.sidebar.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
