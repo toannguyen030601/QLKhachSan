@@ -98,5 +98,9 @@ namespace BUS_qlks
         {
             return dalnv.thongtinnhanvien(email);
         }
+        public string TimMaNhanVienTheoEmail(string email)
+        {
+            return dalnv.TimMaNhanVienTheoEmail(email);
+        }
     }
 }
