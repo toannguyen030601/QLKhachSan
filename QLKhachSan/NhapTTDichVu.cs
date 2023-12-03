@@ -14,7 +14,9 @@ namespace QLKhachSan
 {
     public partial class NhapTTDichVu : Form
     {
-
+       
+        BUS_dichvu bUS_Dichvu= new BUS_dichvu();
+        BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private string currentMaLoaiDichVu = "";
         public bool istrangthai { get { return trangthai; } }
         public bool IsUpdated { get; private set; }
@@ -41,7 +43,7 @@ namespace QLKhachSan
         }
         private void LoadLoaiDichVu(string selectedLoaiDV = "")
         {
-            DataTable data = bus_dv.DanhSachLoaiDichVu();
+            DataTable data = bUS_Loaidichvu.danhsachloaidichvu();
 
             if (data.Rows.Count > 0)
             {
@@ -62,10 +64,7 @@ namespace QLKhachSan
                 this.Close();
             }
         }
-        BUS_dichvu bus_dv = new BUS_dichvu();
-        
-        BUS_dichvu bUS_Dichvu = new BUS_dichvu();   
-        BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
+       
         private bool isthemsuaDV;
         public bool trangthai = false;
         private void btnThemDichVu2_Click(object sender, EventArgs e)
@@ -87,7 +86,7 @@ namespace QLKhachSan
                 // Cập nhật các thông tin khác nếu cần
 
                 // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                if (bus_dv.SuaDichVu(dichvu))
+                if (bUS_Dichvu)
                 {
                     MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     IsUpdated = true; // Đã cập nhật thành công
