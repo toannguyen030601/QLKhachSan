@@ -54,28 +54,32 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Blue;
-            label1.Location = new Point(111, 77);
+            label1.Location = new Point(81, 55);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(215, 31);
+            label1.Size = new Size(265, 39);
             label1.TabIndex = 0;
             label1.Text = "Danh sách dịch vụ";
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(txtTimdv);
-            groupBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(125, 132);
+            groupBox1.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(37, 94);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(136, 84);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(153, 60);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm loại dịch vụ";
             // 
             // txtTimdv
             // 
-            txtTimdv.Location = new Point(14, 38);
+            txtTimdv.Location = new Point(10, 27);
+            txtTimdv.Margin = new Padding(2);
             txtTimdv.Name = "txtTimdv";
-            txtTimdv.Size = new Size(99, 26);
+            txtTimdv.Size = new Size(121, 25);
             txtTimdv.TabIndex = 0;
             txtTimdv.TextChanged += txtTimdv_TextChanged;
             // 
@@ -91,11 +95,12 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dGVDichVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dGVDichVu.ColumnHeadersHeight = 29;
-            dGVDichVu.Location = new Point(51, 221);
+            dGVDichVu.Location = new Point(37, 158);
+            dGVDichVu.Margin = new Padding(2);
             dGVDichVu.Name = "dGVDichVu";
             dGVDichVu.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dGVDichVu.RowTemplate.Height = 35;
-            dGVDichVu.Size = new Size(389, 234);
+            dGVDichVu.Size = new Size(283, 167);
             dGVDichVu.TabIndex = 2;
             dGVDichVu.CellClick += dGVDichVu_CellClick;
             dGVDichVu.CellContentClick += dataGridView1_CellContentClick;
@@ -104,11 +109,12 @@
             // 
             dGVDichVuDaChon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dGVDichVuDaChon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dGVDichVuDaChon.Location = new Point(572, 221);
+            dGVDichVuDaChon.Location = new Point(416, 158);
+            dGVDichVuDaChon.Margin = new Padding(2);
             dGVDichVuDaChon.Name = "dGVDichVuDaChon";
             dGVDichVuDaChon.RowHeadersWidth = 51;
             dGVDichVuDaChon.RowTemplate.Height = 35;
-            dGVDichVuDaChon.Size = new Size(392, 234);
+            dGVDichVuDaChon.Size = new Size(285, 167);
             dGVDichVuDaChon.TabIndex = 3;
             // 
             // label2
@@ -116,18 +122,20 @@
             label2.AutoSize = true;
             label2.Font = new Font("Times New Roman", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Blue;
-            label2.Location = new Point(645, 77);
+            label2.Location = new Point(469, 55);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(193, 31);
+            label2.Size = new Size(238, 39);
             label2.TabIndex = 4;
             label2.Text = "Dịch vụ đã chọn";
             label2.Click += label2_Click;
             // 
             // btnPhai
             // 
-            btnPhai.Location = new Point(462, 318);
+            btnPhai.Location = new Point(336, 227);
+            btnPhai.Margin = new Padding(2);
             btnPhai.Name = "btnPhai";
-            btnPhai.Size = new Size(92, 59);
+            btnPhai.Size = new Size(67, 42);
             btnPhai.TabIndex = 5;
             btnPhai.Text = ">>";
             btnPhai.UseVisualStyleBackColor = true;
@@ -135,86 +143,103 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(645, 470);
+            btnLuu.BackColor = Color.Lime;
+            btnLuu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLuu.ForeColor = Color.Yellow;
+            btnLuu.Location = new Point(469, 336);
+            btnLuu.Margin = new Padding(2);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(134, 35);
+            btnLuu.Size = new Size(121, 37);
             btnLuu.TabIndex = 7;
             btnLuu.Text = "Thanh Toán";
-            btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.UseVisualStyleBackColor = false;
             btnLuu.Click += btnLuu_Click;
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(817, 470);
+            btnThoat.BackColor = Color.Red;
+            btnThoat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnThoat.Location = new Point(604, 336);
+            btnThoat.Margin = new Padding(2);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(103, 35);
+            btnThoat.Size = new Size(75, 37);
             btnThoat.TabIndex = 8;
             btnThoat.Text = "Thoát";
-            btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.UseVisualStyleBackColor = false;
             btnThoat.Click += btnThoat_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(527, 470);
+            button1.BackColor = Color.FromArgb(255, 128, 128);
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(383, 336);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(96, 35);
+            button1.Size = new Size(70, 37);
             button1.TabIndex = 9;
             button1.Text = "Xóa";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += btnXoa;
             // 
             // lbMaPhong
             // 
             lbMaPhong.AutoSize = true;
-            lbMaPhong.Location = new Point(65, 29);
+            lbMaPhong.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbMaPhong.ForeColor = Color.Red;
+            lbMaPhong.Location = new Point(47, 21);
+            lbMaPhong.Margin = new Padding(2, 0, 2, 0);
             lbMaPhong.Name = "lbMaPhong";
-            lbMaPhong.Size = new Size(102, 28);
+            lbMaPhong.Size = new Size(80, 20);
             lbMaPhong.TabIndex = 10;
             lbMaPhong.Text = "Mã Phòng";
             // 
             // lbTenKH
             // 
             lbTenKH.AutoSize = true;
-            lbTenKH.Location = new Point(344, 29);
+            lbTenKH.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbTenKH.Location = new Point(250, 21);
+            lbTenKH.Margin = new Padding(2, 0, 2, 0);
             lbTenKH.Name = "lbTenKH";
-            lbTenKH.Size = new Size(74, 28);
+            lbTenKH.Size = new Size(59, 20);
             lbTenKH.TabIndex = 11;
             lbTenKH.Text = "MÃ KH";
             // 
             // lblMaDichVu
             // 
             lblMaDichVu.AutoSize = true;
-            lblMaDichVu.Location = new Point(309, 154);
-            lblMaDichVu.Margin = new Padding(4, 0, 4, 0);
+            lblMaDichVu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMaDichVu.Location = new Point(225, 110);
             lblMaDichVu.Name = "lblMaDichVu";
-            lblMaDichVu.Size = new Size(108, 28);
+            lblMaDichVu.Size = new Size(85, 20);
             lblMaDichVu.TabIndex = 12;
             lblMaDichVu.Text = "Mã dịch vụ";
             // 
             // lblMaHoaDonChiTiet
             // 
             lblMaHoaDonChiTiet.AutoSize = true;
-            lblMaHoaDonChiTiet.Location = new Point(624, 154);
-            lblMaHoaDonChiTiet.Margin = new Padding(4, 0, 4, 0);
+            lblMaHoaDonChiTiet.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMaHoaDonChiTiet.Location = new Point(454, 110);
             lblMaHoaDonChiTiet.Name = "lblMaHoaDonChiTiet";
-            lblMaHoaDonChiTiet.Size = new Size(95, 28);
+            lblMaHoaDonChiTiet.Size = new Size(75, 20);
             lblMaHoaDonChiTiet.TabIndex = 13;
             lblMaHoaDonChiTiet.Text = "Mã HDCT";
             // 
             // lbMaHoaDon
             // 
             lbMaHoaDon.AutoSize = true;
-            lbMaHoaDon.Location = new Point(554, 29);
+            lbMaHoaDon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lbMaHoaDon.Location = new Point(403, 21);
+            lbMaHoaDon.Margin = new Padding(2, 0, 2, 0);
             lbMaHoaDon.Name = "lbMaHoaDon";
-            lbMaHoaDon.Size = new Size(123, 28);
+            lbMaHoaDon.Size = new Size(96, 20);
             lbMaHoaDon.TabIndex = 14;
             lbMaHoaDon.Text = "Mã Hóa Đơn";
             // 
             // FormThemDvu
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(979, 538);
+            ClientSize = new Size(712, 384);
             Controls.Add(lbMaHoaDon);
             Controls.Add(lblMaHoaDonChiTiet);
             Controls.Add(lblMaDichVu);
@@ -230,6 +255,7 @@
             Controls.Add(groupBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2);
             Name = "FormThemDvu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormThemDvu";
