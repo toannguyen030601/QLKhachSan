@@ -203,11 +203,11 @@ namespace DAL_qlks
                 return rowsAffectedHoaDon > 0 && rowsAffectedPhong > 0;
                 }
         /*    catch { throw; }*/
+        
             finally
                 {
                 connection.Close();
             }
-            finally { connection.Close(); }
         }
 
     }

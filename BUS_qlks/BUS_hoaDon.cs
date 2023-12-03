@@ -12,7 +12,7 @@ namespace BUS_qlks
     public class BUS_hoaDon
     {
         DAL_hoadonchitiet dal = new DAL_hoadonchitiet();
-        DAL_qlks.DAL_hoadon dalHD = new DAL_qlks.DAL_hoadon();
+        DAL_hoadon dalHD = new DAL_hoadon();
         public bool XoaHDCT(string mahdct)
         {
             return dal.XoaHDCT(mahdct);
