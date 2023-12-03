@@ -11,15 +11,14 @@ namespace BUS_qlks
 {
     public class BUS_hoaDon
     {
-        DAL_hoadonchitiet dal = new DAL_hoadonchitiet();
         DAL_hoadon dalHD = new DAL_hoadon();
+        DAL_hoadonchitiet dal = new DAL_hoadonchitiet();
         public bool XoaHDCT(string mahdct)
         {
             return dal.XoaHDCT(mahdct);
         }
         public DataTable DanhSachHoaDon()
         {
-      
             return dalHD.danhsachhoadon();
         }
         public DataTable DanhSachHDCT()
@@ -39,9 +38,9 @@ namespace BUS_qlks
         {
            return dalHD.timkhachhang(tenKH);
         }
-        public DataTable DichVuDaChon()
+        public DataTable DichVuDaChon(string maHoaDon)
         {
-            return dal.DichVuDaChon();
+            return dal.DichVuDaChon(maHoaDon);
         }
         public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
         {
@@ -51,26 +50,6 @@ namespace BUS_qlks
         {
             return dalHD.TenKhachHanhCuaHD(maHoaDon);
         }
-        DAL_hoadonchitiet dal = new DAL_hoadonchitiet();
-        public bool XoaHDCT(string mahdct)
-        {
-            return dal.XoaHDCT(mahdct);
-        }
-        public DataTable DanhSachHDCT()
-        {
-            return dal.DanhsachHDCT();
-        }
-        public bool LuuHDCT(DTO_hoadonchitiet hdct)
-        {
-            return dal.Luuhdct(hdct);
-        }
-        public DataTable DichVuDaChon()
-        {
-            return dal.DichVuDaChon();
-        }
-        public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
-        {
-            return dal.ThanhToanPhong(mahoadon, ngaytraphong, trangthai, maphong);
-        }
+
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             label1 = new Label();
             groupBox1 = new GroupBox();
             txtTimdv = new TextBox();
@@ -93,14 +93,14 @@
             // dGVDichVu
             // 
             dGVDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dGVDichVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dGVDichVu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dGVDichVu.ColumnHeadersHeight = 29;
             dGVDichVu.Location = new Point(63, 306);
             dGVDichVu.Margin = new Padding(2);
@@ -123,6 +123,7 @@
             dGVDichVuDaChon.RowTemplate.Height = 35;
             dGVDichVuDaChon.Size = new Size(374, 209);
             dGVDichVuDaChon.TabIndex = 3;
+            dGVDichVuDaChon.CellClick += dGVDichVuDaChon_CellClick;
             // 
             // label2
             // 
@@ -145,7 +146,6 @@
             btnPhai.Name = "btnPhai";
             btnPhai.Size = new Size(72, 57);
             btnPhai.TabIndex = 5;
-            btnPhai.Text = ">>";
             btnPhai.UseVisualStyleBackColor = true;
             btnPhai.Click += btnPhai_Click;
             // 

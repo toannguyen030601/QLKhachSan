@@ -52,8 +52,8 @@ namespace QLKhachSan
         public void LoadDichVuDaChon()
         {
             dGVDichVuDaChon.DataSource = null;
-            dGVDichVuDaChon.DataSource = bushd.DichVuDaChon();
-            dGVDichVuDaChon.Columns[0].Visible = false;
+            dGVDichVuDaChon.DataSource = bushd.DichVuDaChon(lbMaHoaDon.Text);
+            dGVDichVuDaChon.Columns[0].Visible=false;
             dGVDichVuDaChon.Columns[1].HeaderText = "Tên dịch vụ";
             dGVDichVuDaChon.Columns[2].HeaderText = "Đơn Giá";
             dGVDichVuDaChon.Columns[3].HeaderText = "Số lượng";
@@ -96,14 +96,11 @@ namespace QLKhachSan
 
         private void btnXoa(object sender, EventArgs e)// Xóa thành công
         {
-            int i = 0;
-            i = dGVDichVuDaChon.CurrentCell.RowIndex;
-            string mahdct = dGVDichVuDaChon.Rows[i].Cells[0].Value.ToString();
-            if (mahdct != null)
+            if (!string.IsNullOrEmpty(lblMaHoaDonChiTiet.Text))
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (bushd.XoaHDCT(mahdct))
+                    if (bushd.XoaHDCT(lblMaHoaDonChiTiet.Text))
                     {
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         danhsachDvu();// Refresh lại trang
@@ -117,7 +114,7 @@ namespace QLKhachSan
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn dịch vụ bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -166,7 +163,7 @@ namespace QLKhachSan
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
-            }
+        }
 
         private void lbMaPhong_Click(object sender, EventArgs e)
         {
@@ -179,6 +176,14 @@ namespace QLKhachSan
 
         private void lbMaHoaDon_Click(object sender, EventArgs e)
         {
+        }
+
+        private void dGVDichVuDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                lblMaHoaDonChiTiet.Text = dGVDichVuDaChon.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
         }
     }
 }

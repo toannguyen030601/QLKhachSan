@@ -120,14 +120,14 @@ namespace DAL_qlks
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "delete from ChiTietHoaDonPhong where MaHoaDonChiTiet = @MaHoaDonChiTiet ";
                 cmd.Parameters.AddWithValue("@MaHoaDonChiTiet", mahdct);
-                if (cmd.ExecuteNonQuery() > 0)
+                if (Convert.ToInt16(cmd.ExecuteNonQuery()) > 0)
                 {
                     return true;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw;
             }
             finally
             {
@@ -152,7 +152,7 @@ namespace DAL_qlks
             finally { connection.Close(); }
         }
 
-        public DataTable DichVuDaChon()
+        public DataTable DichVuDaChon(string maHoaDon)
         {
             DataTable dt = new DataTable();
             try
@@ -161,7 +161,9 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT ct.mahoadonchitiet,dv.tendichvu,dv.dongia,ct.soluong FROM chitiethoadonphong ct JOIN dichvu dv ON ct.madichvu = dv.madichvu";
+                cmd.CommandText = "SELECT ct.mahoadonchitiet,dv.tendichvu,dv.dongia,ct.soluong FROM chitiethoadonphong ct JOIN dichvu dv " +
+                    "ON ct.madichvu = dv.madichvu where mahoadon=@mahoadon";
+                cmd.Parameters.AddWithValue("@mahoadon",maHoaDon);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;
