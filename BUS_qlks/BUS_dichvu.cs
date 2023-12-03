@@ -12,7 +12,15 @@ namespace BUS_qlks
     public class BUS_dichvu
     {
         DAL_dichvu dAL_Dichvu = new DAL_dichvu();
-
+        DAL_dichvu busnv = new DAL_dichvu();
+        public DataTable Danhsachdvu()
+        {
+            return busnv.Danhsachdvu();
+        }
+        public DataTable TimDvu(string tendv)
+        {
+            return busnv.timdvu(tendv);
+        }
         public DataTable danhsachdichvu()
         {
             return dAL_Dichvu.danhsachdichvu();
