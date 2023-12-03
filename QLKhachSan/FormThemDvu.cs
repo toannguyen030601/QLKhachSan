@@ -16,6 +16,8 @@ namespace QLKhachSan
     {
         private string maPhong;
         private string maHoaDon;
+        BUS_dichvu busdv = new BUS_dichvu();
+        BUS_hoaDon bushd = new BUS_hoaDon();
         public FormThemDvu(string maPhong, string maHoaDon)
         {
             InitializeComponent();
@@ -25,14 +27,14 @@ namespace QLKhachSan
             danhsachDvu();
             lblMaDichVu.Visible = false;
             lblMaHoaDonChiTiet.Visible = false;
+            lblTenKH.Text = bushd.LayTenKhachHangCuaHoaDon(maHoaDon);
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
-        BUS_dichvu busdv = new BUS_dichvu();
-        BUS_hoaDon bushd = new BUS_hoaDon();
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -157,7 +159,26 @@ namespace QLKhachSan
             {
                 //Hiển thị form Hóa Đơn chi tiết
                 MessageBox.Show("THanh toán thành công");
+
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbMaPhong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbTenKH_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void lbMaHoaDon_Click(object sender, EventArgs e)
+        {
         }
     }
 }

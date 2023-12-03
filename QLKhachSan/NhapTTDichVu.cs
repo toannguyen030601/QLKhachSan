@@ -86,7 +86,7 @@ namespace QLKhachSan
                 // Cập nhật các thông tin khác nếu cần
 
                 // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                if (bUS_Dichvu)
+                if (bUS_Dichvu.SuaDichVu(dichvu))
                 {
                     MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     IsUpdated = true; // Đã cập nhật thành công
@@ -115,7 +115,7 @@ namespace QLKhachSan
                         };
 
                         // Gọi phương thức để thêm dịch vụ trong lớp BUS_dichvu
-                        if (bus_dv.ThemDichVu(dichvu))
+                        if (bUS_Dichvu.ThemDichVu(dichvu))
                         {
                             MessageBox.Show("Thêm dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây

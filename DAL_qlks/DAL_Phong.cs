@@ -349,12 +349,14 @@ namespace DAL_qlks
                 {
                     cmd.Connection = connection;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT mahoadon FROM hoadonphong WHERE maphong=@maphong and ngaytraphong=null";
 
-                    // Use parameters to avoid SQL injection
+                    // Sử dụng thời điểm cụ thể thay vì null
+                    cmd.CommandText = "SELECT mahoadon FROM hoadonphong WHERE maphong=@maphong and ngaytraphong IS NULL";
+
+                    // Sử dụng parameters để tránh SQL injection
                     cmd.Parameters.AddWithValue("@maphong", maPhong);
 
-                    // Execute the query and get the result
+                    // Thực hiện truy vấn và lấy kết quả
                     object result = cmd.ExecuteScalar();
 
                     if (result != null)
@@ -370,5 +372,6 @@ namespace DAL_qlks
                 connection.Close();
             }
         }
+
     }
 }

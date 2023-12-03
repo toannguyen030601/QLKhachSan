@@ -35,7 +35,7 @@ namespace QLKhachSan
                 {
                     string maHoaDon= bus_Phong.MaHoaDonCuaPhong(phong.MaPhong);
                     // Mở Form dịch vụ của phòng
-
+                    MessageBox.Show(maHoaDon);
                     FormThemDvu frm = new FormThemDvu(phong.MaPhong,maHoaDon);
                     frm.ShowDialog();
                 }

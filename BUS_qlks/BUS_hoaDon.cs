@@ -47,5 +47,9 @@ namespace BUS_qlks
         {
             return dal.ThanhToanPhong(mahoadon,ngaytraphong,trangthai,maphong);
         }
+        public string LayTenKhachHangCuaHoaDon(string maHoaDon)
+        {
+            return dalHD.TenKhachHanhCuaHD(maHoaDon);
+        }
     }
 }

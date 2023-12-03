@@ -77,5 +77,42 @@ namespace DAL_qlks
                 connection.Close();
             }
         }
+
+        public string TenKhachHanhCuaHD(string maHoaDon)
+        {
+            string tenKhachHang = "";
+
+            try
+            {
+                connection.Open();
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand())
+                {
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+
+                    // Sử dụng thời điểm cụ thể thay vì null
+                    cmd.CommandText = "SELECT kh.hoten FROM hoadonphong hd join khachhang kh " +
+                        "on hd.makhachhang=kh.makhachhang where mahoadon=@mahoadon";
+
+                    // Sử dụng parameters để tránh SQL injecti on
+                    cmd.Parameters.AddWithValue("@mahoadon", maHoaDon);
+
+                    // Thực hiện truy vấn và lấy kết quả
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        maHoaDon = result.ToString();
+                    }
+                }
+
+                return maHoaDon;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

@@ -313,9 +313,9 @@ namespace QLKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lavatory {
+        internal static System.Drawing.Bitmap infoMain {
             get {
-                object obj = ResourceManager.GetObject("lavatory", resourceCulture);
+                object obj = ResourceManager.GetObject("infoMain", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +323,9 @@ namespace QLKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap infoMain {
+        internal static System.Drawing.Bitmap lavatory {
             get {
-                object obj = ResourceManager.GetObject("infoMain", resourceCulture);
+                object obj = ResourceManager.GetObject("lavatory", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +516,16 @@ namespace QLKhachSan.Properties {
         internal static System.Drawing.Bitmap send_message__1_ {
             get {
                 object obj = ResourceManager.GetObject("send-message (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_message__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("send-message (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

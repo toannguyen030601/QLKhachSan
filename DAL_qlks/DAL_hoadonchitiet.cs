@@ -168,39 +168,45 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
-        public bool ThanhToanPhong(string mahoadon,DateTime ngaytraphong,bool trangthai,string maphong)
+        public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
         {
-            DataTable dt = new DataTable();
             try
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "update hoadonphong" +
-                    "set ngaytraphong = @NgayTraPhong" +
-                    "where MaHoaDon = @MaHoaDon";
+
+                // Câu lệnh SQL cho việc cập nhật hóa đơn phòng
+                string sqlUpdateHoaDon = "UPDATE hoadonphong " +
+                                         "SET ngaytraphong = @NgayTraPhong " +
+                                         "WHERE MaHoaDon = @MaHoaDon";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(sqlUpdateHoaDon, connection);
                 cmd.Parameters.AddWithValue("@NgayTraPhong", ngaytraphong);
                 cmd.Parameters.AddWithValue("@MaHoaDon", mahoadon);
-                NpgsqlCommand cmd2 = new NpgsqlCommand();
-                cmd2.Connection = connection;
-                cmd2.CommandType = CommandType.Text;
-                cmd2.CommandText = "update phong" +
-                    "set trangthai = @TrangThai" +
-                    "where MaPhong = @MaPhong";
+
+                // Thực hiện câu lệnh SQL cho hóa đơn phòng
+                int rowsAffectedHoaDon = cmd.ExecuteNonQuery();
+
+                // Câu lệnh SQL cho việc cập nhật trạng thái phòng
+                string sqlUpdatePhong = "UPDATE phong " +
+                                        "SET trangthai = @TrangThai " +
+                                        "WHERE MaPhong = @MaPhong";
+
+                NpgsqlCommand cmd2 = new NpgsqlCommand(sqlUpdatePhong, connection);
                 cmd2.Parameters.AddWithValue("@TrangThai", trangthai);
                 cmd2.Parameters.AddWithValue("@MaPhong", maphong);
 
-                if (cmd.ExecuteNonQuery() > 0 && cmd2.ExecuteNonQuery() > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                // Thực hiện câu lệnh SQL cho trạng thái phòng
+                int rowsAffectedPhong = cmd2.ExecuteNonQuery();
+
+                // Kiểm tra xem cả hai câu lệnh đã được thực hiện thành công hay không
+                return rowsAffectedHoaDon > 0 && rowsAffectedPhong > 0;
             }
-            finally { connection.Close(); }
+        /*    catch { throw; }*/
+            finally
+            {
+                connection.Close();
+            }
         }
+
     }
 }
