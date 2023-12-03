@@ -23,6 +23,7 @@ namespace QLKhachSan
             btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
             btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
 
+            dataGridView1.ReadOnly = true;
             txtTimDichVu.Enter += new EventHandler(txtTimDichVu_Enter);
             txtTimDichVu.Leave += new EventHandler(txtTimDichVu_Leave);
         }   

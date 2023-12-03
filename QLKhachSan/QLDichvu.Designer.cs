@@ -161,8 +161,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1062, 653);
             Controls.Add(panel1);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(dataGridView1);
             Controls.Add(btnTimDichVu);
             Controls.Add(txtTimDichVu);
@@ -180,8 +178,6 @@
         }
 
         #endregion
-        private Button button4;
-        private Button button3;
         private DataGridView dataGridView1;
         private Button btnTimDichVu;
         private TextBox txtTimDichVu;

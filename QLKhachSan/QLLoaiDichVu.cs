@@ -20,10 +20,12 @@ namespace QLKhachSan
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
             btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
             btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
-
+           
+            dataGridView1.ReadOnly = true;
             txtTimLoaiDichVu.Enter += new EventHandler(txtTimLoaiDichVu_Enter);
             txtTimLoaiDichVu.Leave += new EventHandler(txtTimLoaiDichVu_Leave);
         }
+
         BUS_loaidichvu bus_ldv = new BUS_loaidichvu();
         private void btnTimLoaiDichVu_Click(object sender, EventArgs e)
         {

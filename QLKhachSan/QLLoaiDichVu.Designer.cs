@@ -42,9 +42,6 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // 
-            
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -158,8 +155,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 604);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnTimLoaiDichVu);
             this.Controls.Add(this.txtTimLoaiDichVu);
@@ -178,8 +173,6 @@
         }
 
         #endregion
-        private Button button4;
-        private Button button3;
         private DataGridView dataGridView1;
         private Button btnTimLoaiDichVu;
         private TextBox txtTimLoaiDichVu;
