@@ -16,9 +16,9 @@ namespace QLKhachSan
     {
 
         private bool isthemsuaLDV;
-        public bool trangthai = false;
+        /*public bool trangthai = false;
 
-        public bool istrangthai { get { return trangthai; } }
+        public bool istrangthai { get { return trangthai; } }*/
         public bool IsUpdated { get; private set; }
         public NhapTTLoaiDichVu(bool isthemsuaLDV, string tenloaidichvu = "", string maloaidichvu = "")
         {
@@ -77,8 +77,10 @@ namespace QLKhachSan
                      if (bUS_Loaidichvu.ThemLoaiDichVu(loaidichvu))
                      {
                          MessageBox.Show("Thêm loại dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây
-                     }
+                        // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây
+                        IsUpdated = true; // Đã cập nhật thành công
+                        this.Close(); // Đóng form chỉnh sửa
+                    }
                      else
                      {
                          MessageBox.Show("Thêm loại dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

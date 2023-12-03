@@ -14,8 +14,6 @@ namespace QLKhachSan
 {
     public partial class QLDichvu : Form
     {
-        
-        private DataTable dataTable;
         public QLDichvu()
         {
             InitializeComponent();
@@ -77,7 +75,7 @@ namespace QLKhachSan
         {
             NhapTTDichVu f = new NhapTTDichVu(true);
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }

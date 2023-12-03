@@ -16,8 +16,8 @@ namespace QLKhachSan
     {
 
         private string currentMaLoaiDichVu = "";
-        public bool istrangthai { get { return trangthai; } }
-        public bool IsUpdated { get; private set; }
+/*        public bool istrangthai { get { return trangthai; } }
+*/        public bool IsUpdated { get; private set; }
 
         public NhapTTDichVu(bool isthemsuaDV, string tenDV = "", string dongia = "", string donvitinh = "", string madichvu = "", string tenLoaiDV = "")
         {
@@ -67,7 +67,7 @@ namespace QLKhachSan
         BUS_dichvu bUS_Dichvu = new BUS_dichvu();   
         BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private bool isthemsuaDV;
-        public bool trangthai = false;
+       /* public bool trangthai = false;*/
         private void btnThemDichVu2_Click(object sender, EventArgs e)
         {
             if (!isthemsuaDV)
@@ -127,6 +127,8 @@ namespace QLKhachSan
                         {
                             MessageBox.Show("Thêm dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây
+                            IsUpdated = true; // Đã cập nhật thành công
+                            this.Close(); // Đóng form chỉnh sửa
                         }
                         else
                         {

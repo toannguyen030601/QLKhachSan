@@ -72,7 +72,7 @@ namespace QLKhachSan
         {
             NhapTTLoaiDichVu f = new NhapTTLoaiDichVu(true);
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }
