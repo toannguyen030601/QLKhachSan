@@ -87,8 +87,10 @@ namespace QLKhachSan
                     {
                         MessageBox.Show("Đặt Phòng Thành Công");
                         this.Close();
-                       /* FormThemDvu frm = new FormThemDvu(lblMaPhong.Text,);
-                        frm.ShowDialog();*/
+                        BUS_Phong bUS_Phong = new BUS_Phong();
+                        string maHoaDon=bus_Phong.MaHoaDonCuaPhong(lblMaPhong.Text);
+                        FormThemDvu frm = new FormThemDvu(lblMaPhong.Text,maHoaDon);
+                        frm.ShowDialog();
                     }
                     else
                     {

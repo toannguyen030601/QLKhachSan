@@ -58,6 +58,11 @@
             label4 = new Label();
             label5 = new Label();
             pictureBox4 = new PictureBox();
+            label6 = new Label();
+            label7 = new Label();
+            panel1 = new Panel();
+            lblTongTienPhong = new Label();
+            lblTongTienDV = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDichVu).BeginInit();
@@ -156,7 +161,6 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackgroundImage = Properties.Resources.printing1;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.Location = new Point(609, 44);
@@ -184,14 +188,14 @@
             dgvDichVu.Name = "dgvDichVu";
             dgvDichVu.RowHeadersWidth = 51;
             dgvDichVu.RowTemplate.Height = 29;
-            dgvDichVu.Size = new Size(614, 182);
+            dgvDichVu.Size = new Size(370, 239);
             dgvDichVu.TabIndex = 16;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(368, 515);
+            label15.Location = new Point(467, 418);
             label15.Name = "label15";
             label15.Size = new Size(93, 23);
             label15.TabIndex = 17;
@@ -202,7 +206,7 @@
             lblTongTien.AutoSize = true;
             lblTongTien.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             lblTongTien.ForeColor = Color.FromArgb(192, 0, 192);
-            lblTongTien.Location = new Point(484, 538);
+            lblTongTien.Location = new Point(583, 471);
             lblTongTien.Name = "lblTongTien";
             lblTongTien.Size = new Size(164, 25);
             lblTongTien.TabIndex = 18;
@@ -212,7 +216,7 @@
             // 
             lblGiamGia.AutoSize = true;
             lblGiamGia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGiamGia.Location = new Point(482, 515);
+            lblGiamGia.Location = new Point(590, 418);
             lblGiamGia.Name = "lblGiamGia";
             lblGiamGia.Size = new Size(38, 23);
             lblGiamGia.TabIndex = 19;
@@ -222,7 +226,7 @@
             // 
             label18.AutoSize = true;
             label18.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(368, 538);
+            label18.Location = new Point(467, 471);
             label18.Name = "label18";
             label18.Size = new Size(115, 25);
             label18.TabIndex = 20;
@@ -244,7 +248,6 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.BackgroundImage = Properties.Resources.qr1;
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox3.Location = new Point(176, 21);
             pictureBox3.Name = "pictureBox3";
@@ -364,11 +367,66 @@
             pictureBox4.TabIndex = 29;
             pictureBox4.TabStop = false;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(461, 321);
+            label6.Name = "label6";
+            label6.Size = new Size(105, 23);
+            label6.TabIndex = 30;
+            label6.Text = "Tiền Phòng";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(453, 372);
+            label7.Name = "label7";
+            label7.Size = new Size(120, 23);
+            label7.TabIndex = 31;
+            label7.Text = "Tiền Dịch Vụ";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ActiveCaptionText;
+            panel1.Location = new Point(590, 456);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(151, 3);
+            panel1.TabIndex = 32;
+            // 
+            // lblTongTienPhong
+            // 
+            lblTongTienPhong.AutoSize = true;
+            lblTongTienPhong.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTongTienPhong.ForeColor = Color.FromArgb(192, 0, 192);
+            lblTongTienPhong.Location = new Point(583, 319);
+            lblTongTienPhong.Name = "lblTongTienPhong";
+            lblTongTienPhong.Size = new Size(164, 25);
+            lblTongTienPhong.TabIndex = 33;
+            lblTongTienPhong.Text = "3,000,000 VND";
+            // 
+            // lblTongTienDV
+            // 
+            lblTongTienDV.AutoSize = true;
+            lblTongTienDV.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTongTienDV.ForeColor = Color.FromArgb(192, 0, 192);
+            lblTongTienDV.Location = new Point(586, 372);
+            lblTongTienDV.Name = "lblTongTienDV";
+            lblTongTienDV.Size = new Size(164, 25);
+            lblTongTienDV.TabIndex = 34;
+            lblTongTienDV.Text = "3,000,000 VND";
+            // 
             // FromHoaDonChiTiet
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 771);
+            Controls.Add(lblTongTienDV);
+            Controls.Add(lblTongTienPhong);
+            Controls.Add(panel1);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(pictureBox4);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -396,6 +454,7 @@
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "FromHoaDonChiTiet";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FromHoaDonChiTiet";
             Load += FromHoaDonChiTiet_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -441,5 +500,10 @@
         private Label label4;
         private Label label5;
         private PictureBox pictureBox4;
+        private Label label6;
+        private Label label7;
+        private Panel panel1;
+        private Label lblTongTienPhong;
+        private Label lblTongTienDV;
     }
 }

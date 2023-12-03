@@ -17,7 +17,8 @@ namespace QLKhachSan
         private string maPhong;
         private string maHoaDon;
         BUS_dichvu busdv = new BUS_dichvu();
-        BUS_hoaDon bushd = new BUS_hoaDon();
+        BUS_HoaDonChiTiet bus_HDCT = new BUS_HoaDonChiTiet();
+        BUS_HoaDon bus_HoaDon=new BUS_HoaDon();
         public FormThemDvu(string maPhong, string maHoaDon)
         {
             InitializeComponent();
@@ -25,9 +26,9 @@ namespace QLKhachSan
             this.maPhong = maPhong;
             LoadDichVuDaChon();
             danhsachDvu();
-            lblMaDichVu.Visible = false;
+            lblMaDichVu.Visible =false;
             lblMaHoaDonChiTiet.Visible = false;
-            lblTenKH.Text = bushd.LayTenKhachHangCuaHoaDon(maHoaDon);
+            lblTenKH.Text = bus_HoaDon.LayTenKhachHangTuMaHoaDon(maHoaDon);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -52,21 +53,22 @@ namespace QLKhachSan
         public void LoadDichVuDaChon()
         {
             dGVDichVuDaChon.DataSource = null;
-            dGVDichVuDaChon.DataSource = bushd.DichVuDaChon(lbMaHoaDon.Text);
+            dGVDichVuDaChon.DataSource = bus_HDCT.DichVuDaChon(lbMaHoaDon.Text);
             dGVDichVuDaChon.Columns[0].Visible=false;
             dGVDichVuDaChon.Columns[1].HeaderText = "Tên dịch vụ";
             dGVDichVuDaChon.Columns[2].HeaderText = "Đơn Giá";
             dGVDichVuDaChon.Columns[3].HeaderText = "Số lượng";
+            dGVDichVuDaChon.Columns[4].HeaderText = "Tiền";
         }
 
         private void FormThemDvu_Load(object sender, EventArgs e)
         {
-            danhsachDvu();
-            LoadDichVuDaChon();
             lblMaDichVu.Text = string.Empty;
             lblMaHoaDonChiTiet.Text = string.Empty;
             lbMaPhong.Text = maPhong;
             lbMaHoaDon.Text = maHoaDon;
+            danhsachDvu();
+            LoadDichVuDaChon();
             // tên khách hàng lấy trong bảng HoaDon dựa vào Mã Hóa Đơn
         }
         private void ChuyenDuLieu()
@@ -75,17 +77,26 @@ namespace QLKhachSan
         }
         private void btnPhai_Click(object sender, EventArgs e)
         {
-            ChuyenDuLieu();
             if (!string.IsNullOrEmpty(lblMaDichVu.Text))
             {
-                DTO_hoadonchitiet hdct = new DTO_hoadonchitiet();
-                hdct.maDichVu = lblMaDichVu.Text;
-                hdct.maHoaDon = lbMaHoaDon.Text;
-                if (bushd.LuuHDCT(hdct))
+                DTO_HoaDonChiTiet hdct = new DTO_HoaDonChiTiet();
+                hdct.Madichvu = lblMaDichVu.Text;
+                hdct.Mahoadon = lbMaHoaDon.Text;
+                if (bus_HDCT.LuuHDCT(hdct))
                 {
                     MessageBox.Show("Thêm dịch vụ thành công");
                     LoadDichVuDaChon();
-                };
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                    LoadDichVuDaChon();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dịch vụ để thêm");
             }
         }
 
@@ -100,7 +111,7 @@ namespace QLKhachSan
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (bushd.XoaHDCT(lblMaHoaDonChiTiet.Text))
+                    if (bus_HDCT.XoaHDCT(lblMaHoaDonChiTiet.Text))
                     {
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         danhsachDvu();// Refresh lại trang
@@ -136,7 +147,7 @@ namespace QLKhachSan
 
         private void dGVDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.RowIndex < dGVDichVu.Rows.Count - 1 && e.ColumnIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dGVDichVu.Rows.Count - 1)
             {
                 // Use the Value property to get the cell value
                 object cellValue = dGVDichVu.Rows[e.RowIndex].Cells[0].Value;
@@ -152,10 +163,17 @@ namespace QLKhachSan
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (bushd.ThanhToanPhong(lbMaHoaDon.Text, DateTime.Now, false, lbMaPhong.Text))
+            if (bus_HDCT.ThanhToanPhong(lbMaHoaDon.Text, DateTime.Now, false, lbMaPhong.Text))
             {
                 //Hiển thị form Hóa Đơn chi tiết
                 MessageBox.Show("THanh toán thành công");
+                FromHoaDonChiTiet hdct = new FromHoaDonChiTiet(lbMaHoaDon.Text);
+                hdct.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("THanh toán thất bại");
 
             }
         }

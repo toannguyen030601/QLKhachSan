@@ -16,5 +16,17 @@ namespace BUS_qlks
         {
             return dal_HoaDon.LayHoaDon(maHoaDon);
         }
+        public string LayTenKhachHangTuMaHoaDon(string maHoaDon)
+        {
+            return dal_HoaDon.LayTenKhachHangTuMaHoaDon(maHoaDon);
+        }
+        public DataTable DanhSachHoaDon()
+        {
+            return dal_HoaDon.DanhSachHoaDon();
+        }
+        public DataTable TimKhachHang(string tenKH)
+        {
+            return dal_HoaDon.TimKhachHang(tenKH);
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace DTO_qlks
 
         public string Mahoadonchitiet
         {
-            get { return mahoadon; }
+            get { return mahoadonchitiet; }
             set { mahoadon = value; }
         }
         public int Soluong
@@ -34,7 +34,7 @@ namespace DTO_qlks
             set { madichvu = value; }
         }
         public DTO_HoaDonChiTiet() { }
-        public DTO_HoaDonChiTiet(string mahoadonchitiet,int soluong,string mahoadon,string maloaidichvu)
+        public DTO_HoaDonChiTiet(string mahoadonchitiet,int soluong,string mahoadon,string madichvu)
         {
             this.Mahoadonchitiet = mahoadonchitiet;
             this.Soluong = soluong;

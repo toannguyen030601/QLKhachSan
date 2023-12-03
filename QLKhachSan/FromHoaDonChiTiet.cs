@@ -19,7 +19,7 @@ namespace QLKhachSan
     {
         public BUS_HoaDon bus_HoaDon = new BUS_HoaDon();
         public BUS_HoaDonChiTiet bus_HoaDonChiTiet = new BUS_HoaDonChiTiet();
-        string maHoaDon;
+        private string maHoaDon;
         public FromHoaDonChiTiet(string maHoaDon)
         {
             InitializeComponent();
@@ -39,51 +39,61 @@ namespace QLKhachSan
             dtpTraPhong.Value = (DateTime)data.Rows[0]["ngaytraphong"];
 
             //Dịch vụ 
-            dgvDichVu.DataSource = bus_HoaDonChiTiet.DichVuDaSuDung(maHoaDon);
-            dgvDichVu.Columns[0].HeaderText = "Tên Dịch Vụ";
-            dgvDichVu.Columns[1].HeaderText = "Đơn Giá";
-            dgvDichVu.Columns[2].HeaderText = "Số Lượng";
-            dgvDichVu.Columns[3].HeaderText = "Thành Tiền";
+            dgvDichVu.DataSource = bus_HoaDonChiTiet.DichVuDaChon(maHoaDon);
+            dgvDichVu.Columns[0].Visible = false;
+            dgvDichVu.Columns[1].HeaderText = "Tên Dịch Vụ";
+            dgvDichVu.Columns[2].HeaderText = "Đơn Giá";
+            dgvDichVu.Columns[3].HeaderText = "Số Lượng";
+            dgvDichVu.Columns[4].HeaderText = "Thành Tiền";
 
             /// Tổng tiền dịch vụ + phòng 
             double tongTienDichVu = 0;
 
             foreach (DataGridViewRow row in dgvDichVu.Rows)
             {
-                object giaObj = row.Cells[3].Value;
+                object giaObj = row.Cells[4].Value;
 
                 if (giaObj != null && double.TryParse(giaObj.ToString(), out double gia))
                 {
                     tongTienDichVu += gia;
                 }
+            }
+            lblTongTienDV.Text=tongTienDichVu.ToString();
+            //tổng tiền phòng;
+            double tongTienPhong = 0;
+            DateTime ngayNhanPhong = (DateTime)data.Rows[0]["ngaynhanphong"];
+            DateTime ngayTraPhong = DateTime.Now;
 
-                //tổng tiền phòng;
-                double tongTienPhong = 0;
-                DateTime ngayNhanPhong = (DateTime)data.Rows[0]["ngaynhanphong"];
-                DateTime ngayTraPhong = DateTime.Now;
-
-                double soGioThue = (ngayTraPhong - ngayNhanPhong).TotalHours;
-                double giaPhong = bus_HoaDonChiTiet.GiaPhong(lblMaPhong.Text);
+            double soGioThue = (ngayTraPhong - ngayNhanPhong).TotalHours;
+            double giaPhong = bus_HoaDonChiTiet.GiaPhong(lblMaPhong.Text);
+            if (soGioThue <1)
+            {
+                lblGiamGia.Text = "0%";
+                tongTienPhong = 1 * giaPhong;
+            }
+            else
+            {
                 if (soGioThue < 6)
                 {
-                    lblGiamGia.Text = "0%";
-                    tongTienPhong = soGioThue * giaPhong;
+                    lblGiamGia.Text = "20%";
+                    tongTienPhong = soGioThue * giaPhong * 80 / 100;
                 }
                 else
                 {
-                    if (soGioThue < 12)
+                    if(soGioThue < 12)
                     {
-                        lblGiamGia.Text = "20%";
-                        tongTienPhong = soGioThue * giaPhong * 80 / 100;
+                        lblGiamGia.Text = "30%";
+                        tongTienPhong = soGioThue * giaPhong * 60 / 100;
                     }
                     else
                     {
-                        lblGiamGia.Text = "40%";
-                        tongTienPhong = soGioThue * giaPhong * 60 / 100;
+                        lblGiamGia.Text = "50%";
+                        tongTienPhong = soGioThue * giaPhong ;
                     }
                 }
-                lblTongTien.Text = (tongTienDichVu + tongTienPhong).ToString() + "VND";
             }
+            lblTongTienPhong.Text = tongTienPhong.ToString();
+            lblTongTien.Text = (Math.Round(tongTienDichVu + tongTienPhong, 2)).ToString() + "VND";
 
         }
 

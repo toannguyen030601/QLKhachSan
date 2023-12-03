@@ -286,5 +286,11 @@ namespace QLKhachSan
             OpenChildForm(new QLLoaiDichVu());
             //test
         }
+
+        private void btnDoanhThu_Click(object sender, EventArgs e)
+        {
+            ChangeColor((Button)sender);
+            OpenChildForm(new FrmThongKe());
+        }
     }
 }

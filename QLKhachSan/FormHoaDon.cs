@@ -21,7 +21,7 @@ namespace QLKhachSan
             InitializeComponent();
            
         }
-        BUS_qlks.BUS_hoaDon busnv = new BUS_qlks.BUS_hoaDon();
+        BUS_HoaDon bus_HoaDon = new BUS_HoaDon();
         //đóng mở menu
         bool sidebarExpand = false;
         private void menu_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace QLKhachSan
         }
         private void danhsachHoadon()
         {
-            dataGridView1.DataSource = busnv.DanhSachHoaDon();
+            dataGridView1.DataSource = bus_HoaDon.DanhSachHoaDon();
         }
 
         private void FormHoaDon_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace QLKhachSan
         {
             if (txtTim.Text != "")
             {
-                DataTable data = busnv.timkhachhang(txtTim.Text);
+                DataTable data = bus_HoaDon.TimKhachHang(txtTim.Text);
                 if (data.Rows.Count > 0)
                 {
                     dataGridView1.DataSource = data;

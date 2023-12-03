@@ -28,60 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.Button();
-            this.btnMaximize = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.menu = new System.Windows.Forms.PictureBox();
-            this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btnInfoDangnhap = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.lblTen = new System.Windows.Forms.Label();
-            this.picAvatar = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnTrangChu = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnHoaDon = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnNhanVien = new System.Windows.Forms.Button();
-            this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panelBody = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
-            this.sidebar.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            panel1 = new Panel();
+            panel14 = new Panel();
+            btnMinimize = new Button();
+            btnMaximize = new Button();
+            btnClose = new Button();
+            label1 = new Label();
+            menu = new PictureBox();
+            sidebar = new FlowLayoutPanel();
+            panel4 = new Panel();
+            btnInfoDangnhap = new Button();
+            btnLogout = new Button();
+            lblTen = new Label();
+            picAvatar = new PictureBox();
+            panel2 = new Panel();
+            btnTrangChu = new Button();
+            panel12 = new Panel();
+            button9 = new Button();
+            panel5 = new Panel();
+            btnDoanhThu = new Button();
+            panel7 = new Panel();
+            button4 = new Button();
+            panel8 = new Panel();
+            button5 = new Button();
+            panel6 = new Panel();
+            btnHoaDon = new Button();
+            panel9 = new Panel();
+            button6 = new Button();
+            panel10 = new Panel();
+            button7 = new Button();
+            panel11 = new Panel();
+            button8 = new Button();
+            panel3 = new Panel();
+            btnNhanVien = new Button();
+            sidebarTransition = new System.Windows.Forms.Timer(components);
+            panel13 = new Panel();
+            panelBody = new Panel();
+            panel1.SuspendLayout();
+            panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)menu).BeginInit();
+            sidebar.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            panel2.SuspendLayout();
+            panel12.SuspendLayout();
+            panel5.SuspendLayout();
+            panel7.SuspendLayout();
+            panel8.SuspendLayout();
+            panel6.SuspendLayout();
+            panel9.SuspendLayout();
+            panel10.SuspendLayout();
+            panel11.SuspendLayout();
+            panel3.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
@@ -156,7 +156,7 @@
             label1.Location = new Point(65, 9);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(88, 19);
+            label1.Size = new Size(113, 22);
             label1.TabIndex = 2;
             label1.Text = "Luxury Hotel";
             // 
@@ -310,28 +310,29 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(button2);
+            panel5.Controls.Add(btnDoanhThu);
             panel5.Location = new Point(0, 276);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Size = new Size(250, 55);
             panel5.TabIndex = 5;
             // 
-            // button2
+            // btnDoanhThu
             // 
-            button2.BackColor = SystemColors.ScrollBar;
-            button2.Dock = DockStyle.Fill;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Image = Properties.Resources.datphong;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 0);
-            button2.Name = "button2";
-            button2.Padding = new Padding(10, 0, 0, 0);
-            button2.Size = new Size(250, 55);
-            button2.TabIndex = 2;
-            button2.Text = "Đặt Phòng";
-            button2.UseVisualStyleBackColor = false;
+            btnDoanhThu.BackColor = SystemColors.ScrollBar;
+            btnDoanhThu.Dock = DockStyle.Fill;
+            btnDoanhThu.FlatAppearance.BorderSize = 0;
+            btnDoanhThu.FlatStyle = FlatStyle.Flat;
+            btnDoanhThu.Image = Properties.Resources.datphong;
+            btnDoanhThu.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDoanhThu.Location = new Point(0, 0);
+            btnDoanhThu.Name = "btnDoanhThu";
+            btnDoanhThu.Padding = new Padding(10, 0, 0, 0);
+            btnDoanhThu.Size = new Size(250, 55);
+            btnDoanhThu.TabIndex = 2;
+            btnDoanhThu.Text = "DoanhThu";
+            btnDoanhThu.UseVisualStyleBackColor = false;
+            btnDoanhThu.Click += btnDoanhThu_Click;
             // 
             // panel7
             // 
@@ -452,21 +453,21 @@
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Image = global::QLKhachSan.Properties.Resources.dichvu;
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(0, 0);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(250, 55);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "QL Dịch Vụ";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            button7.BackColor = SystemColors.ScrollBar;
+            button7.Dock = DockStyle.Fill;
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Image = Properties.Resources.dichvu;
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(0, 0);
+            button7.Margin = new Padding(0);
+            button7.Name = "button7";
+            button7.Padding = new Padding(10, 0, 0, 0);
+            button7.Size = new Size(250, 55);
+            button7.TabIndex = 2;
+            button7.Text = "QL Dịch Vụ";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // panel11
             // 
@@ -479,21 +480,21 @@
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Image = global::QLKhachSan.Properties.Resources.loaidichvu;
-            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(250, 55);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "QL Loại Dịch Vụ";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            button8.BackColor = SystemColors.ScrollBar;
+            button8.Dock = DockStyle.Fill;
+            button8.FlatAppearance.BorderSize = 0;
+            button8.FlatStyle = FlatStyle.Flat;
+            button8.Image = Properties.Resources.loaidichvu;
+            button8.ImageAlign = ContentAlignment.MiddleLeft;
+            button8.Location = new Point(0, 0);
+            button8.Margin = new Padding(0);
+            button8.Name = "button8";
+            button8.Padding = new Padding(10, 0, 0, 0);
+            button8.Size = new Size(250, 55);
+            button8.TabIndex = 2;
+            button8.Text = "QL Loại Dịch Vụ";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // panel3
             // 
@@ -596,7 +597,7 @@
         private Panel panel6;
         private Button btnHoaDon;
         private Panel panel5;
-        private Button button2;
+        private Button btnDoanhThu;
         private Panel panel11;
         private Button button8;
         private Panel panel10;
