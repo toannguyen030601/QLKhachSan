@@ -145,6 +145,7 @@
             btnPhai.Name = "btnPhai";
             btnPhai.Size = new Size(72, 57);
             btnPhai.TabIndex = 5;
+            btnPhai.Text = ">>";
             btnPhai.UseVisualStyleBackColor = true;
             btnPhai.Click += btnPhai_Click;
             // 

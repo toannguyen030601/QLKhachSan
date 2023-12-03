@@ -170,6 +170,7 @@ namespace DAL_qlks
         }
         public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
         {
+            DataTable dt = new DataTable();
             try
             {
                 connection.Open();
@@ -200,12 +201,13 @@ namespace DAL_qlks
 
                 // Kiểm tra xem cả hai câu lệnh đã được thực hiện thành công hay không
                 return rowsAffectedHoaDon > 0 && rowsAffectedPhong > 0;
-            }
+                }
         /*    catch { throw; }*/
             finally
-            {
+                {
                 connection.Close();
             }
+            finally { connection.Close(); }
         }
 
     }

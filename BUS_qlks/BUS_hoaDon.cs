@@ -51,5 +51,26 @@ namespace BUS_qlks
         {
             return dalHD.TenKhachHanhCuaHD(maHoaDon);
         }
+        DAL_hoadonchitiet dal = new DAL_hoadonchitiet();
+        public bool XoaHDCT(string mahdct)
+        {
+            return dal.XoaHDCT(mahdct);
+        }
+        public DataTable DanhSachHDCT()
+        {
+            return dal.DanhsachHDCT();
+        }
+        public bool LuuHDCT(DTO_hoadonchitiet hdct)
+        {
+            return dal.Luuhdct(hdct);
+        }
+        public DataTable DichVuDaChon()
+        {
+            return dal.DichVuDaChon();
+        }
+        public bool ThanhToanPhong(string mahoadon, DateTime ngaytraphong, bool trangthai, string maphong)
+        {
+            return dal.ThanhToanPhong(mahoadon, ngaytraphong, trangthai, maphong);
+        }
     }
 }
