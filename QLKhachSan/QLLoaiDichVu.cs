@@ -57,6 +57,10 @@ namespace QLKhachSan
             DataTable data = bus_ldv.danhsachloaidichvu();
             dataGridView1.DataSource = data;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Đổi tên cột sau khi dữ liệu được tải vào DataGridView
+            dataGridView1.Columns["maloaidichvu"].HeaderText = "Mã Loại Dịch Vụ";
+            dataGridView1.Columns["tenloaidichvu"].HeaderText = "Tên Loại Dịch Vụ";
+            // Đổi tên các cột khác nếu cần thiết
         }
 
         private void QLLoaiDichVu_Load(object sender, EventArgs e)

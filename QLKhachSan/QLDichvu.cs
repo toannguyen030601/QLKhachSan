@@ -62,9 +62,17 @@ namespace QLKhachSan
             DataTable data = busdv.danhsachdichvu();
             dataGridView1.DataSource = data;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Đổi tên cột sau khi dữ liệu được tải vào DataGridView
+            dataGridView1.Columns["madichvu"].HeaderText = "Mã Dịch Vụ";
+            dataGridView1.Columns["tendichvu"].HeaderText = "Tên Dịch Vụ";
+            dataGridView1.Columns["dongia"].HeaderText = "Đơn Giá";
+            dataGridView1.Columns["donvitinh"].HeaderText = "Đơn Vị Tính";
+            dataGridView1.Columns["tenloaidichvu"].HeaderText = "Loại Dịch Vụ";
+            // Đổi tên các cột khác nếu cần thiết
         }
-        
-        
+
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             NhapTTDichVu f = new NhapTTDichVu(true);
