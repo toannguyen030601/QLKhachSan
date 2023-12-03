@@ -156,7 +156,11 @@ namespace QLKhachSan
             {
                 //Hiển thị form Hóa Đơn chi tiết
                 MessageBox.Show("THanh toán thành công");
-
+                FrmHoaDonChiTiet hdct = new FrmHoaDonChiTiet(lbMaHoaDon.Text);
+            }
+            else
+            {
+                MessageBox.Show("THanh toán thất bại");
             }
         }
 
