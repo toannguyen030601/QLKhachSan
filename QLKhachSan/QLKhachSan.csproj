@@ -13,11 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BUS_qlks\BUS_qlks.csproj" />
-    <ProjectReference Include="..\DTO_qlks\DTO_qlks.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
