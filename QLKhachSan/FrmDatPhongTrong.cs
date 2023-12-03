@@ -93,7 +93,7 @@ namespace QLKhachSan
                         MessageBox.Show("Đặt Phòng Thất Bại");
                     }
                 }
-            }
+            }*/
 
         }
 

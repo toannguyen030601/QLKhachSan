@@ -41,7 +41,7 @@ namespace DTO_qlks
         }
 
         public DTO_dichvu(string MaDichVu, string TenDichVu, double DonGia, string DonViTinh, string MaLoaiDichVu)
-        { 
+        {
             this.maDichVu = MaDichVu;
             this.tenDichVu = TenDichVu;
             this.donGia = DonGia;
