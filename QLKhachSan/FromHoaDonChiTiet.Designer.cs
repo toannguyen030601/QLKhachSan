@@ -312,11 +312,11 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.BackgroundImage = Properties.Resources.heart1;
+            pictureBox4.BackgroundImage = Properties.Resources.heart;
             pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(175, 718);
+            pictureBox4.Location = new Point(175, 723);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(41, 31);
+            pictureBox4.Size = new Size(41, 26);
             pictureBox4.TabIndex = 7;
             pictureBox4.TabStop = false;
             // 
