@@ -119,7 +119,7 @@ namespace QLKhachSan
                 {
                     gfx.DrawString(row.Cells["TenDV"].Value.ToString(), font, XBrushes.Black, new XPoint(50, yOffset));
                     gfx.DrawString(row.Cells["GiaDV"].Value.ToString(), font, XBrushes.Black, new XPoint(200, yOffset));
-                   
+
                     // Vẽ các thông tin khác nếu cần
                     yOffset += 20;
                 }

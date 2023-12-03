@@ -52,12 +52,12 @@
             label21 = new Label();
             label19 = new Label();
             label20 = new Label();
-            pictureBox4 = new PictureBox();
             dtpNgayLap = new DateTimePicker();
             label3 = new Label();
             dtpTraPhong = new DateTimePicker();
             label4 = new Label();
             label5 = new Label();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDichVu).BeginInit();
@@ -310,16 +310,6 @@
             label20.TabIndex = 1;
             label20.Text = "Cảm ơn và hẹn gặp lại quý khách !";
             // 
-            // pictureBox4
-            // 
-            pictureBox4.BackgroundImage = Properties.Resources.heart1;
-            pictureBox4.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox4.Location = new Point(175, 718);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(41, 31);
-            pictureBox4.TabIndex = 7;
-            pictureBox4.TabStop = false;
-            // 
             // dtpNgayLap
             // 
             dtpNgayLap.Format = DateTimePickerFormat.Short;
@@ -365,17 +355,26 @@
             label5.TabIndex = 28;
             label5.Text = "Dịch Vụ Đã Sử Dụng";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.customer;
+            pictureBox4.Location = new Point(184, 719);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(43, 40);
+            pictureBox4.TabIndex = 29;
+            pictureBox4.TabStop = false;
+            // 
             // FromHoaDonChiTiet
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 771);
+            Controls.Add(pictureBox4);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(dtpTraPhong);
             Controls.Add(label3);
             Controls.Add(dtpNgayLap);
-            Controls.Add(pictureBox4);
             Controls.Add(groupBox1);
             Controls.Add(label18);
             Controls.Add(lblGiamGia);
@@ -436,11 +435,11 @@
         private Label label20;
         private Label label19;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
         private DateTimePicker dtpNgayLap;
         private Label label3;
         private DateTimePicker dtpTraPhong;
         private Label label4;
         private Label label5;
+        private PictureBox pictureBox4;
     }
 }
