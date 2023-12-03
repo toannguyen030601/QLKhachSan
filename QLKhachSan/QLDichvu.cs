@@ -22,7 +22,10 @@ namespace QLKhachSan
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
             btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
             btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
-        }
+
+            txtTimDichVu.Enter += new EventHandler(txtTimDichVu_Enter);
+            txtTimDichVu.Leave += new EventHandler(txtTimDichVu_Leave);
+        }   
         BUS_dichvu busdv = new BUS_dichvu();
         private void btnTimDichVu_Click(object sender, EventArgs e)
         {
@@ -122,8 +125,21 @@ namespace QLKhachSan
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ bạn muốn sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        
-            
+        }
+        private void txtTimDichVu_Enter(object sender, EventArgs e)
+        {
+            if (txtTimDichVu.Text == "Nhập dịch vụ cần tìm")
+            {
+                txtTimDichVu.Text = "";
+            }
+        }
+
+        private void txtTimDichVu_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTimDichVu.Text))
+            {
+                txtTimDichVu.Text = "Nhập dịch vụ cần tìm";
+            }
         }
     }
 }

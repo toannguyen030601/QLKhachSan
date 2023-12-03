@@ -79,7 +79,7 @@ namespace QLKhachSan
                 {
                     tenDichVu = txtTenDichVu.Text,
                     donGia = double.Parse(txtDonGia.Text),
-                    donViTinh = txtDonViTinh.Text,
+                    donViTinh = txtDonViTinh.Text.ToUpper(),
                     maDichVu = lbMaDV.Text,
                     maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
                     // Gán các trường thông tin khác của khách hàng tại đây nếu có
@@ -110,7 +110,7 @@ namespace QLKhachSan
                         {
                             tenDichVu = txtTenDichVu.Text,
                             donGia = donGia,
-                            donViTinh = txtDonViTinh.Text,
+                            donViTinh = txtDonViTinh.Text.ToUpper(),
                             maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
                             // Gán các trường thông tin khác của dịch vụ tại đây nếu có
                         };
