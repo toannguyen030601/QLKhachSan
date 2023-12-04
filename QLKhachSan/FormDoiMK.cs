@@ -40,42 +40,42 @@ namespace QLKhachSan
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtMkCu_Enter(object sender, EventArgs e)
         {
-         
+
         }
 
         private void txtMkCu_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtMkMoi_Enter(object sender, EventArgs e)
         {
-          
+
         }
 
         private void txtMkMoi_Leave(object sender, EventArgs e)
         {
-         
+
         }
 
         private void txtMkMoi2_Enter(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtMkMoi2_Leave(object sender, EventArgs e)
         {
-         
+
         }
 
         private void btnDoiMK_Click(object sender, EventArgs e)

@@ -44,26 +44,21 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             panelDMK = new Panel();
-            panel14 = new Panel();
-            btnMinimize = new Button();
-            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panelDMK.SuspendLayout();
-            panel14.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Blue;
-            label1.Location = new Point(125, 30);
+            label1.Location = new Point(96, 23);
             label1.Name = "label1";
-            label1.Size = new Size(145, 30);
+            label1.Size = new Size(227, 45);
             label1.TabIndex = 1;
             label1.Text = "Đổi Mật Khẩu";
             // 
@@ -84,9 +79,10 @@
             txtMkCu.BackColor = SystemColors.Control;
             txtMkCu.BorderStyle = BorderStyle.None;
             txtMkCu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMkCu.Location = new Point(68, 162);
+            txtMkCu.Location = new Point(68, 168);
             txtMkCu.Name = "txtMkCu";
             txtMkCu.PasswordChar = '*';
+            txtMkCu.PlaceholderText = "Nhập mật khẩu cũ";
             txtMkCu.Size = new Size(300, 32);
             txtMkCu.TabIndex = 7;
             txtMkCu.Enter += txtMkCu_Enter;
@@ -97,9 +93,10 @@
             txtMkMoi.BackColor = SystemColors.Control;
             txtMkMoi.BorderStyle = BorderStyle.None;
             txtMkMoi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMkMoi.Location = new Point(68, 246);
+            txtMkMoi.Location = new Point(68, 252);
             txtMkMoi.Name = "txtMkMoi";
             txtMkMoi.PasswordChar = '*';
+            txtMkMoi.PlaceholderText = "Nhập mật khẩu mới";
             txtMkMoi.Size = new Size(300, 32);
             txtMkMoi.TabIndex = 8;
             txtMkMoi.TextChanged += textBox3_TextChanged;
@@ -112,9 +109,10 @@
             txtMkMoi2.BackColor = SystemColors.Control;
             txtMkMoi2.BorderStyle = BorderStyle.None;
             txtMkMoi2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMkMoi2.Location = new Point(68, 316);
+            txtMkMoi2.Location = new Point(68, 322);
             txtMkMoi2.Name = "txtMkMoi2";
             txtMkMoi2.PasswordChar = '*';
+            txtMkMoi2.PlaceholderText = "Nhập lại mật khẩu mới";
             txtMkMoi2.Size = new Size(300, 32);
             txtMkMoi2.TabIndex = 9;
             txtMkMoi2.Enter += txtMkMoi2_Enter;
@@ -236,49 +234,10 @@
             panelDMK.Controls.Add(panel2);
             panelDMK.Controls.Add(button2);
             panelDMK.Controls.Add(panel1);
-            panelDMK.Location = new Point(93, 54);
+            panelDMK.Location = new Point(159, 57);
             panelDMK.Name = "panelDMK";
             panelDMK.Size = new Size(407, 511);
             panelDMK.TabIndex = 21;
-            // 
-            // panel14
-            // 
-            panel14.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel14.BackColor = Color.Transparent;
-            panel14.Controls.Add(btnMinimize);
-            panel14.Controls.Add(btnClose);
-            panel14.Location = new Point(654, 0);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(96, 36);
-            panel14.TabIndex = 22;
-            // 
-            // btnMinimize
-            // 
-            btnMinimize.BackColor = Color.Gainsboro;
-            btnMinimize.BackgroundImageLayout = ImageLayout.Zoom;
-            btnMinimize.FlatAppearance.BorderSize = 0;
-            btnMinimize.FlatStyle = FlatStyle.Flat;
-            btnMinimize.Image = Properties.Resources.minimize1;
-            btnMinimize.ImageAlign = ContentAlignment.BottomCenter;
-            btnMinimize.Location = new Point(27, 4);
-            btnMinimize.Name = "btnMinimize";
-            btnMinimize.Size = new Size(25, 28);
-            btnMinimize.TabIndex = 1;
-            btnMinimize.UseVisualStyleBackColor = false;
-            btnMinimize.Click += btnMinimize_Click;
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Gainsboro;
-            btnClose.FlatAppearance.BorderSize = 0;
-            btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Image = Properties.Resources.close2;
-            btnClose.Location = new Point(58, 4);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(27, 28);
-            btnClose.TabIndex = 0;
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
             // 
             // FormDoiMK
             // 
@@ -287,7 +246,6 @@
             BackgroundImage = Properties.Resources.bgdangnhap;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(751, 612);
-            Controls.Add(panel14);
             Controls.Add(panelDMK);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormDoiMK";
@@ -300,7 +258,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panelDMK.ResumeLayout(false);
             panelDMK.PerformLayout();
-            panel14.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -321,8 +278,5 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Panel panelDMK;
-        private Panel panel14;
-        private Button btnMinimize;
-        private Button btnClose;
     }
 }
