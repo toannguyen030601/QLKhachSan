@@ -88,7 +88,7 @@ namespace QLKhachSan
                     };
 
                     // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                    if (bus_dv.SuaDichVu(dichvu))
+                    if (bUS_Dichvu.SuaDichVu(dichvu))
                     {
                         MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         IsUpdated = true; // Đã cập nhật thành công

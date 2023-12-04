@@ -292,16 +292,6 @@ namespace QLKhachSan
             ChangeColor((Button)sender);
             OpenChildForm(new FrmThongKe());
         }
-        private void button8_Click(object sender, EventArgs e)
-        {
-            QLLoaiDichVu qLLoaiDichVu = new QLLoaiDichVu();
-            qLLoaiDichVu.ShowDialog();
->>>>>>> 119278f54a433046bfa5c2a0f569efdaea130fac
-        }
-        private void button6_Click(object sender, EventArgs e)
-        {
-            ChangeColor((Button)sender);
-            OpenChildForm(new FrmThongKe());
-        }
+        
     }
 }
