@@ -129,12 +129,48 @@ namespace DAL_qlks
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
 
-                cmd.CommandText = "DELETE FROM khachhang WHERE makhachhang = @MaKhachHang";
+                // Kiểm tra xem khách hàng có tồn tại trong bảng HoaDonPhong hay không
+                cmd.CommandText = "SELECT COUNT(*) FROM HoaDonPhong WHERE MaKhachHang = @MaKhachHang";
                 cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
 
-                int rowsAffected = cmd.ExecuteNonQuery();
+                int count = Convert.ToInt32(cmd.ExecuteScalar()); ; // Lấy số lượng bản ghi trả về
 
-                return rowsAffected > 0; // Trả về true nếu xóa thành công, ngược lại trả về false
+                if (count > 0)
+                {
+                    // Nếu khách hàng có trong bảng HoaDonPhong, không cho phép xóa và hiển thị thông báo
+                    /*Console.WriteLine("Không thể xóa khách hàng vì đã có thông tin trong bảng HoaDonPhong.");*/
+                    return false;
+                }
+                else
+                {
+                    // Nếu không có thông tin trong bảng HoaDonPhong, tiến hành xóa khách hàng
+                    cmd.CommandText = "DELETE FROM KhachHang WHERE MaKhachHang = @MaKhachHang";
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Trả về true nếu xóa thành công, ngược lại trả về false
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool KiemTraTonTaiTrongHoaDon(string maKhachHang)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = "SELECT COUNT(*) FROM HoaDonPhong WHERE MaKhachHang = @MaKhachHang";
+                cmd.Parameters.AddWithValue("@MaKhachHang", maKhachHang);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar()); ; // Lấy số lượng bản ghi trả về
+
+                return count > 0; // Trả về true nếu tồn tại trong bảng HoaDonPhong, ngược lại trả về false
             }
             finally
             {

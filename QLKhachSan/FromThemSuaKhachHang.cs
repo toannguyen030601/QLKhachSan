@@ -56,7 +56,7 @@ namespace QLKhachSan
         BUS_qlks.BUS_khachhang buskh = new BUS_qlks.BUS_khachhang();
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
         private bool isthemsuaKH;
-        
+
         private void ValidateButton_Click(object sender, EventArgs e)
         {
             string phoneNumber = txtSoDT.Text.Trim();
@@ -88,6 +88,19 @@ namespace QLKhachSan
             // (e.g., 9 to 12 digits)
             Regex regex = new Regex(@"^\d{9,12}$");
             return regex.IsMatch(idNumber);
+        }
+        private bool IsNameValid(string name)
+        {
+            // Kiểm tra xem tên chỉ chứa chữ cái và dấu cách.
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && !char.IsWhiteSpace(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
         private void btnThemSuaNV_Click(object sender, EventArgs e)
         {
@@ -150,7 +163,7 @@ namespace QLKhachSan
                     !string.IsNullOrWhiteSpace(txtCCCD.Text))
                 {
                     // Validation for numeric values of phone number and ID card
-                    if (checkNumber(txtSoDT.Text) && checkNumber(txtCCCD.Text))
+                    if (checkNumber(txtSoDT.Text) && checkNumber(txtCCCD.Text) && IsNameValid(txtHoten.Text))
                     {
                         // Validation for Vietnamese phone number format
                         if (IsValidPhoneNumber(txtSoDT.Text.Trim()) && IsValidVietnameseID(txtCCCD.Text.Trim()))
@@ -226,6 +239,16 @@ namespace QLKhachSan
                     MessageBox.Show("Số CCCD cần ít nhất 9 và tối đa 12 chữ số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtCCCD.Focus();
                 }
+            }
+        }
+
+        private void txtHoten_Leave(object sender, EventArgs e)
+        {
+            string name = txtHoten.Text.Trim();
+            if (!IsNameValid(name))
+            {
+                MessageBox.Show("Tên chỉ được chứa chữ cái và dấu cách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHoten.Focus();
             }
         }
     }

@@ -110,20 +110,28 @@ namespace QLKhachSan
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (buskh.XoaKhachHang(makh))
+                    // Kiểm tra xem khách hàng có tồn tại trong bảng HoaDonPhong hay không trước khi xóa
+                    if (buskh.KiemTraHoaDon(makh))
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDataToDataGridView();
+                        MessageBox.Show("Không thể xóa khách hàng vì đã có thông tin trong bảng HoaDonPhong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (buskh.XoaKhachHang(makh))
+                        {
+                            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataToDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn khách hàng bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

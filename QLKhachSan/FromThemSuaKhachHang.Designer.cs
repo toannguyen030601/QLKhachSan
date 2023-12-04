@@ -88,6 +88,7 @@
             txtHoten.Name = "txtHoten";
             txtHoten.Size = new Size(347, 30);
             txtHoten.TabIndex = 29;
+            txtHoten.Leave += txtHoten_Leave;
             // 
             // btnThemSuaNV
             // 
