@@ -95,28 +95,18 @@ namespace DAL_qlks
             }
         }
 
-        public void XoaPhong(string maPhong)
+        public bool XoaPhong(string maPhong)
         {
             try
             {
                 connection.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "xoaphong";
-                cmd.Parameters.AddWithValue("@p_maphong", maPhong);
-                cmd.ExecuteNonQuery();
-                /*int affectedRows = Convert.ToInt16(cmd.ExecuteNonQuery());*/
-
-               /* if (affectedRows > 0)
-                {
-                    return true;
-                }
-                
-                else
-                {
-                    return false;
-                }*/
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "delete from phong where maphong=@maphong";
+                cmd.Parameters.AddWithValue("@maphong", maPhong);
+                int kq = Convert.ToInt16(cmd.ExecuteNonQuery());
+                return kq > 0;    
             }
             finally { connection.Close(); }
         }
@@ -366,6 +356,27 @@ namespace DAL_qlks
                 }
 
                 return maHoaDon;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool CheckXoaPhong(string maPhong)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from hoadonphong where maphong=@maphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@maphong", maPhong);
+                // Thực thi stored procedure
+                int kq = Convert.ToInt16(cmd.ExecuteScalar());
+                return kq > 0;
             }
             finally
             {

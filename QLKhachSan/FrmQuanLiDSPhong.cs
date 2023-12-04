@@ -15,6 +15,7 @@ namespace QLKhachSan
     public partial class FrmQuanLiDSPhong : Form
     {
         BUS_Phong bus_Phong = new BUS_Phong();
+        private int trangThai = 0;
         public FrmQuanLiDSPhong()
         {
             InitializeComponent();
@@ -90,13 +91,27 @@ namespace QLKhachSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Bạn có chắc chắn xóa", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (kq == DialogResult.Yes)
+            if (bus_Phong.CheckXoaPhong(txtMaPhong.Text))
             {
-                bus_Phong.XoaPhong(txtMaPhong.Text);
-                SetValues();
+                MessageBox.Show("Đã có hóa đơn có mã phòng này không thể xóa phòng");
             }
-            SetValues();
+            else
+            {
+                DialogResult kq = MessageBox.Show("Bạn có chắc chắn xóa", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (kq == DialogResult.Yes)
+                {
+                    if (bus_Phong.XoaPhong(txtMaPhong.Text))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        SetValues();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                SetValues();
+            }      
         }
 
         private void dgvDSPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -129,6 +144,7 @@ namespace QLKhachSan
         {
             UnLock();
             txtMaPhong.Enabled = false;
+            trangThai = 1;
         }
 
         private void btnMoi_Click(object sender, EventArgs e)
@@ -195,19 +211,36 @@ namespace QLKhachSan
 
                                 if (bus_Phong.CheckMaPhong(txtMaPhong.Text))
                                 {
-                                    DialogResult xn = MessageBox.Show("Đã có mã phòng, bạn có muốn cập nhật không?","Cập nhật",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                                    if(xn == DialogResult.Yes)
+                                    if (trangThai == 1)
                                     {
-                                        if (bus_Phong.LuuPhong(p))
+                                        if(bus_Phong.LuuPhong(p))
                                         {
-                                            MessageBox.Show("Lưu thành công");
+                                            MessageBox.Show("Cập nhật thành công");
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Lưu thất bại");
+                                            MessageBox.Show("Cập nhật thất bại");
                                         }
                                         SetValues();
+                                        trangThai = 0;
                                     }
+                                    else
+                                    {
+                                        DialogResult xn = MessageBox.Show("Đã có mã phòng, bạn có muốn cập nhật không?", "Cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                        if (xn == DialogResult.Yes)
+                                        {
+                                            if (bus_Phong.LuuPhong(p))
+                                            {
+                                                MessageBox.Show("Cập nhật thành công");
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Cập nhật thất bại");
+                                            }
+                                            SetValues();
+                                        }
+                                    }
+                                   
                                 }
                                 else
                                 {

@@ -31,7 +31,6 @@
             menuStrip1 = new MenuStrip();
             doanhThuPhòngToolStripMenuItem = new ToolStripMenuItem();
             doanhThuDịchVụToolStripMenuItem = new ToolStripMenuItem();
-            tổngDoanhThuToolStripMenuItem = new ToolStripMenuItem();
             dgvDoanhThu = new DataGridView();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
@@ -49,7 +48,7 @@
             menuStrip1.BackColor = SystemColors.Control;
             menuStrip1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { doanhThuPhòngToolStripMenuItem, doanhThuDịchVụToolStripMenuItem, tổngDoanhThuToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { doanhThuPhòngToolStripMenuItem, doanhThuDịchVụToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1210, 31);
@@ -69,13 +68,6 @@
             doanhThuDịchVụToolStripMenuItem.Size = new Size(188, 27);
             doanhThuDịchVụToolStripMenuItem.Text = "Doanh Thu Dịch Vụ";
             doanhThuDịchVụToolStripMenuItem.Click += doanhThuDịchVụToolStripMenuItem_Click;
-            // 
-            // tổngDoanhThuToolStripMenuItem
-            // 
-            tổngDoanhThuToolStripMenuItem.Name = "tổngDoanhThuToolStripMenuItem";
-            tổngDoanhThuToolStripMenuItem.Size = new Size(164, 27);
-            tổngDoanhThuToolStripMenuItem.Text = "Tổng Doanh Thu";
-            tổngDoanhThuToolStripMenuItem.Click += tổngDoanhThuToolStripMenuItem_Click;
             // 
             // dgvDoanhThu
             // 
@@ -182,7 +174,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem doanhThuPhòngToolStripMenuItem;
         private ToolStripMenuItem doanhThuDịchVụToolStripMenuItem;
-        private ToolStripMenuItem tổngDoanhThuToolStripMenuItem;
         private DataGridView dgvDoanhThu;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;

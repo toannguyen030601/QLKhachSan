@@ -16,13 +16,28 @@ namespace BUS_qlks
         {
             return dAL_LoaiPhong.DanhSachLoaiPhong();
         }
-        public void LuuLoaiPhong(DTO_LoaiPhong lp)
+        public bool LuuLoaiPhong(DTO_LoaiPhong lp)
         {
-            dAL_LoaiPhong.LuuLoaiPhong(lp);
+            return dAL_LoaiPhong.LuuLoaiPhong(lp);
         }
+        public bool CapNhatLoaiPhong(DTO_LoaiPhong lp)
+        {
+            return dAL_LoaiPhong.CapNhatLoaiPhong(lp);
+        }
+
         public void XoaLoaiPhong(string maLoaiPhong)
         {
             dAL_LoaiPhong.XoaLoaiPhong(maLoaiPhong);
         }
+        public bool CheckLoaiPhongTonTai(string maLoaiPhong)
+        {
+            return dAL_LoaiPhong.CheckLoaiPhongTonTai(maLoaiPhong);
+        }
+        public bool CheckXoaLoaiPhong(string maLoaiPhong)
+        {
+            return dAL_LoaiPhong.CheckXoaLoaiPhong(maLoaiPhong);
+        }
+
+
     }
 }

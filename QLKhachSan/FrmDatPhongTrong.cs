@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -65,38 +66,89 @@ namespace QLKhachSan
                 txtSoCCCD.Text = "Nhập Số CCCD";
             }
         }
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            string pattern = @"^(032|033|034|035|036|037|038|039|096|097|098|086|083|084|085|081|082|088|091|094|070|079|077|076|078|090|093|089|056|058|092|059|099)[0-9]{8}$"; // Định dạng: Bắt đầu bằng "0" và sau đó là từ 10 đến 12 chữ số.
 
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(phoneNumber);
+        }
+
+        private bool IsNameValid(string name)
+        {
+            // Kiểm tra xem tên chỉ chứa chữ cái và dấu cách.
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && !char.IsWhiteSpace(c))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        private bool IsCccdValid(string cccd)
+        {
+            // Kiểm tra xem số căn cước có đúng định dạng không (ví dụ: 12 chữ số).
+            return cccd.Length == 12 && IsNumeric(cccd);
+        }
+
+        static bool IsNumeric(string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
-            //Thêm Khách Hàng
-            if (txtHoTen.Text == "Nhập Họ Tên" || txtSDT.Text == "Nhập Số Điện Thoại" || txtSoCCCD.Text == "Nhập Số CCCD")
+            if (IsNameValid(txtHoTen.Text))
             {
-                MessageBox.Show("Nhập đủ thông tin khách hàng");
-            }
-            else
-            {
-                if (cbGT.SelectedIndex == -1)
+                if (IsPhoneNumberValid(txtSDT.Text))
                 {
-                    MessageBox.Show("Chọn giới tính");
-                }
-                else
-                {
-                    string gt = cbGT.SelectedIndex == 0 ? "Nam" : "Nữ";
-                    /// Thêm khách hàng
-                    if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt,UserLoginInfo.Email, dtpNgayNhanPhong.Value,lblMaPhong.Text))
+                    if(IsCccdValid(txtSoCCCD.Text))
                     {
-                        MessageBox.Show("Đặt Phòng Thành Công");
-                        this.Close();
-                        BUS_Phong bUS_Phong = new BUS_Phong();
-                        string maHoaDon=bus_Phong.MaHoaDonCuaPhong(lblMaPhong.Text);
-                        FormThemDvu frm = new FormThemDvu(lblMaPhong.Text,maHoaDon);
-                        frm.ShowDialog();
+                        if (cbGT.SelectedIndex == -1)
+                        {
+                            MessageBox.Show("Vui lòng Chọn giới tính");
+                        }
+                        else
+                        {
+                            string gt = cbGT.SelectedIndex == 0 ? "Nam" : "Nữ";
+                            /// Thêm khách hàng
+                            if (bus_Phong.DatPhong(txtHoTen.Text, txtSDT.Text, txtSoCCCD.Text, gt, UserLoginInfo.Email, dtpNgayNhanPhong.Value, lblMaPhong.Text))
+                            {
+                                MessageBox.Show("Đặt Phòng Thành Công");
+                                this.Close();
+                                BUS_Phong bUS_Phong = new BUS_Phong();
+                                string maHoaDon = bus_Phong.MaHoaDonCuaPhong(lblMaPhong.Text);
+                                FormThemDvu frm = new FormThemDvu(lblMaPhong.Text, maHoaDon);
+                                frm.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Đặt Phòng Thất Bại");
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Đặt Phòng Thất Bại");
+                        MessageBox.Show("Nhập CCCD có 12 kí tự số");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Nhập số điện thoại từ 10-11 kí tự số bắt đầu bằng số 0 đúng định dạng");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nhập tên chỉ chứa chữ cái và dấu cách ");
             }
 
         }

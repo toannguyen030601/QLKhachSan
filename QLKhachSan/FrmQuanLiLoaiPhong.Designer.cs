@@ -114,7 +114,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.hotel;
+            pictureBox2.Image = Properties.Resources.loaiphong1;
             pictureBox2.Location = new Point(301, 184);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(36, 37);

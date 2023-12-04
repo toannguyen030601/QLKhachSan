@@ -86,10 +86,33 @@ namespace QLKhachSan
                 }
                 else
                 {
-                    DTO_LoaiPhong lp = new DTO_LoaiPhong(txtID.Text, txtLoaiPhong.Text);
-                    bUS_LoaiPhong.LuuLoaiPhong(lp);
-                    MessageBox.Show("Lưu thành công");
-                    SetValues();
+                    if(bUS_LoaiPhong.CheckLoaiPhongTonTai(txtID.Text))
+                    {
+                        DialogResult kq= MessageBox.Show("Bạn có chắc cập nhật cho mã loại phòng :" + txtID.Text + " không?","Capnhat",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                        if(kq == DialogResult.OK)
+                        {
+                            DTO_LoaiPhong lp = new DTO_LoaiPhong(txtID.Text, txtLoaiPhong.Text);
+                            if (bUS_LoaiPhong.CapNhatLoaiPhong(lp))
+                            {
+                                MessageBox.Show("Cập Nhật Thành Công thành công");
+                                SetValues();
+                            }
+                            else MessageBox.Show("Cập Nhật Thành Công thất bại");
+                        }
+                    }
+                    else
+                    {
+                        DTO_LoaiPhong lp = new DTO_LoaiPhong(txtID.Text, txtLoaiPhong.Text);
+                        if (bUS_LoaiPhong.LuuLoaiPhong(lp))
+                        {
+                            MessageBox.Show("Lưu thành công");
+                            SetValues();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lưu thất bại");
+                        }
+                    }
                 }
             }
         }
@@ -113,14 +136,20 @@ namespace QLKhachSan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            DialogResult kq = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (kq == DialogResult.Yes)
+            if (!bUS_LoaiPhong.CheckXoaLoaiPhong(txtID.Text))
             {
-                bUS_LoaiPhong.XoaLoaiPhong(txtID.Text);
-                MessageBox.Show("Xóa thành công");
-                SetValues();
+                DialogResult kq = MessageBox.Show("Bạn có chắc chắn muốn xóa", "Xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (kq == DialogResult.Yes)
+                {
+                    bUS_LoaiPhong.XoaLoaiPhong(txtID.Text);
+                    MessageBox.Show("Xóa thành công");
+                    SetValues();
+                } 
             }
-
+            else
+            {
+                MessageBox.Show("Đã tồn tại Phòng có mã loại phòng này không thể xóa");
+            }
         }
 
         private void btnSoDo_Click(object sender, EventArgs e)

@@ -68,7 +68,7 @@ namespace QLKhachSan
         {
             if (loaiDoanhThu == 0)
             {
-                
+
             }
             else
             {

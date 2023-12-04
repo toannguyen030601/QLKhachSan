@@ -28,39 +28,63 @@ namespace DAL_qlks
             }
             finally { connection.Close(); }
         }
-        public void LuuLoaiPhong(DTO_LoaiPhong lp)
+        public bool LuuLoaiPhong(DTO_LoaiPhong lp)
         {
             try
             {
                 connection.Open();
                 NpgsqlCommand cmd=new NpgsqlCommand();
                 cmd.Connection= connection;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "luuloaiphong";
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into loaiphong(maloaiphong,tenloaiphong) values (@maloaiphong,@tenloaiphong)";
                 // Thêm tham số đầu vào
-                cmd.Parameters.AddWithValue("@p_maloaiphong", lp.MaLoaiPhong);
-                cmd.Parameters.AddWithValue("@p_tenloaiphong", lp.TenLoaiPhong);
+                cmd.Parameters.AddWithValue("@maloaiphong", lp.MaLoaiPhong);
+                cmd.Parameters.AddWithValue("@tenloaiphong", lp.TenLoaiPhong);
 
                 // Thực thi stored procedure
-                cmd.ExecuteNonQuery();
+                int kq=Convert.ToInt16(cmd.ExecuteNonQuery());
+                return kq>0;
             }
             finally
             {
                 connection.Close();
             }
         }
+        public bool CapNhatLoaiPhong(DTO_LoaiPhong lp)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "update loaiphong set tenloaiphong=@tenloaiphong where maloaiphong=@maloaiphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@maloaiphong", lp.MaLoaiPhong);
+                cmd.Parameters.AddWithValue("@tenloaiphong", lp.TenLoaiPhong);
+
+                // Thực thi stored procedure
+                int kq = Convert.ToInt16(cmd.ExecuteNonQuery());
+                return kq > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public bool XoaLoaiPhong(string maLoaiPhong)
         {
             try
             {
                 using (NpgsqlCommand cmd = new NpgsqlCommand("XoaLoaiPhong", connection))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.Text;
 
                     // Thêm tham số đầu vào
-                    cmd.Parameters.AddWithValue("@p_maloaiphong", maLoaiPhong);
+                    cmd.CommandText = "delete from loaiphong where maloaiphong=@maloaiphong";
+                    cmd.Parameters.AddWithValue("@maloaiphong", maLoaiPhong);
                     connection.Open();
-                    // Thực thi stored procedure
                     if(Convert.ToInt16(cmd.ExecuteNonQuery()) > 0)
                     {
                         return true;
@@ -73,6 +97,46 @@ namespace DAL_qlks
                 connection.Close();
             }
             return false;
+        }
+        public bool CheckLoaiPhongTonTai(string maLoaiPhong)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from loaiphong where maloaiphong=@maloaiphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@maloaiphong", maLoaiPhong);
+                // Thực thi stored procedure
+                int kq = Convert.ToInt16(cmd.ExecuteScalar());
+                return kq > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool CheckXoaLoaiPhong(string maLoaiPhong)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select count(*) from phong where maloaiphong=@maloaiphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@maloaiphong", maLoaiPhong);
+                // Thực thi stored procedure
+                int kq = Convert.ToInt16(cmd.ExecuteScalar());
+                return kq > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
