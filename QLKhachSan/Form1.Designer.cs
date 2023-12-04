@@ -210,11 +210,11 @@
             btnInfoDangnhap.BackColor = Color.Transparent;
             btnInfoDangnhap.FlatAppearance.BorderSize = 0;
             btnInfoDangnhap.FlatStyle = FlatStyle.Flat;
-            btnInfoDangnhap.Image = Properties.Resources.infoMain;
+            btnInfoDangnhap.Image = Properties.Resources.reset_password__1_;
             btnInfoDangnhap.ImageAlign = ContentAlignment.BottomCenter;
-            btnInfoDangnhap.Location = new Point(227, 0);
+            btnInfoDangnhap.Location = new Point(219, 0);
             btnInfoDangnhap.Name = "btnInfoDangnhap";
-            btnInfoDangnhap.Size = new Size(23, 24);
+            btnInfoDangnhap.Size = new Size(28, 34);
             btnInfoDangnhap.TabIndex = 3;
             btnInfoDangnhap.UseVisualStyleBackColor = false;
             btnInfoDangnhap.Click += btnInfoDangnhap_Click;

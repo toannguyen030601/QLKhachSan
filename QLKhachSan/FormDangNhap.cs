@@ -58,7 +58,7 @@ namespace QLKhachSan
                 Properties.Settings.Default.Ghinho = chkNhotaikhoan.Checked;
                 if (chkNhotaikhoan.Checked)
                 {
-                    Properties.Settings.Default.Email= txtEmail.Text;
+                    Properties.Settings.Default.Email = txtEmail.Text;
                     Properties.Settings.Default.Matkhau = txtMatkhau.Text;
                 }
                 Properties.Settings.Default.Save();
