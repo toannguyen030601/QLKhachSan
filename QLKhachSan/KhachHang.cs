@@ -80,7 +80,7 @@ namespace QLKhachSan
             FromThemSuaKhachHang f = new FromThemSuaKhachHang(true);
             
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }

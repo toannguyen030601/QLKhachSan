@@ -56,9 +56,7 @@ namespace QLKhachSan
         BUS_qlks.BUS_khachhang buskh = new BUS_qlks.BUS_khachhang();
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
         private bool isthemsuaKH;
-        public bool trangthai = false;
-
-        public bool istrangthai { get { return trangthai; } }
+        
         private void ValidateButton_Click(object sender, EventArgs e)
         {
             string phoneNumber = txtSoDT.Text.Trim();
@@ -174,6 +172,8 @@ namespace QLKhachSan
                             {
                                 MessageBox.Show("Thêm khách hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây
+                                IsUpdated = true;
+
                             }
                             else
                             {
