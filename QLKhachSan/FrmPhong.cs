@@ -63,8 +63,10 @@ namespace QLKhachSan
                         FlatStyle = FlatStyle.Flat,
                         FlatAppearance = { BorderSize = 4 },
                         TextAlign = ContentAlignment.MiddleCenter,
-
                     };
+                    btn.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 20, 20));
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
 
                     btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
