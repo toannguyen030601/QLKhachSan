@@ -426,21 +426,21 @@
             // 
             // button6
             // 
-            button6.BackColor = SystemColors.ScrollBar;
-            button6.Dock = DockStyle.Fill;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Image = Properties.Resources.loaiphong;
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(0, 0);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Padding = new Padding(10, 0, 0, 0);
-            button6.Size = new Size(250, 55);
-            button6.TabIndex = 2;
-            button6.Text = "QL Loai Phòng";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            this.button6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::QLKhachSan.Properties.Resources.loaiphong;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(0, 0);
+            this.button6.Margin = new System.Windows.Forms.Padding(0);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(250, 55);
+            this.button6.TabIndex = 2;
+            this.button6.Text = "QL Loai Phòng";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // panel10
             // 

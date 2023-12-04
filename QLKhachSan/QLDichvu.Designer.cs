@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLDichvu));
-            button4 = new Button();
-            button3 = new Button();
             dataGridView1 = new DataGridView();
             btnTimDichVu = new Button();
             txtTimDichVu = new TextBox();
@@ -44,26 +42,11 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // button4
             // 
-            button4.BackColor = SystemColors.ButtonFace;
-            button4.ForeColor = SystemColors.ControlText;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(1031, 8);
-            button4.Name = "button4";
-            button4.Size = new Size(22, 34);
-            button4.TabIndex = 31;
-            button4.UseVisualStyleBackColor = false;
+           
             // 
-            // button3
             // 
-            button3.BackColor = SystemColors.ButtonFace;
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.Location = new Point(10, 9);
-            button3.Name = "button3";
-            button3.Size = new Size(37, 34);
-            button3.TabIndex = 30;
-            button3.UseVisualStyleBackColor = false;
+           
             // 
             // dataGridView1
             // 
@@ -178,8 +161,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1062, 653);
             Controls.Add(panel1);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(dataGridView1);
             Controls.Add(btnTimDichVu);
             Controls.Add(txtTimDichVu);
@@ -197,8 +178,6 @@
         }
 
         #endregion
-        private Button button4;
-        private Button button3;
         private DataGridView dataGridView1;
         private Button btnTimDichVu;
         private TextBox txtTimDichVu;
