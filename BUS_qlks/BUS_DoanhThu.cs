@@ -15,5 +15,9 @@ namespace BUS_qlks
         {
             return dal_DoanhThu.DoanhThuDichVu(bd,kt);
         }
+        public DataTable DoanhThuPhong(DateTime bd, DateTime kt)
+        {
+            return dal_DoanhThu.DoanhThuPhong(bd,kt);
+        }
     }
 }

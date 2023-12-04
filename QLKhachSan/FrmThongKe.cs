@@ -66,17 +66,63 @@ namespace QLKhachSan
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            if (loaiDoanhThu == 0)
+            if (loaiDoanhThu == 1)
             {
-
+                LoadDoanhThuDichVu(dateTimePicker1.Value, dateTimePicker2.Value);
             }
             else
             {
-                if (loaiDoanhThu == 1)
+                LoadDoanhThuPhong(dateTimePicker1.Value, dateTimePicker2.Value);
+            }
+        }
+
+        private void doanhThuPhòngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadDoanhThuPhong(DateTime.MinValue,DateTime.MaxValue);
+            loaiDoanhThu = 2;
+        }
+        public void LoadDoanhThuPhong(DateTime bd, DateTime kt)
+        {
+            dgvDoanhThu.DataSource = null;
+            dgvDoanhThu.DataSource = bus_DoanhThu.DoanhThuPhong(bd, kt);
+            double doanhThu = 0;
+
+            // Duyệt qua từng dòng trong DataGridView để tính tổng doanh thu
+            foreach (DataGridViewRow row in dgvDoanhThu.Rows)
+            {
+                // Kiểm tra nếu dòng không phải là dòng header
+                if (!row.IsNewRow)
                 {
-                    LoadDoanhThuDichVu(dateTimePicker1.Value, dateTimePicker2.Value);
+                    DateTime ngayNhanPhong = (DateTime)row.Cells["ngaynhanphong"].Value;
+                    DateTime ngayTraPhong = (DateTime)row.Cells["ngaytraphong"].Value;
+                    double soGioThue = (ngayTraPhong - ngayNhanPhong).TotalHours;
+                    BUS_HoaDonChiTiet bus_HoaDonChiTiet = new BUS_HoaDonChiTiet();
+                    string maPhong = row.Cells["maphong"].ToString();
+                    double giaPhong = bus_HoaDonChiTiet.GiaPhong(maPhong);
+                    if (soGioThue > 2)
+                    {
+                        doanhThu +=  giaPhong*soGioThue*80/100;
+                        if (soGioThue > 6)
+                        {
+                            doanhThu += soGioThue * giaPhong * 70 / 100;
+                        }
+                        else
+                        {
+                            if (soGioThue > 12)
+                            {
+                                doanhThu += soGioThue * giaPhong * 50 / 100;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        doanhThu = giaPhong * soGioThue ;
+                    }
                 }
             }
+
+            // Hiển thị tổng doanh thu lên Label
+            lblDoanhThu.Text = doanhThu.ToString() + "VNĐ"; // Định dạng hiển thị tiền tệ
         }
     }
 }

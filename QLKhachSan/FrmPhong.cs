@@ -63,11 +63,11 @@ namespace QLKhachSan
                         Font = new Font("Arial", 10, FontStyle.Bold),
                         ForeColor = Color.Black,
                         FlatStyle = FlatStyle.Flat,
-                        FlatAppearance = { BorderSize = 4 },
-                        TextAlign = ContentAlignment.MiddleCenter,
-
-                    };
-
+                        FlatAppearance = { BorderSize = 0},
+                        TextAlign = ContentAlignment.MiddleCenter
+                        
+                };
+                    btn.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 20, 20));
                     btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
                     btn.Tag = new DTO_Phong(maPhong, tenPhong, gia, trangThai, maloaiPhong);
