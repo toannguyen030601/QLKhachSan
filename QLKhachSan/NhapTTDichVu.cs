@@ -64,7 +64,6 @@ namespace QLKhachSan
         }
         BUS_dichvu bus_dv = new BUS_dichvu();
         
-        BUS_dichvu bUS_Dichvu = new BUS_dichvu();   
         BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private bool isthemsuaDV;
        /* public bool trangthai = false;*/
@@ -72,37 +71,48 @@ namespace QLKhachSan
         {
             if (!isthemsuaDV)
             {
-                string tenloaidichvu = cBTenloaiDV.Text;
-                lbMaDV.Visible = true;
-
-                // Kiểm tra xem giá nhập vào có phải là số hay không
-                if (double.TryParse(txtDonGia.Text, out double donGia))
+                if (txtTenDichVu.Text != "" && txtDonGia.Text != "" && txtDonViTinh.Text != "")
                 {
-                    DTO_dichvu dichvu = new DTO_dichvu()
-                    {
-                        tenDichVu = txtTenDichVu.Text,
-                        donGia = double.Parse(txtDonGia.Text),
-                        donViTinh = txtDonViTinh.Text.ToUpper(),
-                        maDichVu = lbMaDV.Text,
-                        maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
-                        // Gán các trường thông tin khác của khách hàng tại đây nếu có
-                    };
+                    string tenloaidichvu = cBTenloaiDV.Text;
+                    lbMaDV.Visible = true;
 
-                    // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                    if (bus_dv.SuaDichVu(dichvu))
-                    {
-                        MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        IsUpdated = true; // Đã cập nhật thành công
-                        this.Close(); // Đóng form chỉnh sửa
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cập nhật thông tin dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        // Kiểm tra xem giá nhập vào có phải là số hay không
+                        if (double.TryParse(txtDonGia.Text, out double donGia))
+                        {
+                            if (txtTenDichVu.Text.Any(char.IsDigit) || txtDonViTinh.Text.Any(char.IsDigit))
+                            {
+                                MessageBox.Show("Không được nhập số tên dịch vụ và đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+                            }
+                            DTO_dichvu dichvu = new DTO_dichvu()
+                            {
+                                tenDichVu = txtTenDichVu.Text,
+                                donGia = double.Parse(txtDonGia.Text),
+                                donViTinh = txtDonViTinh.Text.ToUpper(),
+                                maDichVu = lbMaDV.Text,
+                                maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
+                                // Gán các trường thông tin khác của khách hàng tại đây nếu có
+                            };
+
+                            // Gọi hàm trong BUS_qlks để cập nhật thông tin
+                            if (bus_dv.SuaDichVu(dichvu))
+                            {
+                                MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                IsUpdated = true; // Đã cập nhật thành công
+                                this.Close(); // Đóng form chỉnh sửa
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cập nhật thông tin dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đơn giá phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                 }
                 else
                 {
-                    MessageBox.Show("Đơn giá phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -113,6 +123,11 @@ namespace QLKhachSan
                     // Kiểm tra xem giá nhập vào có phải là số hay không
                     if (double.TryParse(txtDonGia.Text, out double donGia))
                     {
+                        if (txtTenDichVu.Text.Any(char.IsDigit) || txtDonViTinh.Text.Any(char.IsDigit))
+                        {
+                            MessageBox.Show("Không được nhập số tên dịch vụ và đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         DTO_dichvu dichvu = new DTO_dichvu()
                         {
                             tenDichVu = txtTenDichVu.Text,

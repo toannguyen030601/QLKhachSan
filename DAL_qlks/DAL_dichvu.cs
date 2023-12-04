@@ -171,9 +171,12 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM dichvu WHERE tendichvu ILIKE '%' || @tendichvu || '%'";
-                ///ILIKE để thực hiện tìm kiếm không phân biệt chữ hoa, chữ thường.
-                /// || @HoTen || được sử dụng để nối giá trị của tham số == CONCAT
+                cmd.CommandText = "SELECT * FROM dichvu WHERE unaccent(lower(tendichvu)) LIKE '%' || unaccent(lower(@tendichvu)) || '%'";
+
+                //cmd.CommandText = "SELECT * FROM dichvu WHERE tendichvu ILIKE '%' || @tendichvu || '%'";
+                //// unaccent để thực hiện tìm kiếm không phân biệt có dấu, không dấu. 
+                //// ILIKE để thực hiện tìm kiếm không phân biệt chữ hoa, chữ thường.
+                ////  || @HoTen || được sử dụng để nối giá trị của tham số == CONCAT
                 cmd.Parameters.AddWithValue("@tendichvu", dTO_Dichvu.tenDichVu);
 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);

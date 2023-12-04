@@ -23,7 +23,6 @@ namespace QLKhachSan
 
             dataGridView1.ReadOnly = true;
             txtTimDichVu.Enter += new EventHandler(txtTimDichVu_Enter);
-            txtTimDichVu.Leave += new EventHandler(txtTimDichVu_Leave);
         }   
         BUS_dichvu busdv = new BUS_dichvu();
         private void btnTimDichVu_Click(object sender, EventArgs e)
@@ -138,14 +137,6 @@ namespace QLKhachSan
             if (txtTimDichVu.Text == "Nhập dịch vụ cần tìm")
             {
                 txtTimDichVu.Text = "";
-            }
-        }
-
-        private void txtTimDichVu_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtTimDichVu.Text))
-            {
-                txtTimDichVu.Text = "Nhập dịch vụ cần tìm";
             }
         }
     }

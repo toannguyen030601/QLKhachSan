@@ -37,37 +37,56 @@ namespace QLKhachSan
         {
             if (!isthemsuaLDV)
             {
-                // -> label mã loại dịch vụ hiện hoặc ẩn khi thêm hoặc sửa
-                labelMaLDV.Visible = true;
+                if (txtNhapLoaiDichVu.Text != "")
+                {
+                    // Check if the input contains numeric characters
+                    if (txtNhapLoaiDichVu.Text.Any(char.IsDigit))
+                    {
+                        MessageBox.Show("Không được nhập số vào Tên loại dịch vụ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    // -> label mã loại dịch vụ hiện hoặc ẩn khi thêm hoặc sửa
+                    labelMaLDV.Visible = true;
 
                 // Logic cập nhật thông tin khách hàng
 
-                DTO_loaidichvu loaidichvu = new DTO_loaidichvu()
-                {
-                    tenLoaiDichVu = txtNhapLoaiDichVu.Text,
-                    maLoaiDichVu = labelMaLDV.Text
-                   
-                    // Gán các trường thông tin khác của khách hàng tại đây nếu có
-                };
-                // Cập nhật các thông tin khác nếu cần
+                    DTO_loaidichvu loaidichvu = new DTO_loaidichvu()
+                    {
+                        tenLoaiDichVu = txtNhapLoaiDichVu.Text,
+                        maLoaiDichVu = labelMaLDV.Text
+                       
+                        // Gán các trường thông tin khác của khách hàng tại đây nếu có
+                    };
+                    // Cập nhật các thông tin khác nếu cần
 
-                // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                if (bUS_Loaidichvu.SuaLoaiDichVu(loaidichvu))
-                {
-                    MessageBox.Show("Cập nhật thông tin loại dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    IsUpdated = true; // Đã cập nhật thành công
-                    this.Close(); // Đóng form chỉnh sửa
+                    // Gọi hàm trong BUS_qlks để cập nhật thông tin
+                    if (bUS_Loaidichvu.SuaLoaiDichVu(loaidichvu))
+                    {
+                        MessageBox.Show("Cập nhật thông tin loại dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        IsUpdated = true; // Đã cập nhật thành công
+                        this.Close(); // Đóng form chỉnh sửa
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thông tin loại dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thông tin loại dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 if (txtNhapLoaiDichVu.Text != "")
                 {
-                     DTO_loaidichvu loaidichvu = new DTO_loaidichvu()
+                    // Check if the input contains numeric characters
+                    if (txtNhapLoaiDichVu.Text.Any(char.IsDigit))
+                    {
+                        MessageBox.Show("Không được nhập số vào Tên loại dịch vụ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    DTO_loaidichvu loaidichvu = new DTO_loaidichvu()
                      {
                          tenLoaiDichVu = txtNhapLoaiDichVu.Text
                          // Gán các trường thông tin khác của khách hàng tại đây nếu có
