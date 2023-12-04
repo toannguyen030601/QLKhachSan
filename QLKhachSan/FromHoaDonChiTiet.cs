@@ -66,29 +66,30 @@ namespace QLKhachSan
 
             double soGioThue = (ngayTraPhong - ngayNhanPhong).TotalHours;
             double giaPhong = bus_HoaDonChiTiet.GiaPhong(lblMaPhong.Text);
-            if (soGioThue <1)
+            soGioThue = Math.Ceiling(soGioThue);
+            if (soGioThue < 2)
             {
+                tongTienPhong += giaPhong * soGioThue;
                 lblGiamGia.Text = "0%";
-                tongTienPhong = 1 * giaPhong;
             }
             else
             {
                 if (soGioThue < 6)
                 {
                     lblGiamGia.Text = "20%";
-                    tongTienPhong = soGioThue * giaPhong * 80 / 100;
+                    tongTienPhong += giaPhong * soGioThue * 80 / 100;
                 }
                 else
                 {
-                    if(soGioThue < 12)
+                    if (soGioThue < 12)
                     {
-                        lblGiamGia.Text = "30%";
-                        tongTienPhong = soGioThue * giaPhong * 60 / 100;
+                        tongTienPhong += giaPhong * soGioThue * 60 / 100;
+                        lblGiamGia.Text = "40%";
                     }
                     else
                     {
+                        tongTienPhong += giaPhong * soGioThue * 50 / 100;
                         lblGiamGia.Text = "50%";
-                        tongTienPhong = soGioThue * giaPhong ;
                     }
                 }
             }

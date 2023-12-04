@@ -19,7 +19,7 @@ namespace QLKhachSan
         {
             InitializeComponent();
         }
-
+        private double TongDoanhThu = 0;
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
 
@@ -59,26 +59,33 @@ namespace QLKhachSan
                     }
                 }
             }
-
+            TongDoanhThu += doanhThu;
             // Hiển thị tổng doanh thu lên Label
             lblDoanhThu.Text = doanhThu.ToString() + "VNĐ"; // Định dạng hiển thị tiền tệ
         }
 
         private void btnLoc_Click(object sender, EventArgs e)
         {
-            if (loaiDoanhThu == 1)
+            if (loaiDoanhThu == 0)
             {
-                LoadDoanhThuDichVu(dateTimePicker1.Value, dateTimePicker2.Value);
+                
             }
             else
             {
-                LoadDoanhThuPhong(dateTimePicker1.Value, dateTimePicker2.Value);
+                if (loaiDoanhThu == 1)
+                {
+                    LoadDoanhThuDichVu(dateTimePicker1.Value, dateTimePicker2.Value);
+                }
+                else
+                {
+                    LoadDoanhThuPhong(dateTimePicker1.Value, dateTimePicker2.Value);
+                }
             }
         }
 
         private void doanhThuPhòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadDoanhThuPhong(DateTime.MinValue,DateTime.MaxValue);
+            LoadDoanhThuPhong(DateTime.MinValue, DateTime.MaxValue);
             loaiDoanhThu = 2;
         }
         public void LoadDoanhThuPhong(DateTime bd, DateTime kt)
@@ -99,30 +106,33 @@ namespace QLKhachSan
                     BUS_HoaDonChiTiet bus_HoaDonChiTiet = new BUS_HoaDonChiTiet();
                     string maPhong = row.Cells["maphong"].ToString();
                     double giaPhong = bus_HoaDonChiTiet.GiaPhong(maPhong);
-                    if (soGioThue > 2)
-                    {
-                        doanhThu +=  giaPhong*soGioThue*80/100;
-                        if (soGioThue > 6)
-                        {
-                            doanhThu += soGioThue * giaPhong * 70 / 100;
-                        }
-                        else
-                        {
-                            if (soGioThue > 12)
-                            {
-                                doanhThu += soGioThue * giaPhong * 50 / 100;
-                            }
-                        }
-                    }
+                    soGioThue = Math.Ceiling(soGioThue);
+                    if (soGioThue < 2)
+                        doanhThu += giaPhong * soGioThue;
                     else
                     {
-                        doanhThu = giaPhong * soGioThue ;
+                        if (soGioThue < 6)
+                            doanhThu += giaPhong * soGioThue * 80 / 100;
+                        else
+                        {
+                            if (soGioThue < 12)
+                                doanhThu += giaPhong * soGioThue * 60 / 100;
+                            else
+                                doanhThu += giaPhong * soGioThue * 50 / 100;
+                        }
                     }
                 }
             }
-
+            TongDoanhThu += doanhThu;
             // Hiển thị tổng doanh thu lên Label
             lblDoanhThu.Text = doanhThu.ToString() + "VNĐ"; // Định dạng hiển thị tiền tệ
+        }
+
+        private void tổngDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*label3.Text = "Tổng doanh thu";
+            loaiDoanhThu = 0;
+            lblDoanhThu.Text=TongDoanhThu.ToString();*/
         }
     }
 }

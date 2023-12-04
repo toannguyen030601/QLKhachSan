@@ -75,6 +75,7 @@
             tổngDoanhThuToolStripMenuItem.Name = "tổngDoanhThuToolStripMenuItem";
             tổngDoanhThuToolStripMenuItem.Size = new Size(164, 27);
             tổngDoanhThuToolStripMenuItem.Text = "Tổng Doanh Thu";
+            tổngDoanhThuToolStripMenuItem.Click += tổngDoanhThuToolStripMenuItem_Click;
             // 
             // dgvDoanhThu
             // 
