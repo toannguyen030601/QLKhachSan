@@ -141,8 +141,58 @@ namespace DAL_qlks
                 }
             }
         }
+        public bool KiemTraSuDungDichVu(string maDichvu)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
 
-        public bool XoaDichVu(string madichvu)
+                // Thực hiện truy vấn kiểm tra xem loại dịch vụ có được sử dụng trong bảng dịch vụ không
+                cmd.CommandText = "SELECT COUNT(*) FROM chitiethoadonphong WHERE madichvu = @madichvu";
+                cmd.Parameters.AddWithValue("@madichvu", maDichvu);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return count > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool XoaDichVu(string maDichvu)
+        {
+            try
+            {
+                if (!KiemTraSuDungDichVu(maDichvu))
+                {
+                    connection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "DELETE FROM dichvu WHERE madichvu = @madichvu";
+                    cmd.Parameters.AddWithValue("@madichvu", maDichvu);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Trả về true nếu xóa thành công, ngược lại trả về false
+                }
+                else
+                {
+                    // Báo lỗi khi loại dịch vụ đang được sử dụng trong bảng dịch vụ
+                    return false;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /*public bool XoaDichVu(string madichvu)
         {
             try
             {
@@ -162,7 +212,7 @@ namespace DAL_qlks
             {
                 connection.Close();
             }
-        }
+        }*/
         public DataTable TimDichVu(DTO_dichvu dTO_Dichvu)
         {
             try
