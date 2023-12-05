@@ -14,13 +14,16 @@ namespace QLKhachSan
 {
     public partial class QLDichvu : Form
     {
-        
-        private DataTable dataTable;
         public QLDichvu()
         {
             InitializeComponent();
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
-        }
+            btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnSua.Width, btnSua.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
+
+            dataGridView1.ReadOnly = true;
+            txtTimDichVu.Enter += new EventHandler(txtTimDichVu_Enter);
+        }   
         BUS_dichvu busdv = new BUS_dichvu();
         private void btnTimDichVu_Click(object sender, EventArgs e)
         {
@@ -56,14 +59,22 @@ namespace QLKhachSan
             DataTable data = busdv.danhsachdichvu();
             dataGridView1.DataSource = data;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // Đổi tên cột sau khi dữ liệu được tải vào DataGridView
+            dataGridView1.Columns["madichvu"].HeaderText = "Mã Dịch Vụ";
+            dataGridView1.Columns["tendichvu"].HeaderText = "Tên Dịch Vụ";
+            dataGridView1.Columns["dongia"].HeaderText = "Đơn Giá";
+            dataGridView1.Columns["donvitinh"].HeaderText = "Đơn Vị Tính";
+            dataGridView1.Columns["tenloaidichvu"].HeaderText = "Loại Dịch Vụ";
+            // Đổi tên các cột khác nếu cần thiết
         }
-        
-        
+
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             NhapTTDichVu f = new NhapTTDichVu(true);
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }
@@ -120,8 +131,13 @@ namespace QLKhachSan
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ bạn muốn sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        
-            
+        }
+        private void txtTimDichVu_Enter(object sender, EventArgs e)
+        {
+            if (txtTimDichVu.Text == "Nhập dịch vụ cần tìm")
+            {
+                txtTimDichVu.Text = "";
+            }
         }
     }
 }

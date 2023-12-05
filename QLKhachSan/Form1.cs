@@ -279,7 +279,6 @@ namespace QLKhachSan
         {
             ChangeColor((Button)sender);
             OpenChildForm(new QLDichvu());
-            //test
         }
         private void button8_Click(object sender, EventArgs e)
         {

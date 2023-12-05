@@ -18,8 +18,8 @@ namespace QLKhachSan
         BUS_dichvu bUS_Dichvu= new BUS_dichvu();
         BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private string currentMaLoaiDichVu = "";
-        public bool istrangthai { get { return trangthai; } }
-        public bool IsUpdated { get; private set; }
+/*        public bool istrangthai { get { return trangthai; } }
+*/        public bool IsUpdated { get; private set; }
 
         public NhapTTDichVu(bool isthemsuaDV, string tenDV = "", string dongia = "", string donvitinh = "", string madichvu = "", string tenLoaiDV = "")
         {
@@ -64,37 +64,57 @@ namespace QLKhachSan
                 this.Close();
             }
         }
-       
+        BUS_dichvu bus_dv = new BUS_dichvu();
+        
+        BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private bool isthemsuaDV;
-        public bool trangthai = false;
+       /* public bool trangthai = false;*/
         private void btnThemDichVu2_Click(object sender, EventArgs e)
         {
             if (!isthemsuaDV)
             {
-                string tenloaidichvu = cBTenloaiDV.Text;
-                lbMaDV.Visible = true;
-
-                DTO_dichvu dichvu = new DTO_dichvu()
+                if (txtTenDichVu.Text != "" && txtDonGia.Text != "" && txtDonViTinh.Text != "")
                 {
-                    tenDichVu = txtTenDichVu.Text,
-                    donGia = double.Parse(txtDonGia.Text),
-                    donViTinh = txtDonViTinh.Text,
-                    maDichVu = lbMaDV.Text,
-                    maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
-                    // Gán các trường thông tin khác của khách hàng tại đây nếu có
-                };
-                // Cập nhật các thông tin khác nếu cần
+                    string tenloaidichvu = cBTenloaiDV.Text;
+                    lbMaDV.Visible = true;
 
-                // Gọi hàm trong BUS_qlks để cập nhật thông tin
-                if (bUS_Dichvu.SuaDichVu(dichvu))
-                {
-                    MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    IsUpdated = true; // Đã cập nhật thành công
-                    this.Close(); // Đóng form chỉnh sửa
+                        // Kiểm tra xem giá nhập vào có phải là số hay không
+                        if (double.TryParse(txtDonGia.Text, out double donGia))
+                        {
+                            if (txtTenDichVu.Text.Any(char.IsDigit) || txtDonViTinh.Text.Any(char.IsDigit))
+                            {
+                                MessageBox.Show("Không được nhập số tên dịch vụ và đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
+                            }
+                            DTO_dichvu dichvu = new DTO_dichvu()
+                            {
+                                tenDichVu = txtTenDichVu.Text,
+                                donGia = double.Parse(txtDonGia.Text),
+                                donViTinh = txtDonViTinh.Text.ToUpper(),
+                                maDichVu = lbMaDV.Text,
+                                maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
+                                // Gán các trường thông tin khác của khách hàng tại đây nếu có
+                            };
+
+                            // Gọi hàm trong BUS_qlks để cập nhật thông tin
+                            if (bus_dv.SuaDichVu(dichvu))
+                            {
+                                MessageBox.Show("Cập nhật thông tin dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                IsUpdated = true; // Đã cập nhật thành công
+                                this.Close(); // Đóng form chỉnh sửa
+                            }
+                            else
+                            {
+                                MessageBox.Show("Cập nhật thông tin dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đơn giá phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thông tin dịch vụ không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -105,11 +125,16 @@ namespace QLKhachSan
                     // Kiểm tra xem giá nhập vào có phải là số hay không
                     if (double.TryParse(txtDonGia.Text, out double donGia))
                     {
+                        if (txtTenDichVu.Text.Any(char.IsDigit) || txtDonViTinh.Text.Any(char.IsDigit))
+                        {
+                            MessageBox.Show("Không được nhập số tên dịch vụ và đơn vị tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         DTO_dichvu dichvu = new DTO_dichvu()
                         {
                             tenDichVu = txtTenDichVu.Text,
                             donGia = donGia,
-                            donViTinh = txtDonViTinh.Text,
+                            donViTinh = txtDonViTinh.Text.ToUpper(),
                             maLoaiDichVu = bUS_Loaidichvu.TimMaloaidichvutheoTen(tenloaidichvu),
                             // Gán các trường thông tin khác của dịch vụ tại đây nếu có
                         };
@@ -119,6 +144,8 @@ namespace QLKhachSan
                         {
                             MessageBox.Show("Thêm dịch vụ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Thêm bất kỳ logic nào bạn cần sau khi thêm thành công ở đây
+                            IsUpdated = true; // Đã cập nhật thành công
+                            this.Close(); // Đóng form chỉnh sửa
                         }
                         else
                         {

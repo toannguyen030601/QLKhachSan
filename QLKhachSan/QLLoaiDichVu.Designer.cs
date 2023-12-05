@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QLLoaiDichVu));
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTimLoaiDichVu = new System.Windows.Forms.Button();
             this.txtTimLoaiDichVu = new System.Windows.Forms.TextBox();
@@ -43,27 +41,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(969, 7);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(14, 34);
-            this.button4.TabIndex = 39;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.Location = new System.Drawing.Point(15, 8);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(37, 34);
-            this.button3.TabIndex = 38;
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -178,8 +155,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 604);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnTimLoaiDichVu);
             this.Controls.Add(this.txtTimLoaiDichVu);
@@ -198,8 +173,6 @@
         }
 
         #endregion
-        private Button button4;
-        private Button button3;
         private DataGridView dataGridView1;
         private Button btnTimLoaiDichVu;
         private TextBox txtTimLoaiDichVu;

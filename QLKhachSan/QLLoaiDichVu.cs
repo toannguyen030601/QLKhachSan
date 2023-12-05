@@ -18,7 +18,13 @@ namespace QLKhachSan
         {
             InitializeComponent();
             btnThem.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
+            btnSua.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnSua.Width, btnSua.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
+
+            dataGridView1.ReadOnly = true;
+            txtTimLoaiDichVu.Enter += new EventHandler(txtTimLoaiDichVu_Enter);
         }
+
         BUS_loaidichvu bus_ldv = new BUS_loaidichvu();
         private void btnTimLoaiDichVu_Click(object sender, EventArgs e)
         {
@@ -50,6 +56,10 @@ namespace QLKhachSan
             DataTable data = bus_ldv.danhsachloaidichvu();
             dataGridView1.DataSource = data;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Đổi tên cột sau khi dữ liệu được tải vào DataGridView
+            dataGridView1.Columns["maloaidichvu"].HeaderText = "Mã Loại Dịch Vụ";
+            dataGridView1.Columns["tenloaidichvu"].HeaderText = "Tên Loại Dịch Vụ";
+            // Đổi tên các cột khác nếu cần thiết
         }
 
         private void QLLoaiDichVu_Load(object sender, EventArgs e)
@@ -61,7 +71,7 @@ namespace QLKhachSan
         {
             NhapTTLoaiDichVu f = new NhapTTLoaiDichVu(true);
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }
@@ -122,6 +132,13 @@ namespace QLKhachSan
             else
             {
                 MessageBox.Show("Vui lòng chọn loại dịch vụ khác bạn muốn sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void txtTimLoaiDichVu_Enter(object sender, EventArgs e)
+        {
+            if (txtTimLoaiDichVu.Text == "Nhập tên loại dịch vụ cần tìm")
+            {
+                txtTimLoaiDichVu.Text = "";
             }
         }
     }

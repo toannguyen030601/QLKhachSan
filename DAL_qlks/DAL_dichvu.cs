@@ -178,8 +178,58 @@ namespace DAL_qlks
                 }
             }
         }
+        public bool KiemTraSuDungDichVu(string maDichvu)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
 
-        public bool XoaDichVu(string madichvu)
+                // Thực hiện truy vấn kiểm tra xem loại dịch vụ có được sử dụng trong bảng dịch vụ không
+                cmd.CommandText = "SELECT COUNT(*) FROM chitiethoadonphong WHERE madichvu = @madichvu";
+                cmd.Parameters.AddWithValue("@madichvu", maDichvu);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return count > 0;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public bool XoaDichVu(string maDichvu)
+        {
+            try
+            {
+                if (!KiemTraSuDungDichVu(maDichvu))
+                {
+                    connection.Open();
+                    NpgsqlCommand cmd = new NpgsqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = "DELETE FROM dichvu WHERE madichvu = @madichvu";
+                    cmd.Parameters.AddWithValue("@madichvu", maDichvu);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    return rowsAffected > 0; // Trả về true nếu xóa thành công, ngược lại trả về false
+                }
+                else
+                {
+                    // Báo lỗi khi loại dịch vụ đang được sử dụng trong bảng dịch vụ
+                    return false;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        /*public bool XoaDichVu(string madichvu)
         {
             try
             {
@@ -199,7 +249,7 @@ namespace DAL_qlks
             {
                 connection.Close();
             }
-        }
+        }*/
         public DataTable TimDichVu(DTO_dichvu dTO_Dichvu)
         {
             try
@@ -208,9 +258,12 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * FROM dichvu WHERE tendichvu ILIKE '%' || @tendichvu || '%'";
-                ///ILIKE để thực hiện tìm kiếm không phân biệt chữ hoa, chữ thường.
-                /// || @HoTen || được sử dụng để nối giá trị của tham số == CONCAT
+                cmd.CommandText = "SELECT * FROM dichvu WHERE unaccent(lower(tendichvu)) LIKE '%' || unaccent(lower(@tendichvu)) || '%'";
+
+                //cmd.CommandText = "SELECT * FROM dichvu WHERE tendichvu ILIKE '%' || @tendichvu || '%'";
+                //// unaccent để thực hiện tìm kiếm không phân biệt có dấu, không dấu. 
+                //// ILIKE để thực hiện tìm kiếm không phân biệt chữ hoa, chữ thường.
+                ////  || @HoTen || được sử dụng để nối giá trị của tham số == CONCAT
                 cmd.Parameters.AddWithValue("@tendichvu", dTO_Dichvu.tenDichVu);
 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
