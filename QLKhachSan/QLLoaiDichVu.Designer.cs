@@ -58,7 +58,7 @@
             this.btnTimLoaiDichVu.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTimLoaiDichVu.Image = ((System.Drawing.Image)(resources.GetObject("btnTimLoaiDichVu.Image")));
             this.btnTimLoaiDichVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimLoaiDichVu.Location = new System.Drawing.Point(371, 20);
+            this.btnTimLoaiDichVu.Location = new System.Drawing.Point(383, 22);
             this.btnTimLoaiDichVu.Name = "btnTimLoaiDichVu";
             this.btnTimLoaiDichVu.Size = new System.Drawing.Size(96, 47);
             this.btnTimLoaiDichVu.TabIndex = 36;
@@ -70,7 +70,7 @@
             // txtTimLoaiDichVu
             // 
             this.txtTimLoaiDichVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTimLoaiDichVu.Location = new System.Drawing.Point(49, 32);
+            this.txtTimLoaiDichVu.Location = new System.Drawing.Point(70, 31);
             this.txtTimLoaiDichVu.Name = "txtTimLoaiDichVu";
             this.txtTimLoaiDichVu.Size = new System.Drawing.Size(304, 30);
             this.txtTimLoaiDichVu.TabIndex = 35;
