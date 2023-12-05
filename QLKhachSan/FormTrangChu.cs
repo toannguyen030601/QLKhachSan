@@ -16,5 +16,10 @@ namespace QLKhachSan
         {
             InitializeComponent();
         }
+
+        private void FormTrangChu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
