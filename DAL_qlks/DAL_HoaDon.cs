@@ -44,7 +44,13 @@ namespace DAL_qlks
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
 
-                cmd.CommandText = "select *from hoadonphong";
+                cmd.CommandText = "SELECT HoaDonPhong.MaHoaDon, HoaDonPhong.NgayNhanPhong, HoaDonPhong.NgayTraPhong,\r\n     " +
+                    "  KhachHang.HoTen AS TenKhachHang,\r\n      " +
+                    " NhanVien.HoTen AS TenNhanVien,\r\n       " +
+                    "Phong.TenPhong\r\nFROM HoaDonPhong\r\nI" +
+                    "NNER JOIN KhachHang ON HoaDonPhong.MaKhachHang = KhachHang.MaKhachHang\r\n" +
+                    "INNER JOIN NhanVien ON HoaDonPhong.MaNhanVien = NhanVien.MaNV\r\n" +
+                    "INNER JOIN Phong ON HoaDonPhong.MaPhong = Phong.MaPhong;";
 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
