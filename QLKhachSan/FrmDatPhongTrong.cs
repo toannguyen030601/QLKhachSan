@@ -70,7 +70,7 @@ namespace QLKhachSan
         }
         private bool IsPhoneNumberValid(string phoneNumber)
         {
-            string pattern = @"^(032|033|034|035|036|037|038|039|096|097|098|086|083|084|085|081|082|088|091|094|070|079|077|076|078|090|093|089|056|058|092|059|099)[0-9]{8}$"; // Định dạng: Bắt đầu bằng "0" và sau đó là từ 10 đến 12 chữ số.
+            string pattern = @"^(032|033|034|035|036|037|038|039|096|097|098|086|083|084|085|081|082|088|091|094|070|079|077|076|078|090|093|089|056|058|092|059|099)[0-9]{7,8}$"; // Định dạng: Bắt đầu bằng "0" và sau đó là từ 10 đến 12 chữ số.
 
             Regex regex = new Regex(pattern);
 
@@ -145,7 +145,7 @@ namespace QLKhachSan
                 }
                 else
                 {
-                    MessageBox.Show("Nhập số điện thoại từ 10-11 kí tự số bắt đầu bằng số 0 đúng định dạng");
+                    MessageBox.Show("Nhập số điện thoại đúng định dạng");
                 }
             }
             else

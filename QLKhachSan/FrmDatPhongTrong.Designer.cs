@@ -54,6 +54,7 @@
             lblMaNhanVien = new Label();
             lblTenNhanVien = new Label();
             label6 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -218,7 +219,7 @@
             lblMaPhong.AutoSize = true;
             lblMaPhong.Font = new Font("Trebuchet MS", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             lblMaPhong.ForeColor = Color.DarkRed;
-            lblMaPhong.Location = new Point(659, 129);
+            lblMaPhong.Location = new Point(705, 125);
             lblMaPhong.Name = "lblMaPhong";
             lblMaPhong.Size = new Size(168, 43);
             lblMaPhong.TabIndex = 33;
@@ -309,12 +310,22 @@
             label6.TabIndex = 40;
             label6.Text = "Tên Nhân Viên";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(573, 142);
+            label5.Name = "label5";
+            label5.Size = new Size(107, 26);
+            label5.TabIndex = 42;
+            label5.Text = "Mã Phòng";
+            // 
             // FrmDatPhongTrong
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1022, 611);
+            Controls.Add(label5);
             Controls.Add(lblTenNhanVien);
             Controls.Add(label6);
             Controls.Add(lblMaNhanVien);
@@ -381,5 +392,6 @@
         private Label lblMaNhanVien;
         private Label lblTenNhanVien;
         private Label label6;
+        private Label label5;
     }
 }
