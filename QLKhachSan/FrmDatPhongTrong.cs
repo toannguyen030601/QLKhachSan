@@ -21,6 +21,8 @@ namespace QLKhachSan
             this.maPhong = maPhong;
             InitializeComponent();
             lblMaNhanVien.Text = bus_Phong.LayMaNV(UserLoginInfo.Email);
+            BUS_HoaDonChiTiet hd = new BUS_HoaDonChiTiet();
+            lblTenNhanVien.Text = hd.LayTenNhanVien(lblMaNhanVien.Text);
         }
 
         private void txtHoTen_Enter(object sender, EventArgs e)
@@ -111,7 +113,7 @@ namespace QLKhachSan
             {
                 if (IsPhoneNumberValid(txtSDT.Text))
                 {
-                    if(IsCccdValid(txtSoCCCD.Text))
+                    if (IsCccdValid(txtSoCCCD.Text))
                     {
                         if (cbGT.SelectedIndex == -1)
                         {

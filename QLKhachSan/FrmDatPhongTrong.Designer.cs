@@ -52,6 +52,8 @@
             label3 = new Label();
             label4 = new Label();
             lblMaNhanVien = new Label();
+            lblTenNhanVien = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -270,7 +272,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(594, 314);
+            label4.Location = new Point(594, 284);
             label4.Name = "label4";
             label4.Size = new Size(111, 26);
             label4.TabIndex = 38;
@@ -281,11 +283,31 @@
             lblMaNhanVien.AutoSize = true;
             lblMaNhanVien.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             lblMaNhanVien.ForeColor = Color.DarkRed;
-            lblMaNhanVien.Location = new Point(729, 312);
+            lblMaNhanVien.Location = new Point(729, 282);
             lblMaNhanVien.Name = "lblMaNhanVien";
             lblMaNhanVien.Size = new Size(158, 28);
             lblMaNhanVien.TabIndex = 39;
             lblMaNhanVien.Text = "Mã Nhân Viên";
+            // 
+            // lblTenNhanVien
+            // 
+            lblTenNhanVien.AutoSize = true;
+            lblTenNhanVien.Font = new Font("Trebuchet MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTenNhanVien.ForeColor = Color.DarkRed;
+            lblTenNhanVien.Location = new Point(729, 355);
+            lblTenNhanVien.Name = "lblTenNhanVien";
+            lblTenNhanVien.Size = new Size(170, 28);
+            lblTenNhanVien.TabIndex = 41;
+            lblTenNhanVien.Text = "Tên Nhân Viên";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(552, 357);
+            label6.Name = "label6";
+            label6.Size = new Size(153, 26);
+            label6.TabIndex = 40;
+            label6.Text = "Tên Nhân Viên";
             // 
             // FrmDatPhongTrong
             // 
@@ -293,6 +315,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(1022, 611);
+            Controls.Add(lblTenNhanVien);
+            Controls.Add(label6);
             Controls.Add(lblMaNhanVien);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -355,5 +379,7 @@
         private Label label3;
         private Label label4;
         private Label lblMaNhanVien;
+        private Label lblTenNhanVien;
+        private Label label6;
     }
 }

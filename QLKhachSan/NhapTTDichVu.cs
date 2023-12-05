@@ -66,7 +66,6 @@ namespace QLKhachSan
         }
         BUS_dichvu bus_dv = new BUS_dichvu();
         
-        BUS_loaidichvu bUS_Loaidichvu = new BUS_loaidichvu();
         private bool isthemsuaDV;
        /* public bool trangthai = false;*/
         private void btnThemDichVu2_Click(object sender, EventArgs e)
