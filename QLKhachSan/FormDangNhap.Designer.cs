@@ -166,16 +166,16 @@
             // 
             // txtMatkhau
             // 
-            this.txtMatkhau.BackColor = System.Drawing.Color.White;
-            this.txtMatkhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatkhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtMatkhau.Location = new System.Drawing.Point(62, 198);
-            this.txtMatkhau.Multiline = true;
-            this.txtMatkhau.Name = "txtMatkhau";
-            this.txtMatkhau.PasswordChar = '*';
-            this.txtMatkhau.Size = new System.Drawing.Size(272, 32);
-            this.txtMatkhau.TabIndex = 2;
-            this.txtMatkhau.Text = "UJSV3399uy";
+            txtMatkhau.BackColor = Color.White;
+            txtMatkhau.BorderStyle = BorderStyle.None;
+            txtMatkhau.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtMatkhau.Location = new Point(62, 198);
+            txtMatkhau.Multiline = true;
+            txtMatkhau.Name = "txtMatkhau";
+            txtMatkhau.PasswordChar = '*';
+            txtMatkhau.Size = new Size(272, 32);
+            txtMatkhau.TabIndex = 2;
+            txtMatkhau.Text = "1";
             // 
             // panel2
             // 
@@ -187,15 +187,15 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEmail.Location = new System.Drawing.Point(62, 117);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(272, 32);
-            this.txtEmail.TabIndex = 1;
-            this.txtEmail.Text = "toannguyen0257@gmail.com";
+            txtEmail.BackColor = Color.White;
+            txtEmail.BorderStyle = BorderStyle.None;
+            txtEmail.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Location = new Point(62, 117);
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(272, 32);
+            txtEmail.TabIndex = 1;
+            txtEmail.Text = "toannguyen0257@gmail.com";
             // 
             // btnClose
             // 

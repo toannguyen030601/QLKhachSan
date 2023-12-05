@@ -23,30 +23,34 @@ namespace QLKhachSan
             btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThem.Width, btnThem.Height, 20, 20));
         }
         BUS_qlks.BUS_khachhang buskh = new BUS_qlks.BUS_khachhang();
-        private void btnTim_Click(object sender, EventArgs e)
+        private void SearchData(string searchTerm)
         {
-            string searchTerm = txtSearch.Text; // Lấy thông tin từ TextBox tìm kiếm
-
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 BUS_khachhang bus = new BUS_khachhang();
                 DataTable searchData = bus.TimKhachHang(new DTO_khachhang { Hoten = searchTerm }); // Gọi phương thức tìm kiếm
 
-                if (searchData != null)
+                if (searchData != null && searchData.Rows.Count > 0)
                 {
                     dataGridView1.DataSource = searchData; // Cập nhật DataGridView với kết quả tìm kiếm
                 }
                 else
                 {
                     // Hiển thị thông báo nếu không tìm thấy kết quả
-                    MessageBox.Show("Không tìm thấy kết quả nào.");
+                    MessageBox.Show("Không tìm thấy kết quả nào hoặc dữ liệu trống.");
                 }
             }
             else
             {
                 // Hiển thị thông báo nếu TextBox tìm kiếm trống
                 MessageBox.Show("Vui lòng nhập thông tin tìm kiếm.");
+                LoadDataToDataGridView();
             }
+        }
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text; // Lấy thông tin từ TextBox tìm kiếm
+            SearchData(searchTerm);
         }
 
         private void KhachHang_Load(object sender, EventArgs e)
@@ -55,19 +59,28 @@ namespace QLKhachSan
             LoadDataToDataGridView();
         }
         private bool columnsAdded = false;
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Button btn=(Button)sender;
+            MessageBox.Show(btn.Tag.ToString());
+        }
         private void LoadDataToDataGridView()
         {
             DataTable data = buskh.XemKhachHang();
             dataGridView1.DataSource = data;
+            
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
 
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             FromThemSuaKhachHang f = new FromThemSuaKhachHang(true);
+            
             f.ShowDialog();
-            if (f.istrangthai)
+            if (f.IsUpdated)
             {
                 LoadDataToDataGridView();
             }
@@ -97,20 +110,28 @@ namespace QLKhachSan
             {
                 if (MessageBox.Show("Bạn có chắc muốn xóa?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (buskh.XoaKhachHang(makh))
+                    // Kiểm tra xem khách hàng có tồn tại trong bảng HoaDonPhong hay không trước khi xóa
+                    if (buskh.KiemTraHoaDon(makh))
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDataToDataGridView();
+                        MessageBox.Show("Không thể xóa khách hàng vì đã có thông tin trong bảng HoaDonPhong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (buskh.XoaKhachHang(makh))
+                        {
+                            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadDataToDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn nhân viên bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn khách hàng bạn muốn xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -125,14 +146,14 @@ namespace QLKhachSan
                 string hoTen = dataGridView1.Rows[rowIndex].Cells["hoten"].Value.ToString();
                 string soDienThoai = dataGridView1.Rows[rowIndex].Cells["sodt"].Value.ToString();
                 string socccd = dataGridView1.Rows[rowIndex].Cells["socccd"].Value.ToString();
-                string gioitinh = dataGridView1.Rows[rowIndex].Cells["sodt"].Value.ToString();
+                string gioitinh = dataGridView1.Rows[rowIndex].Cells["gioitinh"].Value.ToString();
                 // Lấy các thông tin khác tương tự...
 
                 // Tạo instance mới của form ThemSuaKhachHang
                 FromThemSuaKhachHang f = new FromThemSuaKhachHang(false);
 
                 // Gán dữ liệu cho các trường trên form Sửa
-                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, true, maKH); // Truyền thông tin cần chỉnh sửa
+                FromThemSuaKhachHang editForm = new FromThemSuaKhachHang(false, hoTen, soDienThoai, socccd, gioitinh, maKH); // Truyền thông tin cần chỉnh sửa
                 editForm.ShowDialog();
 
                 // Cập nhật lại DataGridView nếu có thay đổi

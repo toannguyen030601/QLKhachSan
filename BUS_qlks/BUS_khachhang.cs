@@ -55,6 +55,9 @@ namespace BUS_qlks
         {
             return dalKhachHang.thongtinkhachhang(MaKH);
         }
-        
+        public bool KiemTraHoaDon(string maKhachHang)
+        {
+            return dalKhachHang.KiemTraTonTaiTrongHoaDon(maKhachHang);
+        }
     }
 }

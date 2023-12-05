@@ -42,7 +42,7 @@ namespace QLKhachSan
         {
             WindowState = FormWindowState.Minimized;
         }
-        
+
         BUS_qlks.Class1 busnv = new BUS_qlks.Class1();
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
