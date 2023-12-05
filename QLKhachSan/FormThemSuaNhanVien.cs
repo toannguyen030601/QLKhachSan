@@ -93,6 +93,10 @@ namespace QLKhachSan
                             {
                                 if (busnv.ThemNhanVien(dtonv))
                                 {
+                                    if (!Directory.Exists("Img"))
+                                    {
+                                        Directory.CreateDirectory("Img");
+                                    }
                                     if (!string.IsNullOrEmpty(fileAddress))
                                     {
                                         File.Copy(fileAddress, fileSavePath, true);
@@ -154,6 +158,10 @@ namespace QLKhachSan
                                     {
                                         if (busnv.SuaNhanvien(dtonv))
                                         {
+                                            if (!Directory.Exists("Img"))
+                                            {
+                                                Directory.CreateDirectory("Img");
+                                            }
                                             try
                                             {
                                                 if (txtHinh.Text != checkUrlImg)
