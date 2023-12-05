@@ -32,8 +32,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnTimLoaiDichVu = new System.Windows.Forms.Button();
             this.txtTimLoaiDichVu = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -44,12 +42,15 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+           | System.Windows.Forms.AnchorStyles.Left)
+           | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 144);
+            this.dataGridView1.Location = new System.Drawing.Point(49, 105);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(891, 418);
+            this.dataGridView1.Size = new System.Drawing.Size(968, 509);
             this.dataGridView1.TabIndex = 37;
             // 
             // btnTimLoaiDichVu
@@ -57,7 +58,7 @@
             this.btnTimLoaiDichVu.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTimLoaiDichVu.Image = ((System.Drawing.Image)(resources.GetObject("btnTimLoaiDichVu.Image")));
             this.btnTimLoaiDichVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimLoaiDichVu.Location = new System.Drawing.Point(374, 72);
+            this.btnTimLoaiDichVu.Location = new System.Drawing.Point(371, 20);
             this.btnTimLoaiDichVu.Name = "btnTimLoaiDichVu";
             this.btnTimLoaiDichVu.Size = new System.Drawing.Size(96, 47);
             this.btnTimLoaiDichVu.TabIndex = 36;
@@ -69,29 +70,11 @@
             // txtTimLoaiDichVu
             // 
             this.txtTimLoaiDichVu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTimLoaiDichVu.Location = new System.Drawing.Point(49, 84);
+            this.txtTimLoaiDichVu.Location = new System.Drawing.Point(49, 32);
             this.txtTimLoaiDichVu.Name = "txtTimLoaiDichVu";
             this.txtTimLoaiDichVu.Size = new System.Drawing.Size(304, 30);
             this.txtTimLoaiDichVu.TabIndex = 35;
             this.txtTimLoaiDichVu.Text = "Nhập tên loại dịch vụ cần tìm";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Gainsboro;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(58, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 34);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "QL Loại Dịch Vụ";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(-18, -5);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(1091, 54);
-            this.progressBar1.TabIndex = 33;
             // 
             // panel1
             // 
@@ -99,7 +82,7 @@
             this.panel1.Controls.Add(this.btnXoa);
             this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Location = new System.Drawing.Point(476, 58);
+            this.panel1.Location = new System.Drawing.Point(543, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(474, 61);
             this.panel1.TabIndex = 41;
@@ -153,13 +136,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 604);
+            this.ClientSize = new System.Drawing.Size(1062, 653);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnTimLoaiDichVu);
             this.Controls.Add(this.txtTimLoaiDichVu);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "QLLoaiDichVu";
@@ -176,8 +157,6 @@
         private DataGridView dataGridView1;
         private Button btnTimLoaiDichVu;
         private TextBox txtTimLoaiDichVu;
-        private Label label1;
-        private ProgressBar progressBar1;
         private Panel panel1;
         private Button btnXoa;
         private Button btnThem;
