@@ -107,6 +107,7 @@
             rdoTatCaTrangThai.TabStop = true;
             rdoTatCaTrangThai.Text = "Tất cả ";
             rdoTatCaTrangThai.UseVisualStyleBackColor = true;
+            rdoTatCaTrangThai.CheckedChanged += rdoTatCaTrangThai_CheckedChanged;
             // 
             // rdoDaThue
             // 

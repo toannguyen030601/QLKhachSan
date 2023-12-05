@@ -33,15 +33,15 @@ namespace QLKhachSan
                 }
                 else
                 {
-                    string maHoaDon= bus_Phong.MaHoaDonCuaPhong(phong.MaPhong);
+                    string maHoaDon = bus_Phong.MaHoaDonCuaPhong(phong.MaPhong);
                     // Mở Form dịch vụ của phòng
-                    FormThemDvu frm = new FormThemDvu(phong.MaPhong,maHoaDon);
+                    FormThemDvu frm = new FormThemDvu(phong.MaPhong, maHoaDon);
                     frm.ShowDialog();
                 }
             }
 
         }
-        private void LoadPhong(double min = 0, double max = double.MaxValue)
+        private void LoadPhong(double min = 0, double max = double.MaxValue, string maPhongTimKiem = "")
         {
             flowLayoutPanel1.Controls.Clear();
             DataTable dt = bus_Phong.DanhSachPhong();
@@ -49,10 +49,16 @@ namespace QLKhachSan
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string maPhong = dt.Rows[i]["MaPhong"].ToString();
+                if (maPhongTimKiem != "")
+                {
+                    if (maPhong != maPhongTimKiem) continue;
+                }
+
                 string tenPhong = dt.Rows[i]["TenPhong"].ToString();
                 double gia = Convert.ToDouble(dt.Rows[i]["Gia"]);
                 string maloaiPhong = dt.Rows[i]["MaLoaiPhong"].ToString();
                 bool trangThai = Convert.ToBoolean(dt.Rows[i]["TrangThai"]);
+
                 if (gia >= min && gia <= max)
                 {
                     count++;
@@ -63,10 +69,9 @@ namespace QLKhachSan
                         Font = new Font("Arial", 10, FontStyle.Bold),
                         ForeColor = Color.Black,
                         FlatStyle = FlatStyle.Flat,
-                        FlatAppearance = { BorderSize = 0},
+                        FlatAppearance = { BorderSize = 0 },
                         TextAlign = ContentAlignment.MiddleCenter
-                        
-                };
+                    };
                     btn.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btn.Width, btn.Height, 20, 20));
                     btn.BackColor = trangThai ? Color.Tomato : Color.SpringGreen;
 
@@ -141,17 +146,19 @@ namespace QLKhachSan
 
         private void rdoTrong_CheckedChanged(object sender, EventArgs e)
         {
+            txtTimKiem.Text = "";
             LoadPhong();
         }
 
         private void rdoDaThue_CheckedChanged(object sender, EventArgs e)
         {
+            txtTimKiem.Text = "";
             LoadPhong();
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            LoadPhong(0, double.MaxValue, txtTimKiem.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -224,6 +231,12 @@ namespace QLKhachSan
             {
                 txtMax.Text = "Max";
             }
+        }
+
+        private void rdoTatCaTrangThai_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTimKiem.Text = "";
+            LoadPhong();
         }
     }
 }

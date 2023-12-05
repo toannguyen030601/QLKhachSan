@@ -63,7 +63,6 @@
             panel3 = new Panel();
             btnNhanVien = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
-            panel13 = new Panel();
             panelBody = new Panel();
             panel1.SuspendLayout();
             panel14.SuspendLayout();
@@ -527,20 +526,13 @@
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
             // 
-            // panel13
-            // 
-            panel13.Dock = DockStyle.Bottom;
-            panel13.Location = new Point(250, 699);
-            panel13.Name = "panel13";
-            panel13.Size = new Size(1042, 59);
-            panel13.TabIndex = 2;
-            // 
             // panelBody
             // 
+            panelBody.BackgroundImage = Properties.Resources.z4940780144448_47adf4ed0dc138f82b32db98fa378825;
             panelBody.Dock = DockStyle.Fill;
             panelBody.Location = new Point(250, 38);
             panelBody.Name = "panelBody";
-            panelBody.Size = new Size(1042, 661);
+            panelBody.Size = new Size(1042, 720);
             panelBody.TabIndex = 3;
             // 
             // Form1
@@ -549,7 +541,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1292, 758);
             Controls.Add(panelBody);
-            Controls.Add(panel13);
             Controls.Add(sidebar);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -615,7 +606,6 @@
         private Button btnMaximize;
         private Panel panel14;
         private Button btnLogout;
-        private Panel panel13;
         private Panel panelBody;
         private Button btnInfoDangnhap;
     }
