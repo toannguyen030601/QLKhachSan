@@ -167,75 +167,83 @@ namespace QLKhachSan
                 {
                     if (txtEmail.Text != "" && txtHoten.Text != "" && dtpNgaysinh.Text != "" && txtDiaChi.Text != "" && (rdbNam.Checked || rdbNu.Checked) && (rdbAmin.Checked || rdbNhanvien.Checked))
                     {
-                        if (checkNumber(txtSocccd.Text) && checkNumber(txtSDT.Text))
+                        if (IsPhoneNumberValid(txtSDT.Text))
                         {
-                            if (txtHinh.Text.Trim().Length != 0)
+                            if (IsCccdValid(txtSocccd.Text))
                             {
-                                if (isValidEmail(txtEmail.Text))
+                                if (txtHinh.Text.Trim().Length != 0)
                                 {
-                                    string gioitinh = rdbNam.Checked ? "Nam" : "Nữ";
-                                    string chucvu = rdbAmin.Checked ? "Admin" : "Nhân viên";
-                                    DTO_nhanvien dtonv = new DTO_nhanvien()
+                                    if (isValidEmail(txtEmail.Text))
                                     {
-                                        Email = txtEmail.Text,
-                                        Hoten = txtHoten.Text,
-                                        Socccd = txtSocccd.Text,
-                                        Gioitinh = gioitinh,
-                                        Chucvu = chucvu,
-                                        Sodienthoai = txtSDT.Text,
-                                        Ngaysinh = dtpNgaysinh.Value.ToString("d"),
-                                        Diachi = txtDiaChi.Text,
-                                        Hinhanh = txtHinh.Text
-                                    };
-                                    if (MessageBox.Show("Bạn có chắc muốn sửa không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                    {
-                                        if (busnv.SuaNhanvien(dtonv))
+                                        string gioitinh = rdbNam.Checked ? "Nam" : "Nữ";
+                                        string chucvu = rdbAmin.Checked ? "Admin" : "Nhân viên";
+                                        DTO_nhanvien dtonv = new DTO_nhanvien()
                                         {
-                                            if (!Directory.Exists("Img"))
+                                            Email = txtEmail.Text,
+                                            Hoten = txtHoten.Text,
+                                            Socccd = txtSocccd.Text,
+                                            Gioitinh = gioitinh,
+                                            Chucvu = chucvu,
+                                            Sodienthoai = txtSDT.Text,
+                                            Ngaysinh = dtpNgaysinh.Value.ToString("d"),
+                                            Diachi = txtDiaChi.Text,
+                                            Hinhanh = txtHinh.Text
+                                        };
+                                        if (MessageBox.Show("Bạn có chắc muốn sửa không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                        {
+                                            if (busnv.SuaNhanvien(dtonv))
                                             {
-                                                Directory.CreateDirectory("Img");
-                                            }
-                                            try
-                                            {
-                                                if (txtHinh.Text != checkUrlImg)
+                                                if (!Directory.Exists("Img"))
                                                 {
-                                                    File.Copy(fileAddress, fileSavePath, true);
+                                                    Directory.CreateDirectory("Img");
                                                 }
-                                            }catch(Exception ex)
-                                            {
-                                                Console.WriteLine(ex.Message);
+                                                try
+                                                {
+                                                    if (txtHinh.Text != checkUrlImg)
+                                                    {
+                                                        File.Copy(fileAddress, fileSavePath, true);
+                                                    }
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Console.WriteLine(ex.Message);
+                                                }
+                                                trangthai = true;
+                                                MessageBox.Show("Sửa thành công");
+                                                Form1 parentForm = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+                                                if (parentForm != null)
+                                                {
+                                                    // Gọi phương thức cập nhật thông tin trong form cha
+                                                    parentForm.infocuaban();
+                                                }
+                                                this.Close();
                                             }
-                                            trangthai = true;
-                                            MessageBox.Show("Sửa thành công");
-                                            Form1 parentForm = Application.OpenForms.OfType<Form1>().FirstOrDefault();
-                                            if (parentForm != null)
+                                            else
                                             {
-                                                // Gọi phương thức cập nhật thông tin trong form cha
-                                                parentForm.infocuaban();
+                                                MessageBox.Show("Sửa không thành công");
                                             }
-                                            this.Close();
                                         }
-                                        else
-                                        {
-                                            MessageBox.Show("Sửa không thành công");
-                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Email ko đúng định dạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Email ko đúng định dạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Vui lòng chọn hình ảnh!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    btnTaianh.Focus();
+                                    return;
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Vui lòng chọn hình ảnh!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                btnTaianh.Focus();
-                                return;
+                                MessageBox.Show("Số CCCD không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("SĐT và Số CCCD phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("SĐT không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
