@@ -384,5 +384,25 @@ namespace DAL_qlks
             }
         }
 
+        public double GiaPhong(string maPhong)
+        {
+            try
+            {
+                connection.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select gia from phong where maphong=@maphong";
+                // Thêm tham số đầu vào
+                cmd.Parameters.AddWithValue("@maphong", maPhong);
+                // Thực thi stored procedure
+                double kq = Convert.ToDouble(cmd.ExecuteScalar());
+                return kq;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

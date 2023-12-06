@@ -103,29 +103,40 @@ namespace QLKhachSan
                     DateTime ngayNhanPhong = (DateTime)row.Cells["ngaynhanphong"].Value;
                     DateTime ngayTraPhong = (DateTime)row.Cells["ngaytraphong"].Value;
                     double soGioThue = (ngayTraPhong - ngayNhanPhong).TotalHours;
-                    BUS_HoaDonChiTiet bus_HoaDonChiTiet = new BUS_HoaDonChiTiet();
-                    string maPhong = row.Cells["maphong"].ToString();
-                    double giaPhong = bus_HoaDonChiTiet.GiaPhong(maPhong);
+
+                    // Convert maPhong to string
+                    string maPhong = row.Cells["maphong"].Value.ToString();
+
+                    // Use the correct bus instance for GiaPhong
+                    BUS_Phong bUS_Phong = new BUS_Phong();
+                    double giaPhong = bUS_Phong.GiaPhong(maPhong);
+
                     soGioThue = Math.Ceiling(soGioThue);
+
                     if (soGioThue < 2)
+                    {
                         doanhThu += giaPhong * soGioThue;
+                    }
+                    else if (soGioThue < 6)
+                    {
+                        doanhThu += giaPhong * soGioThue * 80 / 100;
+                    }
+                    else if (soGioThue < 12)
+                    {
+                        doanhThu += giaPhong * soGioThue * 60 / 100;
+                    }
                     else
                     {
-                        if (soGioThue < 6)
-                            doanhThu += giaPhong * soGioThue * 80 / 100;
-                        else
-                        {
-                            if (soGioThue < 12)
-                                doanhThu += giaPhong * soGioThue * 60 / 100;
-                            else
-                                doanhThu += giaPhong * soGioThue * 50 / 100;
-                        }
+                        doanhThu += giaPhong * soGioThue * 50 / 100;
                     }
                 }
             }
+
+            // Move this line outside of the foreach loop to calculate total properly
             TongDoanhThu += doanhThu;
+
             // Hiển thị tổng doanh thu lên Label
-            lblDoanhThu.Text = doanhThu.ToString() + "VNĐ"; // Định dạng hiển thị tiền tệ
+            lblDoanhThu.Text = TongDoanhThu.ToString()+"VNĐ"; // Định dạng hiển thị tiền tệ
         }
 
         private void tổngDoanhThuToolStripMenuItem_Click(object sender, EventArgs e)

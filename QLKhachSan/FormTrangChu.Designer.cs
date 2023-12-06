@@ -35,7 +35,10 @@
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
+            BackgroundImage = Properties.Resources.hi;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1210, 726);
+            DoubleBuffered = true;
             Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(5, 4, 5, 4);
             Name = "FormTrangChu";

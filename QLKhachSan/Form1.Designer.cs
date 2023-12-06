@@ -528,7 +528,6 @@
             // 
             // panelBody
             // 
-            panelBody.BackgroundImage = Properties.Resources.z4940780144448_47adf4ed0dc138f82b32db98fa378825;
             panelBody.Dock = DockStyle.Fill;
             panelBody.Location = new Point(250, 38);
             panelBody.Name = "panelBody";

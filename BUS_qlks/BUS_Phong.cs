@@ -49,5 +49,11 @@ namespace BUS_qlks
             return dal_Phong.CheckXoaPhong(maPhong);
         }
 
+        public double GiaPhong(string maPhong)
+        {
+            return dal_Phong.GiaPhong(maPhong);
+        }
+
+
     }
 }

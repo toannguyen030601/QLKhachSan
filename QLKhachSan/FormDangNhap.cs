@@ -89,28 +89,32 @@ namespace QLKhachSan
 
         private void lblQuenmatkhau_Click(object sender, EventArgs e)
         {
-            if (txtEmail.Text != "")
+            DialogResult kq = MessageBox.Show("Bạn có chắc đã quên mật khẩu không", "Lấy lại mật khẩu", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(kq == DialogResult.Yes)
             {
-                //check email
-                if (busnv.checkemail(txtEmail.Text))
+                if (txtEmail.Text != "")
                 {
-                    string matkhaumoi = busnv.getPassword();
-                    if (busnv.updatematkhau(txtEmail.Text, matkhaumoi))
+                    //check email
+                    if (busnv.checkemail(txtEmail.Text))
                     {
-                        FormMail sendMail = new FormMail(txtEmail.Text, matkhaumoi, true);
-                        sendMail.ShowDialog();
-                        MessageBox.Show("Vui lòng vào email để nhận mật khẩu");
+                        string matkhaumoi = busnv.getPassword();
+                        if (busnv.updatematkhau(txtEmail.Text, matkhaumoi))
+                        {
+                            FormMail sendMail = new FormMail(txtEmail.Text, matkhaumoi, true);
+                            sendMail.ShowDialog();
+                            MessageBox.Show("Vui lòng vào email để nhận mật khẩu");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không thực hiện được");
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Không thực hiện được");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Không thực hiện được");
-                }
-            }
+            }    
         }
     }
 }
