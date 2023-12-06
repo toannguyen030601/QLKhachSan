@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -57,70 +58,102 @@ namespace QLKhachSan
         {
             return int.TryParse(number, out int check);
         }
+        private bool IsCccdValid(string cccd)
+        {
+            // Kiểm tra xem số căn cước có đúng định dạng không (ví dụ: 12 chữ số).
+            return cccd.Length == 12 && IsNumeric(cccd);
+        }
+
+        static bool IsNumeric(string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            string pattern = @"^(032|033|034|035|036|037|038|039|096|097|098|086|083|084|085|081|082|088|091|094|070|079|077|076|078|090|093|089|056|058|092|059|099)[0-9]{7,8}$"; // Định dạng: Bắt đầu bằng "0" và sau đó là từ 10 đến 12 chữ số.
+
+            Regex regex = new Regex(pattern);
+
+            return regex.IsMatch(phoneNumber);
+        }
         private void btnThemSuaNV_Click(object sender, EventArgs e)
         {
             if (isthemsuanv) // thêm nv
             {
                 if (txtEmail.Text != "" && txtHoten.Text != "" && dtpNgaysinh.Text != "" && txtDiaChi.Text != "" && (rdbNam.Checked || rdbNu.Checked) && (rdbAmin.Checked || rdbNhanvien.Checked))
                 {
-                    if (checkNumber(txtSocccd.Text) && checkNumber(txtSDT.Text))
+                    if (IsPhoneNumberValid(txtSDT.Text))
                     {
-                        if (isValidEmail(txtEmail.Text))
+                        if (IsCccdValid(txtSocccd.Text))
                         {
-                            
-                            string matkhau = busnv.getPassword();
-                            string gioitinh = rdbNam.Checked ? "Nam" : "Nữ";
-                            string chucvu = rdbAmin.Checked ? "Admin" : "Nhân viên";
-                            DTO_nhanvien dtonv = new DTO_nhanvien()
+                            if (isValidEmail(txtEmail.Text))
                             {
-                                Email = txtEmail.Text,
-                                Hoten = txtHoten.Text,
-                                Socccd = txtSocccd.Text,
-                                Gioitinh = gioitinh,
-                                Chucvu = chucvu,
-                                Sodienthoai = txtSDT.Text,
-                                Ngaysinh = dtpNgaysinh.Value.ToString("d"),
-                                Diachi = txtDiaChi.Text,
-                                Hinhanh = @"\Img\" + fileName,
-                                Matkhau = matkhau
-                            };
 
-                            if (busnv.checkemail(txtEmail.Text))
-                            {
-                                MessageBox.Show("Email này đã có trong hệ thống");
-                            }
-                            else
-                            {
-                                if (busnv.ThemNhanVien(dtonv))
+                                string matkhau = busnv.getPassword();
+                                string gioitinh = rdbNam.Checked ? "Nam" : "Nữ";
+                                string chucvu = rdbAmin.Checked ? "Admin" : "Nhân viên";
+                                DTO_nhanvien dtonv = new DTO_nhanvien()
                                 {
-                                    if (!Directory.Exists("Img"))
-                                    {
-                                        Directory.CreateDirectory("Img");
-                                    }
-                                    if (!string.IsNullOrEmpty(fileAddress))
-                                    {
-                                        File.Copy(fileAddress, fileSavePath, true);
-                                    }
-                                    FormMail sendMail = new FormMail(dtonv.Email, matkhau);
-                                    sendMail.ShowDialog();
-                                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    trangthai = true;
-                                    this.Close();
+                                    Email = txtEmail.Text,
+                                    Hoten = txtHoten.Text,
+                                    Socccd = txtSocccd.Text,
+                                    Gioitinh = gioitinh,
+                                    Chucvu = chucvu,
+                                    Sodienthoai = txtSDT.Text,
+                                    Ngaysinh = dtpNgaysinh.Value.ToString("d"),
+                                    Diachi = txtDiaChi.Text,
+                                    Hinhanh = @"\Img\" + fileName,
+                                    Matkhau = matkhau
+                                };
+
+                                if (busnv.checkemail(txtEmail.Text))
+                                {
+                                    MessageBox.Show("Email này đã có trong hệ thống");
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    if (busnv.ThemNhanVien(dtonv))
+                                    {
+                                        if (!Directory.Exists("Img"))
+                                        {
+                                            Directory.CreateDirectory("Img");
+                                        }
+                                        if (!string.IsNullOrEmpty(fileAddress))
+                                        {
+                                            File.Copy(fileAddress, fileSavePath, true);
+                                        }
+                                        FormMail sendMail = new FormMail(dtonv.Email, matkhau);
+                                        sendMail.ShowDialog();
+                                        MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        trangthai = true;
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Thêm nhân viên không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
                                 }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email ko đúng định dạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Email ko đúng định dạng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Số CCCD không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("SĐT và Số CCCD phải là số!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("SĐT không đúng định dạng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
