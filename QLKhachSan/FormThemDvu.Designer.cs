@@ -157,7 +157,7 @@
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(138, 50);
             btnLuu.TabIndex = 7;
-            btnLuu.Text = "Thanh Toán";
+            btnLuu.Text = "Hóa Đơn";
             btnLuu.UseVisualStyleBackColor = true;
             btnLuu.Click += btnLuu_Click;
             // 

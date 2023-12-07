@@ -18,7 +18,7 @@ namespace QLKhachSan
         private string maHoaDon;
         BUS_dichvu busdv = new BUS_dichvu();
         BUS_HoaDonChiTiet bus_HDCT = new BUS_HoaDonChiTiet();
-        BUS_HoaDon bus_HoaDon=new BUS_HoaDon();
+        BUS_HoaDon bus_HoaDon = new BUS_HoaDon();
         public FormThemDvu(string maPhong, string maHoaDon)
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace QLKhachSan
             this.maPhong = maPhong;
             LoadDichVuDaChon();
             danhsachDvu();
-            lblMaDichVu.Visible =false;
+            lblMaDichVu.Visible = false;
             lblMaHoaDonChiTiet.Visible = false;
             lblTenKH.Text = bus_HoaDon.LayTenKhachHangTuMaHoaDon(maHoaDon);
         }
@@ -54,7 +54,7 @@ namespace QLKhachSan
         {
             dGVDichVuDaChon.DataSource = null;
             dGVDichVuDaChon.DataSource = bus_HDCT.DichVuDaChon(lbMaHoaDon.Text);
-            dGVDichVuDaChon.Columns[0].Visible=false;
+            dGVDichVuDaChon.Columns[0].Visible = false;
             dGVDichVuDaChon.Columns[1].HeaderText = "Tên dịch vụ";
             dGVDichVuDaChon.Columns[2].HeaderText = "Đơn Giá";
             dGVDichVuDaChon.Columns[3].HeaderText = "Số lượng";
@@ -162,20 +162,10 @@ namespace QLKhachSan
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
-        {
-            if (bus_HDCT.ThanhToanPhong(lbMaHoaDon.Text, DateTime.Now, false, lbMaPhong.Text))
-            {
-                //Hiển thị form Hóa Đơn chi tiết
-                MessageBox.Show("THanh toán thành công");
-                FromHoaDonChiTiet hdct = new FromHoaDonChiTiet(lbMaHoaDon.Text);
-                hdct.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("THanh toán thất bại");
-
-            }
+        {       
+            FromHoaDonChiTiet hdct = new FromHoaDonChiTiet(lbMaHoaDon.Text);
+            hdct.ShowDialog();
+            this.Close();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

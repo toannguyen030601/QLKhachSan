@@ -63,6 +63,9 @@
             panel1 = new Panel();
             lblTongTienPhong = new Label();
             lblTongTienDV = new Label();
+            btnThanhToan = new Button();
+            btnXoa = new Button();
+            lblMaHDCT = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvDichVu).BeginInit();
@@ -163,9 +166,10 @@
             // 
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox2.Image = Properties.Resources.printing;
             pictureBox2.Location = new Point(609, 44);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(58, 51);
+            pictureBox2.Size = new Size(70, 76);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
@@ -184,12 +188,13 @@
             // 
             dgvDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDichVu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDichVu.Location = new Point(65, 321);
+            dgvDichVu.Location = new Point(65, 347);
             dgvDichVu.Name = "dgvDichVu";
             dgvDichVu.RowHeadersWidth = 51;
             dgvDichVu.RowTemplate.Height = 29;
-            dgvDichVu.Size = new Size(370, 239);
+            dgvDichVu.Size = new Size(339, 213);
             dgvDichVu.TabIndex = 16;
+            dgvDichVu.CellClick += dgvDichVu_CellClick;
             // 
             // label15
             // 
@@ -249,7 +254,7 @@
             // pictureBox3
             // 
             pictureBox3.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox3.Location = new Point(176, 21);
+            pictureBox3.Location = new Point(622, 35);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(113, 108);
             pictureBox3.TabIndex = 6;
@@ -417,11 +422,46 @@
             lblTongTienDV.TabIndex = 34;
             lblTongTienDV.Text = "3,000,000 VND";
             // 
+            // btnThanhToan
+            // 
+            btnThanhToan.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnThanhToan.ForeColor = Color.Red;
+            btnThanhToan.Location = new Point(560, 519);
+            btnThanhToan.Name = "btnThanhToan";
+            btnThanhToan.Size = new Size(119, 41);
+            btnThanhToan.TabIndex = 35;
+            btnThanhToan.Text = "Thanh Toán";
+            btnThanhToan.UseVisualStyleBackColor = true;
+            btnThanhToan.Click += btnThanhToan_Click;
+            // 
+            // btnXoa
+            // 
+            btnXoa.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnXoa.ForeColor = Color.Red;
+            btnXoa.Location = new Point(301, 295);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(75, 41);
+            btnXoa.TabIndex = 36;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
+            // 
+            // lblMaHDCT
+            // 
+            lblMaHDCT.AutoSize = true;
+            lblMaHDCT.Location = new Point(395, 304);
+            lblMaHDCT.Name = "lblMaHDCT";
+            lblMaHDCT.Size = new Size(0, 22);
+            lblMaHDCT.TabIndex = 37;
+            // 
             // FromHoaDonChiTiet
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 771);
+            Controls.Add(lblMaHDCT);
+            Controls.Add(btnXoa);
+            Controls.Add(btnThanhToan);
             Controls.Add(lblTongTienDV);
             Controls.Add(lblTongTienPhong);
             Controls.Add(panel1);
@@ -505,5 +545,8 @@
         private Panel panel1;
         private Label lblTongTienPhong;
         private Label lblTongTienDV;
+        private Button btnThanhToan;
+        private Button btnXoa;
+        private Label lblMaHDCT;
     }
 }
