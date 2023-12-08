@@ -30,7 +30,7 @@ namespace QLKhachSan
             lblMaHoaDonChiTiet.Visible = false;
             lblTenKH.Text = bus_HoaDon.LayTenKhachHangTuMaHoaDon(maHoaDon);
         }
-
+        public bool IsUpdated { get; private set; }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -167,6 +167,7 @@ namespace QLKhachSan
             {
                 //Hiển thị form Hóa Đơn chi tiết
                 MessageBox.Show("THanh toán thành công");
+                IsUpdated = true;
                 FromHoaDonChiTiet hdct = new FromHoaDonChiTiet(lbMaHoaDon.Text);
                 hdct.ShowDialog();
                 this.Close();

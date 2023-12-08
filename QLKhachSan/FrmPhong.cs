@@ -30,6 +30,10 @@ namespace QLKhachSan
                 {
                     FrmDatPhongTrong frm = new FrmDatPhongTrong(phong.MaPhong);
                     frm.ShowDialog();
+                    if(frm.IsUpdated)
+                    {
+                        LoadPhong();
+                    }
                 }
                 else
                 {
@@ -37,6 +41,10 @@ namespace QLKhachSan
                     // Mở Form dịch vụ của phòng
                     FormThemDvu frm = new FormThemDvu(phong.MaPhong,maHoaDon);
                     frm.ShowDialog();
+                    if (frm.IsUpdated)
+                    {
+                        LoadPhong();
+                    }
                 }
             }
 

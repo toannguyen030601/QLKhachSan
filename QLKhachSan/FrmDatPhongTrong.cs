@@ -21,7 +21,7 @@ namespace QLKhachSan
             InitializeComponent();
             lblMaNhanVien.Text = bus_Phong.LayMaNV(UserLoginInfo.Email);
         }
-
+        public bool IsUpdated { get; private set; }
         private void txtHoTen_Enter(object sender, EventArgs e)
         {
             if (txtHoTen.Text == "Nhập Họ Tên")
@@ -86,6 +86,7 @@ namespace QLKhachSan
                     if (bus_Phong.DatPhong(txtHoTen.Text,txtSDT.Text,txtSoCCCD.Text,gt,UserLoginInfo.Email, dtpNgayNhanPhong.Value,lblMaPhong.Text))
                     {
                         MessageBox.Show("Đặt Phòng Thành Công");
+                        IsUpdated = true;
                         this.Close();
                         BUS_Phong bUS_Phong = new BUS_Phong();
                         string maHoaDon=bus_Phong.MaHoaDonCuaPhong(lblMaPhong.Text);
