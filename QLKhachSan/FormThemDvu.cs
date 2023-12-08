@@ -19,6 +19,7 @@ namespace QLKhachSan
         BUS_dichvu busdv = new BUS_dichvu();
         BUS_HoaDonChiTiet bus_HDCT = new BUS_HoaDonChiTiet();
         BUS_HoaDon bus_HoaDon = new BUS_HoaDon();
+        public bool IsUpdated { get; private set; }
         public FormThemDvu(string maPhong, string maHoaDon)
         {
             InitializeComponent();
@@ -165,6 +166,10 @@ namespace QLKhachSan
         {       
             FromHoaDonChiTiet hdct = new FromHoaDonChiTiet(lbMaHoaDon.Text);
             hdct.ShowDialog();
+            if(hdct.IsUpdated)
+            {
+                IsUpdated = true;
+            }
             this.Close();
         }
 

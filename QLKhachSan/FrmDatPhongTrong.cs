@@ -16,6 +16,7 @@ namespace QLKhachSan
     {
         public string maPhong;
         public BUS_Phong bus_Phong = new BUS_Phong();
+        public bool IsUpdated { get; private set; }
         public FrmDatPhongTrong(string maPhong = null)
         {
             this.maPhong = maPhong;
@@ -126,6 +127,7 @@ namespace QLKhachSan
                             if (bus_Phong.DatPhong(txtHoTen.Text, txtSDT.Text, txtSoCCCD.Text, gt, UserLoginInfo.Email, dtpNgayNhanPhong.Value, lblMaPhong.Text))
                             {
                                 MessageBox.Show("Đặt Phòng Thành Công");
+                                IsUpdated = true;
                                 this.Close();
                                 BUS_Phong bUS_Phong = new BUS_Phong();
                                 string maHoaDon = bus_Phong.MaHoaDonCuaPhong(lblMaPhong.Text);

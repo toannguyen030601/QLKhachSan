@@ -27,7 +27,7 @@ namespace QLKhachSan
             this.maHoaDon = maHoaDon;
             lblMaHDCT.Visible = false;
         }
-
+        public bool IsUpdated { get; private set; }
         public void LoadDuLieu()
         {
             DataTable data = bus_HoaDon.LayHoaDon(maHoaDon);
@@ -169,6 +169,7 @@ namespace QLKhachSan
             {
                 //Hiển thị form Hóa Đơn chi tiết
                 MessageBox.Show("Thanh toán thành công");
+                IsUpdated = true;
                 this.Close();
             }
             else
