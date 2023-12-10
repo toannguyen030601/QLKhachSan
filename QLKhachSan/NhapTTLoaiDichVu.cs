@@ -23,7 +23,8 @@ namespace QLKhachSan
         public NhapTTLoaiDichVu(bool isthemsuaLDV, string tenloaidichvu = "", string maloaidichvu = "")
         {
             InitializeComponent();
-            this.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
+            btnThemLoaiDichVu2.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThemLoaiDichVu2.Width, btnThemLoaiDichVu2.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
             this.isthemsuaLDV = isthemsuaLDV;
             if (!isthemsuaLDV)
             {
