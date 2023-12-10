@@ -34,7 +34,7 @@ namespace QLKhachSan
                 BUS_dichvu bus = new BUS_dichvu();
                 DataTable searchData = bus.TimDichVu(new DTO_dichvu { tenDichVu = searchTerm }); // Gọi phương thức tìm kiếm
 
-                if (searchData != null)
+                if (searchData != null && searchData.Rows.Count > 0)
                 {
                     dataGridView1.DataSource = searchData; // Cập nhật DataGridView với kết quả tìm kiếm
                 }

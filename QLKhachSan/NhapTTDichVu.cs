@@ -25,7 +25,8 @@ namespace QLKhachSan
         {
 
             InitializeComponent();
-            this.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, this.Width, this.Height, 20, 20));
+            btnThemDichVu2.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnThemDichVu2.Width, btnThemDichVu2.Height, 20, 20));
+            btnXoa.Region = Region.FromHrgn(MyUI.CreateRoundRectRgn(0, 0, btnXoa.Width, btnXoa.Height, 20, 20));
             this.isthemsuaDV = isthemsuaDV;
             if (!isthemsuaDV)
             {

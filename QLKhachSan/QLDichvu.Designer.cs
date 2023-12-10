@@ -32,8 +32,6 @@
             dataGridView1 = new DataGridView();
             btnTimDichVu = new Button();
             txtTimDichVu = new TextBox();
-            label1 = new Label();
-            progressBar1 = new ProgressBar();
             panel1 = new Panel();
             btnXoa = new Button();
             btnThem = new Button();
@@ -43,15 +41,17 @@
             SuspendLayout();
             // 
             // 
-           
+
             // 
             // 
-           
+
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(64, 148);
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(64, 110);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
@@ -63,7 +63,7 @@
             btnTimDichVu.Font = new Font("Times New Roman", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             btnTimDichVu.Image = (Image)resources.GetObject("btnTimDichVu.Image");
             btnTimDichVu.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTimDichVu.Location = new Point(389, 74);
+            btnTimDichVu.Location = new Point(380, 33);
             btnTimDichVu.Name = "btnTimDichVu";
             btnTimDichVu.Size = new Size(96, 47);
             btnTimDichVu.TabIndex = 28;
@@ -75,29 +75,13 @@
             // txtTimDichVu
             // 
             txtTimDichVu.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTimDichVu.Location = new Point(64, 83);
+            txtTimDichVu.Location = new Point(68, 40);
             txtTimDichVu.Name = "txtTimDichVu";
             txtTimDichVu.Size = new Size(304, 30);
             txtTimDichVu.TabIndex = 27;
             txtTimDichVu.Text = "Nhập dịch vụ cần tìm";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Gainsboro;
-            label1.Font = new Font("Times New Roman", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(58, 8);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 34);
-            label1.TabIndex = 26;
-            label1.Text = "QL Dịch Vụ";
-            // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(-7, -3);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(1079, 54);
-            progressBar1.TabIndex = 25;
+            
             // 
             // panel1
             // 
@@ -105,7 +89,7 @@
             panel1.Controls.Add(btnXoa);
             panel1.Controls.Add(btnThem);
             panel1.Controls.Add(btnSua);
-            panel1.Location = new Point(522, 60);
+            panel1.Location = new Point(501, 20);
             panel1.Name = "panel1";
             panel1.Size = new Size(474, 61);
             panel1.TabIndex = 42;
@@ -164,8 +148,6 @@
             Controls.Add(dataGridView1);
             Controls.Add(btnTimDichVu);
             Controls.Add(txtTimDichVu);
-            Controls.Add(label1);
-            Controls.Add(progressBar1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "QLDichvu";
@@ -181,8 +163,6 @@
         private DataGridView dataGridView1;
         private Button btnTimDichVu;
         private TextBox txtTimDichVu;
-        private Label label1;
-        private ProgressBar progressBar1;
         private Panel panel1;
         private Button btnXoa;
         private Button btnThem;
