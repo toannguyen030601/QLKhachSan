@@ -57,6 +57,7 @@ namespace QLKhachSan
         {
             /*Danhsachnhanvien();*/
             LoadDataToDataGridView();
+            btnThem.Enabled = false;
         }
         private bool columnsAdded = false;
 
