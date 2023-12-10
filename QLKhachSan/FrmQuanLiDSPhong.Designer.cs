@@ -46,6 +46,7 @@
             cbMaLoaiPhong = new ComboBox();
             txtTenPhong = new TextBox();
             txtGia = new TextBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDSPhong).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -118,13 +119,13 @@
             // 
             // dgvDSPhong
             // 
-            dgvDSPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDSPhong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvDSPhong.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDSPhong.Location = new Point(282, 229);
+            dgvDSPhong.Location = new Point(261, 229);
             dgvDSPhong.Name = "dgvDSPhong";
             dgvDSPhong.RowHeadersWidth = 51;
             dgvDSPhong.RowTemplate.Height = 29;
-            dgvDSPhong.Size = new Size(678, 339);
+            dgvDSPhong.Size = new Size(734, 339);
             dgvDSPhong.TabIndex = 20;
             dgvDSPhong.CellClick += dgvDSPhong_CellClick;
             dgvDSPhong.CellContentClick += dgvDSPhong_CellContentClick;
@@ -237,11 +238,23 @@
             txtGia.Size = new Size(124, 34);
             txtGia.TabIndex = 29;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(898, 20);
+            label5.Name = "label5";
+            label5.Size = new Size(62, 25);
+            label5.TabIndex = 30;
+            label5.Text = "VNĐ";
+            // 
             // FrmQuanLiDSPhong
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 611);
+            Controls.Add(label5);
             Controls.Add(txtGia);
             Controls.Add(txtTenPhong);
             Controls.Add(groupBox2);
@@ -291,5 +304,6 @@
         private ComboBox cbMaLoaiPhong;
         private TextBox txtTenPhong;
         private TextBox txtGia;
+        private Label label5;
     }
 }

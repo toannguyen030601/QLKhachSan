@@ -120,6 +120,7 @@ namespace QLKhachSan
         private void btnSua_Click(object sender, EventArgs e)
         {
             UnLock();
+            txtID.Enabled= false;
         }
 
         private void dgvLoaiPhong_CellClick(object sender, DataGridViewCellEventArgs e)

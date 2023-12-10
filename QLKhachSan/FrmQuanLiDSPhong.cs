@@ -34,20 +34,12 @@ namespace QLKhachSan
             dgvDSPhong.Columns[2].HeaderText = "Giá";
             dgvDSPhong.Columns[3].HeaderText = "Trạng Thái";
             dgvDSPhong.Columns[4].HeaderText = "Mã Loại Phòng";
-            DataTable dataTable = new DataTable();
-            dataTable = bus_Phong.DanhSachPhong();
+            dgvDSPhong.Columns[5].HeaderText = "Tên Loại Phòng";
 
-            // Assuming "Mã Loại Phòng" is the column name in the DataTable
-            foreach (DataRow row in dataTable.Rows)
-            {
-                string maLoaiPhong = row[4].ToString();
-
-                // Check if the value is not already in the ComboBox
-                if (!cbMaLoaiPhong.Items.Contains(maLoaiPhong))
-                {
-                    cbMaLoaiPhong.Items.Add(maLoaiPhong);
-                }
-            }
+            BUS_LoaiPhong lp = new BUS_LoaiPhong();
+            cbMaLoaiPhong.DataSource = lp.DanhSachLoaiPhong();
+            cbMaLoaiPhong.DisplayMember = "TenLoaiPhong";
+            cbMaLoaiPhong.ValueMember = "MaLoaiPhong";
             cbMaLoaiPhong.SelectedIndex = -1;
         }
         private void Lock()
@@ -111,7 +103,7 @@ namespace QLKhachSan
                     }
                 }
                 SetValues();
-            }      
+            }
         }
 
         private void dgvDSPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,7 +115,7 @@ namespace QLKhachSan
                 txtGia.Text = dgvDSPhong.Rows[e.RowIndex].Cells[2].Value.ToString();
                 bool TrangThai = Convert.ToBoolean(dgvDSPhong.Rows[e.RowIndex].Cells[3].Value);
                 string maLoaiPhong = dgvDSPhong.Rows[e.RowIndex].Cells[4].Value.ToString();
-                cbMaLoaiPhong.SelectedItem = maLoaiPhong;
+                cbMaLoaiPhong.SelectedValue = maLoaiPhong;
                 if (TrangThai != null)
                 {
                     if (TrangThai)
@@ -184,7 +176,7 @@ namespace QLKhachSan
                     {
                         if (!double.TryParse(txtGia.Text, out double giaPhong))
                         {
-                            MessageBox.Show("Vui lòng Giá phòng là số");
+                            MessageBox.Show("Giá phòng phải là số");
                         }
                         else
                         {
@@ -207,13 +199,13 @@ namespace QLKhachSan
                                     p.TrangThai = false;
                                 }
 
-                                p.MaLoaiPhong = cbMaLoaiPhong.SelectedItem.ToString();
+                                p.MaLoaiPhong = cbMaLoaiPhong.SelectedValue.ToString();
 
                                 if (bus_Phong.CheckMaPhong(txtMaPhong.Text))
                                 {
                                     if (trangThai == 1)
                                     {
-                                        if(bus_Phong.LuuPhong(p))
+                                        if (bus_Phong.LuuPhong(p))
                                         {
                                             MessageBox.Show("Cập nhật thành công");
                                         }
@@ -240,7 +232,7 @@ namespace QLKhachSan
                                             SetValues();
                                         }
                                     }
-                                   
+
                                 }
                                 else
                                 {
@@ -254,7 +246,7 @@ namespace QLKhachSan
                                     }
                                     SetValues();
                                 }
-                               
+
                             }
                         }
                     }

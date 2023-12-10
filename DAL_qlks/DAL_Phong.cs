@@ -20,7 +20,9 @@ namespace DAL_qlks
                 NpgsqlCommand cmd = new NpgsqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select * from Phong";
+                cmd.CommandText = "select p.maphong,p.tenphong,p.gia,p.trangthai,p.maloaiphong,lp.tenloaiphong " +
+                    "from Phong p join loaiphong lp" +
+                    " on p.maloaiphong=lp.maloaiphong";
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(dt);
                 return dt;
@@ -74,7 +76,7 @@ namespace DAL_qlks
                     else
                     {
                         // Phòng chưa tồn tại, thực hiện thêm mới
-                        string insertQuery = "INSERT INTO phong (maphong, tenphong, gia, trangthai, maloai_phong) VALUES (@maphong, @tenphong, @gia, @trangthai, @maloaiphong)";
+                        string insertQuery = "INSERT INTO phong (maphong, tenphong, gia, trangthai, maloaiphong) VALUES (@maphong, @tenphong, @gia, @trangthai, @maloaiphong)";
                         using (NpgsqlCommand insertCmd = new NpgsqlCommand(insertQuery, connection))
                         {
                             insertCmd.Parameters.AddWithValue("@maphong", p.MaPhong);
