@@ -38,7 +38,7 @@ namespace QLKhachSan
             string maKhachHang = data.Rows[0]["makhachhang"].ToString();
             lblTenKhachHang.Text = bus_HDCT.LayTenKhachHang(maKhachHang);
             dtpNgayLap.Value = (DateTime)data.Rows[0]["ngaynhanphong"];
-            //dtpTraPhong.Value = (DateTime)data.Rows[0]["ngaytraphong"];
+            dtpTraPhong.Value = DateTime.Now;
 
             //Dịch vụ 
             dgvDichVu.DataSource = bus_HDCT.DichVuDaChon(maHoaDon);
